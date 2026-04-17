@@ -1,73 +1,102 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" fill="none">
   <style>
-    @keyframes pulse-glow {
-      0%,100% { opacity: 0.6; filter: brightness(1); }
-      50% { opacity: 1; filter: brightness(1.3); }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
-    @keyframes shine {
-      0%,100% { opacity: 0.05; }
-      50% { opacity: 0.15; }
+    @keyframes gradientShift {
+      0%,100% { stop-color: #fbbf24; }
+      50% { stop-color: #f59e0b; }
     }
-    @keyframes rotate-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes gradientShift2 {
+      0%,100% { stop-color: #d97706; }
+      50% { stop-color: #b45309; }
     }
-    @keyframes orbit {
-      0%,100% { transform: translateY(0) scale(1); opacity: 0.6; }
-      50% { transform: translateY(-4px) scale(1.1); opacity: 1; }
+    @keyframes sparkle {
+      0%,100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
     }
-    .digit-glow { animation: pulse-glow 3s ease-in-out infinite; }
-    .x-glow { animation: pulse-glow 3s ease-in-out infinite 1s; }
-    .bg-shine { animation: shine 6s ease-in-out infinite; }
-    .orbit-1 { animation: orbit 2.5s ease-in-out infinite; transform-origin: center; }
-    .orbit-2 { animation: orbit 2.5s ease-in-out infinite 0.5s; transform-origin: center; }
-    .orbit-3 { animation: orbit 2.5s ease-in-out infinite 1s; transform-origin: center; }
-    .rotate-ring { animation: rotate-slow 20s linear infinite; transform-origin: 85px 100px; transform-box: fill-box; }
+    @keyframes sparkle-2 {
+      0%,100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+      40% { opacity: 1; transform: scale(1.2) rotate(-180deg); }
+      80% { opacity: 0; transform: scale(0.5) rotate(-360deg); }
+    }
+    @keyframes dividerPulse {
+      0%,100% { opacity: 0.4; transform: scaleY(0.85); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+    @keyframes bgGlow {
+      0%,100% { opacity: 0.04; }
+      50% { opacity: 0.1; }
+    }
+    @keyframes textSlide {
+      0%,100% { transform: translateX(0); opacity: 0.85; }
+      50% { transform: translateX(1px); opacity: 1; }
+    }
+    .stop-1 { animation: gradientShift 4s ease-in-out infinite; }
+    .stop-2 { animation: gradientShift2 4s ease-in-out infinite; }
+    .sparkle-1 { animation: sparkle 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .sparkle-2 { animation: sparkle-2 3s ease-in-out infinite 1.5s; transform-origin: center; transform-box: fill-box; }
+    .divider { animation: dividerPulse 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .bg-glow { animation: bgGlow 5s ease-in-out infinite; }
+    .subtitle-animated { animation: textSlide 4s ease-in-out infinite; }
   </style>
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fbbf24"/>
+    <linearGradient id="goldMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop class="stop-1" offset="0%" stop-color="#fbbf24"/>
       <stop offset="50%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#d97706"/>
+      <stop class="stop-2" offset="100%" stop-color="#d97706"/>
     </linearGradient>
-    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#334155"/>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect x="10" y="20" width="700" height="160" rx="24" fill="#fafafa" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.25"/>
-  <rect class="bg-shine" x="10" y="20" width="700" height="160" rx="24" fill="#f59e0b"/>
-  <!-- Orbital ring -->
-  <g class="rotate-ring">
-    <circle cx="85" cy="100" r="48" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 5"/>
+  <!-- Background -->
+  <rect x="10" y="20" width="700" height="160" rx="24" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3"/>
+  <rect class="bg-glow" x="10" y="20" width="700" height="160" rx="24" fill="#f59e0b"/>
+
+  <!-- Top and bottom gold accent lines -->
+  <line x1="40" y1="42" x2="680" y2="42" stroke="url(#goldAccent)" stroke-width="1" opacity="0.5"/>
+  <line x1="40" y1="158" x2="680" y2="158" stroke="url(#goldAccent)" stroke-width="1" opacity="0.5"/>
+
+  <!-- Massive "10x" mark -->
+  <g filter="url(#softGlow)">
+    <text x="60" y="140" font-family="'SF Pro Display', 'Inter', system-ui, -apple-system, sans-serif" font-size="120" font-weight="900" fill="url(#goldMain)" letter-spacing="-6">10<tspan font-style="italic">x</tspan></text>
   </g>
-  <!-- Orbiting premium dots -->
-  <circle class="orbit-1" cx="85" cy="52" r="3" fill="#f59e0b"/>
-  <circle class="orbit-2" cx="133" cy="100" r="3" fill="#d97706"/>
-  <circle class="orbit-3" cx="37" cy="100" r="3" fill="#fbbf24"/>
-  <!-- Main "10x" mark -->
-  <g transform="translate(85, 100)">
-    <!-- "1" -->
-    <g class="digit-glow">
-      <rect x="-34" y="-24" width="8" height="48" rx="2" fill="url(#goldGrad)"/>
-      <rect x="-40" y="-20" width="12" height="4" rx="1" fill="url(#goldGrad)" opacity="0.7"/>
-    </g>
-    <!-- "0" -->
-    <g class="digit-glow">
-      <circle cx="-10" cy="0" r="14" fill="none" stroke="url(#goldGrad)" stroke-width="6"/>
-    </g>
-    <!-- "x" - stylized crossed lines -->
-    <g class="x-glow">
-      <line x1="16" y1="-12" x2="32" y2="12" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round"/>
-      <line x1="32" y1="-12" x2="16" y2="12" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round"/>
-    </g>
+
+  <!-- Sparkles on the X -->
+  <g class="sparkle-1" transform="translate(245, 68)">
+    <path d="M0,-6 L1.5,-1.5 L6,0 L1.5,1.5 L0,6 L-1.5,1.5 L-6,0 L-1.5,-1.5 Z" fill="#fbbf24"/>
   </g>
-  <!-- Title -->
-  <text x="175" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1.5">10x</text>
-  <!-- Subtitle -->
-  <text x="225" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#475569" letter-spacing="-0.5">Developer Tools</text>
-  <!-- Description -->
-  <text x="175" y="108" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#f59e0b" font-weight="600">Curated plugins that ship quality</text>
-  <!-- Tagline -->
-  <text x="175" y="142" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748b">Battle-tested · Zero bloat · Built for speed</text>
+  <g class="sparkle-2" transform="translate(270, 125)">
+    <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#f59e0b"/>
+  </g>
+
+  <!-- Vertical divider -->
+  <line class="divider" x1="305" y1="55" x2="305" y2="145" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Right side text stack -->
+  <!-- Eyebrow label -->
+  <text x="330" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#d97706" letter-spacing="3">DEVELOPER TOOLS</text>
+
+  <!-- Main title -->
+  <text class="subtitle-animated" x="330" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" fill="#0f172a" letter-spacing="-0.8">Curated plugins that ship quality</text>
+
+  <!-- Supporting tagline -->
+  <text x="330" y="132" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.3">Battle-tested · Zero bloat · Built for speed</text>
+
+  <!-- Small badge: "Claude Code" -->
+  <g transform="translate(330, 148)">
+    <rect x="0" y="0" width="88" height="18" rx="9" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.4"/>
+    <text x="44" y="13" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#b45309" letter-spacing="0.5" text-anchor="middle">CLAUDE CODE</text>
+  </g>
 </svg>
