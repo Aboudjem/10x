@@ -9,22 +9,20 @@
     {
       "name": "sniff",
       "source": {
-        "type": "git-subdir",
-        "url": "https://github.com/Aboudjem/sniff.git",
-        "subdir": "."
+        "source": "github",
+        "repo": "Aboudjem/sniff"
       },
-      "description": "AI-powered QA testing. Scan source code, check accessibility, visual regression, and performance. Auto-detects your dev server.",
-      "version": "0.3.0",
+      "description": "AI-powered QA testing. Scan source code, check accessibility, visual regression, performance, and run autonomous E2E discovery. Auto-detects your dev server.",
+      "version": "0.4.0",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
-      "keywords": ["testing", "qa", "accessibility", "playwright"]
+      "keywords": ["testing", "qa", "accessibility", "playwright", "e2e", "discovery"]
     },
     {
       "name": "ui-ux-suite",
       "source": {
-        "type": "git-subdir",
-        "url": "https://github.com/Aboudjem/ui-ux-suite.git",
-        "subdir": "."
+        "source": "github",
+        "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) grounded in 24 named UX laws with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
       "version": "0.2.0",
