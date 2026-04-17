@@ -1,0 +1,75 @@
+name: Bump plugin version
+
+on:
+  repository_dispatch:
+    types: [plugin-released]
+  workflow_dispatch:
+    inputs:
+      plugin:
+        description: 'Plugin name in marketplace.json'
+        required: true
+      version:
+        description: 'New version (without leading v)'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    name: Bump marketplace.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve inputs
+        id: inputs
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "plugin=${{ github.event.client_payload.plugin }}" >> "$GITHUB_OUTPUT"
+            echo "version=${{ github.event.client_payload.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "plugin=${{ github.event.inputs.plugin }}" >> "$GITHUB_OUTPUT"
+            echo "version=${{ github.event.inputs.version }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump version in marketplace.json
+        env:
+          PLUGIN: ${{ steps.inputs.outputs.plugin }}
+          VERSION: ${{ steps.inputs.outputs.version }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const path = ".claude-plugin/marketplace.json";
+            const data = JSON.parse(fs.readFileSync(path, "utf8"));
+            const plugin = process.env.PLUGIN;
+            const version = process.env.VERSION;
+            const idx = data.plugins.findIndex((p) => p.name === plugin);
+            if (idx === -1) {
+              console.error("Plugin not found in marketplace:", plugin);
+              process.exit(1);
+            }
+            if (data.plugins[idx].version === version) {
+              console.log("Version already at", version, "- nothing to do");
+              process.exit(0);
+            }
+            data.plugins[idx].version = version;
+            fs.writeFileSync(path, JSON.stringify(data, null, 2) + "\n");
+            console.log("Bumped", plugin, "to", version);
+          '
+
+      - name: Commit and push
+        env:
+          PLUGIN: ${{ steps.inputs.outputs.plugin }}
+          VERSION: ${{ steps.inputs.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .claude-plugin/marketplace.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: bump $PLUGIN to $VERSION"
+          git push
