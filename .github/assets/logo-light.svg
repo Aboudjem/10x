@@ -1,57 +1,128 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" fill="none">
   <style>
-    @keyframes shimmer {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    @keyframes gradientShift {
-      0%,100% { stop-color: #fbbf24; }
-      50% { stop-color: #f59e0b; }
-    }
-    @keyframes gradientShift2 {
-      0%,100% { stop-color: #d97706; }
-      50% { stop-color: #b45309; }
-    }
     @keyframes sparkle {
-      0%,100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
-      50% { opacity: 1; transform: scale(1) rotate(180deg); }
-    }
-    @keyframes sparkle-2 {
       0%,100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
-      40% { opacity: 1; transform: scale(1.2) rotate(-180deg); }
-      80% { opacity: 0; transform: scale(0.5) rotate(-360deg); }
+      50% { opacity: 1; transform: scale(1.1) rotate(180deg); }
     }
-    @keyframes dividerPulse {
-      0%,100% { opacity: 0.4; transform: scaleY(0.85); }
+    @keyframes sparkle-fast {
+      0%,100% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+      40% { opacity: 1; transform: scale(1) rotate(-180deg); }
+      70% { opacity: 0; transform: scale(0.4) rotate(-360deg); }
+    }
+    @keyframes halo-pulse {
+      0%,100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.08); }
+    }
+    @keyframes halo-pulse-2 {
+      0%,100% { opacity: 0.08; transform: scale(1.15); }
+      50% { opacity: 0.22; transform: scale(1.3); }
+    }
+    @keyframes divider-pulse {
+      0%,100% { opacity: 0.3; transform: scaleY(0.7); }
       50% { opacity: 1; transform: scaleY(1); }
     }
-    @keyframes bgGlow {
-      0%,100% { opacity: 0.04; }
+    @keyframes bg-glow {
+      0%,100% { opacity: 0.03; }
       50% { opacity: 0.1; }
     }
-    @keyframes textSlide {
-      0%,100% { transform: translateX(0); opacity: 0.85; }
-      50% { transform: translateX(1px); opacity: 1; }
+    @keyframes float-up {
+      0% { transform: translateY(0); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.4; }
+      100% { transform: translateY(-80px); opacity: 0; }
     }
-    .stop-1 { animation: gradientShift 4s ease-in-out infinite; }
-    .stop-2 { animation: gradientShift2 4s ease-in-out infinite; }
-    .sparkle-1 { animation: sparkle 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-    .sparkle-2 { animation: sparkle-2 3s ease-in-out infinite 1.5s; transform-origin: center; transform-box: fill-box; }
-    .divider { animation: dividerPulse 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
-    .bg-glow { animation: bgGlow 5s ease-in-out infinite; }
-    .subtitle-animated { animation: textSlide 4s ease-in-out infinite; }
+    @keyframes underline-sweep {
+      0%,100% { transform: scaleX(0); transform-origin: left; }
+      40% { transform: scaleX(1); transform-origin: left; }
+      60% { transform: scaleX(1); transform-origin: right; }
+      100% { transform: scaleX(0); transform-origin: right; }
+    }
+    @keyframes eyebrow-fade {
+      0%,100% { opacity: 0.6; letter-spacing: 3px; }
+      50% { opacity: 1; letter-spacing: 3.5px; }
+    }
+    @keyframes pill-glint {
+      0%,100% { transform: translateX(-120%); }
+      50% { transform: translateX(120%); }
+    }
+    @keyframes chevron-tick {
+      0%,100% { transform: translateX(0); opacity: 0.7; }
+      50% { transform: translateX(3px); opacity: 1; }
+    }
+    @keyframes ring-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes ring-rotate-reverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    @keyframes text-glow {
+      0%,100% { filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.3)); }
+      50% { filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.7)); }
+    }
+    @keyframes particle-drift-1 {
+      0% { transform: translate(0, 0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.3; }
+      100% { transform: translate(20px, -100px); opacity: 0; }
+    }
+    @keyframes particle-drift-2 {
+      0% { transform: translate(0, 0); opacity: 0; }
+      10% { opacity: 0.5; }
+      90% { opacity: 0.2; }
+      100% { transform: translate(-15px, -90px); opacity: 0; }
+    }
+    .sparkle-1 { animation: sparkle 2.8s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .sparkle-2 { animation: sparkle-fast 2.5s ease-in-out infinite 1.2s; transform-origin: center; transform-box: fill-box; }
+    .sparkle-3 { animation: sparkle 3.2s ease-in-out infinite 0.6s; transform-origin: center; transform-box: fill-box; }
+    .sparkle-4 { animation: sparkle-fast 2.3s ease-in-out infinite 1.8s; transform-origin: center; transform-box: fill-box; }
+    .sparkle-5 { animation: sparkle 3s ease-in-out infinite 2s; transform-origin: center; transform-box: fill-box; }
+    .sparkle-6 { animation: sparkle-fast 2.7s ease-in-out infinite 0.3s; transform-origin: center; transform-box: fill-box; }
+    .halo-1 { animation: halo-pulse 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .halo-2 { animation: halo-pulse-2 3s ease-in-out infinite 0.8s; transform-origin: center; transform-box: fill-box; }
+    .divider { animation: divider-pulse 2.5s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+    .bg-glow { animation: bg-glow 5s ease-in-out infinite; }
+    .underline { animation: underline-sweep 4s ease-in-out infinite; transform-origin: left; }
+    .eyebrow { animation: eyebrow-fade 3s ease-in-out infinite; }
+    .pill-glint-rect { animation: pill-glint 4s ease-in-out infinite; }
+    .chevron { animation: chevron-tick 1.5s ease-in-out infinite; }
+    .ring-outer { animation: ring-rotate 25s linear infinite; transform-origin: 160px 100px; transform-box: fill-box; }
+    .ring-inner { animation: ring-rotate-reverse 18s linear infinite; transform-origin: 160px 100px; transform-box: fill-box; }
+    .ten-x-text { animation: text-glow 3s ease-in-out infinite; }
+    .particle-1 { animation: particle-drift-1 6s ease-in-out infinite; }
+    .particle-2 { animation: particle-drift-2 7s ease-in-out infinite 1s; }
+    .particle-3 { animation: particle-drift-1 5.5s ease-in-out infinite 2.5s; }
+    .particle-4 { animation: particle-drift-2 6.5s ease-in-out infinite 3s; }
   </style>
   <defs>
     <linearGradient id="goldMain" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop class="stop-1" offset="0%" stop-color="#fbbf24"/>
-      <stop offset="50%" stop-color="#f59e0b"/>
-      <stop class="stop-2" offset="100%" stop-color="#d97706"/>
+      <stop offset="0%" stop-color="#fbbf24">
+        <animate attributeName="stop-color" values="#fbbf24;#f59e0b;#fbbf24" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#f59e0b">
+        <animate attributeName="stop-color" values="#f59e0b;#fbbf24;#f59e0b" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#d97706">
+        <animate attributeName="stop-color" values="#d97706;#b45309;#d97706" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0,0; 100,100; 0,0" dur="6s" repeatCount="indefinite"/>
     </linearGradient>
     <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
       <stop offset="50%" stop-color="#f59e0b"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </linearGradient>
+    <linearGradient id="pillGlint" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#fbbf24" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
     <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="1.5" result="glow"/>
       <feMerge>
@@ -59,44 +130,96 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <clipPath id="pillClip">
+      <rect x="0" y="0" width="88" height="18" rx="9"/>
+    </clipPath>
   </defs>
+
   <!-- Background -->
   <rect x="10" y="20" width="700" height="160" rx="24" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3"/>
   <rect class="bg-glow" x="10" y="20" width="700" height="160" rx="24" fill="#f59e0b"/>
+
+  <!-- Floating background particles -->
+  <g opacity="0.5">
+    <circle class="particle-1" cx="180" cy="170" r="1.5" fill="#f59e0b"/>
+    <circle class="particle-2" cx="100" cy="175" r="1" fill="#fbbf24"/>
+    <circle class="particle-3" cx="220" cy="170" r="1.2" fill="#d97706"/>
+    <circle class="particle-4" cx="60" cy="175" r="1" fill="#f59e0b"/>
+  </g>
 
   <!-- Top and bottom gold accent lines -->
   <line x1="40" y1="42" x2="680" y2="42" stroke="url(#goldAccent)" stroke-width="1" opacity="0.5"/>
   <line x1="40" y1="158" x2="680" y2="158" stroke="url(#goldAccent)" stroke-width="1" opacity="0.5"/>
 
+  <!-- Halo behind 10x -->
+  <ellipse class="halo-2" cx="160" cy="100" rx="130" ry="75" fill="url(#halo)"/>
+  <ellipse class="halo-1" cx="160" cy="100" rx="100" ry="58" fill="url(#halo)"/>
+
+  <!-- Counter-rotating decorative rings -->
+  <g class="ring-outer" opacity="0.25">
+    <circle cx="160" cy="100" r="82" fill="none" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="2 8"/>
+    <circle cx="242" cy="100" r="2" fill="#f59e0b"/>
+    <circle cx="78" cy="100" r="1.5" fill="#fbbf24"/>
+  </g>
+  <g class="ring-inner" opacity="0.3">
+    <circle cx="160" cy="100" r="68" fill="none" stroke="#d97706" stroke-width="0.6" stroke-dasharray="3 6"/>
+    <circle cx="160" cy="32" r="1.8" fill="#d97706"/>
+    <circle cx="160" cy="168" r="1.5" fill="#fbbf24"/>
+  </g>
+
   <!-- Massive "10x" mark -->
-  <g filter="url(#softGlow)">
+  <g filter="url(#softGlow)" class="ten-x-text">
     <text x="60" y="140" font-family="'SF Pro Display', 'Inter', system-ui, -apple-system, sans-serif" font-size="120" font-weight="900" fill="url(#goldMain)" letter-spacing="-6">10<tspan font-style="italic">x</tspan></text>
   </g>
 
-  <!-- Sparkles on the X -->
+  <!-- Sparkles scattered around the 10x -->
   <g class="sparkle-1" transform="translate(245, 68)">
-    <path d="M0,-6 L1.5,-1.5 L6,0 L1.5,1.5 L0,6 L-1.5,1.5 L-6,0 L-1.5,-1.5 Z" fill="#fbbf24"/>
+    <path d="M0,-7 L1.5,-1.5 L7,0 L1.5,1.5 L0,7 L-1.5,1.5 L-7,0 L-1.5,-1.5 Z" fill="#fbbf24"/>
   </g>
   <g class="sparkle-2" transform="translate(270, 125)">
+    <path d="M0,-5 L1,-1 L5,0 L1,1 L0,5 L-1,1 L-5,0 L-1,-1 Z" fill="#f59e0b"/>
+  </g>
+  <g class="sparkle-3" transform="translate(50, 55)">
+    <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#fbbf24"/>
+  </g>
+  <g class="sparkle-4" transform="translate(85, 160)">
+    <path d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="#d97706"/>
+  </g>
+  <g class="sparkle-5" transform="translate(230, 165)">
+    <path d="M0,-6 L1.4,-1.4 L6,0 L1.4,1.4 L0,6 L-1.4,1.4 L-6,0 L-1.4,-1.4 Z" fill="#fbbf24"/>
+  </g>
+  <g class="sparkle-6" transform="translate(35, 110)">
     <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#f59e0b"/>
   </g>
 
   <!-- Vertical divider -->
-  <line class="divider" x1="305" y1="55" x2="305" y2="145" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line class="divider" x1="305" y1="55" x2="305" y2="145" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
 
   <!-- Right side text stack -->
   <!-- Eyebrow label -->
-  <text x="330" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#d97706" letter-spacing="3">DEVELOPER TOOLS</text>
+  <text class="eyebrow" x="330" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#d97706" letter-spacing="3">DEVELOPER TOOLS</text>
 
   <!-- Main title -->
-  <text class="subtitle-animated" x="330" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" fill="#0f172a" letter-spacing="-0.8">Curated plugins that ship quality</text>
+  <text x="330" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" fill="#0f172a" letter-spacing="-0.8">Curated plugins that ship quality</text>
 
-  <!-- Supporting tagline -->
-  <text x="330" y="132" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.3">Battle-tested · Zero bloat · Built for speed</text>
+  <!-- Animated underline under title -->
+  <rect class="underline" x="330" y="112" width="310" height="2" rx="1" fill="#f59e0b" opacity="0.7"/>
 
-  <!-- Small badge: "Claude Code" -->
+  <!-- Supporting tagline with animated chevron -->
+  <g>
+    <text x="330" y="134" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.3">Battle-tested · Zero bloat · Built for speed</text>
+  </g>
+
+  <!-- Claude Code badge with glint animation -->
   <g transform="translate(330, 148)">
-    <rect x="0" y="0" width="88" height="18" rx="9" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.4"/>
-    <text x="44" y="13" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#b45309" letter-spacing="0.5" text-anchor="middle">CLAUDE CODE</text>
+    <rect x="0" y="0" width="112" height="20" rx="10" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.4"/>
+    <g clip-path="url(#pillClip)">
+      <rect class="pill-glint-rect" x="0" y="0" width="40" height="20" fill="url(#pillGlint)" opacity="0.6"/>
+    </g>
+    <circle cx="12" cy="10" r="3" fill="#f59e0b" opacity="0.9">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="62" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#b45309" letter-spacing="0.5" text-anchor="middle">CLAUDE CODE</text>
+    <text class="chevron" x="100" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#b45309">›</text>
   </g>
 </svg>
