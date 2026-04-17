@@ -1,9 +1,10 @@
 {
   "name": "10x",
-  "description": "10x developer tools for Claude Code",
+  "metadata": {
+    "description": "10x developer tools for Claude Code. Curated plugins that ship quality."
+  },
   "owner": {
-    "name": "Adam Boudjemaa",
-    "url": "https://github.com/Aboudjem"
+    "name": "Adam Boudjemaa"
   },
   "plugins": [
     {
