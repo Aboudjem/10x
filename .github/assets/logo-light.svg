@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" fill="none">
+  <style>
+    @keyframes pulse-glow {
+      0%,100% { opacity: 0.6; filter: brightness(1); }
+      50% { opacity: 1; filter: brightness(1.3); }
+    }
+    @keyframes shine {
+      0%,100% { opacity: 0.05; }
+      50% { opacity: 0.15; }
+    }
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes orbit {
+      0%,100% { transform: translateY(0) scale(1); opacity: 0.6; }
+      50% { transform: translateY(-4px) scale(1.1); opacity: 1; }
+    }
+    .digit-glow { animation: pulse-glow 3s ease-in-out infinite; }
+    .x-glow { animation: pulse-glow 3s ease-in-out infinite 1s; }
+    .bg-shine { animation: shine 6s ease-in-out infinite; }
+    .orbit-1 { animation: orbit 2.5s ease-in-out infinite; transform-origin: center; }
+    .orbit-2 { animation: orbit 2.5s ease-in-out infinite 0.5s; transform-origin: center; }
+    .orbit-3 { animation: orbit 2.5s ease-in-out infinite 1s; transform-origin: center; }
+    .rotate-ring { animation: rotate-slow 20s linear infinite; transform-origin: 85px 100px; transform-box: fill-box; }
+  </style>
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="20" width="700" height="160" rx="24" fill="#fafafa" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.25"/>
+  <rect class="bg-shine" x="10" y="20" width="700" height="160" rx="24" fill="#f59e0b"/>
+  <!-- Orbital ring -->
+  <g class="rotate-ring">
+    <circle cx="85" cy="100" r="48" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="3 5"/>
+  </g>
+  <!-- Orbiting premium dots -->
+  <circle class="orbit-1" cx="85" cy="52" r="3" fill="#f59e0b"/>
+  <circle class="orbit-2" cx="133" cy="100" r="3" fill="#d97706"/>
+  <circle class="orbit-3" cx="37" cy="100" r="3" fill="#fbbf24"/>
+  <!-- Main "10x" mark -->
+  <g transform="translate(85, 100)">
+    <!-- "1" -->
+    <g class="digit-glow">
+      <rect x="-34" y="-24" width="8" height="48" rx="2" fill="url(#goldGrad)"/>
+      <rect x="-40" y="-20" width="12" height="4" rx="1" fill="url(#goldGrad)" opacity="0.7"/>
+    </g>
+    <!-- "0" -->
+    <g class="digit-glow">
+      <circle cx="-10" cy="0" r="14" fill="none" stroke="url(#goldGrad)" stroke-width="6"/>
+    </g>
+    <!-- "x" - stylized crossed lines -->
+    <g class="x-glow">
+      <line x1="16" y1="-12" x2="32" y2="12" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round"/>
+      <line x1="32" y1="-12" x2="16" y2="12" stroke="url(#goldGrad)" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </g>
+  <!-- Title -->
+  <text x="175" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1.5">10x</text>
+  <!-- Subtitle -->
+  <text x="225" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#475569" letter-spacing="-0.5">Developer Tools</text>
+  <!-- Description -->
+  <text x="175" y="108" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#f59e0b" font-weight="600">Curated plugins that ship quality</text>
+  <!-- Tagline -->
+  <text x="175" y="142" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748b">Battle-tested · Zero bloat · Built for speed</text>
+</svg>
