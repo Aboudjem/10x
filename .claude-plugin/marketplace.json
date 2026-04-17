@@ -1,0 +1,36 @@
+{
+  "name": "10x",
+  "description": "10x developer tools for Claude Code",
+  "owner": {
+    "name": "Adam Boudjemaa",
+    "url": "https://github.com/Aboudjem"
+  },
+  "plugins": [
+    {
+      "name": "sniff",
+      "source": {
+        "type": "git-subdir",
+        "url": "https://github.com/Aboudjem/sniff.git",
+        "subdir": "."
+      },
+      "description": "AI-powered QA testing. Scan source code, check accessibility, visual regression, and performance. Auto-detects your dev server.",
+      "version": "0.3.0",
+      "homepage": "https://github.com/Aboudjem/sniff",
+      "license": "Apache-2.0",
+      "keywords": ["testing", "qa", "accessibility", "playwright"]
+    },
+    {
+      "name": "ui-ux-suite",
+      "source": {
+        "type": "git-subdir",
+        "url": "https://github.com/Aboudjem/ui-ux-suite.git",
+        "subdir": "."
+      },
+      "description": "Design audit tool. Scores projects across 12 dimensions: color, typography, accessibility, layout, and more. WCAG, APCA, OKLCH color science.",
+      "version": "0.1.0",
+      "homepage": "https://github.com/Aboudjem/ui-ux-suite",
+      "license": "MIT",
+      "keywords": ["design", "audit", "accessibility", "ui", "ux", "wcag"]
+    }
+  ]
+}
