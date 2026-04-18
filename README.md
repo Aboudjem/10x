@@ -10,90 +10,157 @@
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
-<p align="center">Curated developer tools for Claude Code. No bloat. Battle-tested.</p>
+<p align="center"><b>Curated developer tools for Claude Code.</b><br/>No bloat. Battle-tested. Works in any AI editor.</p>
 
 ---
 
-## Install
+## How it works
+
+<p align="center">
+  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships curated plugins like sniff and ui-ux-suite" width="100%">
+</p>
+
+<p align="center"><i>One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.</i></p>
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
 ```
 
-Then install any plugin:
-
-```bash
-claude plugin install sniff@10x
-claude plugin install ui-ux-suite@10x
-```
-
-That's it. Each plugin brings its MCP tools, slash commands, and agents automatically.
-
 ---
 
 ## Plugins
 
-### sniff
+Two plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
-AI-powered QA testing. Scans source code for bugs, checks accessibility, visual regression, and performance. Auto-detects your dev server. No config needed.
+### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
-**Slash commands:** `/sniff` `/sniff-fix` `/sniff-report`
+<p align="center">
+  <img src=".github/assets/sniff-diagram.svg" alt="Sniff reads your source, sweeps it like radar, and returns prioritized bug, accessibility, and performance findings" width="100%">
+</p>
 
-**MCP tools:** `sniff_scan` `sniff_run` `sniff_report`
+AI-powered QA that scans source code, your running dev server, or both. Auto-detects your framework and port. No API keys, no Playwright install, no config.
 
-[GitHub](https://github.com/Aboudjem/sniff) · [npm](https://www.npmjs.com/package/sniff-qa)
+```bash
+claude plugin install sniff@10x     # as a plugin
+npx sniff-qa                        # as a standalone CLI
+```
 
-### ui-ux-suite
+<table>
+<tr>
+<td width="50%" valign="top">
 
-Design audit tool. Scores projects across 12 dimensions: color contrast, typography, accessibility, layout, and more. WCAG 2.1, APCA, and OKLCH color science. Zero dependencies.
+**Slash commands**
+- `/sniff` — scan your project
+- `/sniff-fix` — apply safe fixes
+- `/sniff-report` — open last scan
 
-**Slash commands:** `/design-audit` `/color-audit` `/type-audit` `/layout-audit` `/a11y-audit` and 9 more
+</td>
+<td width="50%" valign="top">
 
-**MCP tools:** 14 tools for scanning, scoring, and token generation
+**MCP tools**
+- `sniff_scan` — source + a11y + perf
+- `sniff_run` — live site checks
+- `sniff_report` — formatted results
 
-[GitHub](https://github.com/Aboudjem/ui-ux-suite) · [npm](https://www.npmjs.com/package/ui-ux-suite)
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp;
+  <a href="https://www.npmjs.com/package/sniff-qa">npm →</a>
+</p>
+
+---
+
+### <img src="https://img.shields.io/badge/02-ui--ux--suite-0ea5e9?style=flat-square" alt="ui-ux-suite">&nbsp;&nbsp;Your design quality, measured
+
+<p align="center">
+  <img src=".github/assets/uiux-diagram.svg" alt="ui-ux-suite scans your project, scores 12 design dimensions, and returns an audit citing which UX law each finding violates" width="100%">
+</p>
+
+Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions — color, typography, accessibility, layout, components, motion, performance, psychology, platform, density, and style. Cites the UX law each finding violates, then gives you the fix. Zero dependencies, 100% local.
+
+```bash
+claude plugin install ui-ux-suite@10x   # as a plugin
+npx ui-ux-suite                         # as a standalone CLI
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Slash commands**
+- `/design-audit` — full 12-dim audit
+- `/color-audit` — contrast + palette
+- `/type-audit` — typography only
+- `/layout-audit` — spacing + grid
+- `/a11y-audit` — WCAG 2.1 + APCA
+- `+ 9 more specialist audits`
+
+</td>
+<td width="50%" valign="top">
+
+**MCP tools**
+- `uiux_scan_project` — detect stack
+- `uiux_extract_colors` — palette
+- `uiux_check_contrast` — WCAG/APCA
+- `uiux_generate_tokens` — design system
+- `+ 10 more scoring & generation tools`
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp;
+  <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a>
+</p>
 
 ---
 
 ## Works with any AI editor
 
-These tools also work as standalone MCP servers with Cursor, VS Code, Codex, Gemini, Windsurf, and Continue.dev:
+<p align="center">
+  <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
+</p>
+
+Every 10x plugin is **dual mode** — install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice:
 
 ```bash
-npx sniff-qa --mcp
-npx ui-ux-suite --mcp
+npx sniff-qa       --mcp
+npx ui-ux-suite    --mcp
 ```
 
-See each project's README for editor-specific setup.
+Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
 
 ---
 
-## What makes it 10x
+## The 10x bar
 
-Every plugin here passes a quality bar:
+Every plugin here passes this bar. If it stops passing, it gets removed.
 
-- **Zero bloat.** Vanilla Node.js, no runtime dependencies
-- **Clear docs.** Install in one command, usage is obvious
-- **Real tests.** Not aspirational, not "coming soon"
-- **Dual mode.** Works as Claude Code plugin AND as MCP server for any editor
-- **Active.** Maintained, not abandoned
-
-If a plugin stops meeting this bar, it gets removed.
+| | |
+|---|---|
+| **Zero bloat** | Vanilla Node.js, no runtime dependencies |
+| **One-command install** | No config files, no API keys |
+| **Real tests** | Not aspirational, not "coming soon" |
+| **Dual mode** | Works as a Claude Code plugin AND as an MCP server |
+| **Actively maintained** | Shipped this quarter, not abandoned last year |
+| **No telemetry** | Runs locally, your code never leaves your machine |
 
 ---
 
 ## Contributing
 
-Have a plugin that belongs here? See [CONTRIBUTING.md](CONTRIBUTING.md).
+Got a plugin that belongs here? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
 <p align="center">
   If 10x helped you ship better code, consider starring it.<br/>
-  It helps others find these tools.
+  It helps other devs find these tools.
 </p>
-
----
 
 <p align="center">
   <a href="https://www.linkedin.com/in/adam-boudjemaa/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>

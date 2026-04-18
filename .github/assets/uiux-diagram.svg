@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" fill="none" role="img" aria-label="UI UX Suite flow: project is scanned across 12 design dimensions and returns a scored audit">
+  <style>
+    .bg-grid { stroke: #0ea5e9; stroke-width: 1; opacity: 0.05; }
+    .frame { fill: #0b0b0f; stroke: #0ea5e9; stroke-width: 1.5; }
+    .mono { font-family: ui-monospace, Menlo, monospace; font-size: 11px; fill: #e5e7eb; }
+    .mono-dim { font-family: ui-monospace, Menlo, monospace; font-size: 10px; fill: #6b7280; }
+    .title { font-family: 'SF Pro Display', system-ui, sans-serif; font-size: 15px; font-weight: 700; fill: #f3f4f6; }
+    .label { font-family: ui-monospace, Menlo, monospace; font-size: 10px; font-weight: 600; fill: #0ea5e9; letter-spacing: 0.5px; }
+    .flow-path { stroke: #0ea5e9; stroke-width: 1.5; opacity: 0.35; fill: none; stroke-dasharray: 3 4; }
+    .dim-spoke { stroke: #0ea5e9; stroke-width: 1; opacity: 0.3; }
+    .dim-label { font-family: Menlo, monospace; font-size: 9px; fill: #0ea5e9; font-weight: 600; }
+    @keyframes dim-pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+    @keyframes score-grow {
+      0%, 100% { stroke-dashoffset: 50; }
+      50% { stroke-dashoffset: 0; }
+    }
+    @keyframes gauge-fill {
+      0% { stroke-dasharray: 0 440; }
+      60%, 100% { stroke-dasharray: 330 440; }
+    }
+    .gauge-ring { animation: gauge-fill 4s ease-out infinite; transform-origin: center; }
+    @keyframes number-count {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .score-num { animation: number-count 3s ease-in-out infinite; }
+    @keyframes dim-ping {
+      0%, 100% { r: 4; opacity: 0.6; }
+      50% { r: 6; opacity: 1; }
+    }
+    .dim-node-1 { animation: dim-ping 2s ease-in-out infinite; transform-origin: center; }
+    .dim-node-2 { animation: dim-ping 2s ease-in-out infinite 0.2s; transform-origin: center; }
+    .dim-node-3 { animation: dim-ping 2s ease-in-out infinite 0.4s; transform-origin: center; }
+    .dim-node-4 { animation: dim-ping 2s ease-in-out infinite 0.6s; transform-origin: center; }
+    .dim-node-5 { animation: dim-ping 2s ease-in-out infinite 0.8s; transform-origin: center; }
+    .dim-node-6 { animation: dim-ping 2s ease-in-out infinite 1.0s; transform-origin: center; }
+    @keyframes bar-grow {
+      0%, 100% { transform: scaleX(0.6); }
+      50% { transform: scaleX(1); }
+    }
+    .bar-1 { animation: bar-grow 2.2s ease-in-out infinite; transform-origin: left; }
+    .bar-2 { animation: bar-grow 2.2s ease-in-out infinite 0.3s; transform-origin: left; }
+    .bar-3 { animation: bar-grow 2.2s ease-in-out infinite 0.6s; transform-origin: left; }
+    .bar-4 { animation: bar-grow 2.2s ease-in-out infinite 0.9s; transform-origin: left; }
+  </style>
+
+  <defs>
+    <pattern id="grid-ui" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" class="bg-grid"/>
+    </pattern>
+    <radialGradient id="ui-hub">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#grid-ui)"/>
+
+  <!-- STAGE 1: project scan -->
+  <g transform="translate(40,80)">
+    <text x="0" y="-10" class="label">01 · INPUT</text>
+    <rect x="0" y="0" width="240" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Your design</text>
+    <g transform="translate(20,46)">
+      <!-- fake UI preview -->
+      <rect x="0" y="0" width="200" height="22" rx="4" fill="#1f2937"/>
+      <circle cx="12" cy="11" r="4" fill="#0ea5e9" opacity="0.6"/>
+      <rect x="24" y="7" width="60" height="8" rx="2" fill="#0ea5e9" fill-opacity="0.4"/>
+      <rect x="150" y="6" width="40" height="10" rx="5" fill="#0ea5e9" fill-opacity="0.3"/>
+
+      <rect x="0" y="30" width="200" height="54" rx="6" fill="#0ea5e9" fill-opacity="0.08" stroke="#0ea5e9" stroke-opacity="0.25"/>
+      <rect x="10" y="40" width="120" height="8" rx="2" fill="#0ea5e9" fill-opacity="0.5"/>
+      <rect x="10" y="54" width="180" height="5" rx="2" fill="#0ea5e9" fill-opacity="0.25"/>
+      <rect x="10" y="64" width="140" height="5" rx="2" fill="#0ea5e9" fill-opacity="0.25"/>
+
+      <rect x="0" y="94" width="95" height="40" rx="6" fill="#0ea5e9" fill-opacity="0.08" stroke="#0ea5e9" stroke-opacity="0.25"/>
+      <rect x="105" y="94" width="95" height="40" rx="6" fill="#0ea5e9" fill-opacity="0.08" stroke="#0ea5e9" stroke-opacity="0.25"/>
+
+      <rect x="0" y="144" width="200" height="10" rx="3" fill="#1f2937"/>
+      <rect x="0" y="144" width="130" height="10" rx="3" fill="#0ea5e9" class="bar-1"/>
+    </g>
+  </g>
+
+  <!-- flow -->
+  <path d="M 290 180 L 430 180" class="flow-path"/>
+  <circle r="4" fill="#0ea5e9"><animateMotion dur="2s" repeatCount="indefinite" path="M 290 180 L 430 180"/></circle>
+  <circle r="3" fill="#0ea5e9" opacity="0.5"><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M 290 180 L 430 180"/></circle>
+
+  <!-- STAGE 2: 12 dimensions radar -->
+  <g transform="translate(440,80)">
+    <text x="0" y="-10" class="label">02 · 12 DIMENSIONS</text>
+    <rect x="0" y="0" width="300" height="200" rx="12" class="frame"/>
+
+    <g transform="translate(150,105)">
+      <circle cx="0" cy="0" r="80" fill="url(#ui-hub)"/>
+      <circle cx="0" cy="0" r="72" fill="none" stroke="#0ea5e9" stroke-opacity="0.2"/>
+      <circle cx="0" cy="0" r="50" fill="none" stroke="#0ea5e9" stroke-opacity="0.15"/>
+      <circle cx="0" cy="0" r="28" fill="none" stroke="#0ea5e9" stroke-opacity="0.12"/>
+
+      <!-- 12 spokes -->
+      <g>
+        <line x1="0" y1="0" x2="72" y2="0" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="62" y2="36" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="36" y2="62" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="0" y2="72" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="-36" y2="62" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="-62" y2="36" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="-72" y2="0" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="-62" y2="-36" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="-36" y2="-62" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="0" y2="-72" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="36" y2="-62" class="dim-spoke"/>
+        <line x1="0" y1="0" x2="62" y2="-36" class="dim-spoke"/>
+      </g>
+
+      <!-- score polygon -->
+      <polygon points="58,0 54,32 28,48 0,60 -30,52 -48,28 -58,0 -50,-28 -28,-50 0,-62 30,-54 52,-30"
+        fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1.5">
+        <animate attributeName="fill-opacity" values="0.1;0.3;0.1" dur="3s" repeatCount="indefinite"/>
+      </polygon>
+
+      <!-- 12 dimension dots -->
+      <circle cx="58" cy="0" r="4" fill="#0ea5e9" class="dim-node-1"/>
+      <circle cx="54" cy="32" r="4" fill="#0ea5e9" class="dim-node-2"/>
+      <circle cx="28" cy="48" r="4" fill="#0ea5e9" class="dim-node-3"/>
+      <circle cx="0" cy="60" r="4" fill="#0ea5e9" class="dim-node-4"/>
+      <circle cx="-30" cy="52" r="4" fill="#0ea5e9" class="dim-node-5"/>
+      <circle cx="-48" cy="28" r="4" fill="#0ea5e9" class="dim-node-6"/>
+      <circle cx="-58" cy="0" r="4" fill="#0ea5e9" class="dim-node-1"/>
+      <circle cx="-50" cy="-28" r="4" fill="#0ea5e9" class="dim-node-2"/>
+      <circle cx="-28" cy="-50" r="4" fill="#0ea5e9" class="dim-node-3"/>
+      <circle cx="0" cy="-62" r="4" fill="#0ea5e9" class="dim-node-4"/>
+      <circle cx="30" cy="-54" r="4" fill="#0ea5e9" class="dim-node-5"/>
+      <circle cx="52" cy="-30" r="4" fill="#0ea5e9" class="dim-node-6"/>
+    </g>
+
+    <!-- dimension labels, compact -->
+    <g transform="translate(20,185)">
+      <text class="dim-label" x="0" y="0">color · type · a11y · layout · component · flow · interact · perf · psych · platform · style · density</text>
+    </g>
+  </g>
+
+  <!-- flow -->
+  <path d="M 750 180 L 890 180" class="flow-path"/>
+  <circle r="4" fill="#0ea5e9"><animateMotion dur="2s" repeatCount="indefinite" path="M 750 180 L 890 180"/></circle>
+  <circle r="3" fill="#0ea5e9" opacity="0.5"><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M 750 180 L 890 180"/></circle>
+
+  <!-- STAGE 3: score + report -->
+  <g transform="translate(900,80)">
+    <text x="0" y="-10" class="label">03 · SCORE</text>
+    <rect x="0" y="0" width="260" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Audit report</text>
+
+    <!-- big score gauge -->
+    <g transform="translate(70,110)">
+      <circle cx="0" cy="0" r="42" fill="none" stroke="#1f2937" stroke-width="8"/>
+      <circle cx="0" cy="0" r="42" fill="none" stroke="#0ea5e9" stroke-width="8"
+        stroke-linecap="round" stroke-dasharray="220 264" transform="rotate(-90)"
+        class="gauge-ring"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'SF Pro Display',sans-serif" font-size="24" font-weight="800" fill="#0ea5e9" class="score-num">82</text>
+      <text x="0" y="22" text-anchor="middle" class="mono-dim">/ 100</text>
+    </g>
+
+    <g transform="translate(130,75)">
+      <text class="mono" x="0" y="0">Color</text>
+      <rect x="0" y="6" width="100" height="5" rx="2" fill="#1f2937"/>
+      <rect x="0" y="6" width="88" height="5" rx="2" fill="#0ea5e9" class="bar-1"/>
+
+      <text class="mono" x="0" y="28">Typography</text>
+      <rect x="0" y="34" width="100" height="5" rx="2" fill="#1f2937"/>
+      <rect x="0" y="34" width="72" height="5" rx="2" fill="#0ea5e9" class="bar-2"/>
+
+      <text class="mono" x="0" y="56">A11y (WCAG)</text>
+      <rect x="0" y="62" width="100" height="5" rx="2" fill="#1f2937"/>
+      <rect x="0" y="62" width="60" height="5" rx="2" fill="#ef4444" class="bar-3"/>
+
+      <text class="mono" x="0" y="84">Layout</text>
+      <rect x="0" y="90" width="100" height="5" rx="2" fill="#1f2937"/>
+      <rect x="0" y="90" width="90" height="5" rx="2" fill="#0ea5e9" class="bar-4"/>
+    </g>
+
+    <g transform="translate(20,178)">
+      <text font-family="Menlo,monospace" font-size="9" fill="#0ea5e9" font-weight="600">cites UX law · suggests fix · 100% local</text>
+    </g>
+  </g>
+
+  <text x="600" y="335" text-anchor="middle" font-family="Menlo,monospace" font-size="10" fill="#6b7280" letter-spacing="0.5">npx ui-ux-suite  ·  WCAG 2.1 + APCA + OKLCH  ·  zero dependencies</text>
+</svg>
