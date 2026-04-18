@@ -17,7 +17,14 @@
       "version": "0.4.0",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
-      "keywords": ["testing", "qa", "accessibility", "playwright", "e2e", "discovery"]
+      "keywords": [
+        "testing",
+        "qa",
+        "accessibility",
+        "playwright",
+        "e2e",
+        "discovery"
+      ]
     },
     {
       "name": "ui-ux-suite",
@@ -26,10 +33,20 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) grounded in 24 named UX laws with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
-      "keywords": ["design", "audit", "accessibility", "ui", "ux", "wcag", "apca", "laws-of-ux", "mcp"]
+      "keywords": [
+        "design",
+        "audit",
+        "accessibility",
+        "ui",
+        "ux",
+        "wcag",
+        "apca",
+        "laws-of-ux",
+        "mcp"
+      ]
     }
   ]
 }
