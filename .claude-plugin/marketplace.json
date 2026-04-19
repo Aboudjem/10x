@@ -14,7 +14,7 @@
         "repo": "Aboudjem/sniff"
       },
       "description": "AI-powered QA testing. Scan source code, check accessibility, visual regression, performance, and run autonomous E2E discovery. Auto-detects your dev server.",
-      "version": "0.3.0",
+      "version": "0.5.0",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
       "keywords": [
