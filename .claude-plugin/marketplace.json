@@ -54,7 +54,7 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Generate beautiful, mobile-first, ADHD-friendly one-page explainers in under 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board; offline-safe demo for any topic or coding session. Static-first Next.js output.",
+      "description": "Generate beautiful, mobile-first one-page explainers in under 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board; offline-safe demo for any topic or coding session. Static-first Next.js output.",
       "version": "0.2.0",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
@@ -62,7 +62,6 @@
         "recap",
         "explainer",
         "education",
-        "adhd-friendly",
         "mobile-first",
         "nextjs",
         "validation",

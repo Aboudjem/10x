@@ -5,7 +5,7 @@ All notable changes to this marketplace will be documented in this file.
 ## [1.2.0] - 2026-05-13
 
 ### Added
-- `recap-studio` v0.2.0 — visual one-page explainers in under 5 minutes (13 specialist agents, 7-dimension validation board, mobile-first ADHD-friendly Next.js renderer, offline-safe demo for "Latest AI models").
+- `recap-studio` v0.2.0 — visual one-page explainers in under 5 minutes (13 specialist agents, 7-dimension validation board, mobile-first Next.js renderer, offline-safe demo for "Latest AI models").
 - `QUALITY-BAR.md` — the explicit checklist every listed plugin must meet, with a `Verify before listing` section maintainers can run.
 - Animated recap-studio diagram asset.
 

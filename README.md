@@ -26,6 +26,9 @@
 claude plugin marketplace add Aboudjem/10x
 ```
 
+> [!TIP]
+> One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.
+
 ---
 
 ## Plugins
@@ -125,7 +128,7 @@ npx ui-ux-suite                         # as a standalone CLI
   <img src=".github/assets/recap-studio-diagram.svg" alt="Recap Studio takes a topic or a git diff, runs 13 specialist agents through a 7-dimension validation board, and outputs a static one-page explainer page" width="100%">
 </p>
 
-Turn any topic or coding session into a beautiful, mobile-first, ADHD-friendly one-page website a smart 18-year-old can read in 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board (facts, beginner clarity, ADHD accessibility, UX, performance, security, simplicity). Static-first Next.js. Offline-safe demo. Cite every claim.
+Turn any topic or coding session into a beautiful, mobile-first one-page website a smart 18-year-old can read in 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board (facts, beginner clarity, accessibility, UX, performance, security, simplicity). Static-first Next.js. Offline-safe demo. Cite every claim.
 
 ```bash
 claude plugin install recap-studio@10x   # as a plugin
@@ -168,7 +171,7 @@ claude plugin install recap-studio@10x   # as a plugin
   <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
 </p>
 
-Every 10x plugin is **dual mode** — install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice:
+Every 10x plugin is **dual mode**. Install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice:
 
 ```bash
 npx sniff-qa            --mcp
@@ -195,6 +198,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
+> [!NOTE]
 > Current roster: **sniff 0.5.2** (427 tests), **ui-ux-suite 0.3.0** (234 tests), **recap-studio 0.2.0** (18 tests, 9.7/10 validation). Last verified 2026-05-13.
 
 ---
