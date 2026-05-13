@@ -1,7 +1,20 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "10x developer tools for Claude Code. Curated plugins that ship quality."
+    "description": "Curated Claude Code plugins that ship quality. sniff (AI-powered QA, 427 tests), ui-ux-suite (design audit across 12 dimensions, 24 UX laws), recap-studio (one-page explainers, 7-dimension validation). Zero bloat. Dual-mode: install as a Claude Code plugin or as a standalone MCP server in any editor.",
+    "keywords": [
+      "claude-code",
+      "claude-code-plugin",
+      "marketplace",
+      "mcp",
+      "mcp-server",
+      "developer-tools",
+      "qa",
+      "design-audit",
+      "ai-agents",
+      "ai-tools",
+      "dual-mode"
+    ]
   },
   "owner": {
     "name": "Adam Boudjemaa"
