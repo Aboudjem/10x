@@ -32,7 +32,7 @@
   <text x="120" y="452"
         font-family="Inter, system-ui, -apple-system, sans-serif"
         font-size="26" font-weight="400"
-        fill="#a1a1aa">Curated marketplace. One-command install. sniff, ui-ux-suite, and more.</text>
+        fill="#a1a1aa">3 plugins, 679 tests. sniff, ui-ux-suite, recap-studio. Zero bloat.</text>
 
   <!-- Install command pill -->
   <g transform="translate(120, 510)">
