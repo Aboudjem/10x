@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="License"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-2-f59e0b?style=flat-square" alt="2 Plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-3-f59e0b?style=flat-square" alt="3 Plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
@@ -30,7 +30,7 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Two plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
+Three plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
@@ -119,6 +119,49 @@ npx ui-ux-suite                         # as a standalone CLI
 
 ---
 
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;One-page explainers in under 5 minutes
+
+<p align="center">
+  <img src=".github/assets/recap-studio-diagram.svg" alt="Recap Studio takes a topic or a git diff, runs 13 specialist agents through a 7-dimension validation board, and outputs a static one-page explainer page" width="100%">
+</p>
+
+Turn any topic or coding session into a beautiful, mobile-first, ADHD-friendly one-page website a smart 18-year-old can read in 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board (facts, beginner clarity, ADHD accessibility, UX, performance, security, simplicity). Static-first Next.js. Offline-safe demo. Cite every claim.
+
+```bash
+claude plugin install recap-studio@10x   # as a plugin
+/recap "Latest AI models"                # in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Slash commands**
+- `/recap "<topic>"` — full explainer page
+- `/recap session` — coding-session recap
+- `/recap setup` — write safe-default config
+- `/recap validate` — re-score the active page
+
+</td>
+<td width="50%" valign="top">
+
+**What you get**
+- `RecapPageContent` JSON, every claim cited
+- Static Next.js page, ~103 KB First Load JS
+- 7-dimension scorecard, threshold-gated
+- Vercel deploy path (off-by-default)
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp;
+  <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture →</a>
+</p>
+
+---
+
 ## Works with any AI editor
 
 <p align="center">
@@ -128,8 +171,9 @@ npx ui-ux-suite                         # as a standalone CLI
 Every 10x plugin is **dual mode** — install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice:
 
 ```bash
-npx sniff-qa       --mcp
-npx ui-ux-suite    --mcp
+npx sniff-qa            --mcp
+npx ui-ux-suite         --mcp
+node packages/mcp-server/dist/index.js   # recap-studio's local MCP scaffold
 ```
 
 Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
@@ -148,6 +192,10 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 | **Dual mode** | Works as a Claude Code plugin AND as an MCP server |
 | **Actively maintained** | Shipped this quarter, not abandoned last year |
 | **No telemetry** | Runs locally, your code never leaves your machine |
+
+The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
+
+> Current roster: **sniff 0.5.2** (427 tests), **ui-ux-suite 0.3.0** (234 tests), **recap-studio 0.2.0** (18 tests, 9.7/10 validation). Last verified 2026-05-13.
 
 ---
 

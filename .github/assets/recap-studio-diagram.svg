@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" role="img" aria-label="Recap Studio takes a topic or a git diff, runs it through 13 specialist agents and a 7-dimension validation board, and outputs a static one-page explainer.">
+  <defs>
+    <linearGradient id="rsm-pipe" x1="0" x2="1">
+      <stop offset="0%"  stop-color="#7C5CFF" stop-opacity=".1"/>
+      <stop offset="50%" stop-color="#7C5CFF" stop-opacity=".6"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity=".1"/>
+    </linearGradient>
+    <style>
+      @keyframes rsm-flow { 0% { stroke-dashoffset: 32 } 100% { stroke-dashoffset: 0 } }
+      @keyframes rsm-glow { 0%,100% { opacity:.88 } 50% { opacity:1 } }
+      @keyframes rsm-rise { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-3px) } }
+      .rsm-line  { stroke: #7C5CFF; stroke-width: 2; fill: none; stroke-dasharray: 6 4; animation: rsm-flow 1.6s linear infinite; }
+      .rsm-card  { fill: #FFFFFF; stroke: #E7E6E1; stroke-width: 1.5; }
+      .rsm-pulse { animation: rsm-glow 3s cubic-bezier(.4,0,.2,1) infinite; }
+      .rsm-bar   { transform-origin: bottom; animation: rsm-rise 3.2s cubic-bezier(.4,0,.2,1) infinite; }
+      .rsm-bar-2 { animation-delay: .25s; }
+      .rsm-bar-3 { animation-delay: .5s; }
+      .rsm-bar-4 { animation-delay: .75s; }
+      @media (prefers-color-scheme: dark) {
+        .rsm-card { fill: #15151B; stroke: #23232B; }
+        .rsm-bg   { fill: #0B0B0F; }
+        .rsm-text { fill: #F2F1EE; }
+        .rsm-muted{ fill: #A4A4B0; }
+      }
+    </style>
+  </defs>
+  <rect class="rsm-bg" width="1200" height="280" fill="#FBFAF7"/>
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+    <!-- INPUT -->
+    <rect class="rsm-card rsm-pulse" x="40"  y="100" width="200" height="80" rx="16"/>
+    <text class="rsm-text" x="140" y="135" text-anchor="middle" font-size="15" font-weight="600" fill="#16161D">Topic or git diff</text>
+    <text class="rsm-muted" x="140" y="158" text-anchor="middle" font-size="12" fill="#5C5C66">"Latest AI models" · /recap session</text>
+
+    <!-- AGENTS -->
+    <rect class="rsm-card" x="290" y="60" width="240" height="160" rx="16"/>
+    <text class="rsm-text" x="410" y="90" text-anchor="middle" font-size="15" font-weight="600" fill="#16161D">13 specialist agents</text>
+    <g transform="translate(310, 105)" font-size="11" fill="#5C5C66">
+      <text y="12">research → librarian</text>
+      <text y="28">→ learning-architect</text>
+      <text y="44">→ visual-story-designer</text>
+      <text y="60">→ frontend-builder</text>
+      <text y="76">parallel: facts · beginner · adhd</text>
+      <text y="92">           ux · perf · sec · skeptic</text>
+    </g>
+
+    <!-- VALIDATION BARS -->
+    <rect class="rsm-card rsm-pulse" x="580" y="60" width="220" height="160" rx="16"/>
+    <text class="rsm-text" x="690" y="90" text-anchor="middle" font-size="15" font-weight="600" fill="#16161D">7-dimension scores</text>
+    <g transform="translate(605, 105)">
+      <rect class="rsm-bar"        x="0"   y="56" width="22" height="44" rx="3" fill="#7C5CFF"/>
+      <rect class="rsm-bar rsm-bar-2" x="28" y="50" width="22" height="50" rx="3" fill="#7C5CFF"/>
+      <rect class="rsm-bar rsm-bar-3" x="56" y="44" width="22" height="56" rx="3" fill="#7C5CFF"/>
+      <rect class="rsm-bar rsm-bar-4" x="84" y="50" width="22" height="50" rx="3" fill="#7C5CFF"/>
+      <rect class="rsm-bar"        x="112" y="44" width="22" height="56" rx="3" fill="#7C5CFF"/>
+      <rect class="rsm-bar rsm-bar-2" x="140" y="38" width="22" height="62" rx="3" fill="#7C5CFF"/>
+      <rect class="rsm-bar rsm-bar-3" x="168" y="44" width="22" height="56" rx="3" fill="#7C5CFF"/>
+    </g>
+    <text class="rsm-muted" x="690" y="208" text-anchor="middle" font-size="11" fill="#5C5C66">facts · beginner · adhd · ux · perf · sec · simplicity</text>
+
+    <!-- OUTPUT -->
+    <rect class="rsm-card rsm-pulse" x="850" y="100" width="310" height="80" rx="16"/>
+    <text class="rsm-text" x="1005" y="135" text-anchor="middle" font-size="15" font-weight="600" fill="#16161D">Static Next.js page · 103 KB</text>
+    <text class="rsm-muted" x="1005" y="158" text-anchor="middle" font-size="12" fill="#5C5C66">mobile-first · ADHD-friendly · cited</text>
+
+    <!-- FLOW LINES -->
+    <path class="rsm-line" d="M240 140 L290 140"/>
+    <path class="rsm-line" d="M530 140 L580 140"/>
+    <path class="rsm-line" d="M800 140 L850 140"/>
+  </g>
+</svg>

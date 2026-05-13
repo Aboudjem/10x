@@ -14,7 +14,7 @@
         "repo": "Aboudjem/sniff"
       },
       "description": "AI-powered QA testing. Scan source code, check accessibility, visual regression, performance, and run autonomous E2E discovery. Auto-detects your dev server.",
-      "version": "0.5.0",
+      "version": "0.5.2",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
       "keywords": [
@@ -45,6 +45,28 @@
         "wcag",
         "apca",
         "laws-of-ux",
+        "mcp"
+      ]
+    },
+    {
+      "name": "recap-studio",
+      "source": {
+        "source": "github",
+        "repo": "Aboudjem/recap-studio"
+      },
+      "description": "Generate beautiful, mobile-first, ADHD-friendly one-page explainers in under 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board; offline-safe demo for any topic or coding session. Static-first Next.js output.",
+      "version": "0.2.0",
+      "homepage": "https://github.com/Aboudjem/recap-studio",
+      "license": "MIT",
+      "keywords": [
+        "recap",
+        "explainer",
+        "education",
+        "adhd-friendly",
+        "mobile-first",
+        "nextjs",
+        "validation",
+        "agents",
         "mcp"
       ]
     }
