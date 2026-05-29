@@ -2,6 +2,18 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [1.4.0] - 2026-05-28
+
+### Changed
+- Synced plugin pins to the current upstream versions: `sniff` 0.5.2 -> 0.6.1, `ui-ux-suite` 0.4.0 -> 0.4.1, `recap-studio` 0.2.0 -> 0.3.1. `aws-cost-audit` stays 0.1.0.
+- Rewrote `metadata.description` and the per-plugin descriptions to be honest and count-free: dropped the hardcoded "427 tests" for sniff and the disowned "13 specialist agents / 7-dimension validation board" for recap-studio. sniff now describes its autonomous flow-walk model (walks your running app, finds real bugs; source scan via `sniff scan`); recap-studio is described as self-contained offline HTML explainers validated by deterministic heuristic checks.
+- README roster note updated to sniff 0.6.1 (441 tests), ui-ux-suite 0.4.1 (234 tests), recap-studio 0.3.1 (44 tests), aws-cost-audit 0.1.0; dropped the "9.7/10" claim. Refreshed the sniff and recap-studio sections, diagram alt text, and feature table to match the honest framing, and added a pointer to each tool's own demo.
+- `QUALITY-BAR.md` roster table updated to 0.6.1 / 0.4.1 / 0.3.1.
+
+### Added
+- `llms.txt`, `AGENTS.md`, `CODE_OF_CONDUCT.md` (by-reference), and `SECURITY.md` — the marketplace now satisfies its own QUALITY-BAR.md item 8.
+- `.github/workflows/validate.yml` — CI that validates the marketplace JSON, runs `claude plugin validate .` when the CLI is available, checks markdown links (lychee), and scans for secrets (gitleaks). The existing `bump-plugin.yml` automation is kept.
+
 ## [1.3.0] - 2026-05-28
 
 ### Added
