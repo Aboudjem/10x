@@ -10,7 +10,7 @@
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
-<p align="center"><b>Curated developer tools for Claude Code.</b><br/>No bloat. Battle-tested. Works in any AI editor.</p>
+<p align="center"><b>A curated marketplace of developer tools for Claude Code.</b><br/>No bloat. Tested. Works in any AI editor.</p>
 
 ---
 
@@ -44,7 +44,7 @@ Four plugins today. Every one of them passes the [quality bar](#the-10x-bar) bel
   <img src=".github/assets/sniff-diagram.svg" alt="Sniff walks your running app, discovers its flows, and returns prioritized bug, accessibility, and performance findings" width="100%">
 </p>
 
-AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs — accessibility, performance, and broken interactions. Auto-detects your framework and port. A source scan is also available via `sniff scan`. No API keys, no config.
+AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. Auto-detects your framework and port. A source scan is also available via `sniff scan`. No API keys, no config.
 
 ```bash
 claude plugin install sniff@10x     # as a plugin
@@ -56,17 +56,17 @@ npx sniff-qa                        # as a standalone CLI
 <td width="50%" valign="top">
 
 **Slash commands**
-- `/sniff` — scan your project
-- `/sniff-fix` — apply safe fixes
-- `/sniff-report` — open last scan
+- `/sniff` - scan your project
+- `/sniff-fix` - apply safe fixes
+- `/sniff-report` - open last scan
 
 </td>
 <td width="50%" valign="top">
 
 **MCP tools**
-- `sniff_scan` — source + a11y + perf
-- `sniff_run` — live site checks
-- `sniff_report` — formatted results
+- `sniff_scan` - source + a11y + perf
+- `sniff_run` - live site checks
+- `sniff_report` - formatted results
 
 </td>
 </tr>
@@ -85,7 +85,7 @@ npx sniff-qa                        # as a standalone CLI
   <img src=".github/assets/uiux-diagram.svg" alt="ui-ux-suite scans your project, scores 12 design dimensions, and returns an audit citing which UX law each finding violates" width="100%">
 </p>
 
-Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions — color, typography, accessibility, layout, components, motion, performance, psychology, platform, density, and style. Cites the UX law each finding violates, then gives you the fix. Zero dependencies, 100% local.
+Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions: accessibility, color system, typography, layout and spacing, component quality, visual hierarchy, interaction, responsiveness, visual polish, performance UX, info architecture, and platform fit. Cites the UX law each finding violates, then gives you the fix. Zero dependencies, 100% local.
 
 ```bash
 claude plugin install ui-ux-suite@10x   # as a plugin
@@ -97,21 +97,21 @@ npx ui-ux-suite                         # as a standalone CLI
 <td width="50%" valign="top">
 
 **Slash commands**
-- `/design-audit` — full 12-dim audit
-- `/color-audit` — contrast + palette
-- `/type-audit` — typography only
-- `/layout-audit` — spacing + grid
-- `/a11y-audit` — WCAG 2.2 + APCA
+- `/design-audit` - full 12-dim audit
+- `/color-audit` - contrast + palette
+- `/type-audit` - typography only
+- `/layout-audit` - spacing + grid
+- `/a11y-audit` - WCAG 2.2 + APCA
 - `+ 9 more specialist audits`
 
 </td>
 <td width="50%" valign="top">
 
 **MCP tools**
-- `uiux_scan_project` — detect stack
-- `uiux_extract_colors` — palette
-- `uiux_check_contrast` — WCAG/APCA
-- `uiux_generate_tokens` — design system
+- `uiux_scan_project` - detect stack
+- `uiux_extract_colors` - palette
+- `uiux_check_contrast` - WCAG/APCA
+- `uiux_generate_tokens` - design system
 - `+ 10 more scoring & generation tools`
 
 </td>
@@ -131,7 +131,7 @@ npx ui-ux-suite                         # as a standalone CLI
   <img src=".github/assets/recap-studio-diagram.svg" alt="Recap Studio takes a topic or a git diff, runs deterministic heuristic checks for clarity and accessibility, and outputs a self-contained one-page explainer" width="100%">
 </p>
 
-Turn any topic or coding session into a beautiful, mobile-first one-page explainer a smart 18-year-old can read in 5 minutes. Output is a self-contained, offline HTML page. Deterministic heuristic checks validate clarity, accessibility, and structure before you ship, and every claim is cited.
+Turn any topic or coding session into a clean, mobile-first one-page explainer a smart 18-year-old can read in 5 minutes. Output is a self-contained, offline HTML page. Deterministic heuristic checks validate clarity, accessibility, and structure before you ship, and every claim is cited.
 
 ```bash
 claude plugin install recap-studio@10x   # as a plugin
@@ -143,10 +143,10 @@ claude plugin install recap-studio@10x   # as a plugin
 <td width="50%" valign="top">
 
 **Slash commands**
-- `/recap "<topic>"` — full explainer page
-- `/recap session` — coding-session recap
-- `/recap setup` — write safe-default config
-- `/recap validate` — re-score the active page
+- `/recap "<topic>"` - full explainer page
+- `/recap session` - coding-session recap
+- `/recap setup` - write safe-default config
+- `/recap validate` - re-score the active page
 
 </td>
 <td width="50%" valign="top">
@@ -174,7 +174,7 @@ claude plugin install recap-studio@10x   # as a plugin
   <img src=".github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit reads your live AWS account, attributes every dollar and verifies prices live, then returns an evidence-backed, gated savings plan" width="100%">
 </p>
 
-Reads your live AWS account (read-only by default), attributes every dollar, and finds idle, orphaned, and over-provisioned resources. Verifies every price live against the AWS Price List API — it hardcodes none — and gives each finding a confidence level, the evidence behind it, and a rollback. Nothing gets deleted without proof and your sign-off.
+Reads your live AWS account (read-only by default), attributes every dollar, and finds idle, orphaned, and over-provisioned resources. Verifies every price live against the AWS Price List API (it hardcodes none) and gives each finding a confidence level, the evidence behind it, and a rollback. Nothing gets deleted without proof and your sign-off.
 
 ```bash
 claude plugin install aws-cost-audit@10x   # as a plugin
@@ -214,12 +214,12 @@ claude plugin install aws-cost-audit@10x   # as a plugin
   <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
 </p>
 
-Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit` is a Claude Code skill rather than an MCP server — it runs in Claude Code and reads your AWS account locally.)
+Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit` is a Claude Code skill rather than an MCP server, so it runs in Claude Code and reads your AWS account locally.)
 
 ```bash
 npx sniff-qa            --mcp
 npx ui-ux-suite         --mcp
-node packages/mcp-server/dist/index.js   # recap-studio's local MCP scaffold
+# recap-studio also ships an MCP server (see its README; requires a local build)
 ```
 
 Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
