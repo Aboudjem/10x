@@ -92,12 +92,17 @@ document its slash commands and MCP tools.
 
 ---
 
-## Current roster (3)
+## Current roster (4)
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
-| 1 | `sniff`         | 0.5.2 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
-| 2 | `ui-ux-suite`   | 0.3.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
-| 3 | `recap-studio`  | 0.2.0 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
+| 1 | `sniff`           | 0.5.2 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
+| 2 | `ui-ux-suite`     | 0.3.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
+| 3 | `recap-studio`    | 0.2.0 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
+| 4 | `aws-cost-audit`  | 0.1.0 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
 
-Last verified: 2026-05-13.
+`aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
+one-command-install, real-verification (built test-first, independently verified end-to-end on a live
+account), no-telemetry, and local-only items; the dual-mode/MCP item does not apply to a skill plugin.
+
+Last verified: 2026-05-28.
