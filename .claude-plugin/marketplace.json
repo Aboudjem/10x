@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff (AI-powered QA, 427 tests), ui-ux-suite (design audit across 12 dimensions, 24 UX laws), recap-studio (one-page explainers, 7-dimension validation). Zero bloat. Dual-mode: install as a Claude Code plugin or as a standalone MCP server in any editor.",
+    "description": "Curated Claude Code plugins that ship quality. sniff (AI-powered QA, 427 tests), ui-ux-suite (design audit across 12 dimensions, 24 UX laws), recap-studio (one-page explainers, 7-dimension validation), aws-cost-audit (evidence-first AWS cost auditor that verifies prices live and never deletes without proof). Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit is a Claude Code skill that reads your AWS account locally.",
     "keywords": [
       "claude-code",
       "claude-code-plugin",
@@ -13,7 +13,10 @@
       "design-audit",
       "ai-agents",
       "ai-tools",
-      "dual-mode"
+      "dual-mode",
+      "aws",
+      "aws-cost-optimization",
+      "finops"
     ]
   },
   "owner": {
@@ -80,6 +83,25 @@
         "validation",
         "agents",
         "mcp"
+      ]
+    },
+    {
+      "name": "aws-cost-audit",
+      "source": {
+        "source": "github",
+        "repo": "Aboudjem/aws-cost-audit-skill"
+      },
+      "description": "Evidence-first AWS cost audit. Reads your live AWS account read-only, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).",
+      "version": "0.1.0",
+      "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
+      "license": "MIT",
+      "keywords": [
+        "aws",
+        "aws-cost-optimization",
+        "finops",
+        "cost-explorer",
+        "savings",
+        "skill"
       ]
     }
   ]

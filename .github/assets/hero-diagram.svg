@@ -1,35 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships plugins like sniff and ui-ux-suite">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships four plugins — sniff, ui-ux-suite, recap-studio and aws-cost-audit">
   <style>
     .bg-grid { stroke: #f59e0b; stroke-width: 1; opacity: 0.05; }
     .node-stroke { stroke: #f59e0b; stroke-width: 1.5; }
     .node-bg { fill: #0b0b0f; }
-    .node-bg-light { fill: #ffffff; }
     .label { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; font-weight: 600; fill: #f59e0b; }
     .sub { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10px; fill: #9ca3af; letter-spacing: 0.5px; }
     .title { font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #f3f4f6; }
     .chip { font-family: ui-monospace, Menlo, monospace; font-size: 10px; fill: #f59e0b; font-weight: 600; }
-    .hub-ring { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 4 6; transform-origin: 600px 210px; animation: ring-spin 24s linear infinite; }
-    .hub-ring-2 { fill: none; stroke: #f59e0b; stroke-width: 1; stroke-dasharray: 2 4; opacity: 0.4; transform-origin: 600px 210px; animation: ring-spin-rev 18s linear infinite; }
+    .hub-ring { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 4 6; transform-origin: 480px 240px; animation: ring-spin 24s linear infinite; }
+    .hub-ring-2 { fill: none; stroke: #f59e0b; stroke-width: 1; stroke-dasharray: 2 4; opacity: 0.4; transform-origin: 480px 240px; animation: ring-spin-rev 18s linear infinite; }
     .flow-path { stroke: #f59e0b; stroke-width: 1.5; opacity: 0.35; fill: none; stroke-dasharray: 3 4; }
-    .pulse { animation: pulse 2.5s ease-in-out infinite; }
-    .pulse-2 { animation: pulse 2.5s ease-in-out infinite 0.4s; }
-    .pulse-3 { animation: pulse 2.5s ease-in-out infinite 0.8s; }
     @keyframes ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     @keyframes ring-spin-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.9; }
-      50% { opacity: 0.5; }
-    }
     @keyframes hub-glow {
       0%, 100% { filter: drop-shadow(0 0 12px rgba(245,158,11,0.4)); }
       50% { filter: drop-shadow(0 0 24px rgba(245,158,11,0.8)); }
     }
-    .hub-core { animation: hub-glow 3s ease-in-out infinite; transform-origin: 600px 210px; }
+    .hub-core { animation: hub-glow 3s ease-in-out infinite; transform-origin: 480px 240px; }
     @keyframes node-glow {
       0%, 100% { filter: drop-shadow(0 0 6px rgba(245,158,11,0.2)); }
       50% { filter: drop-shadow(0 0 12px rgba(245,158,11,0.5)); }
     }
     .node-card { animation: node-glow 4s ease-in-out infinite; }
+    .node-card-2 { animation: node-glow 4s ease-in-out infinite 1s; }
+    .node-card-3 { animation: node-glow 4s ease-in-out infinite 2s; }
+    .node-card-4 { animation: node-glow 4s ease-in-out infinite 3s; }
     @media (prefers-color-scheme: light) {
       .node-bg { fill: #ffffff; }
       .title { fill: #111827; }
@@ -47,22 +42,17 @@
       <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.05"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="flow-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#f59e0b" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
-    </linearGradient>
   </defs>
 
-  <rect width="1200" height="420" fill="url(#grid)"/>
-  <circle cx="600" cy="210" r="200" fill="url(#hub-grad)"/>
+  <rect width="1200" height="480" fill="url(#grid)"/>
+  <circle cx="480" cy="240" r="200" fill="url(#hub-grad)"/>
 
   <!-- LEFT: Your editor -->
   <g class="node-card">
-    <rect x="60" y="130" width="220" height="160" rx="14" class="node-bg node-stroke"/>
-    <text x="80" y="160" class="sub">01 · YOUR WORKFLOW</text>
-    <text x="80" y="188" class="title">Your editor</text>
-    <g transform="translate(80,212)">
+    <rect x="40" y="160" width="220" height="160" rx="14" class="node-bg node-stroke"/>
+    <text x="60" y="190" class="sub">01 · YOUR WORKFLOW</text>
+    <text x="60" y="218" class="title">Your editor</text>
+    <g transform="translate(60,242)">
       <!-- editor chips -->
       <g>
         <rect x="0" y="0" width="70" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
@@ -92,28 +82,28 @@
   </g>
 
   <!-- flow path: editor -> hub -->
-  <path id="flow-left" d="M 280 210 L 520 210" class="flow-path"/>
+  <path d="M 260 240 L 398 240" class="flow-path"/>
   <circle r="4" fill="#f59e0b">
-    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 280 210 L 520 210"/>
+    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 260 240 L 398 240"/>
   </circle>
   <circle r="3" fill="#f59e0b" opacity="0.6">
-    <animateMotion dur="2.2s" begin="0.7s" repeatCount="indefinite" path="M 280 210 L 520 210"/>
+    <animateMotion dur="2.2s" begin="0.7s" repeatCount="indefinite" path="M 260 240 L 398 240"/>
   </circle>
   <circle r="2" fill="#f59e0b" opacity="0.4">
-    <animateMotion dur="2.2s" begin="1.4s" repeatCount="indefinite" path="M 280 210 L 520 210"/>
+    <animateMotion dur="2.2s" begin="1.4s" repeatCount="indefinite" path="M 260 240 L 398 240"/>
   </circle>
 
   <!-- HUB: 10x marketplace -->
   <g>
-    <circle cx="600" cy="210" r="110" class="hub-ring"/>
-    <circle cx="600" cy="210" r="130" class="hub-ring-2"/>
+    <circle cx="480" cy="240" r="110" class="hub-ring"/>
+    <circle cx="480" cy="240" r="130" class="hub-ring-2"/>
     <g class="hub-core">
-      <circle cx="600" cy="210" r="72" fill="#0b0b0f" stroke="#f59e0b" stroke-width="2"/>
-      <text x="600" y="206" text-anchor="middle" font-family="'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="38" fill="#f59e0b">10x</text>
-      <text x="600" y="228" text-anchor="middle" class="sub">MARKETPLACE</text>
+      <circle cx="480" cy="240" r="72" fill="#0b0b0f" stroke="#f59e0b" stroke-width="2"/>
+      <text x="480" y="236" text-anchor="middle" font-family="'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="38" fill="#f59e0b">10x</text>
+      <text x="480" y="258" text-anchor="middle" class="sub">MARKETPLACE</text>
     </g>
     <!-- orbit dots -->
-    <g transform="translate(600,210)">
+    <g transform="translate(480,240)">
       <g>
         <circle cx="110" cy="0" r="3" fill="#f59e0b"/>
         <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite"/>
@@ -125,29 +115,31 @@
     </g>
   </g>
 
-  <!-- flow path: hub -> plugins -->
-  <path id="flow-right-top" d="M 680 180 Q 800 130 920 130" class="flow-path"/>
-  <path id="flow-right-bot" d="M 680 240 Q 800 290 920 290" class="flow-path"/>
-  <circle r="4" fill="#f59e0b">
-    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 680 180 Q 800 130 920 130"/>
-  </circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6">
-    <animateMotion dur="2.2s" begin="1.1s" repeatCount="indefinite" path="M 680 180 Q 800 130 920 130"/>
-  </circle>
-  <circle r="4" fill="#f59e0b">
-    <animateMotion dur="2.2s" begin="0.6s" repeatCount="indefinite" path="M 680 240 Q 800 290 920 290"/>
-  </circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6">
-    <animateMotion dur="2.2s" begin="1.7s" repeatCount="indefinite" path="M 680 240 Q 800 290 920 290"/>
-  </circle>
+  <!-- flow paths: hub -> 4 plugin cards (2x2 grid) -->
+  <!-- to card 01 (top-left of grid) -->
+  <path d="M 552 200 Q 640 130 700 130" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" repeatCount="indefinite" path="M 552 200 Q 640 130 700 130"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 552 200 Q 640 130 700 130"/></circle>
+  <!-- to card 02 (top-right of grid) -->
+  <path d="M 552 215 Q 760 110 950 130" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.3s" repeatCount="indefinite" path="M 552 215 Q 760 110 950 130"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite" path="M 552 215 Q 760 110 950 130"/></circle>
+  <!-- to card 03 (bottom-left of grid) -->
+  <path d="M 552 280 Q 640 350 700 350" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 552 280 Q 640 350 700 350"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M 552 280 Q 640 350 700 350"/></circle>
+  <!-- to card 04 (bottom-right of grid) -->
+  <path d="M 552 265 Q 760 370 950 350" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.9s" repeatCount="indefinite" path="M 552 265 Q 760 370 950 350"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="2.1s" repeatCount="indefinite" path="M 552 265 Q 760 370 950 350"/></circle>
 
-  <!-- RIGHT TOP: sniff -->
+  <!-- GRID CARD 01: sniff (top-left) -->
   <g class="node-card">
-    <rect x="920" y="74" width="220" height="112" rx="14" class="node-bg node-stroke"/>
-    <text x="940" y="102" class="sub">PLUGIN · 01</text>
-    <text x="940" y="128" class="title">sniff</text>
-    <text x="940" y="150" class="sub">QA scanner</text>
-    <g transform="translate(940,160)">
+    <rect x="700" y="74" width="220" height="124" rx="14" class="node-bg node-stroke"/>
+    <text x="720" y="102" class="sub">PLUGIN · 01</text>
+    <text x="720" y="128" class="title">sniff</text>
+    <text x="720" y="150" class="sub">QA scanner</text>
+    <g transform="translate(720,162)">
       <rect x="0" y="0" width="50" height="18" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-opacity="0.5"/>
       <text x="25" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#ef4444" font-weight="600">BUGS</text>
       <rect x="56" y="0" width="50" height="18" rx="4" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-opacity="0.5"/>
@@ -157,22 +149,54 @@
     </g>
   </g>
 
-  <!-- RIGHT BOTTOM: ui-ux-suite -->
-  <g class="node-card">
-    <rect x="920" y="234" width="220" height="112" rx="14" class="node-bg node-stroke"/>
-    <text x="940" y="262" class="sub">PLUGIN · 02</text>
-    <text x="940" y="288" class="title">ui-ux-suite</text>
-    <text x="940" y="310" class="sub">Design audit</text>
-    <g transform="translate(940,320)">
-      <rect x="0" y="0" width="70" height="18" rx="4" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-opacity="0.5"/>
-      <text x="35" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#0ea5e9" font-weight="600">12 DIMS</text>
-      <rect x="76" y="0" width="52" height="18" rx="4" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.5"/>
-      <text x="102" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#8b5cf6" font-weight="600">WCAG</text>
-      <rect x="134" y="0" width="52" height="18" rx="4" fill="#ec4899" fill-opacity="0.15" stroke="#ec4899" stroke-opacity="0.5"/>
-      <text x="160" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#ec4899" font-weight="600">APCA</text>
+  <!-- GRID CARD 02: ui-ux-suite (top-right) -->
+  <g class="node-card-2">
+    <rect x="950" y="74" width="220" height="124" rx="14" class="node-bg node-stroke"/>
+    <text x="970" y="102" class="sub">PLUGIN · 02</text>
+    <text x="970" y="128" class="title">ui-ux-suite</text>
+    <text x="970" y="150" class="sub">Design audit</text>
+    <g transform="translate(970,162)">
+      <rect x="0" y="0" width="62" height="18" rx="4" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-opacity="0.5"/>
+      <text x="31" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#0ea5e9" font-weight="600">12 DIMS</text>
+      <rect x="68" y="0" width="46" height="18" rx="4" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.5"/>
+      <text x="91" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#8b5cf6" font-weight="600">WCAG</text>
+      <rect x="120" y="0" width="46" height="18" rx="4" fill="#ec4899" fill-opacity="0.15" stroke="#ec4899" stroke-opacity="0.5"/>
+      <text x="143" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#ec4899" font-weight="600">APCA</text>
+    </g>
+  </g>
+
+  <!-- GRID CARD 03: recap-studio (bottom-left) -->
+  <g class="node-card-3">
+    <rect x="700" y="282" width="220" height="124" rx="14" class="node-bg node-stroke" stroke="#7c5cff"/>
+    <text x="720" y="310" class="sub" fill="#7c5cff">PLUGIN · 03</text>
+    <text x="720" y="336" class="title">recap-studio</text>
+    <text x="720" y="358" class="sub">Explainers</text>
+    <g transform="translate(720,370)">
+      <rect x="0" y="0" width="52" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
+      <text x="26" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">5-MIN</text>
+      <rect x="58" y="0" width="66" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
+      <text x="91" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">13 AGENTS</text>
+      <rect x="130" y="0" width="50" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
+      <text x="155" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">CITED</text>
+    </g>
+  </g>
+
+  <!-- GRID CARD 04: aws-cost-audit (bottom-right) -->
+  <g class="node-card-4">
+    <rect x="950" y="282" width="220" height="124" rx="14" class="node-bg node-stroke" stroke="#FF9900"/>
+    <text x="970" y="310" class="sub" fill="#FF9900">PLUGIN · 04</text>
+    <text x="970" y="336" class="title">aws-cost-audit</text>
+    <text x="970" y="358" class="sub">AWS cost audit</text>
+    <g transform="translate(970,370)">
+      <rect x="0" y="0" width="68" height="18" rx="4" fill="#FF9900" fill-opacity="0.15" stroke="#FF9900" stroke-opacity="0.5"/>
+      <text x="34" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#FF9900" font-weight="600">LIVE PRICE</text>
+      <rect x="74" y="0" width="50" height="18" rx="4" fill="#3FB6B2" fill-opacity="0.15" stroke="#3FB6B2" stroke-opacity="0.5"/>
+      <text x="99" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB6B2" font-weight="600">GATED</text>
+      <rect x="130" y="0" width="60" height="18" rx="4" fill="#58A6FF" fill-opacity="0.15" stroke="#58A6FF" stroke-opacity="0.5"/>
+      <text x="160" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#58A6FF" font-weight="600">SAVINGS</text>
     </g>
   </g>
 
   <!-- bottom caption -->
-  <text x="600" y="395" text-anchor="middle" class="sub">one install command · zero config · dual mode (plugin + mcp)</text>
+  <text x="600" y="455" text-anchor="middle" class="sub">one install command · zero config · runs locally · no telemetry</text>
 </svg>

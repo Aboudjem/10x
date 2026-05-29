@@ -2,6 +2,18 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [1.3.0] - 2026-05-28
+
+### Added
+- `aws-cost-audit` v0.1.0 — evidence-first AWS cost auditor: reads a live AWS account read-only, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill plugin (no MCP server).
+- Animated `aws-cost-audit-diagram.svg` asset.
+
+### Changed
+- README now features four plugins instead of three; roster note and "last verified" date updated to 2026-05-28.
+- Recreated `hero-diagram.svg` to show all four plugins (it previously showed only two), in an even 2x2 grid; bottom caption no longer claims universal MCP dual-mode, since `aws-cost-audit` is skill-only.
+- `social-preview.svg` updated from "3 plugins" to "4 plugins".
+- Marketplace `metadata.description` and keywords now include `aws-cost-audit`, AWS, and FinOps; the dual-mode line is scoped to the tool plugins.
+
 ## [1.2.0] - 2026-05-13
 
 ### Added

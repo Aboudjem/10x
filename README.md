@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="License"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-3-f59e0b?style=flat-square" alt="3 Plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-4-f59e0b?style=flat-square" alt="4 Plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
@@ -17,7 +17,7 @@
 ## How it works
 
 <p align="center">
-  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships curated plugins like sniff and ui-ux-suite" width="100%">
+  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships four curated plugins: sniff, ui-ux-suite, recap-studio, and aws-cost-audit" width="100%">
 </p>
 
 <p align="center"><i>One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.</i></p>
@@ -33,7 +33,7 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Three plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
+Four plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
@@ -165,13 +165,53 @@ claude plugin install recap-studio@10x   # as a plugin
 
 ---
 
+### <img src="https://img.shields.io/badge/04-aws--cost--audit-FF9900?style=flat-square" alt="aws-cost-audit">&nbsp;&nbsp;Audit your AWS bill, safely
+
+<p align="center">
+  <img src=".github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit reads your live AWS account, attributes every dollar and verifies prices live, then returns an evidence-backed, gated savings plan" width="100%">
+</p>
+
+Reads your live AWS account (read-only by default), attributes every dollar, and finds idle, orphaned, and over-provisioned resources. Verifies every price live against the AWS Price List API — it hardcodes none — and gives each finding a confidence level, the evidence behind it, and a rollback. Nothing gets deleted without proof and your sign-off.
+
+```bash
+claude plugin install aws-cost-audit@10x   # as a plugin
+# drop-in: copy skills/aws-cost-audit into ~/.claude/skills/
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**What it does**
+- Re-baselines spend live (Cost Explorer)
+- Inventories every region, hunts waste
+- Confidence + evidence + rollback per finding
+
+</td>
+<td width="50%" valign="top">
+
+**Safe by default**
+- Read-only; destructive actions gated
+- Verifies prices live, never hardcoded
+- "Save now safely" vs "max theoretical save"
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a>
+</p>
+
+---
+
 ## Works with any AI editor
 
 <p align="center">
   <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
 </p>
 
-Every 10x plugin is **dual mode**. Install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice:
+Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit` is a Claude Code skill rather than an MCP server — it runs in Claude Code and reads your AWS account locally.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -199,7 +239,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.5.2** (427 tests), **ui-ux-suite 0.3.0** (234 tests), **recap-studio 0.2.0** (18 tests, 9.7/10 validation). Last verified 2026-05-13.
+> Current roster: **sniff 0.5.2** (427 tests), **ui-ux-suite 0.3.0** (234 tests), **recap-studio 0.2.0** (18 tests, 9.7/10 validation), **aws-cost-audit 0.1.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-28.
 
 ---
 

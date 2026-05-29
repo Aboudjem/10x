@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" fill="none" role="img" aria-label="AWS cost audit flow: a live AWS account is read read-only, every dollar is attributed and prices verified against the live AWS Price List API, and an evidence-backed savings plan with confidence and gated reversible badges is returned">
+  <style>
+    .bg-grid { stroke: #FF9900; stroke-width: 1; opacity: 0.05; }
+    .frame { fill: #0b0b0f; stroke: #FF9900; stroke-width: 1.5; }
+    .mono { font-family: ui-monospace, Menlo, monospace; font-size: 11px; fill: #e5e7eb; }
+    .mono-dim { font-family: ui-monospace, Menlo, monospace; font-size: 10px; fill: #6b7280; }
+    .title { font-family: 'SF Pro Display', system-ui, sans-serif; font-size: 15px; font-weight: 700; fill: #f3f4f6; }
+    .label { font-family: ui-monospace, Menlo, monospace; font-size: 10px; font-weight: 600; fill: #FF9900; letter-spacing: 0.5px; }
+    .flow-path { stroke: #FF9900; stroke-width: 1.5; opacity: 0.35; fill: none; stroke-dasharray: 3 4; }
+    .spoke { stroke: #FF9900; stroke-width: 1; opacity: 0.25; }
+
+    /* spend bars rise/settle */
+    @keyframes spend-rise {
+      0%, 100% { transform: scaleY(0.55); }
+      50% { transform: scaleY(1); }
+    }
+    .spend-1 { animation: spend-rise 2.6s ease-in-out infinite; transform-origin: bottom; transform-box: fill-box; }
+    .spend-2 { animation: spend-rise 2.6s ease-in-out infinite 0.3s; transform-origin: bottom; transform-box: fill-box; }
+    .spend-3 { animation: spend-rise 2.6s ease-in-out infinite 0.6s; transform-origin: bottom; transform-box: fill-box; }
+    .spend-4 { animation: spend-rise 2.6s ease-in-out infinite 0.9s; transform-origin: bottom; transform-box: fill-box; }
+    .spend-5 { animation: spend-rise 2.6s ease-in-out infinite 1.2s; transform-origin: bottom; transform-box: fill-box; }
+
+    /* price tag verify pulse */
+    @keyframes tag-pulse {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+    .tag-pulse { animation: tag-pulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+
+    /* attribute dots ping along the spokes */
+    @keyframes attr-ping {
+      0%, 100% { r: 3; opacity: 0.5; }
+      50% { r: 5; opacity: 1; }
+    }
+    .attr-1 { animation: attr-ping 2s ease-in-out infinite; transform-origin: center; }
+    .attr-2 { animation: attr-ping 2s ease-in-out infinite 0.25s; transform-origin: center; }
+    .attr-3 { animation: attr-ping 2s ease-in-out infinite 0.5s; transform-origin: center; }
+    .attr-4 { animation: attr-ping 2s ease-in-out infinite 0.75s; transform-origin: center; }
+    .attr-5 { animation: attr-ping 2s ease-in-out infinite 1s; transform-origin: center; }
+    .attr-6 { animation: attr-ping 2s ease-in-out infinite 1.25s; transform-origin: center; }
+
+    /* savings gauge fill */
+    @keyframes gauge-fill {
+      0% { stroke-dasharray: 0 264; }
+      60%, 100% { stroke-dasharray: 178 264; }
+    }
+    .gauge-ring { animation: gauge-fill 4s ease-out infinite; }
+    @keyframes number-count {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .score-num { animation: number-count 3s ease-in-out infinite; }
+
+    /* line-item slide in */
+    @keyframes line-slide {
+      0% { opacity: 0; transform: translateX(12px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    .line-1 { animation: line-slide 0.6s ease-out 0.4s both; }
+    .line-2 { animation: line-slide 0.6s ease-out 0.9s both; }
+    .line-3 { animation: line-slide 0.6s ease-out 1.4s both; }
+
+    /* command prompt glow */
+    @keyframes cmd-glow {
+      0%, 100% { stroke-opacity: 0.6; }
+      50% { stroke-opacity: 1; }
+    }
+    .cmd-frame { animation: cmd-glow 2.4s ease-in-out infinite; }
+
+    @media (prefers-color-scheme: light) {
+      .frame { fill: #ffffff; }
+      .title { fill: #111827; }
+      .mono { fill: #374151; }
+      .mono-dim { fill: #6b7280; }
+      .bg-grid { opacity: 0.08; }
+    }
+  </style>
+
+  <defs>
+    <pattern id="grid-aws" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" class="bg-grid"/>
+    </pattern>
+    <radialGradient id="aws-hub">
+      <stop offset="0%" stop-color="#FF9900" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FF9900" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aws-savings-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#58A6FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#3FB6B2" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#grid-aws)"/>
+
+  <!-- STAGE 1: live AWS account -->
+  <g transform="translate(40,80)">
+    <text x="0" y="-10" class="label">01 · INPUT · READ-ONLY</text>
+    <rect x="0" y="0" width="240" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Your live AWS account</text>
+
+    <g transform="translate(20,46)">
+      <!-- account / region row -->
+      <rect x="0" y="0" width="200" height="22" rx="4" fill="#1f2937"/>
+      <circle cx="12" cy="11" r="4" fill="#FF9900" opacity="0.8"/>
+      <text x="26" y="15" font-family="Menlo,monospace" font-size="9" fill="#9ca3af">acct 1234·5678 · us-east-1</text>
+
+      <!-- live spend bars (per-service) -->
+      <g transform="translate(0,38)">
+        <rect class="spend-1" x="2"   y="0"  width="22" height="92" rx="3" fill="#FF9900" fill-opacity="0.7"/>
+        <rect class="spend-2" x="30"  y="20" width="22" height="72" rx="3" fill="#FF9900" fill-opacity="0.55"/>
+        <rect class="spend-3" x="58"  y="8"  width="22" height="84" rx="3" fill="#FF9900" fill-opacity="0.7"/>
+        <rect class="spend-4" x="86"  y="34" width="22" height="58" rx="3" fill="#FF9900" fill-opacity="0.45"/>
+        <rect class="spend-5" x="114" y="14" width="22" height="78" rx="3" fill="#FF9900" fill-opacity="0.6"/>
+        <rect class="spend-2" x="142" y="44" width="22" height="48" rx="3" fill="#FF9900" fill-opacity="0.4"/>
+        <rect class="spend-4" x="170" y="26" width="22" height="66" rx="3" fill="#FF9900" fill-opacity="0.5"/>
+      </g>
+      <g transform="translate(0,134)" font-family="Menlo,monospace" font-size="8" fill="#6b7280">
+        <text x="13" y="0" text-anchor="middle">EC2</text>
+        <text x="41" y="0" text-anchor="middle">RDS</text>
+        <text x="69" y="0" text-anchor="middle">S3</text>
+        <text x="97" y="0" text-anchor="middle">EBS</text>
+        <text x="125" y="0" text-anchor="middle">NAT</text>
+        <text x="153" y="0" text-anchor="middle">ELB</text>
+        <text x="181" y="0" text-anchor="middle">…</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- flow arrow -->
+  <path d="M 290 180 L 430 180" class="flow-path"/>
+  <circle r="4" fill="#FF9900"><animateMotion dur="2s" repeatCount="indefinite" path="M 290 180 L 430 180"/></circle>
+  <circle r="3" fill="#FF9900" opacity="0.5"><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M 290 180 L 430 180"/></circle>
+
+  <!-- STAGE 2: attribute + verify prices -->
+  <g transform="translate(440,80)">
+    <text x="0" y="-10" class="label">02 · ATTRIBUTE · VERIFY</text>
+    <rect x="0" y="0" width="300" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Every dollar attributed</text>
+
+    <!-- attribution hub: services -> resources -->
+    <g transform="translate(120,118)">
+      <circle cx="0" cy="0" r="78" fill="url(#aws-hub)"/>
+      <circle cx="0" cy="0" r="60" fill="none" stroke="#FF9900" stroke-opacity="0.18"/>
+      <circle cx="0" cy="0" r="34" fill="none" stroke="#FF9900" stroke-opacity="0.14"/>
+
+      <!-- spokes -->
+      <g>
+        <line x1="0" y1="0" x2="58" y2="0" class="spoke"/>
+        <line x1="0" y1="0" x2="36" y2="46" class="spoke"/>
+        <line x1="0" y1="0" x2="-22" y2="54" class="spoke"/>
+        <line x1="0" y1="0" x2="-56" y2="14" class="spoke"/>
+        <line x1="0" y1="0" x2="-40" y2="-42" class="spoke"/>
+        <line x1="0" y1="0" x2="22" y2="-54" class="spoke"/>
+      </g>
+
+      <!-- attributed resource dots -->
+      <circle cx="58"  cy="0"   r="3" fill="#FF9900" class="attr-1"/>
+      <circle cx="36"  cy="46"  r="3" fill="#FF9900" class="attr-2"/>
+      <circle cx="-22" cy="54"  r="3" fill="#FF9900" class="attr-3"/>
+      <circle cx="-56" cy="14"  r="3" fill="#FF9900" class="attr-4"/>
+      <circle cx="-40" cy="-42" r="3" fill="#FF9900" class="attr-5"/>
+      <circle cx="22"  cy="-54" r="3" fill="#FF9900" class="attr-6"/>
+
+      <!-- 100% attributed core -->
+      <circle cx="0" cy="0" r="22" fill="#0b0b0f" stroke="#FF9900" stroke-width="1.5"/>
+      <text x="0" y="0" text-anchor="middle" font-family="'SF Pro Display',sans-serif" font-size="13" font-weight="800" fill="#FF9900" class="score-num">100%</text>
+      <text x="0" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="7" fill="#9ca3af">ATTRIBUTED</text>
+    </g>
+
+    <!-- live price tag -->
+    <g transform="translate(196,58)">
+      <rect class="tag-pulse" x="0" y="0" width="92" height="40" rx="8" fill="#3FB6B2" fill-opacity="0.12" stroke="#3FB6B2" stroke-opacity="0.6"/>
+      <text x="46" y="17" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB6B2" font-weight="600">AWS Price List</text>
+      <text x="46" y="30" text-anchor="middle" font-family="Menlo,monospace" font-size="8" fill="#9ca3af">verified live · $/unit</text>
+    </g>
+    <g transform="translate(196,158)">
+      <rect x="0" y="0" width="92" height="20" rx="6" fill="#0b0b0f" stroke="#FF9900" stroke-opacity="0.5"/>
+      <text x="46" y="14" text-anchor="middle" font-family="Menlo,monospace" font-size="8.5" fill="#FF9900" font-weight="600">no estimates</text>
+    </g>
+  </g>
+
+  <!-- flow arrow -->
+  <path d="M 750 180 L 890 180" class="flow-path"/>
+  <circle r="4" fill="#FF9900"><animateMotion dur="2s" repeatCount="indefinite" path="M 750 180 L 890 180"/></circle>
+  <circle r="3" fill="#FF9900" opacity="0.5"><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M 750 180 L 890 180"/></circle>
+
+  <!-- STAGE 3: evidence-backed savings plan -->
+  <g transform="translate(900,80)">
+    <text x="0" y="-10" class="label">03 · SAVINGS PLAN</text>
+    <rect x="0" y="0" width="260" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Evidence-backed plan</text>
+
+    <!-- savings gauge -->
+    <g transform="translate(58,108)">
+      <circle cx="0" cy="0" r="42" fill="none" stroke="#1f2937" stroke-width="8"/>
+      <circle cx="0" cy="0" r="42" fill="none" stroke="url(#aws-savings-grad)" stroke-width="8"
+        stroke-linecap="round" stroke-dasharray="178 264" transform="rotate(-90)"
+        class="gauge-ring"/>
+      <text x="0" y="2" text-anchor="middle" font-family="'SF Pro Display',sans-serif" font-size="20" font-weight="800" fill="#58A6FF" class="score-num">-31%</text>
+      <text x="0" y="19" text-anchor="middle" class="mono-dim">monthly</text>
+    </g>
+
+    <!-- savings line items -->
+    <g transform="translate(116,62)">
+      <g class="line-1">
+        <rect x="0" y="0" width="126" height="26" rx="6" fill="#58A6FF" fill-opacity="0.1" stroke="#58A6FF" stroke-opacity="0.4"/>
+        <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">idle RDS · -$420/mo</text>
+      </g>
+      <g class="line-2" transform="translate(0,32)">
+        <rect x="0" y="0" width="126" height="26" rx="6" fill="#3FB6B2" fill-opacity="0.1" stroke="#3FB6B2" stroke-opacity="0.4"/>
+        <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">gp2 → gp3 · -$190/mo</text>
+      </g>
+      <g class="line-3" transform="translate(0,64)">
+        <rect x="0" y="0" width="126" height="26" rx="6" fill="#FF9900" fill-opacity="0.1" stroke="#FF9900" stroke-opacity="0.4"/>
+        <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">orphan EIPs · -$58/mo</text>
+      </g>
+    </g>
+
+    <!-- confidence + safety badges -->
+    <g transform="translate(20,162)">
+      <rect x="0" y="0" width="78" height="20" rx="6" fill="#58A6FF" fill-opacity="0.15" stroke="#58A6FF" stroke-opacity="0.5"/>
+      <text x="39" y="14" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#58A6FF" font-weight="600">CONFIDENCE</text>
+      <rect x="84" y="0" width="64" height="20" rx="6" fill="#3FB6B2" fill-opacity="0.15" stroke="#3FB6B2" stroke-opacity="0.5"/>
+      <text x="116" y="14" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB6B2" font-weight="600">REVERSIBLE</text>
+      <rect x="154" y="0" width="64" height="20" rx="6" fill="#FF9900" fill-opacity="0.15" stroke="#FF9900" stroke-opacity="0.5"/>
+      <text x="186" y="14" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#FF9900" font-weight="600">GATED</text>
+    </g>
+  </g>
+
+  <!-- bottom caption -->
+  <text x="600" y="335" text-anchor="middle" font-family="Menlo,monospace" font-size="10" fill="#6b7280" letter-spacing="0.5">skill plugin · read-only AWS access · live Price List API · gated, reversible actions only</text>
+</svg>
