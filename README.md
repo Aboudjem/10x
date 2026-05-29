@@ -56,7 +56,7 @@ npx sniff-qa                        # as a standalone CLI
 <td width="50%" valign="top">
 
 **Slash commands**
-- `/sniff` - scan your project
+- `/sniff` - walk your running app
 - `/sniff-fix` - apply safe fixes
 - `/sniff-report` - open last scan
 
@@ -64,8 +64,8 @@ npx sniff-qa                        # as a standalone CLI
 <td width="50%" valign="top">
 
 **MCP tools**
-- `sniff_scan` - source + a11y + perf
-- `sniff_run` - live site checks
+- `sniff` - walk your running app (unified)
+- `sniff_scan` - source-only scan
 - `sniff_report` - formatted results
 
 </td>
