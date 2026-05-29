@@ -21,6 +21,9 @@
       100% { stroke-dashoffset: -200; opacity: 0.2; }
     }
     .sweep { stroke: #f59e0b; stroke-width: 1.5; stroke-dasharray: 4 8; animation: line-sweep 6s linear infinite; fill: none; opacity: 0.5; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
 
   <text x="600" y="22" text-anchor="middle" class="sub">WORKS AS A STANDALONE MCP SERVER IN</text>

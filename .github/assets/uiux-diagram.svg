@@ -45,6 +45,17 @@
     .bar-2 { animation: bar-grow 2.2s ease-in-out infinite 0.3s; transform-origin: left; }
     .bar-3 { animation: bar-grow 2.2s ease-in-out infinite 0.6s; transform-origin: left; }
     .bar-4 { animation: bar-grow 2.2s ease-in-out infinite 0.9s; transform-origin: left; }
+
+    @media (prefers-color-scheme: light) {
+      .frame { fill: #ffffff; }
+      .title { fill: #111827; }
+      .mono { fill: #374151; }
+      .mono-dim { fill: #6b7280; }
+      .bg-grid { opacity: 0.08; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
 
   <defs>
@@ -139,7 +150,7 @@
 
     <!-- dimension labels, compact -->
     <g transform="translate(20,185)">
-      <text class="dim-label" x="0" y="0">color · type · a11y · layout · component · flow · interact · perf · psych · platform · style · density</text>
+      <text class="dim-label" x="0" y="0">a11y · color · type · layout · component · hierarchy · interact · responsive · polish · perf · info-arch · platform</text>
     </g>
   </g>
 

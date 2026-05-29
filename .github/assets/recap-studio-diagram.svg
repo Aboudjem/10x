@@ -23,6 +23,9 @@
         .rsm-text { fill: #F2F1EE; }
         .rsm-muted{ fill: #A4A4B0; }
       }
+      @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; }
+      }
     </style>
   </defs>
   <rect class="rsm-bg" width="1200" height="280" fill="#FBFAF7"/>
@@ -40,8 +43,7 @@
       <text y="28">→ structure the content</text>
       <text y="44">→ design the layout</text>
       <text y="60">→ render to HTML</text>
-      <text y="76">cite every claim to a</text>
-      <text y="92">           source</text>
+      <text y="76">→ cite every claim to a source</text>
     </g>
 
     <!-- VALIDATION BARS -->

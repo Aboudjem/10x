@@ -79,6 +79,21 @@
       50% { stroke-opacity: 1; }
     }
     .cmd-frame { animation: cmd-glow 2.4s ease-in-out infinite; }
+
+    @media (prefers-color-scheme: light) {
+      .frame { fill: #ffffff; }
+      .frame-inset { fill: #f8fafc; }
+      .title { fill: #111827; }
+      .mono { fill: #374151; }
+      .mono-dim { fill: #6b7280; }
+      .mono-tab { fill: #6b7280; }
+      .mono-tab-active { fill: #111827; }
+      .line-no { fill: #9ca3af; }
+      .bg-grid { opacity: 0.08; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
 
   <defs>

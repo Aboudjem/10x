@@ -25,12 +25,6 @@
       0%,100% { opacity: 0.03; }
       50% { opacity: 0.1; }
     }
-    @keyframes float-up {
-      0% { transform: translateY(0); opacity: 0; }
-      20% { opacity: 0.8; }
-      80% { opacity: 0.4; }
-      100% { transform: translateY(-80px); opacity: 0; }
-    }
     @keyframes underline-sweep {
       0%,100% { transform: scaleX(0); transform-origin: left; }
       40% { transform: scaleX(1); transform-origin: left; }
@@ -94,6 +88,9 @@
     .particle-2 { animation: particle-drift-2 7s ease-in-out infinite 1s; }
     .particle-3 { animation: particle-drift-1 5.5s ease-in-out infinite 2.5s; }
     .particle-4 { animation: particle-drift-2 6.5s ease-in-out infinite 3s; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
   <defs>
     <linearGradient id="goldMain" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -207,7 +204,7 @@
 
   <!-- Supporting tagline with animated chevron -->
   <g>
-    <text x="330" y="134" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.3">Battle-tested · Zero bloat · Built for speed</text>
+    <text x="330" y="134" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.3">Tested · Zero bloat · Runs locally</text>
   </g>
 
   <!-- Claude Code badge with glint animation -->

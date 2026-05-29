@@ -74,6 +74,9 @@
       .mono-dim { fill: #6b7280; }
       .bg-grid { opacity: 0.08; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
 
   <defs>
