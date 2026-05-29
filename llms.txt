@@ -1,0 +1,35 @@
+# 10x
+
+> 10x is a curated marketplace of Claude Code plugins that ship quality, not bloat. It is a hub repository, not a tool: you add it once and install any of its four plugins. Every plugin is vanilla Node.js with no runtime dependencies, no telemetry, runs locally, and must pass an explicit eight-point quality bar to be listed. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); the AWS plugin is a Claude Code skill that reads your AWS account locally. MIT licensed (each plugin keeps its own license). Last verified 2026-05-28.
+
+The marketplace manifest is `.claude-plugin/marketplace.json`. Plugins install from their own GitHub repos via the `github` source, so installation works whether or not a package is published to npm. The quality bar lives in `QUALITY-BAR.md` and is re-verified on a quarterly review.
+
+## The four plugins
+
+- **sniff** (0.6.1, Apache-2.0): AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs — accessibility, performance, and broken interactions. Auto-detects your dev server. A source scan is also available via `sniff scan`. Repo: https://github.com/Aboudjem/sniff
+- **ui-ux-suite** (0.4.1, MIT): Design audit tool that scores a project across 12 dimensions (color, typography, accessibility, layout, and more), grounded in 24 named UX laws with primary-source citations. WCAG, APCA, and OKLCH color science. Zero dependencies. Repo: https://github.com/Aboudjem/ui-ux-suite
+- **recap-studio** (0.3.1, MIT): Generates beautiful, mobile-first one-page explainers in under 5 minutes. Output is a self-contained, offline HTML page; deterministic heuristic checks validate clarity, accessibility, and structure before you ship. Repo: https://github.com/Aboudjem/recap-studio
+- **aws-cost-audit** (0.1.0, MIT): A Claude Code skill that reads your live AWS account read-only, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. Repo: https://github.com/Aboudjem/aws-cost-audit-skill
+
+## Install
+
+- Add the marketplace once: `claude plugin marketplace add Aboudjem/10x`
+- Install a plugin: `claude plugin install <name>@10x` (e.g. `claude plugin install sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`).
+- Each tool plugin is dual-mode and also runs as a standalone MCP server (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`); see each tool's README for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev snippets. `aws-cost-audit` is a Claude Code skill rather than an MCP server.
+
+## Docs
+
+- [README](https://github.com/Aboudjem/10x/blob/main/README.md): What 10x is, the four plugins, the one-command install, and the quality bar.
+- [QUALITY-BAR.md](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md): The explicit eight-point, 32-item checklist every listed plugin must pass.
+- [CONTRIBUTING.md](https://github.com/Aboudjem/10x/blob/main/CONTRIBUTING.md): How to propose a plugin for the marketplace.
+- [AGENTS.md](https://github.com/Aboudjem/10x/blob/main/AGENTS.md): Instructions for AI agents using this marketplace.
+- [CHANGELOG.md](https://github.com/Aboudjem/10x/blob/main/CHANGELOG.md): Dated history of marketplace changes.
+- [SECURITY.md](https://github.com/Aboudjem/10x/blob/main/SECURITY.md): How to report a problem with the marketplace, and where plugin-specific reports go.
+- [Marketplace manifest](https://github.com/Aboudjem/10x/blob/main/.claude-plugin/marketplace.json): The machine-readable plugin list consumed by `claude plugin marketplace add`.
+
+## Plugin repos
+
+- [sniff](https://github.com/Aboudjem/sniff): AI-powered QA that walks your running app and finds real bugs.
+- [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite): Design audit across 12 dimensions and 24 UX laws.
+- [recap-studio](https://github.com/Aboudjem/recap-studio): Self-contained offline one-page explainers.
+- [aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill): Evidence-first, safe-by-default AWS cost audit skill.
