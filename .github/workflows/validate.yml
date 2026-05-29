@@ -71,7 +71,7 @@ jobs:
             --exclude-mail
             './**/*.md'
             './llms.txt'
-        fail: true
+          fail: true
 
       # (d) SECRET SCAN (gitleaks)
       - name: Secret scan (gitleaks)
