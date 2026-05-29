@@ -242,7 +242,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.6.1** (441 tests), **ui-ux-suite 0.4.1** (234 tests), **recap-studio 0.3.1** (44 tests), **aws-cost-audit 0.1.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-28.
+> Current roster: **sniff 0.6.1** (441 tests), **ui-ux-suite 0.4.1** (311 tests), **recap-studio 0.3.1** (44 tests), **aws-cost-audit 0.1.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-28.
 
 ---
 
