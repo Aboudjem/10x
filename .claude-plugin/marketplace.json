@@ -91,7 +91,7 @@
         "source": "github",
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
-      "description": "Evidence-first AWS cost audit. Reads your live AWS account read-only, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).",
+      "description": "Read-only, evidence-first AWS cost audit. Reads your live AWS account, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).",
       "version": "0.1.0",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",

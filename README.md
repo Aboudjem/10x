@@ -46,7 +46,7 @@ Four plugins today. Every one of them passes the [quality bar](#the-10x-bar) bel
   <img src=".github/assets/sniff-diagram.svg" alt="Sniff walks your running app, discovers its flows, and returns prioritized bug, accessibility, and performance findings" width="100%">
 </p>
 
-AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. Auto-detects your framework and port. A source scan is also available via `sniff scan`. No API keys, no config.
+AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. Auto-detects your dev server. A source scan is also available via `sniff scan`. No API keys, no config.
 
 ```bash
 claude plugin install sniff@10x     # as a plugin
@@ -87,7 +87,7 @@ npx sniff-qa                        # as a standalone CLI
   <img src=".github/assets/uiux-diagram.svg" alt="ui-ux-suite scans your project, scores 12 design dimensions, and returns an audit citing which UX law each finding violates" width="100%">
 </p>
 
-Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions: accessibility, color system, typography, layout and spacing, component quality, visual hierarchy, interaction, responsiveness, visual polish, performance UX, info architecture, and platform fit. Cites the UX law each finding violates, then gives you the fix. Zero dependencies, 100% local.
+Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions: accessibility, color system, typography, layout and spacing, component quality, visual hierarchy, interaction quality, responsiveness, visual polish, performance UX, information architecture, and platform appropriateness. Cites the UX law each finding violates, then shows you the exact fix. It audits, it never edits. Zero dependencies, 100% local.
 
 ```bash
 claude plugin install ui-ux-suite@10x   # as a plugin
