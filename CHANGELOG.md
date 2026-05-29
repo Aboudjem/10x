@@ -2,6 +2,21 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [Unreleased] - 2026-05-29
+
+### Changed
+- Aligned the plugin one-liners across `marketplace.json`, `README.md`, `ECOSYSTEM.md`, and `llms.txt` so all four surfaces agree with each plugin's own README.
+- sniff: corrected the README blurb to "Auto-detects your dev server" (was "framework and port"), matching the marketplace and llms.txt; framed `/sniff` as the flow-walk and named the unified `sniff` MCP tool.
+- ui-ux-suite: aligned the 12 dimension labels in the README to the schema (interaction quality, information architecture, platform appropriateness) and stated it is audit-only ("it audits, it never edits"); kept the 311-test and 24-UX-law counts consistent.
+- aws-cost-audit: led the marketplace description and the ECOSYSTEM row with "read-only"; corrected the ECOSYSTEM license from Apache-2.0 to MIT (matches the repo LICENSE, plugin.json, and the other surfaces).
+- Removed marketing fluff ("Battle-tested") and sentence-break em-dashes from the docs.
+
+### Added
+- Marketplace montage demo (`.github/assets/demo.gif` + `demo.mp4`) embedded in the README.
+
+### Fixed
+- Animated SVGs now respect `prefers-reduced-motion`; added light-theme guards on the dark-only sniff and ui-ux diagrams.
+
 ## [1.4.0] - 2026-05-28
 
 ### Changed
