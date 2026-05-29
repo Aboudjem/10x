@@ -101,7 +101,7 @@ npx ui-ux-suite                         # as a standalone CLI
 - `/color-audit` — contrast + palette
 - `/type-audit` — typography only
 - `/layout-audit` — spacing + grid
-- `/a11y-audit` — WCAG 2.1 + APCA
+- `/a11y-audit` — WCAG 2.2 + APCA
 - `+ 9 more specialist audits`
 
 </td>
