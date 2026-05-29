@@ -175,7 +175,7 @@
       <rect x="0" y="0" width="52" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
       <text x="26" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">5-MIN</text>
       <rect x="58" y="0" width="66" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
-      <text x="91" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">13 AGENTS</text>
+      <text x="91" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">OFFLINE</text>
       <rect x="130" y="0" width="50" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
       <text x="155" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">CITED</text>
     </g>
