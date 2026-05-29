@@ -1,0 +1,80 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate marketplace
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # (a) JSON VALIDITY — the marketplace manifest must be valid JSON
+      - name: marketplace.json is valid JSON
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          path = ".claude-plugin/marketplace.json"
+          try:
+              with open(path, "r", encoding="utf-8") as f:
+                  data = json.load(f)
+          except FileNotFoundError:
+              print(f"FAIL: {path} not found")
+              sys.exit(1)
+          except json.JSONDecodeError as e:
+              print(f"FAIL: invalid JSON in {path}: {e}")
+              sys.exit(1)
+          if "plugins" not in data or not isinstance(data["plugins"], list) or not data["plugins"]:
+              print("FAIL: marketplace.json has no non-empty 'plugins' array")
+              sys.exit(1)
+          for i, p in enumerate(data["plugins"]):
+              for field in ("name", "version", "source"):
+                  if field not in p:
+                      print(f"FAIL: plugin #{i} is missing required field '{field}'")
+                      sys.exit(1)
+          print(f"PASS: valid JSON with {len(data['plugins'])} plugin(s) -> {path}")
+          PY
+
+      # (b) claude plugin validate — run only if the CLI is available (do not hard-fail if absent)
+      - name: claude plugin validate (if CLI available)
+        shell: bash
+        run: |
+          if command -v claude >/dev/null 2>&1; then
+            echo "claude CLI found — validating marketplace manifest"
+            claude plugin validate .
+          else
+            echo "SKIP: 'claude' CLI is not installed on this runner; skipping plugin validate."
+            echo "JSON validity is already enforced by the previous step."
+          fi
+
+      # (c) MARKDOWN LINK CHECK (lychee)
+      - name: Markdown link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --accept 200,206,429
+            --exclude-mail
+            './**/*.md'
+            './llms.txt'
+        fail: true
+
+      # (d) SECRET SCAN (gitleaks)
+      - name: Secret scan (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
