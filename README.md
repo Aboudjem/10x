@@ -12,6 +12,8 @@
 
 <p align="center"><b>A curated marketplace of developer tools for Claude Code.</b><br/>No bloat. Tested. Works in any AI editor.</p>
 
+![10x marketplace demo](.github/assets/demo.gif)
+
 ---
 
 ## How it works

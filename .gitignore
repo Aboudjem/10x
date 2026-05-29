@@ -8,3 +8,4 @@ node_modules/
 *.swp
 .omc/
 .drafts/
+demo-output/
