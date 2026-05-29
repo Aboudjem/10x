@@ -69,6 +69,7 @@ jobs:
             --no-progress
             --accept 200,206,403,429
             --exclude-mail
+            --exclude linkedin\.com
             './**/*.md'
             './llms.txt'
           fail: true
