@@ -35,13 +35,16 @@ claude plugin marketplace add Aboudjem/10x
 
 Four plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
+> [!TIP]
+> Want to see them run? Each tool repo has its own demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), and [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme).
+
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
 <p align="center">
-  <img src=".github/assets/sniff-diagram.svg" alt="Sniff reads your source, sweeps it like radar, and returns prioritized bug, accessibility, and performance findings" width="100%">
+  <img src=".github/assets/sniff-diagram.svg" alt="Sniff walks your running app, discovers its flows, and returns prioritized bug, accessibility, and performance findings" width="100%">
 </p>
 
-AI-powered QA that scans source code, your running dev server, or both. Auto-detects your framework and port. No API keys, no Playwright install, no config.
+AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs — accessibility, performance, and broken interactions. Auto-detects your framework and port. A source scan is also available via `sniff scan`. No API keys, no config.
 
 ```bash
 claude plugin install sniff@10x     # as a plugin
@@ -125,10 +128,10 @@ npx ui-ux-suite                         # as a standalone CLI
 ### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;One-page explainers in under 5 minutes
 
 <p align="center">
-  <img src=".github/assets/recap-studio-diagram.svg" alt="Recap Studio takes a topic or a git diff, runs 13 specialist agents through a 7-dimension validation board, and outputs a static one-page explainer page" width="100%">
+  <img src=".github/assets/recap-studio-diagram.svg" alt="Recap Studio takes a topic or a git diff, runs deterministic heuristic checks for clarity and accessibility, and outputs a self-contained one-page explainer" width="100%">
 </p>
 
-Turn any topic or coding session into a beautiful, mobile-first one-page website a smart 18-year-old can read in 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board (facts, beginner clarity, accessibility, UX, performance, security, simplicity). Static-first Next.js. Offline-safe demo. Cite every claim.
+Turn any topic or coding session into a beautiful, mobile-first one-page explainer a smart 18-year-old can read in 5 minutes. Output is a self-contained, offline HTML page. Deterministic heuristic checks validate clarity, accessibility, and structure before you ship, and every claim is cited.
 
 ```bash
 claude plugin install recap-studio@10x   # as a plugin
@@ -149,10 +152,10 @@ claude plugin install recap-studio@10x   # as a plugin
 <td width="50%" valign="top">
 
 **What you get**
-- `RecapPageContent` JSON, every claim cited
-- Static Next.js page, ~103 KB First Load JS
-- 7-dimension scorecard, threshold-gated
-- Vercel deploy path (off-by-default)
+- A self-contained offline HTML page
+- Every claim cited to a source
+- Deterministic heuristic checks (clarity, a11y, structure)
+- Optional deploy path (off by default)
 
 </td>
 </tr>
@@ -239,7 +242,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.5.2** (427 tests), **ui-ux-suite 0.3.0** (234 tests), **recap-studio 0.2.0** (18 tests, 9.7/10 validation), **aws-cost-audit 0.1.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-28.
+> Current roster: **sniff 0.6.1** (441 tests), **ui-ux-suite 0.4.1** (234 tests), **recap-studio 0.3.1** (44 tests), **aws-cost-audit 0.1.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-28.
 
 ---
 
