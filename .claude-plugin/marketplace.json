@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff (AI-powered QA, 427 tests), ui-ux-suite (design audit across 12 dimensions, 24 UX laws), recap-studio (one-page explainers, 7-dimension validation), aws-cost-audit (evidence-first AWS cost auditor that verifies prices live and never deletes without proof). Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit is a Claude Code skill that reads your AWS account locally.",
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit is a Claude Code skill that reads your AWS account locally.",
     "keywords": [
       "claude-code",
       "claude-code-plugin",
@@ -29,8 +29,8 @@
         "source": "github",
         "repo": "Aboudjem/sniff"
       },
-      "description": "AI-powered QA testing. Scan source code, check accessibility, visual regression, performance, and run autonomous E2E discovery. Auto-detects your dev server.",
-      "version": "0.5.2",
+      "description": "AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs (accessibility, performance, and broken interactions). Auto-detects your dev server. A source scan is also available via `sniff scan`.",
+      "version": "0.6.1",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
       "keywords": [
@@ -49,7 +49,7 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) grounded in 24 named UX laws with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
       "keywords": [
@@ -70,8 +70,8 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Generate beautiful, mobile-first one-page explainers in under 5 minutes. 13 specialist agents pass typed JSON through a 7-dimension validation board; offline-safe demo for any topic or coding session. Static-first Next.js output.",
-      "version": "0.2.0",
+      "description": "Generate beautiful, mobile-first one-page explainers in under 5 minutes. Builds self-contained, offline HTML pages from any topic or coding session, with deterministic heuristic checks that validate clarity, accessibility, and structure before you ship.",
+      "version": "0.3.1",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
