@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      # (a) JSON VALIDITY — the marketplace manifest must be valid JSON
+      # (a) JSON VALIDITY: the marketplace manifest must be valid JSON
       - name: marketplace.json is valid JSON
         shell: bash
         run: |
@@ -49,13 +49,13 @@ jobs:
           print(f"PASS: valid JSON with {len(data['plugins'])} plugin(s) -> {path}")
           PY
 
-      # (b) claude plugin validate — run only if the CLI is available (do not hard-fail if absent)
+      # (b) claude plugin validate: run only if the CLI is available (do not hard-fail if absent)
       - name: claude plugin validate (if CLI available)
         shell: bash
         run: |
           if command -v claude >/dev/null 2>&1; then
-            echo "claude CLI found — validating marketplace manifest"
-            claude plugin validate .
+            echo "claude CLI found, validating marketplace manifest (strict)"
+            claude plugin validate . --strict
           else
             echo "SKIP: 'claude' CLI is not installed on this runner; skipping plugin validate."
             echo "JSON validity is already enforced by the previous step."
@@ -73,8 +73,23 @@ jobs:
             './llms.txt'
           fail: true
 
-      # (d) SECRET SCAN (gitleaks)
+      # (d) SECRET SCAN (gitleaks, working-tree directory scan)
+      # We download a pinned gitleaks binary and run `gitleaks dir` instead of
+      # gitleaks/gitleaks-action@v2, which fails on this repo with
+      # "failed to scan Git repository error=stderr is not empty" (a known
+      # action bug tied to its git-log range and stderr check). A directory
+      # scan of the working tree is robust and does not depend on git history.
       - name: Secret scan (gitleaks)
-        uses: gitleaks/gitleaks-action@v2
+        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_VERSION: "8.24.3"
+        run: |
+          set -euo pipefail
+          asset="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          url="https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${asset}"
+          echo "Downloading $url"
+          curl -fsSL -o /tmp/gitleaks.tar.gz "$url"
+          tar -xzf /tmp/gitleaks.tar.gz -C /tmp gitleaks
+          chmod +x /tmp/gitleaks
+          /tmp/gitleaks version
+          /tmp/gitleaks dir . --no-banner --redact --exit-code 1
