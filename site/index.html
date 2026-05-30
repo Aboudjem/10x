@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>10x - a curated marketplace of developer tools for Claude Code</title>
+  <meta name="description" content="10x is a curated marketplace of four Claude Code plugins: sniff, ui-ux-suite, recap-studio, and aws-cost-audit. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
+  <meta property="og:title" content="10x - curated developer tools for Claude Code" />
+  <meta property="og:description" content="Four curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
+  <meta property="og:image" content="assets/social-preview.png" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #141414;
+      --ink: #ececec;
+      --muted: #9a9a9a;
+      --accent: #f59e0b;
+      --border: #262626;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 64px 0 16px; text-align: center; }
+    header img.logo { width: min(420px, 80%); height: auto; }
+    .tagline { font-size: 1.15rem; color: var(--muted); margin: 18px auto 0; max-width: 640px; }
+    .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px 0 8px; }
+    .btn {
+      display: inline-block; padding: 11px 18px; border-radius: 10px;
+      border: 1px solid var(--border); color: var(--ink); font-weight: 600;
+    }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #0a0a0a; }
+    .demo { margin: 36px 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
+    .demo img { display: block; width: 100%; height: auto; }
+    section { margin: 44px 0; }
+    h2 { font-size: 1.4rem; margin: 0 0 14px; }
+    pre {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px 16px; overflow-x: auto; font-size: 0.9rem; margin: 8px 0;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .plugin {
+      background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 20px 22px; margin: 18px 0;
+    }
+    .plugin h3 { margin: 0 0 4px; font-size: 1.15rem; }
+    .plugin .lic { color: var(--muted); font-size: 0.82rem; font-weight: 400; }
+    .plugin p.desc { margin: 6px 0 12px; color: var(--ink); }
+    .plugin .links { margin-top: 10px; font-size: 0.92rem; }
+    .plugin .links a { margin-right: 14px; }
+    footer { color: var(--muted); text-align: center; padding: 40px 0 64px; font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 48px; }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <img class="logo" src="assets/logo-dark.svg" alt="10x" onerror="this.style.display='none'" />
+    <p class="tagline">A curated marketplace of developer tools for Claude Code. No bloat. Tested. Works in any AI editor.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/Aboudjem/10x">View on GitHub</a>
+      <a class="btn" href="#plugins">See the plugins</a>
+      <a class="btn" href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">Quality bar</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="demo">
+      <img src="assets/demo.gif" alt="A montage of the four 10x plugins running" onerror="this.style.display='none'" />
+    </div>
+
+    <section>
+      <h2>Add the marketplace once</h2>
+      <pre><code>claude plugin marketplace add Aboudjem/10x</code></pre>
+      <p>Then install any plugin by name with <code>claude plugin install &lt;name&gt;@10x</code>. Each tool plugin also ships a one-line <code>install.sh</code> for other AI CLIs.</p>
+    </section>
+
+    <section id="plugins">
+      <h2>The four plugins</h2>
+
+      <div class="plugin">
+        <h3>sniff <span class="lic">Apache-2.0</span></h3>
+        <p class="desc">AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. A source scan is also available via <code>sniff scan</code>.</p>
+        <pre><code>claude plugin install sniff@10x
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/sniff">GitHub</a>
+          <a href="https://www.npmjs.com/package/sniff-qa">npm: sniff-qa</a>
+          <a href="https://aboudjem.github.io/sniff/">Pages demo</a>
+        </div>
+      </div>
+
+      <div class="plugin">
+        <h3>ui-ux-suite <span class="lic">MIT</span></h3>
+        <p class="desc">Design audit tool that scores a project across 12 dimensions grounded in 24 named UX laws with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies. It audits, it never edits.</p>
+        <pre><code>claude plugin install ui-ux-suite@10x
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub</a>
+          <a href="https://www.npmjs.com/package/ui-ux-suite">npm: ui-ux-suite</a>
+          <a href="https://aboudjem.github.io/ui-ux-suite/">Pages demo</a>
+        </div>
+      </div>
+
+      <div class="plugin">
+        <h3>recap-studio <span class="lic">MIT</span></h3>
+        <p class="desc">Turns any topic or coding session into a clean, mobile-first one-page explainer in under 5 minutes. Output is a self-contained, offline HTML page; deterministic heuristic checks validate clarity, accessibility, and structure before you ship.</p>
+        <pre><code>claude plugin install recap-studio@10x
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/recap-studio">GitHub</a>
+          <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture</a>
+          <a href="https://aboudjem.github.io/recap-studio/">Pages demo</a>
+        </div>
+      </div>
+
+      <div class="plugin">
+        <h3>aws-cost-audit <span class="lic">MIT</span></h3>
+        <p class="desc">Read-only, evidence-first AWS cost audit. Reads your live AWS account, attributes every dollar, finds idle, orphaned, and over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).</p>
+        <pre><code>claude plugin install aws-cost-audit@10x
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub</a>
+          <a href="https://aboudjem.github.io/aws-cost-audit-skill/">Pages demo</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>The 10x bar</h2>
+      <p>Every plugin here passes an explicit eight-point quality bar: zero runtime dependencies, one-command install, real tests, dual mode (plugin and MCP server, where applicable), active maintenance, and no telemetry. If a plugin stops passing, it gets removed. The full checklist lives in <a href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">QUALITY-BAR.md</a>.</p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Built by <a href="https://github.com/Aboudjem">Adam Boudjemaa</a>. MIT License. No telemetry, no data collection.
+    <br />
+    <a href="https://github.com/Aboudjem/10x">github.com/Aboudjem/10x</a>
+  </footer>
+</body>
+</html>
