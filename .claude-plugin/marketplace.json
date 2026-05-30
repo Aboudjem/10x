@@ -1,23 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit is a Claude Code skill that reads your AWS account locally.",
-    "keywords": [
-      "claude-code",
-      "claude-code-plugin",
-      "marketplace",
-      "mcp",
-      "mcp-server",
-      "developer-tools",
-      "qa",
-      "design-audit",
-      "ai-agents",
-      "ai-tools",
-      "dual-mode",
-      "aws",
-      "aws-cost-optimization",
-      "finops"
-    ]
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit is a Claude Code skill that reads your AWS account locally."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -71,7 +55,7 @@
         "repo": "Aboudjem/recap-studio"
       },
       "description": "Generate beautiful, mobile-first one-page explainers in under 5 minutes. Builds self-contained, offline HTML pages from any topic or coding session, with deterministic heuristic checks that validate clarity, accessibility, and structure before you ship.",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
@@ -92,7 +76,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Read-only, evidence-first AWS cost audit. Reads your live AWS account, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
