@@ -16,7 +16,7 @@ The marketplace manifest is `.claude-plugin/marketplace.json`. Plugins install f
 - Add the marketplace once: `claude plugin marketplace add Aboudjem/10x`
 - Install a plugin: `claude plugin install <name>@10x` (e.g. `claude plugin install sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`).
 - Each tool plugin is dual-mode and also runs as a standalone MCP server (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`); see each tool's README for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev snippets. `aws-cost-audit` is a Claude Code skill rather than an MCP server.
-- Each tool plugin also ships a one-line multi-CLI installer: `curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>` (for example `bash -s codex`), plus `.cursor-plugin` and `.copilot-plugin` manifests. `claude plugin install <name>@10x` stays the primary path.
+- Each tool plugin also ships a one-line multi-CLI installer (sniff shown as the example): `curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex`, plus `.cursor-plugin` and `.copilot-plugin` manifests. The same pattern applies to ui-ux-suite and recap-studio (swap the repo name). `claude plugin install <name>@10x` stays the primary path.
 
 ## Docs
 
