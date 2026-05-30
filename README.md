@@ -10,6 +10,14 @@
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
+<p align="center">
+  <b>English</b> ·
+  <a href="READMEs/zh-CN.md">简体中文</a> ·
+  <a href="READMEs/ja.md">日本語</a> ·
+  <a href="READMEs/es.md">Español</a> ·
+  <a href="READMEs/fr.md">Français</a>
+</p>
+
 <p align="center"><b>A curated marketplace of developer tools for Claude Code.</b><br/>No bloat. Tested. Works in any AI editor.</p>
 
 ![10x marketplace demo](.github/assets/demo.gif)
@@ -258,6 +266,18 @@ The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BA
 ## Contributing
 
 Got a plugin that belongs here? See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+## Star History
+
+<a href="https://star-history.com/#Aboudjem/10x&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Aboudjem/10x&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Aboudjem/10x&type=Date" />
+    <img alt="Star history chart for Aboudjem/10x" src="https://api.star-history.com/svg?repos=Aboudjem/10x&type=Date" width="70%" />
+  </picture>
+</a>
 
 ---
 
