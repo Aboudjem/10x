@@ -1,6 +1,6 @@
 # Security Policy
 
-10x is a **plugin marketplace** — a curated hub, not a tool that runs your code. This repo ships the
+10x is a **plugin marketplace**, a curated hub, not a tool that runs your code. This repo ships the
 marketplace manifest (`.claude-plugin/marketplace.json`), the quality bar, documentation, and static
 assets. It contains no executable runtime and collects no data.
 
@@ -8,10 +8,10 @@ assets. It contains no executable runtime and collects no data.
 
 This security policy covers **the marketplace itself**:
 
-- The marketplace manifest (`.claude-plugin/marketplace.json`) — for example, a plugin entry that
+- The marketplace manifest (`.claude-plugin/marketplace.json`), for example a plugin entry that
   points to the wrong repository, a tampered or unexpected source, or a version pin that does not
   match the upstream plugin repo.
-- The repository's links and documentation — for example, a link that resolves to a repo other than
+- The repository's links and documentation, for example a link that resolves to a repo other than
   the named `Aboudjem/<plugin>`.
 - Anything in this repo that could leak a secret, key, or credential (there should be none).
 
@@ -39,7 +39,7 @@ responsibly with credit to the reporter if wanted.
 
 - The marketplace manifest lists only plugins authored or vetted by the maintainer, installed from
   their own `Aboudjem/<repo>` GitHub source.
-- This repo has no telemetry, no analytics, and no runtime network calls — it is a manifest plus
+- This repo has no telemetry, no analytics, and no runtime network calls; it is a manifest plus
   docs and static assets.
 - CI (`.github/workflows/validate.yml`) validates that the manifest is valid JSON and scans tracked
   files for secrets on every push and pull request.

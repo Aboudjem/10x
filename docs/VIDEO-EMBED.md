@@ -10,10 +10,10 @@ GitHub renders only from an uploaded attachment URL.
 This is a **marketplace montage**: a single ~49s reel that stitches together the
 real, rendered demo clips of all four 10x plugins:
 
-1. `sniff` — walks a running app and finds real bugs
-2. `ui-ux-suite` — scores 12 design dimensions and shows the exact fix
-3. `recap-studio` — turns a topic into a one-page explainer
-4. `aws-cost-audit` — read-only AWS bill audit, safe by default
+1. `sniff`: walks a running app and finds real bugs
+2. `ui-ux-suite`: scores 12 design dimensions and shows the exact fix
+3. `recap-studio`: turns a topic into a one-page explainer
+4. `aws-cost-audit`: read-only AWS bill audit, safe by default
 
 Structure: intro card → per-plugin title card + hero segment (x4) → editors strip
 → close card with the repo URL. The four plugin segments are trimmed straight from

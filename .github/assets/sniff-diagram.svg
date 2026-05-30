@@ -12,7 +12,7 @@
     .label { font-family: ui-monospace, Menlo, monospace; font-size: 10px; font-weight: 600; fill: #ef4444; letter-spacing: 0.5px; }
     .flow-path { stroke: #ef4444; stroke-width: 1.5; opacity: 0.35; fill: none; stroke-dasharray: 3 4; }
 
-    /* radar blip pop — scales a circle only */
+    /* radar blip pop: scales a circle only */
     @keyframes blip-pop {
       0%, 100% { opacity: 0; transform: scale(0.8); }
       10% { opacity: 1; transform: scale(1.15); }
@@ -22,7 +22,7 @@
     .radar-blip-2 { animation: blip-pop 4s ease-in-out infinite 1.4s; transform-origin: center; transform-box: fill-box; }
     .radar-blip-3 { animation: blip-pop 4s ease-in-out infinite 2.2s; transform-origin: center; transform-box: fill-box; }
 
-    /* finding row — staggered slide-in, stays visible */
+    /* finding row: staggered slide-in, stays visible */
     @keyframes finding-slide {
       0% { opacity: 0; transform: translateX(14px); }
       100% { opacity: 1; transform: translateX(0); }
