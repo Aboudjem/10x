@@ -8,10 +8,10 @@ This repo is a **Claude Code plugin marketplace**, a curated hub, not a tool. It
 
 ## The four plugins
 
-- **sniff** (0.6.1, Apache-2.0): AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs (accessibility, performance, broken interactions). Auto-detects the dev server; a source scan is available via `sniff scan`. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
-- **ui-ux-suite** (0.4.1, MIT): Design audit tool that scores a project across 12 dimensions grounded in 24 named UX laws with primary-source citations (WCAG, APCA, OKLCH). Zero dependencies. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
-- **recap-studio** (0.3.1, MIT): Builds self-contained, offline one-page HTML explainers from any topic or coding session; deterministic heuristic checks validate clarity, accessibility, and structure. Dual-mode. Repo: `Aboudjem/recap-studio`.
-- **aws-cost-audit** (0.1.0, MIT): A Claude Code skill that reads a live AWS account read-only, attributes every dollar, verifies prices live, and ships a safe, reversible, gated savings plan. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.
+- **sniff** (0.7.0, Apache-2.0): AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs (accessibility, performance, broken interactions). Auto-detects the dev server; a source scan is available via `sniff scan`. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
+- **ui-ux-suite** (0.5.0, MIT): Design audit tool that scores a project across 12 dimensions grounded in 24 named UX laws with primary-source citations (WCAG, APCA, OKLCH). Zero dependencies. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
+- **recap-studio** (0.4.0, MIT): Builds self-contained, offline one-page HTML explainers from any topic or coding session; deterministic heuristic checks validate clarity, accessibility, and structure. Dual-mode. Repo: `Aboudjem/recap-studio`.
+- **aws-cost-audit** (0.2.0, MIT): A Claude Code skill that reads a live AWS account read-only, attributes every dollar, verifies prices live, and ships a safe, reversible, gated savings plan. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.
 
 ## How an agent should install from this marketplace
 
@@ -23,7 +23,7 @@ This repo is a **Claude Code plugin marketplace**, a curated hub, not a tool. It
 
 These keep the marketplace correct and the listing honest.
 
-1. **The source of truth for the listing is `.claude-plugin/marketplace.json`.** Keep it valid JSON. After any edit, run `claude plugin validate .` (the only warning that is acceptable is `metadata.keywords: Unknown field`, which Claude Code ignores at load time; the keywords are kept for GitHub/SEO discoverability).
+1. **The source of truth for the listing is `.claude-plugin/marketplace.json`.** Keep it valid JSON. After any edit, run `claude plugin validate . --strict`; it must pass clean (exit 0). Do not add a top-level `version` and do not add `metadata.keywords`: Claude Code ignores `metadata.keywords` at load time and it makes `--strict` fail with an unknown-field error. Per-entry `keywords` arrays are fine. Keep `metadata.description`.
 2. **Version pins must match the upstream plugin repos.** Do not invent or guess a version. Bump a pin only to a version that actually exists in the plugin's repo. The `.github/workflows/bump-plugin.yml` automation exists to bump a single pin; keep it.
 3. **No fabricated numbers.** Do not embed unverifiable test counts, scores, or "N-dimension" claims that you cannot confirm from the live plugin repo. Describe what a plugin does, not a stat that goes stale the moment upstream changes.
 4. **Plugin-specific behavior, bugs, and security issues belong in the plugin's own repo**, not here. This repo only owns the marketplace manifest, the quality bar, and the docs that describe the four plugins.
@@ -41,7 +41,7 @@ These keep the marketplace correct and the listing honest.
 ## Validate before claiming done
 
 - `python3 -m json.tool .claude-plugin/marketplace.json` parses with no error.
-- `claude plugin validate .` passes (the `metadata.keywords` warning is acceptable).
+- `claude plugin validate . --strict` passes clean (exit 0, no warnings).
 - Every version pin matches the upstream plugin repo; every plugin repo link resolves.
 - No secret, key, or PEM in any tracked file.
 

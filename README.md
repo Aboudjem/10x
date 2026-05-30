@@ -49,8 +49,10 @@ Four plugins today. Every one of them passes the [quality bar](#the-10x-bar) bel
 AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. Auto-detects your dev server. A source scan is also available via `sniff scan`. No API keys, no config.
 
 ```bash
-claude plugin install sniff@10x     # as a plugin
+claude plugin install sniff@10x     # as a plugin (primary)
 npx sniff-qa                        # as a standalone CLI
+# one-line multi-CLI install (Cursor, Codex, Gemini, Copilot, and more):
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex
 ```
 
 <table>
@@ -90,8 +92,10 @@ npx sniff-qa                        # as a standalone CLI
 Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions: accessibility, color system, typography, layout and spacing, component quality, visual hierarchy, interaction quality, responsiveness, visual polish, performance UX, information architecture, and platform appropriateness. Cites the UX law each finding violates, then shows you the exact fix. It audits, it never edits. Zero dependencies, 100% local.
 
 ```bash
-claude plugin install ui-ux-suite@10x   # as a plugin
+claude plugin install ui-ux-suite@10x   # as a plugin (primary)
 npx ui-ux-suite                         # as a standalone CLI
+# one-line multi-CLI install (Cursor, Codex, Gemini, Copilot, and more):
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex
 ```
 
 <table>
@@ -136,8 +140,10 @@ npx ui-ux-suite                         # as a standalone CLI
 Turn any topic or coding session into a clean, mobile-first one-page explainer a smart 18-year-old can read in 5 minutes. Output is a self-contained, offline HTML page. Deterministic heuristic checks validate clarity, accessibility, and structure before you ship, and every claim is cited.
 
 ```bash
-claude plugin install recap-studio@10x   # as a plugin
+claude plugin install recap-studio@10x   # as a plugin (primary)
 /recap "Latest AI models"                # in any Claude Code session
+# one-line multi-CLI install (Cursor, Codex, Gemini, Copilot, and more):
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex
 ```
 
 <table>
@@ -179,8 +185,9 @@ claude plugin install recap-studio@10x   # as a plugin
 Reads your live AWS account (read-only by default), attributes every dollar, and finds idle, orphaned, and over-provisioned resources. Verifies every price live against the AWS Price List API (it hardcodes none) and gives each finding a confidence level, the evidence behind it, and a rollback. Nothing gets deleted without proof and your sign-off.
 
 ```bash
-claude plugin install aws-cost-audit@10x   # as a plugin
-# drop-in: copy skills/aws-cost-audit into ~/.claude/skills/
+claude plugin install aws-cost-audit@10x   # as a plugin (primary)
+# one-line install into another CLI's skills directory:
+curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex
 ```
 
 <table>
@@ -224,7 +231,7 @@ npx ui-ux-suite         --mcp
 # recap-studio also ships an MCP server (see its README; requires a local build)
 ```
 
-Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
+Each tool plugin also ships a one-line `install.sh` that wires it into another CLI's skills directory in a single command (`curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>`), plus `.cursor-plugin` and `.copilot-plugin` manifests. Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
 
 ---
 
@@ -244,7 +251,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.6.1** (441 tests), **ui-ux-suite 0.4.1** (311 tests), **recap-studio 0.3.1** (44 tests), **aws-cost-audit 0.1.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-28.
+> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-30.
 
 ---
 
