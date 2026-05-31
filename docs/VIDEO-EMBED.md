@@ -7,24 +7,25 @@ GitHub renders only from an uploaded attachment URL.
 
 ## What the demo is
 
-This is a **marketplace montage**: a single ~52s reel covering all five 10x plugins:
+This is a **marketplace montage**: a single ~54s reel covering all six 10x plugins:
 
 1. `sniff`: walks a running app and finds real bugs
 2. `ui-ux-suite`: scores 12 design dimensions and shows the exact fix
 3. `recap-studio`: turns a topic into a one-page explainer
 4. `aws-cost-audit`: read-only AWS bill audit, safe by default
 5. `goalify`: prepares a self-deleting `/goal` run a fresh session executes
+6. `humanizer`: detects AI writing patterns and rewrites text to sound human
 
-> Note: `goalify` is skill-only, so it has no standalone demo clip. It appears as a
-> title-card beat (`scenes/goalify.html` -> `clips/cg.mp4`, green `#3FB950`) inserted
-> before the editors strip, not as a hero segment. The first four plugins each get a
-> title card plus a hero segment.
+> Note: `goalify` and `humanizer` are skill-only, so they have no standalone demo clip.
+> Each appears as a title-card beat (`scenes/goalify.html` -> `clips/cg.mp4`, green `#3FB950`;
+> `scenes/humanizer.html` -> `clips/chum.mp4`, magenta `#d946ef`) inserted before the editors
+> strip, not as a hero segment. The first four plugins each get a title card plus a hero segment.
 
 Structure: intro card → per-plugin title card + hero segment (x4 for sniff,
-ui-ux-suite, recap-studio, aws-cost-audit) → goalify title card (skill-only, no hero
-segment) → editors strip → close card with the repo URL. The four hero segments are
-trimmed straight from each plugin repo's own `demo-output/output.mp4`, so they are
-authentic.
+ui-ux-suite, recap-studio, aws-cost-audit) → goalify title card → humanizer title card
+(both skill-only, no hero segment) → editors strip → close card with the repo URL. The four
+hero segments are trimmed straight from each plugin repo's own `demo-output/output.mp4`, so
+they are authentic.
 
 ## Adding the HTML5 native player (manual, optional)
 

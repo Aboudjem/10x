@@ -13,7 +13,7 @@ claude plugin marketplace add Aboudjem/10x
 ```
 
 This registers the 10x marketplace in your Claude Code config. You only do this once.
-All five plugins become available to install by name.
+All six plugins become available to install by name.
 
 ### Step 2 — Install a plugin
 
@@ -32,6 +32,9 @@ claude plugin install aws-cost-audit@10x
 
 # Install goalify (Claude Code skill; writes a self-deleting /goal file)
 claude plugin install goalify@10x
+
+# Install humanizer (Claude Code skill; detects AI writing patterns and rewrites text)
+claude plugin install humanizer@10x
 ```
 
 Each install wires up the plugin's MCP tools, slash commands, and agents automatically.
@@ -67,6 +70,12 @@ After installing `goalify`, in any Claude Code session:
 
 ```
 /goalify <your task>
+```
+
+After installing `humanizer`, in any Claude Code session:
+
+```
+/humanizer "<your text>" --score
 ```
 
 ---

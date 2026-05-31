@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="ライセンス"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-5-f59e0b?style=flat-square" alt="5 プラグイン"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-6-f59e0b?style=flat-square" alt="6 プラグイン"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="スター"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## 仕組み
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="あなたのエディタが 10x マーケットプレイスと通信し、マーケットプレイスは厳選された 5 つのプラグイン（sniff、ui-ux-suite、recap-studio、aws-cost-audit、goalify）を提供します" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="あなたのエディタが 10x マーケットプレイスと通信し、マーケットプレイスは厳選された 6 つのプラグイン（sniff、ui-ux-suite、recap-studio、aws-cost-audit、goalify、humanizer）を提供します" width="100%">
 </p>
 
 <p align="center"><i>インストールコマンドは 1 つだけ。各プラグインが MCP ツール、スラッシュコマンド、エージェントを自動で接続します。</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## プラグイン
 
-現在 5 つのプラグインがあります。そのすべてが以下の[品質基準](#10x-の基準)を満たしています。
+現在 6 つのプラグインがあります。そのすべてが以下の[品質基準](#10x-の基準)を満たしています。
 
 > [!TIP]
-> 動作を見たいですか？各ツールのリポジトリには独自のデモがあります: [sniff](https://github.com/Aboudjem/sniff#readme)、[ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme)、[recap-studio](https://github.com/Aboudjem/recap-studio#readme)、[aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme)、[goalify](https://github.com/Aboudjem/goalify#readme)。
+> 動作を見たいですか？各ツールのリポジトリには独自のデモがあります: [sniff](https://github.com/Aboudjem/sniff#readme)、[ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme)、[recap-studio](https://github.com/Aboudjem/recap-studio#readme)、[aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme)、[goalify](https://github.com/Aboudjem/goalify#readme)、[humanizer](https://github.com/Aboudjem/humanizer-skill#readme)。
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;ユーザーより先にバグを見つける
 
@@ -261,13 +261,49 @@ claude plugin install goalify@10x   # as a plugin (primary)
 
 ---
 
+### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;AI っぽい文章を、人間らしい文章に書き直す
+
+43 種類の AI ライティングパターン（過剰なシンボル表現、宣伝的な言い回し、em ダッシュの乱用、3 の法則、AI 特有の語彙、否定的な並列構造、曖昧な帰属表現など）を検出し、文長のばらつき（burstiness）と 5 つのボイスプロファイルを使って文章を書き直します。0 から 100 の AI 検出スコアをオンデマンドで算出します。純粋な Markdown 実装で、依存関係なし、ネットワーク呼び出しなし。
+
+```bash
+claude plugin install humanizer@10x   # as a plugin (primary)
+/humanizer "your text"                # in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**何をするか**
+- 43 のAIライティングパターンを検出してスコアを算出する
+- 5 つのボイスプロファイル（casual、professional、technical、warm、blunt）で書き直す
+- detect（スキャンのみ）、rewrite（完全変換）、edit（ファイル内編集）の 3 モード
+
+</td>
+<td width="50%" valign="top">
+
+**得られるもの**
+- 0〜100 の AI 検出スコア（`--score` オプション）
+- 文長のばらつき（burstiness）による自然な読み心地
+- Claude Code のスキル（MCP サーバーなし、CLI なし）
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a>
+</p>
+
+---
+
 ## あらゆる AI エディタで動作
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Claude Code、Cursor、VS Code、Codex、Gemini、Windsurf、Continue、その他あらゆる MCP 対応エディタで動作します" width="100%">
 </p>
 
-10x の各**ツール**プラグインは**デュアルモード**です: Claude Code プラグインとしてインストールするか、お好みのエディタで素のままの MCP サーバーとして実行できます。（`aws-cost-audit` と `goalify` は MCP サーバーではなく Claude Code のスキルなので、Claude Code 内で動作します。）
+10x の各**ツール**プラグインは**デュアルモード**です: Claude Code プラグインとしてインストールするか、お好みのエディタで素のままの MCP サーバーとして実行できます。（`aws-cost-audit`、`goalify`、`humanizer` は MCP サーバーではなく Claude Code のスキルなので、Claude Code 内で動作します。）
 
 ```bash
 npx sniff-qa            --mcp
@@ -295,7 +331,7 @@ npx ui-ux-suite         --mcp
 8 項目（32 要素）の完全なチェックリストは [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md) にあります。メンテナーは四半期レビューで各プラグインを再検証します。
 
 > [!NOTE]
-> 現在のラインナップ: **sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（テストを持つ 5 つのパッケージにわたる 43 tests）、**aws-cost-audit 0.2.0**（テストファーストで構築、実アカウントでエンドツーエンドに検証済み、ハードコードされた価格はゼロ）、**goalify 1.0.0**（自己完結型で自己削除する `/goal` ハンドオフを書き出す Claude Code スキル）。最終検証日: 2026-05-30。
+> 現在のラインナップ: **sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（テストを持つ 5 つのパッケージにわたる 43 tests）、**aws-cost-audit 0.2.0**（テストファーストで構築、実アカウントでエンドツーエンドに検証済み、ハードコードされた価格はゼロ）、**goalify 1.0.0**（自己完結型で自己削除する `/goal` ハンドオフを書き出す Claude Code スキル）、**humanizer 0.1.0**（43 の AI ライティングパターンを検出し、burstiness と 5 つのボイスプロファイルで書き直す Claude Code スキル）。最終検証日: 2026-05-30。
 
 ---
 

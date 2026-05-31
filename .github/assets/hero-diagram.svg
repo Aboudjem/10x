@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 480" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships five plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit and goalify">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 480" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships six plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify and humanizer">
   <style>
     .bg-grid { stroke: #f59e0b; stroke-width: 1; opacity: 0.05; }
     .node-stroke { stroke: #f59e0b; stroke-width: 1.5; }
@@ -26,6 +26,7 @@
     .node-card-3 { animation: node-glow 4s ease-in-out infinite 1.6s; }
     .node-card-4 { animation: node-glow 4s ease-in-out infinite 2.4s; }
     .node-card-5 { animation: node-glow 4s ease-in-out infinite 3.2s; }
+    .node-card-6 { animation: node-glow 4s ease-in-out infinite 4s; }
     @media (prefers-color-scheme: light) {
       .node-bg { fill: #ffffff; }
       .title { fill: #111827; }
@@ -117,26 +118,30 @@
     </g>
   </g>
 
-  <!-- flow paths: hub -> 5 plugin cards (3 top, 2 bottom) -->
-  <path d="M 552 212 Q 640 150 700 134" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" repeatCount="indefinite" path="M 552 212 Q 640 150 700 134"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 552 212 Q 640 150 700 134"/></circle>
+  <!-- flow paths: hub -> 6 plugin cards (3 top, 3 bottom) -->
+  <path d="M 548 206 Q 620 150 680 135" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" repeatCount="indefinite" path="M 548 206 Q 620 150 680 135"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 548 206 Q 620 150 680 135"/></circle>
 
-  <path d="M 552 218 Q 770 116 980 96" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.3s" repeatCount="indefinite" path="M 552 218 Q 770 116 980 96"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite" path="M 552 218 Q 770 116 980 96"/></circle>
+  <path d="M 552 212 Q 730 120 898 135" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.3s" repeatCount="indefinite" path="M 552 212 Q 730 120 898 135"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite" path="M 552 212 Q 730 120 898 135"/></circle>
 
-  <path d="M 552 226 Q 880 84 1160 104" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.8s" begin="0.5s" repeatCount="indefinite" path="M 552 226 Q 880 84 1160 104"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.8s" begin="1.9s" repeatCount="indefinite" path="M 552 226 Q 880 84 1160 104"/></circle>
+  <path d="M 552 220 Q 840 96 1116 135" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.8s" begin="0.5s" repeatCount="indefinite" path="M 552 220 Q 840 96 1116 135"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.8s" begin="1.9s" repeatCount="indefinite" path="M 552 220 Q 840 96 1116 135"/></circle>
 
-  <path d="M 552 264 Q 680 352 789 354" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 552 264 Q 680 352 789 354"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M 552 264 Q 680 352 789 354"/></circle>
+  <path d="M 548 274 Q 620 330 680 359" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 548 274 Q 620 330 680 359"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M 548 274 Q 620 330 680 359"/></circle>
 
-  <path d="M 552 270 Q 800 384 1007 354" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.9s" repeatCount="indefinite" path="M 552 270 Q 800 384 1007 354"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="2.1s" repeatCount="indefinite" path="M 552 270 Q 800 384 1007 354"/></circle>
+  <path d="M 552 268 Q 730 360 898 359" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.9s" repeatCount="indefinite" path="M 552 268 Q 730 360 898 359"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="2.1s" repeatCount="indefinite" path="M 552 268 Q 730 360 898 359"/></circle>
+
+  <path d="M 552 260 Q 840 384 1116 359" class="flow-path"/>
+  <circle r="4" fill="#f59e0b"><animateMotion dur="2.8s" begin="1.1s" repeatCount="indefinite" path="M 552 260 Q 840 384 1116 359"/></circle>
+  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.8s" begin="2.4s" repeatCount="indefinite" path="M 552 260 Q 840 384 1116 359"/></circle>
 
   <!-- CARD 01: sniff (top-left) -->
   <g class="node-card" transform="translate(680,76)">
@@ -187,7 +192,7 @@
   </g>
 
   <!-- CARD 04: aws-cost-audit (bottom-left) -->
-  <g class="node-card-4" transform="translate(789,300)">
+  <g class="node-card-4" transform="translate(680,300)">
     <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#FF9900"/>
     <text x="18" y="28" class="sub" fill="#FF9900">PLUGIN · 04</text>
     <text x="18" y="52" class="title">aws-cost-audit</text>
@@ -202,8 +207,8 @@
     </g>
   </g>
 
-  <!-- CARD 05: goalify (bottom-right) -->
-  <g class="node-card-5" transform="translate(1007,300)">
+  <!-- CARD 05: goalify (bottom-middle) -->
+  <g class="node-card-5" transform="translate(898,300)">
     <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#3FB950"/>
     <text x="18" y="28" class="sub" fill="#3FB950">PLUGIN · 05</text>
     <text x="18" y="52" class="title">goalify</text>
@@ -215,6 +220,22 @@
       <text x="83" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB950" font-weight="600">VERIFY</text>
       <rect x="116" y="0" width="46" height="18" rx="4" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-opacity="0.5"/>
       <text x="139" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB950" font-weight="600">AUTO</text>
+    </g>
+  </g>
+
+  <!-- CARD 06: humanizer (bottom-right) -->
+  <g class="node-card-6" transform="translate(1116,300)">
+    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#d946ef"/>
+    <text x="18" y="28" class="sub" fill="#d946ef">PLUGIN · 06</text>
+    <text x="18" y="52" class="title">humanizer</text>
+    <text x="18" y="72" class="sub">AI-writing fixer</text>
+    <g transform="translate(18,82)">
+      <rect x="0" y="0" width="54" height="18" rx="4" fill="#d946ef" fill-opacity="0.15" stroke="#d946ef" stroke-opacity="0.5"/>
+      <text x="27" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#d946ef" font-weight="600">SCORE</text>
+      <rect x="60" y="0" width="52" height="18" rx="4" fill="#d946ef" fill-opacity="0.15" stroke="#d946ef" stroke-opacity="0.5"/>
+      <text x="86" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#d946ef" font-weight="600">VOICE</text>
+      <rect x="118" y="0" width="52" height="18" rx="4" fill="#d946ef" fill-opacity="0.15" stroke="#d946ef" stroke-opacity="0.5"/>
+      <text x="144" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#d946ef" font-weight="600">BURST</text>
     </g>
   </g>
 

@@ -92,7 +92,7 @@ document its slash commands and MCP tools.
 
 ---
 
-## Current roster (5)
+## Current roster (6)
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
@@ -101,6 +101,7 @@ document its slash commands and MCP tools.
 | 3 | `recap-studio`    | 0.4.0 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
 | 4 | `aws-cost-audit`  | 0.2.0 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | 5 | `goalify`         | 1.0.0 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
+| 6 | `humanizer`       | 0.1.0 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first, independently verified end-to-end on a live
@@ -111,5 +112,11 @@ zero-bloat (a single `SKILL.md`, no runtime deps), one-command-install (`claude 
 goalify@10x`), real-verification (built test-first, with a recorded RED→GREEN eval baseline on Haiku,
 Sonnet, and Opus plus manifest smoke tests in CI), no-telemetry, and local-only items; the
 dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
+
+`humanizer` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the
+bar's zero-bloat (pure Markdown, zero dependencies, no network calls), one-command-install
+(`claude plugin install humanizer@10x`), real-verification (detects 43 AI writing patterns with a
+0-100 AI-tell score, 5 voice profiles, and 3 modes: detect, rewrite, edit), no-telemetry, and
+local-only items; the dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
 
 Last verified: 2026-05-30.

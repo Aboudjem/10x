@@ -2,6 +2,18 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [1.7.0] - 2026-05-30
+
+### Added
+- **humanizer** (0.1.0, MIT) joins the marketplace as the sixth plugin: a Claude Code skill that detects 43 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles (casual, professional, technical, warm, blunt), and a 0-100 AI-tell score, across three modes (detect, rewrite, edit). Pure Markdown, zero dependencies, no network calls. Installed from the `github` source (`Aboudjem/humanizer-skill`). Listed under the same skill-plugin carve-out as `aws-cost-audit` and `goalify` (the dual-mode/MCP and standalone-CLI bar items do not apply to a skill plugin).
+- New animated, GitHub-safe `.github/assets/humanizer-diagram.svg` (magenta `#d946ef` accent, hand-authored SMIL/CSS, three stages detect -> rewrite -> humanized, `prefers-reduced-motion` and light-mode guards, no scripts or external refs).
+
+### Changed
+- Roster is now six plugins across every text surface: `marketplace.json` (passes `claude plugin validate . --strict` clean), `README.md` (badge `plugins-5`->`6`, hero alt text, new plugin card 06, editor/skill carve-out, roster note), `QUALITY-BAR.md` (roster table 5->6 + humanizer skill carve-out note), `ECOSYSTEM.md` (table row + what's-tested bullet + hub bumped to v1.7.0), `llms.txt`, `AGENTS.md`, `examples/README.md`, `site/index.html`, and the four localized READMEs (`zh-CN`, `ja`, `es`, `fr`).
+- `hero-diagram.svg` rebuilt from a 3-2 (five-card) grid to a 3-3 layout that holds six plugin cards on the same `0 0 1320 480` viewBox; the bottom row was realigned to the top row's columns and a magenta `#d946ef` `humanizer` card added bottom-right, with the six hub-to-card flow paths recomputed. `social-preview.svg` sub-tagline updated to "6 plugins. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer."
+- `social-preview.png` regenerated from the updated `social-preview.svg` via headless Chrome at 1280x640 (the `system-ui` wordmark/taglines fall back to San Francisco since Inter is not installed; the JetBrains Mono install pill renders natively). It now reads "6 plugins ... humanizer."
+- `demo.gif` rebuilt to a ~54s montage that now includes a `humanizer` beat: a 3.0s magenta title-card segment (`scenes/humanizer.html` -> `clips/chum.mp4`, accent `#d946ef`) inserted after the goalify beat and before the editors strip, crossfaded into the chain via an updated `xfade.txt`/`build_concat.sh`. `humanizer` is skill-only so it has no hero segment. Output is 960x540, 6.78 MB (under the 10 MB GitHub cap). The demo pipeline (`demo-output/`, gitignored) and `make-titles.sh` were updated to include the humanizer card.
+
 ## [1.6.0] - 2026-05-30
 
 ### Added

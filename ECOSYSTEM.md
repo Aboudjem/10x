@@ -18,8 +18,9 @@ server / CLI in any editor. Zero bloat, evidence-backed, polished. Last aligned 
 | **recap-studio** | 0.4.0 | One-page explainers. Turns a topic or a coding session into **one self-contained, offline-safe dark HTML file** (inlined CSS, zero JS, opens by double-click). Validation = deterministic heuristic checks. | `claude plugin install recap-studio@10x` | [Aboudjem/recap-studio](https://github.com/Aboudjem/recap-studio) | _(npm at 0.2.0)_ | MIT |
 | **aws-cost-audit** | 0.2.0 | AWS cost audit. **Read-only** by default: analyzes your live AWS spend and surfaces concrete, gated savings. Built test-first, verified end-to-end on a live account, **zero hardcoded prices** (reads live pricing). | `claude plugin install aws-cost-audit@10x` | [Aboudjem/aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill) | _(skill, no npm)_ | MIT |
 | **goalify** | 1.0.0 | Autonomous task prep. Scopes a big coding task, locks the few real decisions, and writes a **self-contained, self-deleting `/goal` file** so a fresh full-context session executes and verifies the whole job, then deletes the file only on full success. A Claude Code skill (no MCP server). | `claude plugin install goalify@10x` | [Aboudjem/goalify](https://github.com/Aboudjem/goalify) | _(skill, no npm)_ | MIT |
+| **humanizer** | 0.1.0 | AI-writing detector and rewriter. Detects **43 AI writing patterns** (inflated symbolism, em dash overuse, promotional language, rule-of-three, and more), rewrites with sentence-length burstiness across **5 voice profiles** (casual, professional, technical, warm, blunt), and produces a **0-100 AI-tell score**. Three modes: detect, rewrite, edit. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server). | `claude plugin install humanizer@10x` | [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) | _(skill, no npm)_ | MIT |
 
-Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v1.6.0).
+Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v1.7.0).
 
 ## What's tested
 
@@ -28,6 +29,7 @@ Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v1.6.0).
 - **recap-studio**: 43 tests across 5 test-bearing packages.
 - **aws-cost-audit**: built test-first; CI checks frontmatter, JSON validity, no hardcoded prices, no secrets, and link resolution.
 - **goalify**: built test-first; ships manifest smoke tests (`tests/test_manifests.py`) plus deterministic and behavioral evals with a recorded RED→GREEN baseline on Haiku, Sonnet, and Opus.
+- **humanizer**: CI validates required files, SKILL.md structure, the 43-pattern catalog (the README badge count must match the catalog), zero em dashes in its own docs (the skill obeys its own anti-em-dash rule), and that no internal files leak.
 
 ## Multi-editor support
 

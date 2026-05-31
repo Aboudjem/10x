@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="Licencia"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-5-f59e0b?style=flat-square" alt="5 plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-6-f59e0b?style=flat-square" alt="6 plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Estrellas"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## Cómo funciona
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Tu editor se comunica con el marketplace 10x, que distribuye cinco plugins curados: sniff, ui-ux-suite, recap-studio, aws-cost-audit y goalify" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Tu editor se comunica con el marketplace 10x, que distribuye seis plugins curados: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify y humanizer" width="100%">
 </p>
 
 <p align="center"><i>Un único comando de instalación. Cada plugin conecta automáticamente sus herramientas MCP, sus comandos de barra y sus agentes.</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Cinco plugins hoy. Cada uno de ellos pasa la [barra de calidad](#la-barra-10x) de abajo.
+Seis plugins hoy. Cada uno de ellos pasa la [barra de calidad](#la-barra-10x) de abajo.
 
 > [!TIP]
-> ¿Quieres verlos en acción? Cada repositorio de herramienta tiene su propia demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme) y [goalify](https://github.com/Aboudjem/goalify#readme).
+> ¿Quieres verlos en acción? Cada repositorio de herramienta tiene su propia demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), [goalify](https://github.com/Aboudjem/goalify#readme) y [humanizer](https://github.com/Aboudjem/humanizer-skill#readme).
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Encuentra errores antes que tus usuarios
 
@@ -265,13 +265,49 @@ claude plugin install goalify@10x   # as a plugin (primary)
 
 ---
 
+### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;Detecta y reescribe patrones de escritura de IA
+
+Detecta 43 patrones de escritura de IA (lenguaje promocional, uso excesivo del guion largo, paralelismos negativos, vocabulario típico de IA, entre otros) y reescribe el texto con variación real de longitud de oraciones (burstiness), cinco perfiles de voz y una puntuación de 0 a 100 que mide cuánto suena a IA. Tres modos: `detect` (analizar y puntuar, sin reescribir), `rewrite` (transformación completa, modo por defecto) y `edit` (edición en el propio archivo). Una skill de Claude Code (sin servidor MCP, sin CLI).
+
+```bash
+claude plugin install humanizer@10x   # as a plugin (primary)
+/humanizer "tu texto"                 # then, in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Qué hace**
+- Detecta 43 patrones de escritura de IA y asigna una puntuación de 0 a 100
+- Reescribe con burstiness real: mezcla oraciones cortas y largas como un humano
+- Cinco perfiles de voz: casual, profesional, técnico, cercano, directo
+
+</td>
+<td width="50%" valign="top">
+
+**Sin dependencias**
+- Markdown puro, sin llamadas a la red ni claves de API
+- Se ejecuta íntegramente en local dentro de Claude Code
+- Sin servidor MCP, sin CLI, sin install.sh
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a>
+</p>
+
+---
+
 ## Funciona con cualquier editor de IA
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Funciona con Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue y cualquier editor compatible con MCP" width="100%">
 </p>
 
-Cada plugin **herramienta** de 10x es **de modo dual**: instálalo como plugin de Claude Code, o ejecútalo como un simple servidor MCP en el editor que prefieras. (`aws-cost-audit` y `goalify` son skills de Claude Code en lugar de servidores MCP, así que se ejecutan en Claude Code: `aws-cost-audit` lee tu cuenta de AWS localmente y `goalify` escribe un archivo `/goal` autoeliminable.)
+Cada plugin **herramienta** de 10x es **de modo dual**: instálalo como plugin de Claude Code, o ejecútalo como un simple servidor MCP en el editor que prefieras. (`aws-cost-audit`, `goalify` y `humanizer` son skills de Claude Code en lugar de servidores MCP, así que se ejecutan en Claude Code: `aws-cost-audit` lee tu cuenta de AWS localmente, `goalify` escribe un archivo `/goal` autoeliminable y `humanizer` reescribe texto directamente en la sesión.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -299,7 +335,7 @@ Cada plugin aquí pasa esta barra. Si deja de pasarla, se retira.
 La lista completa de ocho puntos (32 elementos) está en [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md). Los mantenedores revisan cada plugin contra ella en una revisión trimestral.
 
 > [!NOTE]
-> Lista actual: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests repartidos en 5 paquetes con pruebas), **aws-cost-audit 0.2.0** (construido con enfoque test-first, verificado de extremo a extremo en una cuenta real, sin precios codificados), **goalify 1.0.0** (construido con enfoque test-first; tests de manifiesto y de skill-lint, y una línea base de evaluación registrada RED→GREEN en Haiku, Sonnet y Opus). Última verificación el 2026-05-30.
+> Lista actual: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests repartidos en 5 paquetes con pruebas), **aws-cost-audit 0.2.0** (construido con enfoque test-first, verificado de extremo a extremo en una cuenta real, sin precios codificados), **goalify 1.0.0** (construido con enfoque test-first; tests de manifiesto y de skill-lint, y una línea base de evaluación registrada RED→GREEN en Haiku, Sonnet y Opus), **humanizer 0.1.0** (skill-only, Markdown puro, sin dependencias en tiempo de ejecución; 43 patrones de escritura de IA verificados, 5 perfiles de voz, puntuación de 0-100). Última verificación el 2026-05-30.
 
 ---
 

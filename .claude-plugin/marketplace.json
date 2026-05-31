@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes a self-contained, self-deleting /goal file so a fresh session runs and verifies a big coding task autonomously. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit and goalify are Claude Code skills (no MCP server)."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes a self-contained, self-deleting /goal file so a fresh session runs and verifies a big coding task autonomously. humanizer detects 43 AI writing patterns and rewrites text with sentence-length burstiness, voice profiles, and a 0-100 AI-tell score. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit, goalify, and humanizer are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -105,6 +105,26 @@
         "task-planning",
         "agent-skills",
         "productivity",
+        "skill"
+      ]
+    },
+    {
+      "name": "humanizer",
+      "source": {
+        "source": "github",
+        "repo": "Aboudjem/humanizer-skill"
+      },
+      "description": "Detects 43 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Catches inflated symbolism, promotional language, em dash overuse, rule-of-three, and AI vocabulary. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).",
+      "version": "0.1.0",
+      "homepage": "https://github.com/Aboudjem/humanizer-skill",
+      "license": "MIT",
+      "keywords": [
+        "humanizer",
+        "ai-writing",
+        "ai-detection",
+        "burstiness",
+        "voice-profiles",
+        "text-rewriting",
         "skill"
       ]
     }

@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>10x - a curated marketplace of developer tools for Claude Code</title>
-  <meta name="description" content="10x is a curated marketplace of five Claude Code plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, and goalify. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
+  <meta name="description" content="10x is a curated marketplace of six Claude Code plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, and humanizer. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
   <meta property="og:title" content="10x - curated developer tools for Claude Code" />
-  <meta property="og:description" content="Five curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
+  <meta property="og:description" content="Six curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
   <meta property="og:image" content="assets/social-preview.png" />
   <style>
     :root {
@@ -82,7 +82,7 @@
     </section>
 
     <section id="plugins">
-      <h2>The five plugins</h2>
+      <h2>The six plugins</h2>
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
@@ -138,6 +138,16 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 /goalify &lt;your task&gt;</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/goalify">GitHub</a>
+        </div>
+      </div>
+
+      <div class="plugin" style="border-color: #d946ef33;">
+        <h3 style="color: #d946ef;">humanizer <span class="lic">MIT</span></h3>
+        <p class="desc">Detects 43 AI writing patterns and rewrites text to read like a human wrote it. Measures burstiness and produces a 0-100 AI-tell score. Five voice profiles (casual, professional, technical, warm, blunt) and three modes: detect (scan and score only), rewrite (full transform, default), and edit (in-place file edits). Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).</p>
+        <pre><code>claude plugin install humanizer@10x
+/humanizer "your text" [--mode detect|rewrite|edit] [--voice casual|professional|technical|warm|blunt] [--score]</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/humanizer-skill">GitHub</a>
         </div>
       </div>
     </section>
