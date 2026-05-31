@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>10x - a curated marketplace of developer tools for Claude Code</title>
-  <meta name="description" content="10x is a curated marketplace of four Claude Code plugins: sniff, ui-ux-suite, recap-studio, and aws-cost-audit. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
+  <meta name="description" content="10x is a curated marketplace of five Claude Code plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, and goalify. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
   <meta property="og:title" content="10x - curated developer tools for Claude Code" />
-  <meta property="og:description" content="Four curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
+  <meta property="og:description" content="Five curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
   <meta property="og:image" content="assets/social-preview.png" />
   <style>
     :root {
@@ -72,7 +72,7 @@
 
   <main class="wrap">
     <div class="demo">
-      <img src="assets/demo.gif" alt="A montage of the four 10x plugins running" onerror="this.style.display='none'" />
+      <img src="assets/demo.gif" alt="A montage of the 10x plugins running" onerror="this.style.display='none'" />
     </div>
 
     <section>
@@ -82,7 +82,7 @@
     </section>
 
     <section id="plugins">
-      <h2>The four plugins</h2>
+      <h2>The five plugins</h2>
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
@@ -128,6 +128,16 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
         <div class="links">
           <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub</a>
           <a href="https://aboudjem.github.io/aws-cost-audit-skill/">Pages demo</a>
+        </div>
+      </div>
+
+      <div class="plugin">
+        <h3>goalify <span class="lic">MIT</span></h3>
+        <p class="desc">Sets up a big coding task to run on its own. Scopes the work, locks the few real decisions, and writes a self-contained, self-deleting <code>/goal</code> file so a fresh full-context session executes the whole job and verifies every success criterion before deleting the file. A Claude Code skill (no MCP server).</p>
+        <pre><code>claude plugin install goalify@10x
+/goalify &lt;your task&gt;</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/goalify">GitHub</a>
         </div>
       </div>
     </section>

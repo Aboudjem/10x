@@ -13,7 +13,7 @@ claude plugin marketplace add Aboudjem/10x
 ```
 
 This registers the 10x marketplace in your Claude Code config. You only do this once.
-All four plugins become available to install by name.
+All five plugins become available to install by name.
 
 ### Step 2 — Install a plugin
 
@@ -29,6 +29,9 @@ claude plugin install recap-studio@10x
 
 # Install the AWS cost auditor (Claude Code skill, read-only)
 claude plugin install aws-cost-audit@10x
+
+# Install goalify (Claude Code skill; writes a self-deleting /goal file)
+claude plugin install goalify@10x
 ```
 
 Each install wires up the plugin's MCP tools, slash commands, and agents automatically.
@@ -58,6 +61,12 @@ After installing `aws-cost-audit`, open a session with AWS credentials in your e
 
 ```
 /aws-cost-audit
+```
+
+After installing `goalify`, in any Claude Code session:
+
+```
+/goalify <your task>
 ```
 
 ---

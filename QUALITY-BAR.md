@@ -92,7 +92,7 @@ document its slash commands and MCP tools.
 
 ---
 
-## Current roster (4)
+## Current roster (5)
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
@@ -100,9 +100,16 @@ document its slash commands and MCP tools.
 | 2 | `ui-ux-suite`     | 0.5.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
 | 3 | `recap-studio`    | 0.4.0 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
 | 4 | `aws-cost-audit`  | 0.2.0 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| 5 | `goalify`         | 1.0.0 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first, independently verified end-to-end on a live
 account), no-telemetry, and local-only items; the dual-mode/MCP item does not apply to a skill plugin.
+
+`goalify` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the bar's
+zero-bloat (a single `SKILL.md`, no runtime deps), one-command-install (`claude plugin install
+goalify@10x`), real-verification (built test-first, with a recorded RED→GREEN eval baseline on Haiku,
+Sonnet, and Opus plus manifest smoke tests in CI), no-telemetry, and local-only items; the
+dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
 
 Last verified: 2026-05-30.

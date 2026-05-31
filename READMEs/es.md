@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="Licencia"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-4-f59e0b?style=flat-square" alt="4 plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-5-f59e0b?style=flat-square" alt="5 plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Estrellas"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## Cómo funciona
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Tu editor se comunica con el marketplace 10x, que distribuye cuatro plugins curados: sniff, ui-ux-suite, recap-studio y aws-cost-audit" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Tu editor se comunica con el marketplace 10x, que distribuye cinco plugins curados: sniff, ui-ux-suite, recap-studio, aws-cost-audit y goalify" width="100%">
 </p>
 
 <p align="center"><i>Un único comando de instalación. Cada plugin conecta automáticamente sus herramientas MCP, sus comandos de barra y sus agentes.</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Cuatro plugins hoy. Cada uno de ellos pasa la [barra de calidad](#la-barra-10x) de abajo.
+Cinco plugins hoy. Cada uno de ellos pasa la [barra de calidad](#la-barra-10x) de abajo.
 
 > [!TIP]
-> ¿Quieres verlos en acción? Cada repositorio de herramienta tiene su propia demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme) y [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme).
+> ¿Quieres verlos en acción? Cada repositorio de herramienta tiene su propia demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme) y [goalify](https://github.com/Aboudjem/goalify#readme).
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Encuentra errores antes que tus usuarios
 
@@ -225,13 +225,53 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
 ---
 
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Define el objetivo, confía en la ejecución
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify investiga tu repositorio, fija las pocas decisiones reales y escribe un archivo /goal autónomo y autoeliminable que una sesión nueva ejecuta, verifica y luego elimina" width="100%">
+</p>
+
+Acota una tarea de programación grande mientras aún tiene tu contexto: lee e investiga el repositorio, fija las pocas decisiones reales y luego escribe un archivo `/goal` autónomo y autoeliminable con la meta definida como comandos que la ejecución puede comprobar. Haces `/clear` y ejecutas ese archivo; una sesión nueva con todo el contexto ejecuta el trabajo completo, prueba sobre la marcha y elimina el archivo solo cuando se cumple cada criterio de éxito. Una skill de Claude Code (sin servidor MCP, sin CLI).
+
+```bash
+claude plugin install goalify@10x   # as a plugin (primary)
+/goalify <your task>                # then, in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Qué hace**
+- Investiga el repositorio y fija las pocas decisiones reales (un único lote de preguntas)
+- Escribe un archivo `/goal` autónomo y autoeliminable
+- Entrega en dos pasos: `/clear` y luego `/goal <ruta>`
+
+</td>
+<td width="50%" valign="top">
+
+**Seguro por defecto**
+- Preparación de solo lectura, sin descargar y ejecutar en remoto
+- Criterios de éxito conectados a comandos reales
+- Se autoelimina solo si todo tiene éxito (si no, permanece para reanudar)
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/goalify">GitHub →</a>
+</p>
+
+---
+
 ## Funciona con cualquier editor de IA
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Funciona con Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue y cualquier editor compatible con MCP" width="100%">
 </p>
 
-Cada plugin **herramienta** de 10x es **de modo dual**: instálalo como plugin de Claude Code, o ejecútalo como un simple servidor MCP en el editor que prefieras. (`aws-cost-audit` es una skill de Claude Code en lugar de un servidor MCP, así que se ejecuta en Claude Code y lee tu cuenta de AWS localmente.)
+Cada plugin **herramienta** de 10x es **de modo dual**: instálalo como plugin de Claude Code, o ejecútalo como un simple servidor MCP en el editor que prefieras. (`aws-cost-audit` y `goalify` son skills de Claude Code en lugar de servidores MCP, así que se ejecutan en Claude Code: `aws-cost-audit` lee tu cuenta de AWS localmente y `goalify` escribe un archivo `/goal` autoeliminable.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -259,7 +299,7 @@ Cada plugin aquí pasa esta barra. Si deja de pasarla, se retira.
 La lista completa de ocho puntos (32 elementos) está en [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md). Los mantenedores revisan cada plugin contra ella en una revisión trimestral.
 
 > [!NOTE]
-> Lista actual: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests repartidos en 5 paquetes con pruebas), **aws-cost-audit 0.2.0** (construido con enfoque test-first, verificado de extremo a extremo en una cuenta real, sin precios codificados). Última verificación el 2026-05-30.
+> Lista actual: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests repartidos en 5 paquetes con pruebas), **aws-cost-audit 0.2.0** (construido con enfoque test-first, verificado de extremo a extremo en una cuenta real, sin precios codificados), **goalify 1.0.0** (construido con enfoque test-first; tests de manifiesto y de skill-lint, y una línea base de evaluación registrada RED→GREEN en Haiku, Sonnet y Opus). Última verificación el 2026-05-30.
 
 ---
 

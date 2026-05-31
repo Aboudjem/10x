@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit is a Claude Code skill that reads your AWS account locally."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes a self-contained, self-deleting /goal file so a fresh session runs and verifies a big coding task autonomously. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit and goalify are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -85,6 +85,26 @@
         "finops",
         "cost-explorer",
         "savings",
+        "skill"
+      ]
+    },
+    {
+      "name": "goalify",
+      "source": {
+        "source": "github",
+        "repo": "Aboudjem/goalify"
+      },
+      "description": "Set up a big coding task to run on its own. goalify scopes the work, locks the few real decisions, and writes a self-contained, self-deleting /goal file so a fresh full-context session executes the whole job and verifies every success criterion before deleting the file. A Claude Code skill (no MCP server).",
+      "version": "1.0.0",
+      "homepage": "https://github.com/Aboudjem/goalify",
+      "license": "MIT",
+      "keywords": [
+        "goalify",
+        "autonomous-agents",
+        "goal-driven",
+        "task-planning",
+        "agent-skills",
+        "productivity",
         "skill"
       ]
     }

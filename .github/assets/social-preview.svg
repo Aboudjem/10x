@@ -32,7 +32,7 @@
   <text x="120" y="452"
         font-family="Inter, system-ui, -apple-system, sans-serif"
         font-size="24" font-weight="400"
-        fill="#a1a1aa">4 plugins. sniff, ui-ux-suite, recap-studio, aws-cost-audit. Zero bloat.</text>
+        fill="#a1a1aa">5 plugins. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify. Zero bloat.</text>
 
   <!-- Install command pill -->
   <g transform="translate(120, 510)">

@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="Licence"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-4-f59e0b?style=flat-square" alt="4 plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-5-f59e0b?style=flat-square" alt="5 plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Étoiles"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## Comment ça marche
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Votre éditeur dialogue avec le marketplace 10x, qui livre quatre plugins sélectionnés : sniff, ui-ux-suite, recap-studio et aws-cost-audit" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Votre éditeur dialogue avec le marketplace 10x, qui livre cinq plugins sélectionnés : sniff, ui-ux-suite, recap-studio, aws-cost-audit et goalify" width="100%">
 </p>
 
 <p align="center"><i>Une seule commande d'installation. Chaque plugin branche automatiquement ses outils MCP, ses commandes slash et ses agents.</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Quatre plugins aujourd'hui. Chacun d'eux passe la [barre de qualité](#la-barre-10x) ci-dessous.
+Cinq plugins aujourd'hui. Chacun d'eux passe la [barre de qualité](#la-barre-10x) ci-dessous.
 
 > [!TIP]
-> Vous voulez les voir tourner ? Chaque dépôt d'outil a sa propre démo : [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme) et [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme).
+> Vous voulez les voir tourner ? Chaque dépôt d'outil a sa propre démo : [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme) et [goalify](https://github.com/Aboudjem/goalify#readme).
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Trouvez les bugs avant vos utilisateurs
 
@@ -225,13 +225,53 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
 ---
 
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Préparez une grosse tâche pour qu'elle s'exécute toute seule
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify cadre une grosse tâche de code, verrouille les quelques vraies décisions et écrit un fichier /goal autonome et auto-supprimable qu'une session neuve exécute de bout en bout en vérifiant chaque critère de réussite" width="100%">
+</p>
+
+Cadre une grosse tâche de code, verrouille les quelques vraies décisions et écrit un fichier `/goal` autonome et auto-supprimable. Vous lancez ensuite ce fichier dans une session neuve à pleine contexte, qui exécute tout le travail et vérifie chaque critère de réussite avant de supprimer le fichier.
+
+```bash
+claude plugin install goalify@10x   # as a plugin (primary)
+/goalify "<votre tâche>"            # in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Ce qu'il fait**
+- Cadre la tâche et verrouille les quelques vraies décisions
+- Écrit un fichier `/goal` autonome et auto-supprimable
+- Vérifie chaque critère de réussite avant de supprimer le fichier
+
+</td>
+<td width="50%" valign="top">
+
+**Comment l'utiliser**
+- `/goalify <votre tâche>` dans n'importe quelle session Claude Code
+- La session courante rédige le fichier de transfert
+- Une session neuve à pleine contexte exécute le travail
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/goalify">GitHub →</a>
+</p>
+
+---
+
 ## Fonctionne avec n'importe quel éditeur IA
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Fonctionne avec Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue et tout éditeur compatible MCP" width="100%">
 </p>
 
-Chaque plugin **outil** 10x est **bimodal** : installez-le comme plugin Claude Code, ou exécutez-le comme un simple serveur MCP dans l'éditeur de votre choix. (`aws-cost-audit` est une skill Claude Code plutôt qu'un serveur MCP : il s'exécute dans Claude Code et lit votre compte AWS localement.)
+Chaque plugin **outil** 10x est **bimodal** : installez-le comme plugin Claude Code, ou exécutez-le comme un simple serveur MCP dans l'éditeur de votre choix. (`aws-cost-audit` et `goalify` sont des skills Claude Code plutôt que des serveurs MCP : ils s'exécutent dans Claude Code.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -259,7 +299,7 @@ Chaque plugin ici passe cette barre. S'il cesse de la passer, il est retiré.
 La liste complète en huit points (32 éléments) se trouve dans [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md). Les mainteneurs revérifient chaque plugin par rapport à elle lors d'une revue trimestrielle.
 
 > [!NOTE]
-> Liste actuelle : **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests répartis sur 5 paquets porteurs de tests), **aws-cost-audit 0.2.0** (conçu en mode test-first, vérifié de bout en bout sur un compte réel, aucun prix codé en dur). Dernière vérification le 2026-05-30.
+> Liste actuelle : **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests répartis sur 5 paquets porteurs de tests), **aws-cost-audit 0.2.0** (conçu en mode test-first, vérifié de bout en bout sur un compte réel, aucun prix codé en dur), **goalify 1.0.0** (skill Claude Code qui écrit un fichier `/goal` autonome et auto-supprimable). Dernière vérification le 2026-05-30.
 
 ---
 

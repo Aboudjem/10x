@@ -8,12 +8,17 @@ GitHub renders only from an uploaded attachment URL.
 ## What the demo is
 
 This is a **marketplace montage**: a single ~49s reel that stitches together the
-real, rendered demo clips of all four 10x plugins:
+real, rendered demo clips of four of the 10x plugins:
 
 1. `sniff`: walks a running app and finds real bugs
 2. `ui-ux-suite`: scores 12 design dimensions and shows the exact fix
 3. `recap-studio`: turns a topic into a one-page explainer
 4. `aws-cost-audit`: read-only AWS bill audit, safe by default
+
+> Note: `goalify`, the fifth marketplace plugin, is skill-only with no standalone
+> demo clip, so it is not in this montage yet. Rebuild the montage (below) to add a
+> goalify beat; until then `demo.gif` and `social-preview.png` intentionally show
+> the original four.
 
 Structure: intro card → per-plugin title card + hero segment (x4) → editors strip
 → close card with the repo URL. The four plugin segments are trimmed straight from

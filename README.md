@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="License"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-4-f59e0b?style=flat-square" alt="4 Plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-5-f59e0b?style=flat-square" alt="5 Plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## How it works
 
 <p align="center">
-  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships four curated plugins: sniff, ui-ux-suite, recap-studio, and aws-cost-audit" width="100%">
+  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships five curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, and goalify" width="100%">
 </p>
 
 <p align="center"><i>One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Four plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
+Five plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
 > [!TIP]
-> Want to see them run? Each tool repo has its own demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), and [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme).
+> Want to see them run? Each tool repo has its own demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), and [goalify](https://github.com/Aboudjem/goalify#readme).
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
@@ -225,13 +225,53 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
 ---
 
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Set the goal, trust the run
+
+<p align="center">
+  <img src=".github/assets/goalify-diagram.svg" alt="goalify researches your repo, locks the few real decisions, and writes a self-contained, self-deleting /goal file that a fresh session executes, verifies, and then deletes" width="100%">
+</p>
+
+Scopes a big coding task while it still has your context: it reads and researches the repo, locks the few real decisions, then writes a self-contained, self-deleting `/goal` file with the finish line defined as commands the run can check. You `/clear` and run that file; a fresh full-context session executes the whole job, tests as it goes, and deletes the file only when every success criterion passes. A Claude Code skill (no MCP server, no CLI).
+
+```bash
+claude plugin install goalify@10x   # as a plugin (primary)
+/goalify <your task>                # then, in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**What it does**
+- Researches the repo, locks the few real decisions (one MCQ batch)
+- Writes a self-contained, self-deleting `/goal` file
+- Hands off two steps: `/clear`, then `/goal <path>`
+
+</td>
+<td width="50%" valign="top">
+
+**Safe by default**
+- Read-mostly prep, no remote fetch-and-execute
+- Success criteria wired to real commands
+- Self-destructs only on full success (else it stays, to resume)
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/goalify">GitHub →</a>
+</p>
+
+---
+
 ## Works with any AI editor
 
 <p align="center">
   <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
 </p>
 
-Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit` is a Claude Code skill rather than an MCP server, so it runs in Claude Code and reads your AWS account locally.)
+Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit` and `goalify` are Claude Code skills rather than MCP servers, so they run in Claude Code: aws-cost-audit reads your AWS account locally, and goalify writes a `/goal` file you run in a fresh session.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -259,7 +299,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices). Last verified 2026-05-30.
+> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices), **goalify 1.0.0** (built test-first; manifest + skill-lint tests and a recorded RED→GREEN eval baseline on Haiku, Sonnet, and Opus). Last verified 2026-05-30.
 
 ---
 
