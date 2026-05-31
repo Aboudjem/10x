@@ -17,8 +17,8 @@ real, rendered demo clips of four of the 10x plugins:
 
 > Note: `goalify`, the fifth marketplace plugin, is skill-only with no standalone
 > demo clip, so it is not in this montage yet. Rebuild the montage (below) to add a
-> goalify beat; until then `demo.gif` and `social-preview.png` intentionally show
-> the original four.
+> goalify beat; until then `demo.gif` (the montage) intentionally shows the original
+> four. `social-preview.png` has already been regenerated to show all five.
 
 Structure: intro card → per-plugin title card + hero segment (x4) → editors strip
 → close card with the repo URL. The four plugin segments are trimmed straight from

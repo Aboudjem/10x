@@ -11,9 +11,10 @@ All notable changes to this marketplace will be documented in this file.
 ### Changed
 - Roster is now five plugins across every text surface: `marketplace.json` (passes `claude plugin validate . --strict` clean), `README.md` (badge `plugins-4`->`5`, hero alt text, new plugin card 05, editor/skill carve-out, roster note), `QUALITY-BAR.md` (roster table 4->5 + goalify skill carve-out note), `ECOSYSTEM.md` (table row + what's-tested bullet + hub bumped to v1.6.0), `llms.txt`, `AGENTS.md`, `examples/README.md`, `site/index.html`, and the four localized READMEs (`zh-CN`, `ja`, `es`, `fr`).
 - `hero-diagram.svg` rebuilt from a 2x2 (four-card) grid to a balanced 3-2 layout that holds five plugin cards, on a widened `0 0 1320 480` viewBox; cards refactored into self-contained group transforms. `social-preview.svg` sub-tagline updated to "5 plugins. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify."
+- `social-preview.png` regenerated from the updated `social-preview.svg` via headless Chrome at 1280x640 (the `system-ui` wordmark/taglines fall back to San Francisco since Inter is not installed; the JetBrains Mono install pill renders natively). It now reads "5 plugins ... goalify."
 
 ### Pending (binary assets)
-- `social-preview.png`, `demo.gif`, and `demo-output/frames/*.png` still show the original four plugins. They are rendered/recorded binaries and cannot be regenerated without the render and screen-capture pipeline (no SVG renderer was available in this environment); `goalify` is skill-only with no demo clip yet. Rebuild per `docs/VIDEO-EMBED.md` to include a goalify beat and re-export `social-preview.png` from the updated `social-preview.svg`.
+- `demo.gif` and `demo-output/frames/*.png` still show the original four plugins. They are recorded video binaries and need the screen-capture pipeline in `docs/VIDEO-EMBED.md`; `goalify` is skill-only with no demo clip yet. Rebuild the montage to add a goalify beat.
 
 ## [Unreleased] - 2026-05-29
 
