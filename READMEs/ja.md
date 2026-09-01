@@ -87,7 +87,7 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.s
 
 ---
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;5 分足らずで 1 ページの解説を
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;約 5 分で読める 1 ページの解説
 
 > どんなトピックやコーディングセッションも、ダブルクリックで開ける、ダークモードに対応したモバイルファーストの解説ページに変えます。サーバーもインターネット接続も不要で、依存関係もありません。
 

@@ -29,9 +29,9 @@ Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v1.9.0).
 - **ui-ux-suite**: 311 tests (zero-dependency Node test runner).
 - **recap-studio**: 43 tests across 5 test-bearing packages.
 - **aws-cost-audit**: built test-first; CI checks frontmatter, JSON validity, no hardcoded prices, no secrets, and link resolution.
-- **goalify**: built test-first; ships manifest smoke tests (`tests/test_manifests.py`) plus deterministic and behavioral evals with a recorded RED→GREEN baseline on Haiku, Sonnet, and Opus.
-- **humanizer**: CI validates required files, SKILL.md structure, the 43-pattern catalog (the README badge count must match the catalog), zero em dashes in its own docs (the skill obeys its own anti-em-dash rule), and that no internal files leak.
-- **loopify**: built test-first; CI runs manifest tests and a deterministic skill eval (**136/136** assertions on the shipped `SKILL.md`), plus a recorded behavioral baseline on the release-PR scenario: **RED 1/7 -> GREEN 7/7** on Sonnet, scored by a separate Opus judge.
+- **goalify**: built test-first; ships manifest smoke tests (`tests/test_manifests.py`) plus deterministic and behavioral evals.
+- **humanizer**: CI validates required files, SKILL.md structure, the 55-pattern catalog (the README badge count must match the catalog), zero em dashes in its own docs (the skill obeys its own anti-em-dash rule), and that no internal files leak.
+- **loopify**: built test-first; CI runs manifest tests and a deterministic skill eval on the shipped `SKILL.md`, plus a recorded behavioral baseline on the release-PR scenario (the numbers live in loopify's own `docs/limits.md`).
 
 ## Multi-editor support
 

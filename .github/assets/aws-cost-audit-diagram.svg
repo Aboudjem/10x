@@ -167,14 +167,14 @@
       <!-- 100% attributed core -->
       <circle cx="0" cy="0" r="22" fill="#0b0b0f" stroke="#FF9900" stroke-width="1.5"/>
       <text x="0" y="0" text-anchor="middle" font-family="'SF Pro Display',sans-serif" font-size="13" font-weight="800" fill="#FF9900" class="score-num">100%</text>
-      <text x="0" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="7" fill="#9ca3af">ATTRIBUTED</text>
+      <text x="0" y="34" text-anchor="middle" font-family="Menlo,monospace" font-size="7" fill="#9ca3af">ATTRIBUTED</text>
     </g>
 
     <!-- live price tag -->
     <g transform="translate(196,58)">
       <rect class="tag-pulse" x="0" y="0" width="92" height="40" rx="8" fill="#3FB6B2" fill-opacity="0.12" stroke="#3FB6B2" stroke-opacity="0.6"/>
       <text x="46" y="17" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB6B2" font-weight="600">AWS Price List</text>
-      <text x="46" y="30" text-anchor="middle" font-family="Menlo,monospace" font-size="8" fill="#9ca3af">verified live · $/unit</text>
+      <text x="46" y="30" text-anchor="middle" font-family="Menlo,monospace" font-size="8" fill="#9ca3af">verified live</text>
     </g>
     <g transform="translate(196,158)">
       <rect x="0" y="0" width="92" height="20" rx="6" fill="#0b0b0f" stroke="#FF9900" stroke-opacity="0.5"/>

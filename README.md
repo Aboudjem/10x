@@ -87,7 +87,7 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.s
 
 ---
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;One-page explainers in under 5 minutes
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;One-page explainers you can read in about 5 minutes
 
 > Turn any topic or coding session into a beautiful, dark-mode, mobile-first explainer you can double-click to open. No server, no internet, no dependencies.
 

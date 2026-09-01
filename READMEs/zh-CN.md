@@ -87,7 +87,7 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.s
 
 ---
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;5 分钟内做出一页式讲解
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;约 5 分钟读完的一页式讲解
 
 > 把任何主题或编程过程制作成精美的讲解页面，支持深色模式并优先适配移动设备，双击即可打开。无需服务器、网络或额外依赖。
 

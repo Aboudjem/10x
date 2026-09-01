@@ -87,7 +87,7 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.s
 
 ---
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;Guías visuales de una página en menos de 5 minutos
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;Documentos explicativos de una página que se leen en unos 5 minutos
 
 > Convierte cualquier tema o sesión de programación en una guía visual bonita, en modo oscuro y pensada para móvil, que puedes abrir con doble clic. Sin servidor, sin internet, sin dependencias.
 

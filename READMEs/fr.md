@@ -87,7 +87,7 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.s
 
 ---
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;Des explicatifs d'une page en moins de 5 minutes
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;Des explications d’une page à lire en 5 minutes environ
 
 > Transformez n'importe quel sujet ou session de code en un magnifique explicatif en mode sombre, conçu d'abord pour les appareils mobiles, que vous ouvrez d'un double-clic. Pas de serveur, pas d'internet, pas de dépendances.
 

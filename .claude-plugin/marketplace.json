@@ -54,7 +54,7 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Generate beautiful, mobile-first one-page explainers in under 5 minutes. Builds self-contained, offline HTML pages from any topic or coding session, with deterministic heuristic checks that validate clarity, accessibility, and structure before you ship.",
+      "description": "Generate beautiful, mobile-first one-page explainers you can read offline in about 5 minutes. Builds self-contained, offline HTML pages from any topic or coding session, with deterministic heuristic checks that validate clarity, accessibility, and structure before you ship.",
       "version": "0.4.0",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
