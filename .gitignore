@@ -9,3 +9,6 @@ node_modules/
 .omc/
 .drafts/
 demo-output/
+
+# goalify briefs + conditions (local)
+.goal/

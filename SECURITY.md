@@ -22,6 +22,9 @@ repository and has its own security policy. Report plugin-specific issues there:
 - `ui-ux-suite` → https://github.com/Aboudjem/ui-ux-suite
 - `recap-studio` → https://github.com/Aboudjem/recap-studio
 - `aws-cost-audit` → https://github.com/Aboudjem/aws-cost-audit-skill
+- `goalify` → https://github.com/Aboudjem/goalify
+- `humanizer` → https://github.com/Aboudjem/humanizer-skill
+- `loopify` → https://github.com/Aboudjem/loopify
 
 ## Reporting a vulnerability
 
@@ -41,5 +44,6 @@ responsibly with credit to the reporter if wanted.
   their own `Aboudjem/<repo>` GitHub source.
 - This repo has no telemetry, no analytics, and no runtime network calls; it is a manifest plus
   docs and static assets.
-- CI (`.github/workflows/validate.yml`) validates that the manifest is valid JSON and scans tracked
+- CI (`.github/workflows/validate.yml`) validates that the manifest is valid JSON, checks that every
+  version pin matches the upstream plugin repo (`scripts/sync-plugins.mjs --check`), and scans tracked
   files for secrets on every push and pull request.

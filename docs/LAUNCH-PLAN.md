@@ -1,5 +1,7 @@
 # Launch plan, June 2026
 
+> Written for the four-plugin launch. The marketplace has seven plugins as of 2026-09-01 (see the README); the counts below are historical.
+
 Supernova Standard, Pillar 1 applied to a Claude Code plugin marketplace.
 
 Stars come from velocity on a channel whose audience you don't own. A marketplace's job is borrowed reach, not cold self-promotion.
@@ -69,7 +71,7 @@ Format: origin story (why), the technical decisions (zero deps, dual-mode, test-
 
 - Ship a v2 of any plugin (sniff 0.8, ui-ux-suite 0.6, etc.) and post a release note.
 - Court one developer newsletter (TLDR AI, Changelog Nightly, or Cooper Press).
-- Add the next plugin and announce it as "10x now has five tools."
+- Add the next plugin and announce it by its new count ("10x now has eight plugins").
 
 ---
 
