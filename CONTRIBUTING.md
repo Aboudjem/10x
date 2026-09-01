@@ -22,6 +22,8 @@ If a listed plugin is broken, abandoned, or no longer maintained, open an issue.
 
 The marketplace manifest is `.claude-plugin/marketplace.json`. Keep entries concise: one-line description, correct source URL, accurate keywords.
 
+Version pins are not edited by hand; they sync automatically from each plugin repo. See [docs/SYNC.md](docs/SYNC.md).
+
 ## License
 
 By contributing, you agree your contributions will be licensed under the MIT License.

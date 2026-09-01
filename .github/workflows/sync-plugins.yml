@@ -1,0 +1,77 @@
+name: sync-plugins
+
+# Keeps the version pins in .claude-plugin/marketplace.json in step with each
+# plugin repo's .claude-plugin/plugin.json.
+#
+# Three ways in:
+#   - schedule           every 6 hours, so a missed dispatch still gets picked up
+#   - repository_dispatch a plugin repo POSTs `plugin-released` right after it tags
+#   - workflow_dispatch   manual run
+#
+# The dispatch payload is deliberately ignored: the sync re-reads every upstream
+# plugin.json, so one event repairs every pin, not just the one that fired.
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  repository_dispatch:
+    types: [plugin-released]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: sync-plugins
+
+jobs:
+  sync:
+    name: Sync marketplace version pins
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync version pins
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -o pipefail
+          node scripts/sync-plugins.mjs --write | tee /tmp/sync.txt
+
+      - name: Report to job summary
+        if: always()
+        run: |
+          {
+            echo '### sync-plugins'
+            echo ''
+            echo '```'
+            cat /tmp/sync.txt 2>/dev/null || echo '(no output)'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Validate marketplace
+        run: node scripts/validate-marketplace.mjs
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .claude-plugin/marketplace.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          # One commit for the whole run: "chore(sync): a 1.0.0 → 1.1.0, b 2.0.0 → 2.1.0"
+          bumps=$(awk '/^bump: /{ printf "%s%s %s \342\206\222 %s", (n++ ? ", " : ""), $2, $3, $5 }' /tmp/sync.txt)
+          if [ -z "$bumps" ]; then
+            bumps="marketplace version pins"
+          fi
+          git commit -m "chore(sync): $bumps"
+          git push

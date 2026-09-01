@@ -93,3 +93,27 @@ jobs:
           chmod +x /tmp/gitleaks
           /tmp/gitleaks version
           /tmp/gitleaks dir . --no-banner --redact --exit-code 1
+
+  drift:
+    name: Marketplace pins match upstream
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Unit tests
+        run: node --test "tests/**/*.test.mjs"
+
+      # Blocking: a pin that lags its plugin repo, or a plugin whose
+      # plugin.json cannot be read, fails the build. sync-plugins.yml is what
+      # fixes it; this job is what stops it shipping unnoticed.
+      - name: Version pin drift check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-plugins.mjs --check
