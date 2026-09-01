@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes the brief and the condition so a fresh session runs a big coding task and comes back with proof it finished. humanizer detects 43 AI writing patterns and rewrites text with sentence-length burstiness, voice profiles, and a 0-100 AI-tell score. loopify writes the brief and the line so Claude Code's built-in /loop keeps a recurring job running on its own and logs what every tick did. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit, goalify, humanizer, and loopify are Claude Code skills (no MCP server)."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions and cites the named UX law behind every finding. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes the brief and the condition so a fresh session runs a big coding task and comes back with proof it finished. humanizer detects 55 AI writing patterns and rewrites text with sentence-length burstiness, voice profiles, and a 0-100 AI-tell score. loopify writes the brief and the line so Claude Code's built-in /loop keeps a recurring job running on its own and logs what every tick did. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit, goalify, humanizer, and loopify are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -32,7 +32,7 @@
         "source": "github",
         "repo": "Aboudjem/ui-ux-suite"
       },
-      "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) grounded in 24 named UX laws with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
+      "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) and cites the named UX law behind every finding, with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
       "version": "0.5.0",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
@@ -114,8 +114,8 @@
         "source": "github",
         "repo": "Aboudjem/humanizer-skill"
       },
-      "description": "Detects 43 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Catches inflated symbolism, promotional language, em dash overuse, rule-of-three, and AI vocabulary. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).",
-      "version": "0.1.0",
+      "description": "Detects 55 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Catches inflated symbolism, promotional language, em dash overuse, rule-of-three, and AI vocabulary. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).",
+      "version": "0.6.2",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
       "keywords": [
