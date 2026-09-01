@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="ライセンス"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-6-f59e0b?style=flat-square" alt="6 プラグイン"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-7-f59e0b?style=flat-square" alt="7 プラグイン"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="スター"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## 仕組み
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="あなたのエディタが 10x マーケットプレイスと通信し、マーケットプレイスは厳選された 6 つのプラグイン（sniff、ui-ux-suite、recap-studio、aws-cost-audit、goalify、humanizer）を提供します" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="あなたのエディタが 10x マーケットプレイスと通信し、マーケットプレイスは厳選された 7 つのプラグイン（sniff、ui-ux-suite、recap-studio、aws-cost-audit、goalify、humanizer、loopify）を提供します" width="100%">
 </p>
 
 <p align="center"><i>インストールコマンドは 1 つだけ。各プラグインが MCP ツール、スラッシュコマンド、エージェントを自動で接続します。</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## プラグイン
 
-現在 6 つのプラグインがあります。そのすべてが以下の[品質基準](#10x-の基準)を満たしています。
+現在 7 つのプラグインがあります。そのすべてが以下の[品質基準](#10x-の基準)を満たしています。
 
 > [!TIP]
-> 動作を見たいですか？各ツールのリポジトリには独自のデモがあります: [sniff](https://github.com/Aboudjem/sniff#readme)、[ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme)、[recap-studio](https://github.com/Aboudjem/recap-studio#readme)、[aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme)、[goalify](https://github.com/Aboudjem/goalify#readme)、[humanizer](https://github.com/Aboudjem/humanizer-skill#readme)。
+> 動作を見たいですか？各ツールのリポジトリには独自のデモがあります: [sniff](https://github.com/Aboudjem/sniff#readme)、[ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme)、[recap-studio](https://github.com/Aboudjem/recap-studio#readme)、[aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme)、[goalify](https://github.com/Aboudjem/goalify#readme)、[humanizer](https://github.com/Aboudjem/humanizer-skill#readme)、[loopify](https://github.com/Aboudjem/loopify#readme)。
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;ユーザーより先にバグを見つける
 
@@ -225,9 +225,9 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
 ---
 
-### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;大きなタスクを、自走できる /goal ファイルに
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;終わったという約束ではなく、終わった証拠を
 
-大きなコーディングタスクのスコープを定め、本当に必要な数少ない決定を確定し、自己完結型で自己削除する `/goal` ファイルを書き出します。`/clear` した後、フルコンテキストの新しいセッションでそのファイルを実行すると、ジョブ全体が処理され、ファイルを削除する前にすべての成功基準が検証されます。
+大きなコーディングタスクのスコープを定め、本当に必要な数少ない決定を確定し、2 つのものを書き出します。**brief** はその実行がやるべきことを書いたファイル、**condition** は `/goal` に貼り付ける 1 行の短い文字列です。`/clear` してその 1 行を貼り付けると、フルコンテキストの新しいセッションがジョブ全体を処理し、最後のターンで通ったチェックを引用したうえで brief を `.goal/done/` に移します。
 
 ```bash
 claude plugin install goalify@10x   # as a plugin (primary)
@@ -240,14 +240,14 @@ claude plugin install goalify@10x   # as a plugin (primary)
 
 **何をするか**
 - 大きなタスクのスコープを定め、数少ない本当の決定を確定する
-- 自己完結型で自己削除する `/goal` ファイルを書き出す
+- brief（ファイル）と condition（`/goal` に貼る 1 行）を書き出す
 - 新しいフルコンテキストセッションがジョブ全体を実行する
 
 </td>
 <td width="50%" valign="top">
 
 **得られるもの**
-- 削除前にすべての成功基準を検証する
+- すべての成功基準を検証してから brief を `.goal/done/` に格納する
 - ハンドオフはこのセッションで作成、実行は別セッション
 - Claude Code のスキル（MCP サーバーなし、CLI なし）
 
@@ -297,13 +297,53 @@ claude plugin install humanizer@10x   # as a plugin (primary)
 
 ---
 
+### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;繰り返す仕事を、任せる
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify は繰り返す仕事の 1 サイクルのスコープを定め、brief と /loop に貼り付ける line を書き出します。以後は tick ごとに brief を読み直し、1 サイクルを実行し、やったことを TICKS.md に追記します" width="100%">
+</p>
+
+いつまでも終わらない仕事のために。レビューが少しずつ届くあいだリリース PR を健全に保つ、デプロイが落ち着くまで見張る、新しいバグ報告を 1 時間おきに片づける。仕事の説明は一度だけです。loopify はプロジェクトを読み、本当に必要な数少ない選択だけを尋ね、2 つのものを書き出します。**brief** はループが毎 tick の最初に読み直す常設ファイル、**line** は Claude Code 組み込みの繰り返しコマンド `/loop` に貼り付ける 1 行の短い文字列です。1 回の実行が 1 **tick** で、tick ごとにやったことが `TICKS.md` に残ります。line には tick の上限と停止ルールが、brief には 5 つの安全ガードが入っています。Claude Code のスキル（MCP サーバーなし、CLI なし）。
+
+```bash
+claude plugin install loopify@10x   # as a plugin (primary)
+/loopify <your job>                 # then, in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**何をするか**
+- プロジェクトを読み、本当に必要な問いだけを尋ね、1 サイクルのスコープを定める
+- brief（常設ファイル）と line（`/loop` に貼る 1 行）を書き出す
+- tick ごとに `TICKS.md` へ記録し、安全に処理できないものは `QUEUE.md` に残す
+
+</td>
+<td width="50%" valign="top">
+
+**デフォルトで安全**
+- tick の上限と停止ルールは line そのものに入っている
+- 5 つのガード: アカウント作成なし、支払いなし、指示がなければ push も投稿もしない
+- tick が読んだものはすべてデータであり、命令ではない
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/loopify">GitHub →</a>
+</p>
+
+---
+
 ## あらゆる AI エディタで動作
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Claude Code、Cursor、VS Code、Codex、Gemini、Windsurf、Continue、その他あらゆる MCP 対応エディタで動作します" width="100%">
 </p>
 
-10x の各**ツール**プラグインは**デュアルモード**です: Claude Code プラグインとしてインストールするか、お好みのエディタで素のままの MCP サーバーとして実行できます。（`aws-cost-audit`、`goalify`、`humanizer` は MCP サーバーではなく Claude Code のスキルなので、Claude Code 内で動作します。）
+10x の各**ツール**プラグインは**デュアルモード**です: Claude Code プラグインとしてインストールするか、お好みのエディタで素のままの MCP サーバーとして実行できます。（`aws-cost-audit`、`goalify`、`humanizer`、`loopify` は MCP サーバーではなく Claude Code のスキルなので、Claude Code 内で動作します。）
 
 ```bash
 npx sniff-qa            --mcp
@@ -331,7 +371,7 @@ npx ui-ux-suite         --mcp
 8 項目（32 要素）の完全なチェックリストは [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md) にあります。メンテナーは四半期レビューで各プラグインを再検証します。
 
 > [!NOTE]
-> 現在のラインナップ: **sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（テストを持つ 5 つのパッケージにわたる 43 tests）、**aws-cost-audit 0.2.0**（テストファーストで構築、実アカウントでエンドツーエンドに検証済み、ハードコードされた価格はゼロ）、**goalify 1.0.0**（自己完結型で自己削除する `/goal` ハンドオフを書き出す Claude Code スキル）、**humanizer 0.1.0**（43 の AI ライティングパターンを検出し、burstiness と 5 つのボイスプロファイルで書き直す Claude Code スキル）。最終検証日: 2026-05-30。
+> 現在のラインナップ: **sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（テストを持つ 5 つのパッケージにわたる 43 tests）、**aws-cost-audit 0.2.0**（テストファーストで構築、実アカウントでエンドツーエンドに検証済み、ハードコードされた価格はゼロ）、**goalify 2.5.0**（brief と condition を書き出し、成功時に brief を `.goal/done/` へ格納する Claude Code スキル）、**humanizer 0.1.0**（43 の AI ライティングパターンを検出し、burstiness と 5 つのボイスプロファイルで書き直す Claude Code スキル）、**loopify 1.0.0**（テストファーストで構築。CI でスキル評価 136/136 とマニフェストテスト、さらに Sonnet で RED→GREEN の挙動ベースラインを記録: 1/7 → 7/7）。最終検証日: 2026-09-01。
 
 ---
 

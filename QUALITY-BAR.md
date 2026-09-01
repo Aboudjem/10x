@@ -92,7 +92,7 @@ document its slash commands and MCP tools.
 
 ---
 
-## Current roster (6)
+## Current roster (7)
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
@@ -100,8 +100,9 @@ document its slash commands and MCP tools.
 | 2 | `ui-ux-suite`     | 0.5.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
 | 3 | `recap-studio`    | 0.4.0 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
 | 4 | `aws-cost-audit`  | 0.2.0 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| 5 | `goalify`         | 1.0.0 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
+| 5 | `goalify`         | 2.5.0 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
 | 6 | `humanizer`       | 0.1.0 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 7 | `loopify`         | 1.0.0 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first, independently verified end-to-end on a live
@@ -119,4 +120,10 @@ bar's zero-bloat (pure Markdown, zero dependencies, no network calls), one-comma
 0-100 AI-tell score, 5 voice profiles, and 3 modes: detect, rewrite, edit), no-telemetry, and
 local-only items; the dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
 
-Last verified: 2026-05-30.
+`loopify` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the bar's
+zero-bloat (a single `SKILL.md` plus docs, no runtime deps), one-command-install (`claude plugin
+install loopify@10x`), real-verification (built test-first, with manifest tests and a 136-assertion
+skill eval in CI plus a recorded RED 1/7 -> GREEN 7/7 behavioral baseline on Sonnet), no-telemetry,
+and local-only items; the dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
+
+Last verified: 2026-09-01.

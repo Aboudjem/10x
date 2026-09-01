@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" fill="none" role="img" aria-label="loopify flow: it reads your project and scopes one cycle of the repeating job, writes the brief (a standing file the loop re-reads every tick) and the line (one short string you paste into Claude Code's built-in /loop), then every tick re-reads the brief, runs one cycle, and appends what it did to TICKS.md until the stop rule or the tick cap ends the loop">
+  <style>
+    .bg-grid { stroke: #14b8a6; stroke-width: 1; opacity: 0.05; }
+    .frame { fill: #0b0b0f; stroke: #14b8a6; stroke-width: 1.5; }
+    .mono { font-family: ui-monospace, Menlo, monospace; font-size: 11px; fill: #e5e7eb; }
+    .mono-dim { font-family: ui-monospace, Menlo, monospace; font-size: 10px; fill: #6b7280; }
+    .title { font-family: 'SF Pro Display', system-ui, sans-serif; font-size: 15px; font-weight: 700; fill: #f3f4f6; }
+    .label { font-family: ui-monospace, Menlo, monospace; font-size: 10px; font-weight: 600; fill: #14b8a6; letter-spacing: 0.5px; }
+    .flow-path { stroke: #14b8a6; stroke-width: 1.5; opacity: 0.35; fill: none; stroke-dasharray: 3 4; }
+    .spoke { stroke: #14b8a6; stroke-width: 1; opacity: 0.25; }
+    .chip-txt { font-family: ui-monospace, Menlo, monospace; font-size: 9px; fill: #e5e7eb; }
+    .line-txt { font-family: ui-monospace, Menlo, monospace; font-size: 8px; fill: #e5e7eb; }
+
+    @keyframes fan-pulse { 0%, 100% { r: 4; opacity: 0.5; } 50% { r: 6; opacity: 1; } }
+    .fan-1 { animation: fan-pulse 2s ease-in-out infinite; }
+    .fan-2 { animation: fan-pulse 2s ease-in-out infinite 0.25s; }
+    .fan-3 { animation: fan-pulse 2s ease-in-out infinite 0.5s; }
+    .fan-4 { animation: fan-pulse 2s ease-in-out infinite 0.75s; }
+
+    @keyframes check-in { 0% { opacity: 0; transform: translateX(8px); } 100% { opacity: 1; transform: translateX(0); } }
+    .chk-1 { animation: check-in 0.6s ease-out 0.4s both; }
+    .chk-2 { animation: check-in 0.6s ease-out 0.9s both; }
+    .chk-3 { animation: check-in 0.6s ease-out 1.4s both; }
+
+    @keyframes tick-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .tick-ring { transform-origin: center; transform-box: fill-box; animation: tick-spin 6s linear infinite; }
+
+    @keyframes log-pulse { 0%, 70%, 100% { opacity: 0.6; } 84% { opacity: 1; } }
+    .log-strip { animation: log-pulse 3s ease-in-out infinite; }
+
+    @media (prefers-color-scheme: light) {
+      .frame { fill: #ffffff; }
+      .title { fill: #111827; }
+      .mono { fill: #374151; }
+      .mono-dim { fill: #6b7280; }
+      .chip-txt { fill: #374151; }
+      .line-txt { fill: #374151; }
+      .bg-grid { opacity: 0.08; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+
+  <defs>
+    <pattern id="grid-loop" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" class="bg-grid"/>
+    </pattern>
+    <radialGradient id="loop-hub">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#grid-loop)"/>
+
+  <!-- STAGE 1: scope one cycle -->
+  <g transform="translate(40,80)">
+    <text x="0" y="-10" class="label">01 · SCOPE ONE CYCLE</text>
+    <rect x="0" y="0" width="240" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Your project + the job</text>
+
+    <g transform="translate(20,44)">
+      <rect x="0" y="0" width="200" height="22" rx="4" fill="#1f2937"/>
+      <circle cx="12" cy="11" r="4" fill="#14b8a6" opacity="0.85"/>
+      <text x="26" y="15" font-family="Menlo,monospace" font-size="9" fill="#9ca3af">git log · README · gh pr list</text>
+    </g>
+
+    <!-- fan-out research spokes -->
+    <g transform="translate(120,138)">
+      <circle cx="0" cy="0" r="48" fill="url(#loop-hub)"/>
+      <line x1="0" y1="0" x2="46" y2="-18" class="spoke"/>
+      <line x1="0" y1="0" x2="48" y2="14" class="spoke"/>
+      <line x1="0" y1="0" x2="-46" y2="-18" class="spoke"/>
+      <line x1="0" y1="0" x2="-48" y2="14" class="spoke"/>
+      <circle cx="46" cy="-18" r="4" fill="#14b8a6" class="fan-1"/>
+      <circle cx="48" cy="14" r="4" fill="#14b8a6" class="fan-2"/>
+      <circle cx="-46" cy="-18" r="4" fill="#14b8a6" class="fan-3"/>
+      <circle cx="-48" cy="14" r="4" fill="#14b8a6" class="fan-4"/>
+      <circle cx="0" cy="0" r="20" fill="#0b0b0f" stroke="#14b8a6" stroke-width="1.5"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Menlo,monospace" font-size="8" fill="#14b8a6" font-weight="600">CYCLE</text>
+    </g>
+    <text x="120" y="196" text-anchor="middle" class="mono-dim">one pass · decisions locked</text>
+  </g>
+
+  <!-- flow arrow 1 -->
+  <path d="M 290 180 L 430 180" class="flow-path"/>
+  <circle r="4" fill="#14b8a6"><animateMotion dur="2s" repeatCount="indefinite" path="M 290 180 L 430 180"/></circle>
+  <circle r="3" fill="#14b8a6" opacity="0.5"><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M 290 180 L 430 180"/></circle>
+
+  <!-- STAGE 2: the brief (a file) and the line (a string) -->
+  <g transform="translate(440,80)">
+    <text x="0" y="-10" class="label">02 · THE BRIEF + THE LINE</text>
+    <rect x="0" y="0" width="300" height="200" rx="12" class="frame"/>
+    <text x="20" y="26" class="title">A file, and one string</text>
+
+    <g transform="translate(20,38)">
+      <rect x="0" y="0" width="260" height="100" rx="8" fill="#0b0b0f" stroke="#14b8a6" stroke-opacity="0.4"/>
+      <text x="14" y="20" font-family="Menlo,monospace" font-size="9" fill="#9ca3af"># BRIEF · a file, re-read every tick</text>
+      <g transform="translate(14,30)">
+        <g class="chk-1">
+          <rect x="0" y="0" width="13" height="13" rx="3" fill="none" stroke="#14b8a6"/>
+          <path d="M 2.5 6.5 L 5.5 9.5 L 11 2.5" stroke="#14b8a6" stroke-width="1.5" fill="none"/>
+          <text x="22" y="11" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">done, defined per tick</text>
+        </g>
+        <g transform="translate(0,22)"><g class="chk-2">
+          <rect x="0" y="0" width="13" height="13" rx="3" fill="none" stroke="#14b8a6"/>
+          <path d="M 2.5 6.5 L 5.5 9.5 L 11 2.5" stroke="#14b8a6" stroke-width="1.5" fill="none"/>
+          <text x="22" y="11" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">stop rule + tick cap</text>
+        </g></g>
+        <g transform="translate(0,44)"><g class="chk-3">
+          <rect x="0" y="0" width="13" height="13" rx="3" fill="none" stroke="#14b8a6"/>
+          <path d="M 2.5 6.5 L 5.5 9.5 L 11 2.5" stroke="#14b8a6" stroke-width="1.5" fill="none"/>
+          <text x="22" y="11" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">5 rails · pause and queue</text>
+        </g></g>
+      </g>
+    </g>
+
+    <text x="20" y="152" class="label">THE LINE · ONE STRING YOU PASTE</text>
+    <g transform="translate(20,158)">
+      <rect x="0" y="0" width="260" height="34" rx="6" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-opacity="0.5"/>
+      <text x="10" y="14" class="line-txt">/loop 20m Run one cycle of /you/.loop/pr.md,</text>
+      <text x="10" y="26" class="line-txt">read it first, obey the stop rule, log the tick.</text>
+    </g>
+  </g>
+
+  <!-- flow arrow 2 -->
+  <path d="M 750 180 L 890 180" class="flow-path"/>
+  <circle r="4" fill="#14b8a6"><animateMotion dur="2s" repeatCount="indefinite" path="M 750 180 L 890 180"/></circle>
+  <circle r="3" fill="#14b8a6" opacity="0.5"><animateMotion dur="2s" begin="0.6s" repeatCount="indefinite" path="M 750 180 L 890 180"/></circle>
+
+  <!-- STAGE 3: /loop runs it, every tick logs -->
+  <g transform="translate(900,80)">
+    <text x="0" y="-10" class="label">03 · /loop · EVERY TICK</text>
+    <rect x="0" y="0" width="260" height="200" rx="12" class="frame"/>
+    <text x="20" y="28" class="title">Re-read · one cycle · log</text>
+
+    <g transform="translate(60,110)">
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#1f2937" stroke-width="6"/>
+      <circle class="tick-ring" cx="0" cy="0" r="40" fill="none" stroke="#14b8a6" stroke-width="6" stroke-linecap="round" stroke-dasharray="120 251"/>
+      <text x="0" y="-1" text-anchor="middle" font-family="'SF Pro Display',sans-serif" font-size="13" font-weight="800" fill="#14b8a6">TICK</text>
+      <text x="0" y="14" text-anchor="middle" class="mono-dim">7 / 30</text>
+    </g>
+
+    <g transform="translate(116,60)">
+      <g class="chk-1">
+        <rect x="0" y="0" width="132" height="22" rx="6" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-opacity="0.4"/>
+        <text x="10" y="15" class="chip-txt">re-reads the brief</text>
+      </g>
+      <g transform="translate(0,28)"><g class="chk-2">
+        <rect x="0" y="0" width="132" height="22" rx="6" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-opacity="0.4"/>
+        <text x="10" y="15" class="chip-txt">runs exactly one cycle</text>
+      </g></g>
+      <g transform="translate(0,56)"><g class="chk-3">
+        <rect x="0" y="0" width="132" height="22" rx="6" fill="#14b8a6" fill-opacity="0.1" stroke="#14b8a6" stroke-opacity="0.4"/>
+        <text x="10" y="15" class="chip-txt">stops on rule or cap</text>
+      </g></g>
+    </g>
+
+    <g transform="translate(20,164)" class="log-strip">
+      <rect x="0" y="0" width="220" height="20" rx="6" fill="#0b0b0f" stroke="#14b8a6" stroke-opacity="0.7"/>
+      <text x="110" y="14" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#14b8a6" font-weight="600">TICKS.md · one entry per tick</text>
+    </g>
+  </g>
+
+  <!-- bottom caption -->
+  <text x="600" y="335" text-anchor="middle" font-family="Menlo,monospace" font-size="10" fill="#6b7280" letter-spacing="0.5">skill plugin · prepares the loop, then every tick re-reads the brief and logs what it did</text>
+</svg>

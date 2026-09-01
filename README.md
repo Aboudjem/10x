@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="License"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-6-f59e0b?style=flat-square" alt="6 Plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-7-f59e0b?style=flat-square" alt="7 Plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Stars"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## How it works
 
 <p align="center">
-  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships six curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, and humanizer" width="100%">
+  <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships seven curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, and loopify" width="100%">
 </p>
 
 <p align="center"><i>One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Six plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
+Seven plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
 > [!TIP]
-> Want to see them run? Each tool repo has its own demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), [goalify](https://github.com/Aboudjem/goalify#readme), and [humanizer](https://github.com/Aboudjem/humanizer-skill#readme).
+> Want to see them run? Each tool repo has its own demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), [goalify](https://github.com/Aboudjem/goalify#readme), [humanizer](https://github.com/Aboudjem/humanizer-skill#readme), and [loopify](https://github.com/Aboudjem/loopify#readme).
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
@@ -225,13 +225,13 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
 ---
 
-### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Set the goal, trust the run
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Come back to proof it's done
 
 <p align="center">
-  <img src=".github/assets/goalify-diagram.svg" alt="goalify researches your repo, locks the few real decisions, and writes a self-contained, self-deleting /goal file that a fresh session executes, verifies, and then deletes" width="100%">
+  <img src=".github/assets/goalify-diagram.svg" alt="goalify researches your repo, locks the few real decisions, and writes the brief and the condition that a fresh session executes, verifies, and files into .goal/done/ once every check passes" width="100%">
 </p>
 
-Scopes a big coding task while it still has your context: it reads and researches the repo, locks the few real decisions, then writes a self-contained, self-deleting `/goal` file with the finish line defined as commands the run can check. You `/clear` and run that file; a fresh full-context session executes the whole job, tests as it goes, and deletes the file only when every success criterion passes. A Claude Code skill (no MCP server, no CLI).
+Scopes a big coding task while it still has your context: it reads and researches the repo, locks the few real decisions, then writes two things. The brief is a file holding what the run has to do; the condition is one short line you paste into `/goal`, with the finish line defined as commands the run can check. You `/clear`, paste that line, and a fresh full-context session executes the whole job, tests as it goes, and closes by quoting the checks passing and moving the brief into `.goal/done/`. A Claude Code skill (no MCP server, no CLI).
 
 ```bash
 claude plugin install goalify@10x   # as a plugin (primary)
@@ -244,8 +244,8 @@ claude plugin install goalify@10x   # as a plugin (primary)
 
 **What it does**
 - Researches the repo, locks the few real decisions (one MCQ batch)
-- Writes a self-contained, self-deleting `/goal` file
-- Hands off two steps: `/clear`, then `/goal <path>`
+- Writes the brief (a file) and the condition (one line for `/goal`)
+- Hands off two steps: `/clear`, then paste the condition
 
 </td>
 <td width="50%" valign="top">
@@ -253,7 +253,7 @@ claude plugin install goalify@10x   # as a plugin (primary)
 **Safe by default**
 - Read-mostly prep, no remote fetch-and-execute
 - Success criteria wired to real commands
-- Self-destructs only on full success (else it stays, to resume)
+- Archives the brief to `.goal/done/` on full success (else it stays, to resume)
 
 </td>
 </tr>
@@ -305,13 +305,53 @@ claude plugin install humanizer@10x   # as a plugin (primary)
 
 ---
 
+### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;Hand off a job that repeats
+
+<p align="center">
+  <img src=".github/assets/loopify-diagram.svg" alt="loopify scopes one cycle of a repeating job, writes the brief and the line you paste into /loop, then every tick re-reads the brief, runs one cycle, and appends what it did to TICKS.md" width="100%">
+</p>
+
+For the jobs that never quite finish: keeping a release pull request healthy while reviews trickle in, watching a deploy until it settles, sweeping new bug reports every hour, keeping a branch green overnight. You describe the job once. loopify reads your project, asks about the few real choices, then writes two things. The brief is a standing file the loop re-reads at the start of every tick; the line is one short string you paste into `/loop`, Claude Code's built-in repeat command. Each run is a tick, and every tick logs what it did to `TICKS.md`. The line carries a tick cap and a stop rule, the brief carries five safety rails. A Claude Code skill (no MCP server, no CLI).
+
+```bash
+claude plugin install loopify@10x   # as a plugin (primary)
+/loopify <your job>                 # then, in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**What it does**
+- Reads the project, asks the few real questions, scopes one cycle
+- Writes the brief (a standing file) and the line (one string for `/loop`)
+- Logs every tick to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`
+
+</td>
+<td width="50%" valign="top">
+
+**Safe by default**
+- A tick cap and a stop rule ride inside the line itself
+- Five rails: no accounts, no payments, no pushing or posting unless you say so
+- Anything a tick reads is data, never orders
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/loopify">GitHub →</a>
+</p>
+
+---
+
 ## Works with any AI editor
 
 <p align="center">
   <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
 </p>
 
-Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit`, `goalify`, and `humanizer` are Claude Code skills rather than MCP servers, so they run in Claude Code: aws-cost-audit reads your AWS account locally, goalify writes a `/goal` file you run in a fresh session, and humanizer rewrites the text you pass it.)
+Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit`, `goalify`, `humanizer`, and `loopify` are Claude Code skills rather than MCP servers, so they run in Claude Code: aws-cost-audit reads your AWS account locally, goalify writes the brief and the condition for a run in a fresh session, humanizer rewrites the text you pass it, and loopify writes the brief and the line for a standing `/loop`.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -339,7 +379,7 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices), **goalify 1.0.0** (built test-first; manifest + skill-lint tests and a recorded RED→GREEN eval baseline on Haiku, Sonnet, and Opus), **humanizer 0.1.0** (pure Markdown, zero dependencies, no network calls; detects 43 AI writing patterns with a 0-100 AI-tell score). Last verified 2026-05-30.
+> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices), **goalify 2.5.0** (built test-first; manifest + skill-lint tests and a recorded RED→GREEN eval baseline on Haiku, Sonnet, and Opus), **humanizer 0.1.0** (pure Markdown, zero dependencies, no network calls; detects 43 AI writing patterns with a 0-100 AI-tell score), **loopify 1.0.0** (built test-first; skill eval 136/136 and manifest tests in CI; a recorded RED→GREEN behavioral baseline on Sonnet: 1/7 → 7/7). Last verified 2026-09-01.
 
 ---
 

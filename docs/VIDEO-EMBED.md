@@ -7,13 +7,13 @@ GitHub renders only from an uploaded attachment URL.
 
 ## What the demo is
 
-This is a **marketplace montage**: a single ~54s reel covering all six 10x plugins:
+This is a **marketplace montage**: a single ~54s reel covering six of the seven 10x plugins (the reel predates `loopify`, which is not in it yet):
 
 1. `sniff`: walks a running app and finds real bugs
 2. `ui-ux-suite`: scores 12 design dimensions and shows the exact fix
 3. `recap-studio`: turns a topic into a one-page explainer
 4. `aws-cost-audit`: read-only AWS bill audit, safe by default
-5. `goalify`: prepares a self-deleting `/goal` run a fresh session executes
+5. `goalify`: prepares the brief and the condition a fresh session runs and proves
 6. `humanizer`: detects AI writing patterns and rewrites text to sound human
 
 > Note: `goalify` and `humanizer` are skill-only, so they have no standalone demo clip.

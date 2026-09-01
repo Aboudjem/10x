@@ -2,6 +2,22 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [1.8.0] - 2026-09-01
+
+### Added
+- **loopify** (1.0.0, MIT) joins the marketplace as the seventh plugin: a Claude Code skill for a job that repeats rather than finishes (babysitting a release PR, watching a deploy, sweeping new bug reports). It writes the brief (a standing file the loop re-reads at the start of every tick) plus the line (one short string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule and five safety rails; every tick logs what it did to `TICKS.md` and leaves what it cannot do safely in `QUEUE.md`. Installed from the `github` source (`Aboudjem/loopify`). Listed under the same skill-plugin carve-out as `aws-cost-audit`, `goalify` and `humanizer` (the dual-mode/MCP and standalone-CLI bar items do not apply to a skill plugin).
+- New animated, GitHub-safe `.github/assets/loopify-diagram.svg` (teal `#14b8a6` accent, hand-authored SMIL/CSS, three stages: scope one cycle -> the brief and the line -> every tick re-reads the brief and logs to `TICKS.md`, with `prefers-reduced-motion` and light-mode guards, no scripts or external refs).
+
+### Changed
+- Roster is now seven plugins across every text surface: `marketplace.json` (7 entries, passes `claude plugin validate . --strict` clean), `README.md` (badge `plugins-6`->`7`, hero alt text, new plugin card 07, editor/skill carve-out, roster note), `QUALITY-BAR.md` (roster table 6->7 + loopify skill carve-out note), `ECOSYSTEM.md` (table row + what's-tested bullet + hub bumped to v1.8.0), `llms.txt`, `AGENTS.md`, `examples/README.md`, `site/index.html`, `CLAUDE.md` (current pins), and the four localized READMEs (`zh-CN`, `ja`, `es`, `fr`).
+- **goalify refreshed to 2.5.0** on every surface. It no longer self-deletes: goalify now writes the brief (a file the run works from) plus the condition (one line you paste into `/goal`), and on full success the run quotes the passing checks and archives the brief to `.goal/done/` instead of deleting it. The pin, the descriptions, the README pitch and heading, the diagram alt text, and the `<text>` inside `goalify-diagram.svg` ("SELF-DELETING" -> "ARCHIVED ON DONE", "rm /goal" -> ".goal/done/") were all updated to match.
+- `hero-diagram.svg` rebuilt from a 3-3 (six-card) grid to a 4-over-3 layout that holds seven plugin cards, on a widened `0 0 1560 480` viewBox; `aws-cost-audit` moved up to the top row, the bottom row of three was re-centred under it, a teal `#14b8a6` `loopify` card was added bottom-right, and the seven hub-to-card flow paths were recomputed. `social-preview.svg` sub-tagline updated to "7 plugins. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify."
+- `social-preview.png` regenerated from the updated `social-preview.svg` via headless Chrome at exactly 1280x640 (the `system-ui` wordmark/taglines fall back to San Francisco since Inter is not installed; the JetBrains Mono install pill renders natively). It now reads "7 plugins ... loopify."
+- `demo.gif` is not yet re-recorded for seven plugins: deferred. The reel still runs its six beats and has no `loopify` segment; `docs/VIDEO-EMBED.md` now says so instead of claiming the montage covers every plugin.
+
+### Fixed
+- The `check-in` keyframes in `goalify-diagram.svg` animate `transform: translateX(...)`, and a CSS transform overrides the element's SVG `transform` presentation attribute. The second and third checklist rows carried their row offset on that same element, so once the animation settled all three rows collapsed onto the first. The offsets now sit on a wrapper `<g>` and the animated `<g>` sits inside it. `loopify-diagram.svg` uses the fixed shape from the start. (`humanizer-diagram.svg` has the same latent problem on one of its two chips and is left untouched here.)
+
 ## [1.7.0] - 2026-05-30
 
 ### Added

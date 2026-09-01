@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>10x - a curated marketplace of developer tools for Claude Code</title>
-  <meta name="description" content="10x is a curated marketplace of six Claude Code plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, and humanizer. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
+  <meta name="description" content="10x is a curated marketplace of seven Claude Code plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, and loopify. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
   <meta property="og:title" content="10x - curated developer tools for Claude Code" />
-  <meta property="og:description" content="Six curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
+  <meta property="og:description" content="Seven curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
   <meta property="og:image" content="assets/social-preview.png" />
   <style>
     :root {
@@ -82,7 +82,7 @@
     </section>
 
     <section id="plugins">
-      <h2>The six plugins</h2>
+      <h2>The seven plugins</h2>
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
@@ -133,7 +133,7 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
       <div class="plugin">
         <h3>goalify <span class="lic">MIT</span></h3>
-        <p class="desc">Sets up a big coding task to run on its own. Scopes the work, locks the few real decisions, and writes a self-contained, self-deleting <code>/goal</code> file so a fresh full-context session executes the whole job and verifies every success criterion before deleting the file. A Claude Code skill (no MCP server).</p>
+        <p class="desc">Sets up a big coding task to run on its own. Scopes the work, locks the few real decisions, and writes the brief (a file the run works from) plus the condition (one line you paste into <code>/goal</code>), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to <code>.goal/done/</code>. A Claude Code skill (no MCP server).</p>
         <pre><code>claude plugin install goalify@10x
 /goalify &lt;your task&gt;</code></pre>
         <div class="links">
@@ -148,6 +148,16 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 /humanizer "your text" [--mode detect|rewrite|edit] [--voice casual|professional|technical|warm|blunt] [--score]</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/humanizer-skill">GitHub</a>
+        </div>
+      </div>
+
+      <div class="plugin" style="border-color: #14b8a633;">
+        <h3 style="color: #14b8a6;">loopify <span class="lic">MIT</span></h3>
+        <p class="desc">Hands off a job that repeats: babysitting a release PR, watching a deploy, sweeping new bug reports. Writes the brief (a standing file the loop re-reads at the start of every tick) plus the line (one short string you paste into Claude Code's built-in <code>/loop</code>), with a tick cap, a stop rule, and five safety rails. Every tick logs what it did to <code>TICKS.md</code>; what it cannot do safely waits in <code>QUEUE.md</code>. A Claude Code skill (no MCP server).</p>
+        <pre><code>claude plugin install loopify@10x
+/loopify &lt;your recurring job&gt;</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/loopify">GitHub</a>
         </div>
       </div>
     </section>

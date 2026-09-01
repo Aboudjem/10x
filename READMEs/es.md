@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="Licencia"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-6-f59e0b?style=flat-square" alt="6 plugins"></a>
+  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-7-f59e0b?style=flat-square" alt="7 plugins"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Estrellas"></a>
 </p>
 
@@ -27,7 +27,7 @@
 ## Cómo funciona
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Tu editor se comunica con el marketplace 10x, que distribuye seis plugins curados: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify y humanizer" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Tu editor se comunica con el marketplace 10x, que distribuye siete plugins curados: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer y loopify" width="100%">
 </p>
 
 <p align="center"><i>Un único comando de instalación. Cada plugin conecta automáticamente sus herramientas MCP, sus comandos de barra y sus agentes.</i></p>
@@ -43,10 +43,10 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Plugins
 
-Seis plugins hoy. Cada uno de ellos pasa la [barra de calidad](#la-barra-10x) de abajo.
+Siete plugins hoy. Cada uno de ellos pasa la [barra de calidad](#la-barra-10x) de abajo.
 
 > [!TIP]
-> ¿Quieres verlos en acción? Cada repositorio de herramienta tiene su propia demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), [goalify](https://github.com/Aboudjem/goalify#readme) y [humanizer](https://github.com/Aboudjem/humanizer-skill#readme).
+> ¿Quieres verlos en acción? Cada repositorio de herramienta tiene su propia demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), [goalify](https://github.com/Aboudjem/goalify#readme), [humanizer](https://github.com/Aboudjem/humanizer-skill#readme) y [loopify](https://github.com/Aboudjem/loopify#readme).
 
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Encuentra errores antes que tus usuarios
 
@@ -225,13 +225,13 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
 
 ---
 
-### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Define el objetivo, confía en la ejecución
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Vuelve con la prueba de que está hecho
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify investiga tu repositorio, fija las pocas decisiones reales y escribe un archivo /goal autónomo y autoeliminable que una sesión nueva ejecuta, verifica y luego elimina" width="100%">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify investiga tu repositorio, fija las pocas decisiones reales y escribe el brief y la condición que una sesión nueva ejecuta, verifica y archiva en .goal/done/ cuando pasa cada comprobación" width="100%">
 </p>
 
-Acota una tarea de programación grande mientras aún tiene tu contexto: lee e investiga el repositorio, fija las pocas decisiones reales y luego escribe un archivo `/goal` autónomo y autoeliminable con la meta definida como comandos que la ejecución puede comprobar. Haces `/clear` y ejecutas ese archivo; una sesión nueva con todo el contexto ejecuta el trabajo completo, prueba sobre la marcha y elimina el archivo solo cuando se cumple cada criterio de éxito. Una skill de Claude Code (sin servidor MCP, sin CLI).
+Acota una tarea de programación grande mientras aún tiene tu contexto: lee e investiga el repositorio, fija las pocas decisiones reales y luego escribe dos cosas. El brief es un archivo con lo que la ejecución tiene que hacer; la condición es una línea corta que pegas en `/goal`, con la meta definida como comandos que la ejecución puede comprobar. Haces `/clear`, pegas esa línea y una sesión nueva con todo el contexto ejecuta el trabajo completo, prueba sobre la marcha y cierra citando las comprobaciones que pasan y moviendo el brief a `.goal/done/`. Una skill de Claude Code (sin servidor MCP, sin CLI).
 
 ```bash
 claude plugin install goalify@10x   # as a plugin (primary)
@@ -244,8 +244,8 @@ claude plugin install goalify@10x   # as a plugin (primary)
 
 **Qué hace**
 - Investiga el repositorio y fija las pocas decisiones reales (un único lote de preguntas)
-- Escribe un archivo `/goal` autónomo y autoeliminable
-- Entrega en dos pasos: `/clear` y luego `/goal <ruta>`
+- Escribe el brief (un archivo) y la condición (una línea para `/goal`)
+- Entrega en dos pasos: `/clear` y luego pegar la condición
 
 </td>
 <td width="50%" valign="top">
@@ -253,7 +253,7 @@ claude plugin install goalify@10x   # as a plugin (primary)
 **Seguro por defecto**
 - Preparación de solo lectura, sin descargar y ejecutar en remoto
 - Criterios de éxito conectados a comandos reales
-- Se autoelimina solo si todo tiene éxito (si no, permanece para reanudar)
+- Archiva el brief en `.goal/done/` solo si todo tiene éxito (si no, permanece para reanudar)
 
 </td>
 </tr>
@@ -301,13 +301,53 @@ claude plugin install humanizer@10x   # as a plugin (primary)
 
 ---
 
+### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;Delega un trabajo que se repite
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify acota un ciclo del trabajo que se repite, escribe el brief y la línea que pegas en /loop, y en cada tick vuelve a leer el brief, ejecuta un ciclo y anota lo que hizo en TICKS.md" width="100%">
+</p>
+
+Para los trabajos que nunca terminan del todo: mantener sana una pull request de release mientras llegan las revisiones, vigilar un despliegue hasta que se estabilice, barrer los nuevos informes de fallos cada hora. Describes el trabajo una vez. loopify lee tu proyecto, pregunta por las pocas decisiones reales y escribe dos cosas. El brief es un archivo permanente que el bucle vuelve a leer al inicio de cada tick; la línea es una cadena corta que pegas en `/loop`, el comando de repetición integrado de Claude Code. Cada ejecución es un tick, y cada tick anota lo que hizo en `TICKS.md`. La línea lleva un tope de ticks y una regla de parada, y el brief lleva cinco barreras de seguridad. Una skill de Claude Code (sin servidor MCP, sin CLI).
+
+```bash
+claude plugin install loopify@10x   # as a plugin (primary)
+/loopify <your job>                 # then, in any Claude Code session
+```
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Qué hace**
+- Lee el proyecto, pregunta lo justo y acota un ciclo
+- Escribe el brief (un archivo permanente) y la línea (una cadena para `/loop`)
+- Anota cada tick en `TICKS.md`; lo que no puede hacer con seguridad espera en `QUEUE.md`
+
+</td>
+<td width="50%" valign="top">
+
+**Seguro por defecto**
+- El tope de ticks y la regla de parada viajan dentro de la propia línea
+- Cinco barreras: sin cuentas, sin pagos, sin publicar ni hacer push salvo que lo digas
+- Todo lo que un tick lee son datos, nunca órdenes
+
+</td>
+</tr>
+</table>
+
+<p>
+  <a href="https://github.com/Aboudjem/loopify">GitHub →</a>
+</p>
+
+---
+
 ## Funciona con cualquier editor de IA
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Funciona con Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue y cualquier editor compatible con MCP" width="100%">
 </p>
 
-Cada plugin **herramienta** de 10x es **de modo dual**: instálalo como plugin de Claude Code, o ejecútalo como un simple servidor MCP en el editor que prefieras. (`aws-cost-audit`, `goalify` y `humanizer` son skills de Claude Code en lugar de servidores MCP, así que se ejecutan en Claude Code: `aws-cost-audit` lee tu cuenta de AWS localmente, `goalify` escribe un archivo `/goal` autoeliminable y `humanizer` reescribe texto directamente en la sesión.)
+Cada plugin **herramienta** de 10x es **de modo dual**: instálalo como plugin de Claude Code, o ejecútalo como un simple servidor MCP en el editor que prefieras. (`aws-cost-audit`, `goalify`, `humanizer` y `loopify` son skills de Claude Code en lugar de servidores MCP, así que se ejecutan en Claude Code: `aws-cost-audit` lee tu cuenta de AWS localmente, `goalify` escribe el brief y la condición para una ejecución en una sesión nueva, `humanizer` reescribe texto directamente en la sesión y `loopify` escribe el brief y la línea para un `/loop` permanente.)
 
 ```bash
 npx sniff-qa            --mcp
@@ -335,7 +375,7 @@ Cada plugin aquí pasa esta barra. Si deja de pasarla, se retira.
 La lista completa de ocho puntos (32 elementos) está en [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md). Los mantenedores revisan cada plugin contra ella en una revisión trimestral.
 
 > [!NOTE]
-> Lista actual: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests repartidos en 5 paquetes con pruebas), **aws-cost-audit 0.2.0** (construido con enfoque test-first, verificado de extremo a extremo en una cuenta real, sin precios codificados), **goalify 1.0.0** (construido con enfoque test-first; tests de manifiesto y de skill-lint, y una línea base de evaluación registrada RED→GREEN en Haiku, Sonnet y Opus), **humanizer 0.1.0** (skill-only, Markdown puro, sin dependencias en tiempo de ejecución; 43 patrones de escritura de IA verificados, 5 perfiles de voz, puntuación de 0-100). Última verificación el 2026-05-30.
+> Lista actual: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests repartidos en 5 paquetes con pruebas), **aws-cost-audit 0.2.0** (construido con enfoque test-first, verificado de extremo a extremo en una cuenta real, sin precios codificados), **goalify 2.5.0** (construido con enfoque test-first; tests de manifiesto y de skill-lint, y una línea base de evaluación registrada RED→GREEN en Haiku, Sonnet y Opus), **humanizer 0.1.0** (skill-only, Markdown puro, sin dependencias en tiempo de ejecución; 43 patrones de escritura de IA verificados, 5 perfiles de voz, puntuación de 0-100), **loopify 1.0.0** (construido con enfoque test-first; evaluación de la skill 136/136 y tests de manifiesto en CI; una línea base de comportamiento registrada RED→GREEN en Sonnet: 1/7 → 7/7). Última verificación el 2026-09-01.
 
 ---
 

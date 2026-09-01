@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes a self-contained, self-deleting /goal file so a fresh session runs and verifies a big coding task autonomously. humanizer detects 43 AI writing patterns and rewrites text with sentence-length burstiness, voice profiles, and a 0-100 AI-tell score. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit, goalify, and humanizer are Claude Code skills (no MCP server)."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions grounded in 24 named UX laws. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes the brief and the condition so a fresh session runs a big coding task and comes back with proof it finished. humanizer detects 43 AI writing patterns and rewrites text with sentence-length burstiness, voice profiles, and a 0-100 AI-tell score. loopify writes the brief and the line so Claude Code's built-in /loop keeps a recurring job running on its own and logs what every tick did. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit, goalify, humanizer, and loopify are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -94,8 +94,8 @@
         "source": "github",
         "repo": "Aboudjem/goalify"
       },
-      "description": "Set up a big coding task to run on its own. goalify scopes the work, locks the few real decisions, and writes a self-contained, self-deleting /goal file so a fresh full-context session executes the whole job and verifies every success criterion before deleting the file. A Claude Code skill (no MCP server).",
-      "version": "1.0.0",
+      "description": "Hand Claude a huge task. Come back to proof it's done, not a promise that it is. goalify locks the few real decisions and writes the brief (a file holding what the run has to do) plus the condition (one short line you paste into /goal), so a fresh full-context session does the job, quotes the checks passing in its closing turn, and archives the brief to .goal/done/. A Claude Code skill (no MCP server).",
+      "version": "2.5.0",
       "homepage": "https://github.com/Aboudjem/goalify",
       "license": "MIT",
       "keywords": [
@@ -125,6 +125,28 @@
         "burstiness",
         "voice-profiles",
         "text-rewriting",
+        "skill"
+      ]
+    },
+    {
+      "name": "loopify",
+      "source": {
+        "source": "github",
+        "repo": "Aboudjem/loopify"
+      },
+      "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit. loopify reads your project, asks the few real questions, and writes the brief (a standing file the loop re-reads every tick) plus the line (one short string you paste into Claude Code's built-in /loop), with a tick cap, a stop rule, and five safety rails. Every tick logs what it did to TICKS.md. A Claude Code skill (no MCP server).",
+      "version": "1.0.0",
+      "homepage": "https://github.com/Aboudjem/loopify",
+      "license": "MIT",
+      "keywords": [
+        "loopify",
+        "recurring-tasks",
+        "scheduling",
+        "loop",
+        "cron",
+        "autonomous-agents",
+        "agent-skills",
+        "productivity",
         "skill"
       ]
     }

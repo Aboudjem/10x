@@ -24,8 +24,9 @@ here. The repo surface is `.claude-plugin/marketplace.json` plus docs, assets, a
 - **Validate after every edit.** Run `claude plugin validate . --strict`; it must pass clean
   (exit 0, no warnings). Also confirm the JSON parses: `python3 -m json.tool .claude-plugin/marketplace.json`.
 
-Current pins (cross-checked 2026-05-30): sniff 0.7.0 (Apache-2.0), ui-ux-suite 0.5.0 (MIT),
-recap-studio 0.4.0 (MIT), aws-cost-audit 0.2.0 (MIT).
+Current pins (cross-checked 2026-09-01): sniff 0.7.0 (Apache-2.0), ui-ux-suite 0.5.0 (MIT),
+recap-studio 0.4.0 (MIT), aws-cost-audit 0.2.0 (MIT), goalify 2.5.0 (MIT), humanizer 0.1.0 (MIT),
+loopify 1.0.0 (MIT).
 
 ## KEY GOTCHA: the auto-bump bot only touches marketplace.json
 
@@ -41,7 +42,7 @@ plugin version bump, these surfaces drift and must be updated by hand:
 - `ECOSYSTEM.md` (the version table, the hub version, the test counts)
 - `llms.txt` (the per-plugin version lines)
 - `QUALITY-BAR.md` (the roster table and "Last verified" date)
-- `AGENTS.md` (the four-plugins list)
+- `AGENTS.md` (the plugin list)
 
 This hand-edit drift is exactly the kind of mismatch a reconcile pass fixes. When you bump a
 pin, refresh every prose surface above to the same version, re-derive any test count from the
