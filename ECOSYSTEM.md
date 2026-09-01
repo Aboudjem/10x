@@ -21,7 +21,7 @@ server / CLI in any editor. Zero bloat, evidence-backed, polished. Last aligned 
 | **humanizer** | 0.6.2 | AI-writing detector and rewriter. Detects **55 AI writing patterns** (inflated symbolism, em dash overuse, promotional language, rule-of-three, and more), rewrites with sentence-length burstiness across **5 voice profiles** (casual, professional, technical, warm, blunt), and produces a **0-100 AI-tell score**. Three modes: detect, rewrite, edit. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server). | `claude plugin install humanizer@10x` | [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) | _(skill, no npm)_ | MIT |
 | **loopify** | 1.0.0 | Recurring-job prep. For work that repeats rather than finishes: writes **the brief** (a standing file the loop re-reads every tick) plus **the line** (one short string you paste into Claude Code's built-in `/loop`), with a **tick cap**, a **stop rule** and five safety rails. Every tick logs what it did to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`. A Claude Code skill (no MCP server). | `claude plugin install loopify@10x` | [Aboudjem/loopify](https://github.com/Aboudjem/loopify) | _(skill, no npm)_ | MIT |
 
-Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v1.8.0).
+Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v1.9.0).
 
 ## What's tested
 

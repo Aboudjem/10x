@@ -2,6 +2,29 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [1.9.0] - 2026-09-01
+
+### Added
+- **Connected marketplace.** `scripts/sync-plugins.mjs` (Node 22, no dependencies, written test-first with `tests/sync-plugins.test.mjs`) reads every listed plugin's upstream `.claude-plugin/plugin.json`, rewrites only lagging `version` pins byte-for-byte, reports description drift without writing it, and prints `drift: none` or the bump list. `.github/workflows/sync-plugins.yml` runs it every 6 hours, on a `plugin-released` `repository_dispatch` and on demand, and commits `chore(sync): <plugin> <old> -> <new>` as `github-actions[bot]`. `validate.yml` gained a blocking `drift` job (unit tests + `--check`). `docs/SYNC.md` explains the chain, the schedule, the guard, what syncs (versions) and what does not (prose), how to add plugin #8, and the `TEN_X_DISPATCH_TOKEN` setup; it is linked from `README.md`, `CONTRIBUTING.md` and `AGENTS.md`. `package.json` (private) wires `npm test`, `npm run sync:check` and `npm run sync:write`.
+- **Five sender workflows.** `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill` and `loopify` each got a `.github/workflows/release.yml` (tag `v*` -> verify the tag matches `plugin.json` -> GitHub release -> `plugin-released` dispatch to 10x), modeled on the one `sniff` and `ui-ux-suite` already had. Until `TEN_X_DISPATCH_TOKEN` is set in those repos the dispatch step logs a notice and the 6-hour pull sync covers it.
+- `demo.gif` gained a 3.0 s teal `loopify` title-card beat (`scenes/loopify.html` -> `clips/cl.mp4`, "PLUGIN 07 - Hand Claude a job that repeats") after the humanizer beat; the intro card now says "7 PLUGINS". 960x540, 675 frames (was 642), 6.1 MB. `docs/VIDEO-EMBED.md` describes the seven-beat reel.
+
+### Changed
+- `README.md` rewritten as seven compact plugin cards (417 -> 251 lines): badge heading, the plugin's own tagline, two or three plain sentences, the diagram, the install block, one sourced proof number (or none) and the GitHub link. Every number traces to the plugin's own README or `plugin.json`; the roster note keeps only sourced facts. Reviewed by a separate two-persona judge (non-technical reader 3/3, mechanical checks 10/10). "How it works" links `docs/SYNC.md`.
+- **humanizer** pinned at **0.6.2** (was 0.1.0, five minor versions behind its repo) and described with **55** AI writing patterns (was 43) in `marketplace.json`, `README.md`, the four translations, `llms.txt`, `site/index.html`, `AGENTS.md`, `ECOSYSTEM.md` and `QUALITY-BAR.md`.
+- Unsourced claims cut everywhere they appeared: ui-ux-suite's "24 named UX laws" (its README states no count; the copy now says it cites the named law behind every finding), aws-cost-audit's "independently verified end-to-end on a live account", and the goalify/loopify eval figures in the README roster note. The quality bar is eight points and 28 items (`llms.txt` and `AGENTS.md` said 32).
+- The four translated READMEs (`zh-CN`, `ja`, `es`, `fr`) rewritten from the new English README with the same 13 headings, seven badge cards and absolute asset links.
+- `SECURITY.md` lists all seven plugin contacts and the CI drift check; `docs/LAUNCH-PLAN.md` is marked as the historical four-plugin plan; `.gitignore` ignores `.goal/`.
+- GitHub repo settings: description names all seven plugins, homepage set to the Pages site, topics gained `claude-code-plugins`, `agent-skills`, `claude-skills`.
+- `validate.yml` link check: lychee now gets `GITHUB_TOKEN` and skips `adam-boudjemaa.com` (refuses GitHub-hosted runners) and GitHub `/stargazers` pages (404 to non-browser clients), which had been failing the job since before this release.
+
+### Fixed
+- `editors-strip.svg` lost two of its eight editor chips, `logo-light.svg`/`logo-dark.svg` pulled their sparkles onto the wordmark, and `aws-cost-audit-diagram.svg` stacked savings rows 2 and 3 onto row 1: a CSS `transform` keyframe was overriding the attribute `transform` that positioned the same element (the class of bug `[1.8.0]` fixed in `goalify-diagram.svg`). The position now lives on a wrapper `<g>`. Re-rendered and seek-proved at t=0.3 s and t=4.5 s; a static re-scan finds no remaining case in any of the 12 SVGs.
+- `uiux-diagram.svg`: the 12-dimension caption was clipped mid-word; it now wraps onto three lines inside its frame at 900 px and 380 px.
+
+### Removed
+- `.github/workflows/bump-plugin.yml` (single-pin bump on dispatch), replaced by `sync-plugins.yml`, which accepts the same `plugin-released` payload and re-reads every upstream instead.
+
 ## [1.8.0] - 2026-09-01
 
 ### Added
