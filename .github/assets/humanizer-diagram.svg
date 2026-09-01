@@ -161,9 +161,11 @@
         <rect x="0" y="0" width="120" height="22" rx="6" fill="#22c55e" fill-opacity="0.1" stroke="#22c55e" stroke-opacity="0.4"/>
         <text x="10" y="15" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">reads like a person</text>
       </g>
-      <g class="chk-2" transform="translate(0,30)">
-        <rect x="0" y="0" width="120" height="22" rx="6" fill="#d946ef" fill-opacity="0.1" stroke="#d946ef" stroke-opacity="0.4"/>
-        <text x="10" y="15" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">edit mode in file</text>
+      <g transform="translate(0,30)">
+        <g class="chk-2">
+          <rect x="0" y="0" width="120" height="22" rx="6" fill="#d946ef" fill-opacity="0.1" stroke="#d946ef" stroke-opacity="0.4"/>
+          <text x="10" y="15" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">edit mode in file</text>
+        </g>
       </g>
     </g>
 

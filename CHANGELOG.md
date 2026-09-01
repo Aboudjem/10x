@@ -19,7 +19,7 @@ All notable changes to this marketplace will be documented in this file.
 - `validate.yml` link check: lychee now gets `GITHUB_TOKEN` and skips `adam-boudjemaa.com` (refuses GitHub-hosted runners) and GitHub `/stargazers` pages (404 to non-browser clients), which had been failing the job since before this release.
 
 ### Fixed
-- `editors-strip.svg` lost two of its eight editor chips, `logo-light.svg`/`logo-dark.svg` pulled their sparkles onto the wordmark, and `aws-cost-audit-diagram.svg` stacked savings rows 2 and 3 onto row 1: a CSS `transform` keyframe was overriding the attribute `transform` that positioned the same element (the class of bug `[1.8.0]` fixed in `goalify-diagram.svg`). The position now lives on a wrapper `<g>`. Re-rendered and seek-proved at t=0.3 s and t=4.5 s; a static re-scan finds no remaining case in any of the 12 SVGs.
+- `editors-strip.svg` lost two of its eight editor chips, `logo-light.svg`/`logo-dark.svg` pulled their sparkles onto the wordmark, and `aws-cost-audit-diagram.svg` stacked savings rows 2 and 3 onto row 1: a CSS `transform` keyframe was overriding the attribute `transform` that positioned the same element (the class of bug `[1.8.0]` fixed in `goalify-diagram.svg`). The position now lives on a wrapper `<g>`. `humanizer-diagram.svg` had the same latent bug on its second chip (noted in `[1.8.0]`) and gets the same fix. Re-rendered and seek-proved at t=0.3 s and t=4.5 s; a static re-scan finds no remaining case in any of the 12 SVGs.
 - `uiux-diagram.svg`: the 12-dimension caption was clipped mid-word; it now wraps onto three lines inside its frame at 900 px and 380 px.
 
 ### Removed
