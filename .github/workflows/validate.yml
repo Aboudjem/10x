@@ -62,13 +62,19 @@ jobs:
           fi
 
       # (c) MARKDOWN LINK CHECK (lychee)
+      # The token lets lychee resolve github.com links through the API
+      # (GitHub answers 404 to anonymous bots on pages like /stargazers).
+      # adam-boudjemaa.com is up (200 from a browser) but refuses connections
+      # from GitHub-hosted runners, so it is skipped like linkedin.com.
       - name: Markdown link check
         uses: lycheeverse/lychee-action@v2
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           args: >-
             --no-progress
             --accept 200,206,403,429
             --exclude linkedin\.com
+            --exclude adam-boudjemaa\.com
             './**/*.md'
             './llms.txt'
           fail: true
