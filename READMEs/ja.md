@@ -30,8 +30,6 @@
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="あなたのエディタが 10x マーケットプレイスと通信し、マーケットプレイスは厳選された 7 つのプラグイン（sniff、ui-ux-suite、recap-studio、aws-cost-audit、goalify、humanizer、loopify）を提供します" width="100%">
 </p>
 
-<p align="center"><i>インストールコマンドは 1 つだけ。各プラグインが MCP ツール、スラッシュコマンド、エージェントを自動で接続します。</i></p>
-
 ```bash
 claude plugin marketplace add Aboudjem/10x
 ```
@@ -39,22 +37,21 @@ claude plugin marketplace add Aboudjem/10x
 > [!TIP]
 > インストールコマンドは 1 つだけ。各プラグインが MCP ツール、スラッシュコマンド、エージェントを自動で接続します。
 
+ここでのバージョンは各プラグイン自身のリリースに従います。詳しくは [docs/SYNC.md](https://github.com/Aboudjem/10x/blob/main/docs/SYNC.md) を参照してください。
+
 ---
 
 ## プラグイン
 
 現在 7 つのプラグインがあります。そのすべてが以下の[品質基準](#10x-の基準)を満たしています。
 
-> [!TIP]
-> 動作を見たいですか？各ツールのリポジトリには独自のデモがあります: [sniff](https://github.com/Aboudjem/sniff#readme)、[ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme)、[recap-studio](https://github.com/Aboudjem/recap-studio#readme)、[aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme)、[goalify](https://github.com/Aboudjem/goalify#readme)、[humanizer](https://github.com/Aboudjem/humanizer-skill#readme)、[loopify](https://github.com/Aboudjem/loopify#readme)。
-
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;ユーザーより先にバグを見つける
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/sniff-diagram.svg" alt="Sniff は実行中のアプリを巡回し、その動線を発見して、優先順位付けされたバグ・アクセシビリティ・パフォーマンスの検出結果を返します" width="100%">
-</p>
+> 実行中のアプリに向けるだけ。実際のユーザーの動線を実際のブラウザで巡回し、本当に壊れている箇所を証拠付きで教えてくれます。
 
-実行中のアプリをユーザーのように巡回し、その動線を発見して、アクセシビリティ・パフォーマンス・壊れたインタラクションにわたる本物のバグを見つける AI 駆動の QA。開発サーバーを自動検出します。`sniff scan` によるソースコードスキャンも利用できます。API キー不要、設定不要。
+実行中のアプリを実際のブラウザで開き、人がするようにクリックして進みます。壊れている箇所のランク付きリストが返り、各所見には再現手順が付きます。動いているアプリが必要です。サーバーが立っていない場合、sniff はソースコードの読み取りにとどまります。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/sniff-diagram.svg" alt="sniff は実行中のアプリを巡回し、その動線を発見して、優先順位付けされたバグ・アクセシビリティ・パフォーマンスの検出結果を返します" width="100%"></p>
 
 ```bash
 claude plugin install sniff@10x     # as a plugin (primary)
@@ -63,41 +60,19 @@ npx sniff-qa                        # as a standalone CLI
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+441 個のテスト。12 種類のバグ分類。
 
-**スラッシュコマンド**
-- `/sniff` - 実行中のアプリを巡回する
-- `/sniff-fix` - 安全な修正を適用する
-- `/sniff-report` - 直近のスキャンを開く
-
-</td>
-<td width="50%" valign="top">
-
-**MCP ツール**
-- `sniff` - 実行中のアプリを巡回する（統合版）
-- `sniff_scan` - ソースのみのスキャン
-- `sniff_report` - 整形済みの結果
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://www.npmjs.com/package/sniff-qa">npm →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/sniff-qa">npm →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/02-ui--ux--suite-0ea5e9?style=flat-square" alt="ui-ux-suite">&nbsp;&nbsp;あなたのデザイン品質を、数値化する
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/uiux-diagram.svg" alt="ui-ux-suite はプロジェクトをスキャンし、12 のデザイン次元を採点して、各検出結果がどの UX 法則に違反しているかを引用した監査結果を返します" width="100%">
-</p>
+> **デザイン向けの ESLint。** 正確な行、測定された誤った値、そして正確な修正方法を示します。
 
-CSS、JSX、Tailwind の設定をスキャンします。12 のデザイン次元を採点します: アクセシビリティ、カラーシステム、タイポグラフィ、レイアウトと余白、コンポーネント品質、視覚的階層、インタラクション品質、レスポンシブ性、視覚的な仕上がり、体感パフォーマンス、情報アーキテクチャ、プラットフォーム適合性。各検出結果が違反している UX 法則を引用し、正確な修正方法を示します。監査するだけで、編集は決して行いません。依存関係なし、100% ローカル。
+あなたの CSS、JSX、Tailwind の設定を読み取り、色、タイポグラフィ、余白、アクセシビリティなど、デザインの 12 の側面を採点します。各所見には、ファイル、行、誤っている値、そして修正方法が記されます。報告するだけで編集はしないので、修正を適用するかどうかはあなた次第です。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/uiux-diagram.svg" alt="ui-ux-suite はプロジェクトをスキャンし、12 のデザイン次元を採点して、各検出結果がどの UX 法則に違反しているかを引用した監査結果を返します" width="100%"></p>
 
 ```bash
 claude plugin install ui-ux-suite@10x   # as a plugin (primary)
@@ -106,46 +81,19 @@ npx ui-ux-suite                         # as a standalone CLI
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+311 個のテスト。重み付けされた 12 の次元。
 
-**スラッシュコマンド**
-- `/design-audit` - 12 次元の完全監査
-- `/color-audit` - コントラスト + パレット
-- `/type-audit` - タイポグラフィのみ
-- `/layout-audit` - 余白 + グリッド
-- `/a11y-audit` - WCAG 2.2 + APCA
-- `+ さらに 9 つの専門監査`
-
-</td>
-<td width="50%" valign="top">
-
-**MCP ツール**
-- `uiux_scan_project` - スタックを検出
-- `uiux_extract_colors` - パレット
-- `uiux_check_contrast` - WCAG/APCA
-- `uiux_generate_tokens` - design system
-- `+ さらに 10 の採点・生成ツール`
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;5 分未満で 1 ページの解説を
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/recap-studio-diagram.svg" alt="Recap Studio はトピックや git diff を受け取り、明確さとアクセシビリティの決定論的なヒューリスティックチェックを実行して、自己完結型の 1 ページの解説を出力します" width="100%">
-</p>
+> どんなトピックやコーディングセッションも、ダブルクリックで開ける美しいダークモード・モバイルファーストの解説ページに変えます。サーバーなし、インターネット接続なし、依存関係なし。
 
-あらゆるトピックやコーディングセッションを、賢い 18 歳が 5 分で読める、すっきりとしたモバイルファーストの 1 ページの解説に変えます。出力は自己完結型でオフラインでも使える HTML ページです。決定論的なヒューリスティックチェックが公開前に明確さ、アクセシビリティ、構造を検証し、すべての主張に出典が付きます。
+トピックを与える、あるいはコーディングセッションを指定するだけで、ダブルクリックで開ける 1 枚の HTML ページが得られます。オフラインで動作し、すべての主張には出典が付きます。公開前には高速なチェッカーがページを採点しますが、そのスコアは構造上のシグナルであって、査読ではありません。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/recap-studio-diagram.svg" alt="recap-studio はトピックや git diff を受け取り、明確さとアクセシビリティの決定論的なチェックを実行して、自己完結型の 1 ページの解説を出力します" width="100%"></p>
 
 ```bash
 claude plugin install recap-studio@10x   # as a plugin (primary)
@@ -154,43 +102,19 @@ claude plugin install recap-studio@10x   # as a plugin (primary)
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+テストを持つ 5 つのパッケージにわたる 43 個のテスト。
 
-**スラッシュコマンド**
-- `/recap "<topic>"` - 完全な解説ページ
-- `/recap session` - コーディングセッションの要約
-- `/recap setup` - 安全なデフォルト設定を書き出す
-- `/recap validate` - アクティブなページを再採点する
-
-</td>
-<td width="50%" valign="top">
-
-**得られるもの**
-- 自己完結型のオフライン HTML ページ
-- すべての主張に出典が付く
-- 決定論的なヒューリスティックチェック（明確さ、a11y、構造）
-- 任意のデプロイ経路（デフォルトでは無効）
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">アーキテクチャ →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp; <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">アーキテクチャ →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/04-aws--cost--audit-FF9900?style=flat-square" alt="aws-cost-audit">&nbsp;&nbsp;AWS の請求を、安全に監査する
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit はライブの AWS アカウントを読み取り、すべてのドルを割り当て、価格をライブで検証して、根拠に裏付けられたゲート付きの節約プランを返します" width="100%">
-</p>
+> Claude に AWS の請求を監査させましょう。すべての数値がライブの AWS 料金と照合された、明確な節約プランが得られます。あなたの許可なしには何も削除されません。
 
-ライブの AWS アカウントを読み取り（デフォルトでは読み取り専用）、すべてのドルを割り当て、アイドル状態・孤立・過剰プロビジョニングされたリソースを見つけます。すべての価格を AWS Price List API に対してライブで検証し（一切ハードコードしません）、各検出結果に信頼度、その裏付けとなる根拠、ロールバックを付与します。証拠とあなたの承認なしには何も削除されません。
+あなたのアカウントを読み取り、各リソースの本当のコストを算出して、アイドル状態や過剰な規模のリソースを見つけます。各節約案には信頼度、その根拠となる証拠、そして元に戻す方法が付きます。デフォルトでは読み取り専用なので、ドライランが通ってあなたが了承するまで何も変わりません。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit はライブの AWS アカウントを読み取り、すべてのドルを割り当て、価格をライブで検証して、根拠に裏付けられたゲート付きの節約プランを返します" width="100%"></p>
 
 ```bash
 claude plugin install aws-cost-audit@10x   # as a plugin (primary)
@@ -198,142 +122,60 @@ claude plugin install aws-cost-audit@10x   # as a plugin (primary)
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**何をするか**
-- 支出をライブで再算定（Cost Explorer）
-- すべてのリージョンを棚卸しし、無駄を狩る
-- 検出結果ごとに信頼度 + 根拠 + ロールバック
-
-</td>
-<td width="50%" valign="top">
-
-**デフォルトで安全**
-- 読み取り専用。破壊的な操作はゲートで保護
-- 価格をライブで検証、ハードコードしない
-- 「今すぐ安全に節約」対「理論上の最大節約」
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;終わったという約束ではなく、終わった証拠を
 
-大きなコーディングタスクのスコープを定め、本当に必要な数少ない決定を確定し、2 つのものを書き出します。**brief** はその実行がやるべきことを書いたファイル、**condition** は `/goal` に貼り付ける 1 行の短い文字列です。`/clear` してその 1 行を貼り付けると、フルコンテキストの新しいセッションがジョブ全体を処理し、最後のターンで通ったチェックを引用したうえで brief を `.goal/done/` に移します。
+> Claude に大きなタスクを託しましょう。終わったという約束ではなく、終わった証拠を確認しに戻ってくるだけです。
+
+じっと見ていられないほど大きな仕事のために、goalify は **brief**（その実行がやるべきことを書いたファイル）と **condition**（`/goal` に貼り付ける 1 行）を書き出します。チャットをクリアしてその 1 行を貼り付けると、新しいセッションが仕事全体をこなし、最後に通ったチェックを引用して締めくくります。実行が止まったからといって終わった証拠にはならないので、その締めくくりの証拠を信じる前に必ず読んでください。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify はリポジトリを調査し、本当に必要な数少ない決定を確定し、新しいセッションが実行・検証し、すべてのチェックが通った時点で .goal/done/ に格納する brief と condition を書き出します" width="100%"></p>
 
 ```bash
 claude plugin install goalify@10x   # as a plugin (primary)
-/goalify "<your task>"              # in any Claude Code session
+/goalify <your task>                # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**何をするか**
-- 大きなタスクのスコープを定め、数少ない本当の決定を確定する
-- brief（ファイル）と condition（`/goal` に貼る 1 行）を書き出す
-- 新しいフルコンテキストセッションがジョブ全体を実行する
-
-</td>
-<td width="50%" valign="top">
-
-**得られるもの**
-- すべての成功基準を検証してから brief を `.goal/done/` に格納する
-- ハンドオフはこのセッションで作成、実行は別セッション
-- Claude Code のスキル（MCP サーバーなし、CLI なし）
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/goalify">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/goalify">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;AI っぽい文章を、人間らしい文章に書き直す
 
-43 種類の AI ライティングパターン（過剰なシンボル表現、宣伝的な言い回し、em ダッシュの乱用、3 の法則、AI 特有の語彙、否定的な並列構造、曖昧な帰属表現など）を検出し、文長のばらつき（burstiness）と 5 つのボイスプロファイルを使って文章を書き直します。0 から 100 の AI 検出スコアをオンデマンドで算出します。純粋な Markdown 実装で、依存関係なし、ネットワーク呼び出しなし。
+> Humanizer は無料でオープンソースの AI ライティング判定・人間化ツールです。
+
+文章を貼り付けると、機械が書いたように読める度合いを採点するか、あなたが選んだボイスで書き直します。書き直された文章は、人がするように文の長さにばらつきを持たせます。単一の Markdown ファイルで完結し、あなたのマシンから何も出ていきません。目指すのは検出ツールを欺くことではなく、より良い文章です。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/humanizer-diagram.svg" alt="humanizer は文章から AI 特有のパターンをスキャンし、0 から 100 のスケールでどれだけ AI らしく読めるかを採点し、あなたが選んだボイスで文長のばらつきを持たせて書き直します" width="100%"></p>
 
 ```bash
 claude plugin install humanizer@10x   # as a plugin (primary)
-/humanizer "your text"                # in any Claude Code session
+/humanizer "<your text>"              # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+55 種類のパターン、5 つのボイス、0〜100 の AI 検出スコア。
 
-**何をするか**
-- 43 のAIライティングパターンを検出してスコアを算出する
-- 5 つのボイスプロファイル（casual、professional、technical、warm、blunt）で書き直す
-- detect（スキャンのみ）、rewrite（完全変換）、edit（ファイル内編集）の 3 モード
-
-</td>
-<td width="50%" valign="top">
-
-**得られるもの**
-- 0〜100 の AI 検出スコア（`--score` オプション）
-- 文長のばらつき（burstiness）による自然な読み心地
-- Claude Code のスキル（MCP サーバーなし、CLI なし）
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;繰り返す仕事を、任せる
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify は繰り返す仕事の 1 サイクルのスコープを定め、brief と /loop に貼り付ける line を書き出します。以後は tick ごとに brief を読み直し、1 サイクルを実行し、やったことを TICKS.md に追記します" width="100%">
-</p>
+> Claude に繰り返す仕事を託しましょう。あなたが見張らなければならないループではなく、各 tick が何をしたかのログを確認しに戻ってくるだけです。
 
-いつまでも終わらない仕事のために。レビューが少しずつ届くあいだリリース PR を健全に保つ、デプロイが落ち着くまで見張る、新しいバグ報告を 1 時間おきに片づける。仕事の説明は一度だけです。loopify はプロジェクトを読み、本当に必要な数少ない選択だけを尋ね、2 つのものを書き出します。**brief** はループが毎 tick の最初に読み直す常設ファイル、**line** は Claude Code 組み込みの繰り返しコマンド `/loop` に貼り付ける 1 行の短い文字列です。1 回の実行が 1 **tick** で、tick ごとにやったことが `TICKS.md` に残ります。line には tick の上限と停止ルールが、brief には 5 つの安全ガードが入っています。Claude Code のスキル（MCP サーバーなし、CLI なし）。
+デプロイが落ち着くまで見張る、新しいバグ報告を 1 時間おきに片づけるなど、いつまでも終わらない仕事があります。loopify は **brief**（ループが毎回読み直す常設ファイル）と **line**（`/loop` に貼り付ける 1 つの文字列）を書き出し、tick の上限と停止ルールはその line の中に収められています。tick のたびに、何をしたかが `TICKS.md` に記録されます。そのログは読むべきものです。何もすることがなかったループも、午後じゅう作業していたループも、外から見れば同じに見えるからです。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify は繰り返す仕事の 1 サイクルのスコープを定め、brief と /loop に貼り付ける line を書き出します。以後は tick ごとに brief を読み直し、1 サイクルを実行し、やったことを TICKS.md に追記します" width="100%"></p>
 
 ```bash
 claude plugin install loopify@10x   # as a plugin (primary)
 /loopify <your job>                 # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**何をするか**
-- プロジェクトを読み、本当に必要な問いだけを尋ね、1 サイクルのスコープを定める
-- brief（常設ファイル）と line（`/loop` に貼る 1 行）を書き出す
-- tick ごとに `TICKS.md` へ記録し、安全に処理できないものは `QUEUE.md` に残す
-
-</td>
-<td width="50%" valign="top">
-
-**デフォルトで安全**
-- tick の上限と停止ルールは line そのものに入っている
-- 5 つのガード: アカウント作成なし、支払いなし、指示がなければ push も投稿もしない
-- tick が読んだものはすべてデータであり、命令ではない
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/loopify">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/loopify">GitHub →</a></p>
 
 ---
 
@@ -343,7 +185,7 @@ claude plugin install loopify@10x   # as a plugin (primary)
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Claude Code、Cursor、VS Code、Codex、Gemini、Windsurf、Continue、その他あらゆる MCP 対応エディタで動作します" width="100%">
 </p>
 
-10x の各**ツール**プラグインは**デュアルモード**です: Claude Code プラグインとしてインストールするか、お好みのエディタで素のままの MCP サーバーとして実行できます。（`aws-cost-audit`、`goalify`、`humanizer`、`loopify` は MCP サーバーではなく Claude Code のスキルなので、Claude Code 内で動作します。）
+sniff、ui-ux-suite、recap-studio はデュアルモードです。Claude Code プラグインとしてインストールするか、お好みのエディタで素のままの MCP サーバーとして実行できます。aws-cost-audit、goalify、humanizer、loopify は MCP サーバーではなく Claude Code のスキルなので、Claude Code 内で動作します。
 
 ```bash
 npx sniff-qa            --mcp
@@ -365,13 +207,13 @@ npx ui-ux-suite         --mcp
 | **1 コマンドでインストール** | 設定ファイルなし、API キーなし |
 | **本物のテスト** | 理想論ではなく、「近日公開」でもない |
 | **デュアルモード** | Claude Code プラグインとしても MCP サーバーとしても動作 |
-| **積極的にメンテナンス** | 昨年に放置ではなく、今四半期にリリース |
+| **積極的にメンテナンス** | 今四半期にリリース、昨年に放置ではない |
 | **テレメトリなし** | ローカルで動作し、あなたのコードはマシンから出ない |
 
-8 項目（32 要素）の完全なチェックリストは [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md) にあります。メンテナーは四半期レビューで各プラグインを再検証します。
+完全なチェックリストは [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md) にあります。メンテナーは四半期レビューで各プラグインを再検証します。
 
 > [!NOTE]
-> 現在のラインナップ: **sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（テストを持つ 5 つのパッケージにわたる 43 tests）、**aws-cost-audit 0.2.0**（テストファーストで構築、実アカウントでエンドツーエンドに検証済み、ハードコードされた価格はゼロ）、**goalify 2.5.0**（brief と condition を書き出し、成功時に brief を `.goal/done/` へ格納する Claude Code スキル）、**humanizer 0.1.0**（43 の AI ライティングパターンを検出し、burstiness と 5 つのボイスプロファイルで書き直す Claude Code スキル）、**loopify 1.0.0**（テストファーストで構築。CI でスキル評価 136/136 とマニフェストテスト、さらに Sonnet で RED→GREEN の挙動ベースラインを記録: 1/7 → 7/7）。最終検証日: 2026-09-01。
+> 現在のラインナップ: **sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（テストを持つ 5 つのパッケージにわたる 43 tests）、**aws-cost-audit 0.2.0**（デフォルトで読み取り専用）、**goalify 2.5.0**、**humanizer 0.6.2**（55 patterns）、**loopify 1.0.0**。最終検証日: 2026-09-01。
 
 ---
 

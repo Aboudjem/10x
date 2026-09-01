@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="许可证"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-7-f59e0b?style=flat-square" alt="7 个插件"></a>
+  <a href="#插件"><img src="https://img.shields.io/badge/plugins-7-f59e0b?style=flat-square" alt="7 个插件"></a>
   <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="星标"></a>
 </p>
 
@@ -30,8 +30,6 @@
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="你的编辑器与 10x 市场通信，市场提供七个精选插件：sniff、ui-ux-suite、recap-studio、aws-cost-audit、goalify、humanizer 和 loopify" width="100%">
 </p>
 
-<p align="center"><i>只需一条安装命令。每个插件都会自动接入它的 MCP 工具、斜杠命令和智能体。</i></p>
-
 ```bash
 claude plugin marketplace add Aboudjem/10x
 ```
@@ -39,22 +37,21 @@ claude plugin marketplace add Aboudjem/10x
 > [!TIP]
 > 只需一条安装命令。每个插件都会自动接入它的 MCP 工具、斜杠命令和智能体。
 
+此处的版本号跟随各插件自身的发布节奏，详见 [docs/SYNC.md](https://github.com/Aboudjem/10x/blob/main/docs/SYNC.md)。
+
 ---
 
 ## 插件
 
 如今共有七个插件。它们每一个都通过了下面的[质量标准](#10x-标准)。
 
-> [!TIP]
-> 想看它们运行吗？每个工具的仓库都有自己的演示：[sniff](https://github.com/Aboudjem/sniff#readme)、[ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme)、[recap-studio](https://github.com/Aboudjem/recap-studio#readme)、[aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme)、[goalify](https://github.com/Aboudjem/goalify#readme)、[humanizer](https://github.com/Aboudjem/humanizer-skill#readme) 和 [loopify](https://github.com/Aboudjem/loopify#readme)。
+### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;在用户之前先发现 bug
 
-### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;在用户之前发现 bug
+> 把它指向你正在运行的应用。它会在真实浏览器里走一遍你真实的用户流程，然后告诉你到底哪里坏了，并附上证据。
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/sniff-diagram.svg" alt="Sniff 遍历你正在运行的应用，发现它的流程，并返回按优先级排序的 bug、可访问性和性能发现" width="100%">
-</p>
+它会在真实浏览器里打开你的应用，像人一样一步步点下去。你拿到的是一份按优先级排序的问题清单，每一条都带着复现步骤。它需要你的应用正在运行：如果没有服务在跑，sniff 会退而去读你的源代码。
 
-由 AI 驱动的 QA，像用户一样遍历你正在运行的应用，发现它的流程，并找出可访问性、性能和损坏交互方面的真实 bug。自动检测你的开发服务器。也可通过 `sniff scan` 进行源代码扫描。无需 API 密钥，无需配置。
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/sniff-diagram.svg" alt="sniff 遍历你正在运行的应用，发现它的流程，并返回按优先级排序的 bug、可访问性和性能发现" width="100%"></p>
 
 ```bash
 claude plugin install sniff@10x     # as a plugin (primary)
@@ -63,41 +60,19 @@ npx sniff-qa                        # as a standalone CLI
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+441 个测试，覆盖 12 类 bug。
 
-**斜杠命令**
-- `/sniff` - 遍历你正在运行的应用
-- `/sniff-fix` - 应用安全修复
-- `/sniff-report` - 打开上一次扫描
-
-</td>
-<td width="50%" valign="top">
-
-**MCP 工具**
-- `sniff` - 遍历你正在运行的应用（统一版）
-- `sniff_scan` - 仅源代码扫描
-- `sniff_report` - 格式化结果
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://www.npmjs.com/package/sniff-qa">npm →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/sniff-qa">npm →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/02-ui--ux--suite-0ea5e9?style=flat-square" alt="ui-ux-suite">&nbsp;&nbsp;量化你的设计质量
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/uiux-diagram.svg" alt="ui-ux-suite 扫描你的项目，对 12 个设计维度评分，并返回一份引用每个发现违反了哪条 UX 法则的审计报告" width="100%">
-</p>
+> **设计界的 ESLint。** 它会指出确切的那一行、测出来的错误数值，以及确切的修复方法。
 
-扫描你的 CSS、JSX 和 Tailwind 配置。对 12 个设计维度评分：可访问性、配色系统、排版、布局与间距、组件质量、视觉层级、交互质量、响应式、视觉打磨、体感性能、信息架构和平台适配性。引用每个发现所违反的 UX 法则，然后向你展示确切的修复方法。它只审计，从不修改。零依赖，100% 本地。
+它会读取你的 CSS、JSX 和 Tailwind 配置，然后为你的设计打分，涵盖 12 个方面，其中包括配色、排版、间距和可访问性。每条发现都会点名文件、行号、出错的数值，以及修复方法。它只报告，从不修改，是否应用修复由你决定。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/uiux-diagram.svg" alt="ui-ux-suite 扫描你的项目，对 12 个设计维度评分，并返回一份引用每个发现违反了哪条 UX 法则的审计报告" width="100%"></p>
 
 ```bash
 claude plugin install ui-ux-suite@10x   # as a plugin (primary)
@@ -106,46 +81,19 @@ npx ui-ux-suite                         # as a standalone CLI
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+311 个测试，12 个加权维度。
 
-**斜杠命令**
-- `/design-audit` - 完整的 12 维审计
-- `/color-audit` - 对比度 + 调色板
-- `/type-audit` - 仅排版
-- `/layout-audit` - 间距 + 网格
-- `/a11y-audit` - WCAG 2.2 + APCA
-- `+ 另外 9 项专项审计`
-
-</td>
-<td width="50%" valign="top">
-
-**MCP 工具**
-- `uiux_scan_project` - 检测技术栈
-- `uiux_extract_colors` - 调色板
-- `uiux_check_contrast` - WCAG/APCA
-- `uiux_generate_tokens` - design system
-- `+ 另外 10 项评分与生成工具`
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a></p>
 
 ---
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;5 分钟内生成一页式讲解
+### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;5 分钟内做出一页式讲解
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/recap-studio-diagram.svg" alt="Recap Studio 接收一个主题或一份 git diff，运行关于清晰度和可访问性的确定性启发式检查，并输出一个自包含的一页式讲解" width="100%">
-</p>
+> 把任何主题或一次编码会话，变成一个漂亮的、深色模式、移动优先的讲解页面，双击就能打开。不需要服务器，不需要联网，没有依赖。
 
-把任何主题或编码会话变成一个干净、移动优先的一页式讲解，一个聪明的 18 岁年轻人 5 分钟就能读完。输出是一个自包含、可离线使用的 HTML 页面。确定性的启发式检查会在你发布前验证清晰度、可访问性和结构，并且每个论断都有引用来源。
+给它一个主题，或者让它指向一次编码会话，你会得到一个 HTML 页面，双击就能打开。它可以离线使用，每一条论断都附有来源。发布之前，一个快速检查器会给页面打分，这个分数是一个结构性信号，不是同行评审。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/recap-studio-diagram.svg" alt="recap-studio 接收一个主题或一份 git diff，运行关于清晰度和可访问性的确定性检查，并输出一个自包含的一页式讲解" width="100%"></p>
 
 ```bash
 claude plugin install recap-studio@10x   # as a plugin (primary)
@@ -154,43 +102,19 @@ claude plugin install recap-studio@10x   # as a plugin (primary)
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+43 个测试，分布在 5 个带测试的包中。
 
-**斜杠命令**
-- `/recap "<topic>"` - 完整的讲解页面
-- `/recap session` - 编码会话回顾
-- `/recap setup` - 写入安全默认配置
-- `/recap validate` - 对当前页面重新评分
-
-</td>
-<td width="50%" valign="top">
-
-**你将获得**
-- 一个自包含、可离线的 HTML 页面
-- 每个论断都引用到来源
-- 确定性的启发式检查（清晰度、a11y、结构）
-- 可选的部署路径（默认关闭）
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">架构 →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp; <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">架构 →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/04-aws--cost--audit-FF9900?style=flat-square" alt="aws-cost-audit">&nbsp;&nbsp;安全地审计你的 AWS 账单
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit 读取你实时的 AWS 账户，归因每一美元并实时核验价格，然后返回一份有证据支撑、需逐项放行的节省方案" width="100%">
-</p>
+> 让 Claude 审计你的 AWS 账单。你会得到一份清楚的节省方案，每个数字都对照实时的 AWS 定价核实过，未经你同意不会删除任何东西。
 
-读取你实时的 AWS 账户（默认只读），归因每一美元，并找出闲置、孤立和过度配置的资源。针对 AWS Price List API 实时核验每个价格（它不硬编码任何价格），并为每个发现给出置信度、其背后的证据和回滚方案。没有证据和你的签字确认，任何东西都不会被删除。
+它会读取你的账户，算清楚每个资源实际花了多少钱，并找出闲置和配置过高的资源。每一项节省都带着置信度、背后的证据，以及一个撤销的办法。它默认只读，所以在试运行通过、并且你点头同意之前，什么都不会改变。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit 读取你实时的 AWS 账户，归因每一美元并实时核验价格，然后返回一份有证据支撑、需逐项放行的节省方案" width="100%"></p>
 
 ```bash
 claude plugin install aws-cost-audit@10x   # as a plugin (primary)
@@ -198,144 +122,60 @@ claude plugin install aws-cost-audit@10x   # as a plugin (primary)
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**它做什么**
-- 实时重新核算支出（Cost Explorer）
-- 盘点每个区域，追猎浪费
-- 每个发现都附带置信度 + 证据 + 回滚
-
-</td>
-<td width="50%" valign="top">
-
-**默认安全**
-- 只读；破坏性操作需逐项放行
-- 实时核验价格，从不硬编码
-- 「立即安全节省」对比「理论最大节省」
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a></p>
 
 ---
 
-### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;回来时看到的是完成的证据
+### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;回来时看到完成的证据
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify 厘清一个大型编码任务的范围，锁定为数不多的真实决策，写出 brief 与 condition；一个全新的满上下文会话据此执行、核验，并在全部通过后把 brief 归档到 .goal/done/" width="100%">
-</p>
+> 把一个巨大的任务交给 Claude。回来时看到的是完成的证据——而不是一句"应该做完了"的承诺。
 
-厘清一个大型编码任务的范围，锁定为数不多的真实决策，然后写出两样东西：**brief** 是一个文件，写明这次运行要做什么；**condition** 是你粘贴进 `/goal` 的一行短字符串。你 `/clear` 之后粘贴那一行，一个全新的满上下文会话就会执行整个任务，并在收尾时引用通过的检查结果，把 brief 移入 `.goal/done/`。
+对于大到没法坐在旁边盯着的任务，goalify 会写出 brief（一个文件，写明这次运行要做什么）和 condition（一行字符串，粘贴进 `/goal`）。你清空对话，粘贴那一行，一个全新的会话就会把整个任务做完，并在收尾时引用通过的检查结果。一次运行停下来，并不等于它做完了，所以在相信之前，先读那份收尾证据。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify 研究你的仓库，锁定为数不多的真实决策，写出 brief 与 condition；一个全新的会话据此执行、核验，并在全部检查通过后把它归档到 .goal/done/" width="100%"></p>
 
 ```bash
 claude plugin install goalify@10x   # as a plugin (primary)
-/goalify <your task>                # in any Claude Code session
+/goalify <your task>                # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+<p><a href="https://github.com/Aboudjem/goalify">GitHub →</a></p>
 
-**斜杠命令**
-- `/goalify <your task>` - 准备一个 `/goal` 文件
+---
 
-</td>
-<td width="50%" valign="top">
+### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;让 AI 生成的文字读起来像人写的
 
-**它做什么**
-- 厘清任务范围并锁定为数不多的真实决策
-- 写出 brief（一个文件）和 condition（给 `/goal` 的一行）
-- 一个全新的满上下文会话执行整个任务
-- 全部成功标准通过后才把 brief 归档到 `.goal/done/`
+> humanizer 是一个免费、开源的 AI 写作人性化改写与检测工具。
 
-</td>
-</tr>
-</table>
+粘贴一段文字，它会给出这段文字读起来有多像机器写的评分，也可以按你选的语气把它改写一遍。改写会像人一样让句子长短参差不齐。它就是一个 Markdown 文件，什么都不会离开你的机器，目标是写得更好，而不是骗过检测器。
 
-<p>
-  <a href="https://github.com/Aboudjem/goalify">GitHub →</a>
-</p>
-
-### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;将 AI 生成的文本改写为人类笔调
-
-检测文本中的 43 种 AI 写作模式，输出一个 0-100 的 AI 痕迹评分，并通过句长变化（burstiness）和 5 种语气配置将文本改写为真实的人类笔调。纯 Markdown 实现，零依赖，无网络请求。
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/humanizer-diagram.svg" alt="humanizer 扫描文本中的 AI 写作模式，给出 0 到 100 的 AI 痕迹评分，然后按你选的语气用参差的句长改写文本" width="100%"></p>
 
 ```bash
 claude plugin install humanizer@10x   # as a plugin (primary)
-/humanizer "your text"                # in any Claude Code session
+/humanizer "<your text>"              # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+55 种模式，5 种语气，0-100 的 AI 痕迹评分。
 
-**斜杠命令**
-- `/humanizer` - 检测并改写（默认模式）
-- `/humanizer --mode detect` - 仅扫描并评分
-- `/humanizer --mode edit` - 就地编辑文件
-
-</td>
-<td width="50%" valign="top">
-
-**它做什么**
-- 检测 43 种 AI 写作模式
-- 5 种语气配置：casual、professional、technical、warm、blunt
-- 0-100 的 AI 痕迹评分
-- 通过句长变化（burstiness）填补人机差距
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;把重复的活儿交出去
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify 厘清重复任务的一个周期，写出 brief 和你粘贴进 /loop 的那一行；此后每个 tick 都重新读取 brief，跑完一个周期，并把做过的事记进 TICKS.md" width="100%">
-</p>
+> 把一件会反复发生的活儿交给 Claude。回来看到的是一份记录每个 tick 做了什么的日志——而不是一个需要你一直盯着的循环。
 
-给那些永远做不完的活儿用：在评审陆续到来的时候照看一个发版 PR、盯着一次部署直到稳定、每小时清扫新的缺陷报告。你只描述一次。loopify 会读你的项目，问清为数不多的真实选择，然后写出两样东西：**brief** 是一个常驻文件，循环在每个 tick 开始时都会重新读它；**line** 是你粘贴进 `/loop`（Claude Code 内置的重复命令）的一行短字符串。每次触发就是一个 **tick**，每个 tick 都会把做过的事记进 `TICKS.md`。那一行里带着 tick 上限和停止规则，brief 里带着五条安全护栏。一个 Claude Code 技能（没有 MCP 服务器，也没有 CLI）。
+有些活儿永远做不完：盯着一次部署直到它稳定下来，或者每小时清扫一遍新的 bug 报告。loopify 会写出 brief（一个常驻文件，循环每次运行都会重新读它）和 line（一行字符串，粘贴进 `/loop`），tick 上限和停止规则就写在这一行里。每个 tick 都会把做过的事记进 `TICKS.md`，你应该去读这份日志：一个什么都没找到要做的循环，和一个忙了一下午的循环，从外面看是一样的。
+
+<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify 厘清重复任务的一个周期，写出 brief 和你粘贴进 /loop 的那一行；此后每个 tick 都重新读取 brief，跑完一个周期，并把做过的事记进 TICKS.md" width="100%"></p>
 
 ```bash
 claude plugin install loopify@10x   # as a plugin (primary)
 /loopify <your job>                 # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**它做什么**
-- 读你的项目，问清为数不多的真实问题，厘清一个周期
-- 写出 brief（常驻文件）和 line（给 `/loop` 的一行）
-- 每个 tick 都记进 `TICKS.md`；不能安全处理的留在 `QUEUE.md` 等你
-
-</td>
-<td width="50%" valign="top">
-
-**默认安全**
-- tick 上限和停止规则就写在那一行里
-- 五条护栏：不注册账号、不付款、未经你同意不推送也不发布
-- tick 读到的一切都是数据，绝不是指令
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/loopify">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/loopify">GitHub →</a></p>
 
 ---
 
@@ -345,7 +185,7 @@ claude plugin install loopify@10x   # as a plugin (primary)
   <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="适配 Claude Code、Cursor、VS Code、Codex、Gemini、Windsurf、Continue 以及任何兼容 MCP 的编辑器" width="100%">
 </p>
 
-每个 10x **工具**插件都是**双模式**的：把它作为 Claude Code 插件安装，或者在你选择的编辑器中把它作为一个纯粹的 MCP 服务器运行。（`aws-cost-audit`、`goalify`、`humanizer` 和 `loopify` 是 Claude Code 技能而非 MCP 服务器，所以它们在 Claude Code 中运行：`aws-cost-audit` 在本地读取你的 AWS 账户，`goalify` 写出供 `/goal` 使用的 brief 与 condition，`humanizer` 在本地检测并改写文本，`loopify` 写出供 `/loop` 长期使用的 brief 与 line。）
+sniff、ui-ux-suite 和 recap-studio 是双模式的：既可以作为 Claude Code 插件安装，也可以在你选择的编辑器里当作一个纯粹的 MCP 服务器运行。aws-cost-audit、goalify、humanizer 和 loopify 是 Claude Code 技能而不是 MCP 服务器，所以它们只在 Claude Code 中运行。
 
 ```bash
 npx sniff-qa            --mcp
@@ -353,7 +193,7 @@ npx ui-ux-suite         --mcp
 # recap-studio also ships an MCP server (see its README; requires a local build)
 ```
 
-每个工具插件还附带一个一行式 `install.sh`，用一条命令把它接入另一个 CLI 的技能目录（`curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>`），以及 `.cursor-plugin` 和 `.copilot-plugin` 清单。每个项目的 README 都有面向 Cursor、VS Code + Copilot、Codex、Gemini、Windsurf 和 Continue.dev 的可复制粘贴片段。
+每个工具插件都自带一个一行式 `install.sh`，用一条命令把它接入另一个 CLI 的技能目录（`curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>`），此外还有 `.cursor-plugin` 和 `.copilot-plugin` 清单。每个项目的 README 里都有面向 Cursor、VS Code + Copilot、Codex、Gemini、Windsurf 和 Continue.dev 的可复制粘贴片段。
 
 ---
 
@@ -363,17 +203,17 @@ npx ui-ux-suite         --mcp
 
 | | |
 |---|---|
-| **没有冗余** | 标准 Node.js，无运行时依赖 |
+| **没有冗余** | 纯 Node.js，无运行时依赖 |
 | **一条命令安装** | 无配置文件，无 API 密钥 |
-| **真实的测试** | 不是愿景，不是「即将推出」 |
+| **真实的测试** | 不是愿景，不是"即将推出" |
 | **双模式** | 既作为 Claude Code 插件运行，也作为 MCP 服务器运行 |
-| **积极维护** | 本季度发布，而非去年弃置 |
+| **积极维护** | 本季度发布，而非去年就已弃置 |
 | **无遥测** | 在本地运行，你的代码绝不离开你的机器 |
 
-完整的八点清单（32 项）在 [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md) 中。维护者在每季度评审时会对照它重新核验每个插件。
+完整清单在 [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md) 中。维护者在每季度评审时都会对照它重新核验每个插件。
 
 > [!NOTE]
-> 当前阵容：**sniff 0.7.0**（441 tests）、**ui-ux-suite 0.5.0**（311 tests）、**recap-studio 0.4.0**（分布在 5 个带测试的包中的 43 tests）、**aws-cost-audit 0.2.0**（以测试先行方式构建，在真实账户上端到端验证，零硬编码价格）、**goalify 2.5.0**（一个 Claude Code 技能，写出 brief 与 condition，成功后把 brief 归档到 `.goal/done/`）、**humanizer 0.1.0**（一个 Claude Code 技能，检测 43 种 AI 写作模式，输出 0-100 的 AI 痕迹评分，零依赖）、**loopify 1.0.0**（以测试先行方式构建；CI 中有技能评测 136/136 与 manifest 测试；在 Sonnet 上记录了一次 RED→GREEN 行为基线：1/7 → 7/7）。最近核验：2026-09-01。
+> 当前阵容：**sniff 0.7.0**（441 个测试）、**ui-ux-suite 0.5.0**（311 个测试）、**recap-studio 0.4.0**（43 个测试，分布在 5 个带测试的包中）、**aws-cost-audit 0.2.0**（默认只读）、**goalify 2.5.0**、**humanizer 0.6.2**（55 种模式）、**loopify 1.0.0**。最近核验时间：2026-09-01。
 
 ---
 
@@ -412,4 +252,4 @@ npx ui-ux-suite         --mcp
 
 ---
 
-*本翻译在自动工具的协助下完成。欢迎母语者提交 PR 来修正任何生硬的措辞或不准确之处。如有出入，以英文 README（[../README.md](../README.md)）为准。*
+*本翻译由自动化工具协助完成。欢迎母语者提交 PR 来修正任何生硬的措辞或不准确之处。如有出入，以英文 README（[README.md](https://github.com/Aboudjem/10x/blob/main/README.md)）为准。*
