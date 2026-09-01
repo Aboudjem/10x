@@ -209,13 +209,17 @@
         <rect x="0" y="0" width="126" height="26" rx="6" fill="#58A6FF" fill-opacity="0.1" stroke="#58A6FF" stroke-opacity="0.4"/>
         <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">idle RDS · -$420/mo</text>
       </g>
-      <g class="line-2" transform="translate(0,32)">
-        <rect x="0" y="0" width="126" height="26" rx="6" fill="#3FB6B2" fill-opacity="0.1" stroke="#3FB6B2" stroke-opacity="0.4"/>
-        <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">gp2 → gp3 · -$190/mo</text>
+      <g transform="translate(0,32)">
+        <g class="line-2">
+          <rect x="0" y="0" width="126" height="26" rx="6" fill="#3FB6B2" fill-opacity="0.1" stroke="#3FB6B2" stroke-opacity="0.4"/>
+          <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">gp2 → gp3 · -$190/mo</text>
+        </g>
       </g>
-      <g class="line-3" transform="translate(0,64)">
-        <rect x="0" y="0" width="126" height="26" rx="6" fill="#FF9900" fill-opacity="0.1" stroke="#FF9900" stroke-opacity="0.4"/>
-        <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">orphan EIPs · -$58/mo</text>
+      <g transform="translate(0,64)">
+        <g class="line-3">
+          <rect x="0" y="0" width="126" height="26" rx="6" fill="#FF9900" fill-opacity="0.1" stroke="#FF9900" stroke-opacity="0.4"/>
+          <text x="10" y="16" font-family="Menlo,monospace" font-size="9" fill="#e5e7eb">orphan EIPs · -$58/mo</text>
+        </g>
       </g>
     </g>
 

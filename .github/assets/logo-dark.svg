@@ -77,12 +77,12 @@
     .halo-2 { animation: halo-pulse-2 3s ease-in-out infinite 0.8s; transform-origin: center; transform-box: fill-box; }
     .divider { animation: divider-pulse 2.5s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
     .bg-glow { animation: bg-glow 5s ease-in-out infinite; }
-    .underline { animation: underline-sweep 4s ease-in-out infinite; transform-origin: left; }
+    .underline { animation: underline-sweep 4s ease-in-out infinite; transform-origin: left; transform-box: fill-box; }
     .eyebrow { animation: eyebrow-fade 3s ease-in-out infinite; }
     .pill-glint-rect { animation: pill-glint 4s ease-in-out infinite; }
     .chevron { animation: chevron-tick 1.5s ease-in-out infinite; }
-    .ring-outer { animation: ring-rotate 25s linear infinite; transform-origin: 160px 100px; transform-box: fill-box; }
-    .ring-inner { animation: ring-rotate-reverse 18s linear infinite; transform-origin: 160px 100px; transform-box: fill-box; }
+    .ring-outer { animation: ring-rotate 25s linear infinite; transform-origin: 160px 100px; }
+    .ring-inner { animation: ring-rotate-reverse 18s linear infinite; transform-origin: 160px 100px; }
     .ten-x-text { animation: text-glow 3s ease-in-out infinite; }
     .particle-1 { animation: particle-drift-1 6s ease-in-out infinite; }
     .particle-2 { animation: particle-drift-2 7s ease-in-out infinite 1s; }
@@ -170,23 +170,35 @@
   </g>
 
   <!-- Sparkles scattered around the 10x -->
-  <g class="sparkle-1" transform="translate(245, 68)">
-    <path d="M0,-7 L1.5,-1.5 L7,0 L1.5,1.5 L0,7 L-1.5,1.5 L-7,0 L-1.5,-1.5 Z" fill="#fde68a"/>
+  <g transform="translate(245, 68)">
+    <g class="sparkle-1">
+      <path d="M0,-7 L1.5,-1.5 L7,0 L1.5,1.5 L0,7 L-1.5,1.5 L-7,0 L-1.5,-1.5 Z" fill="#fde68a"/>
+    </g>
   </g>
-  <g class="sparkle-2" transform="translate(270, 125)">
-    <path d="M0,-5 L1,-1 L5,0 L1,1 L0,5 L-1,1 L-5,0 L-1,-1 Z" fill="#fbbf24"/>
+  <g transform="translate(270, 125)">
+    <g class="sparkle-2">
+      <path d="M0,-5 L1,-1 L5,0 L1,1 L0,5 L-1,1 L-5,0 L-1,-1 Z" fill="#fbbf24"/>
+    </g>
   </g>
-  <g class="sparkle-3" transform="translate(50, 55)">
-    <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#fde68a"/>
+  <g transform="translate(50, 55)">
+    <g class="sparkle-3">
+      <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#fde68a"/>
+    </g>
   </g>
-  <g class="sparkle-4" transform="translate(85, 160)">
-    <path d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="#f59e0b"/>
+  <g transform="translate(85, 160)">
+    <g class="sparkle-4">
+      <path d="M0,-5 L1.2,-1.2 L5,0 L1.2,1.2 L0,5 L-1.2,1.2 L-5,0 L-1.2,-1.2 Z" fill="#f59e0b"/>
+    </g>
   </g>
-  <g class="sparkle-5" transform="translate(230, 165)">
-    <path d="M0,-6 L1.4,-1.4 L6,0 L1.4,1.4 L0,6 L-1.4,1.4 L-6,0 L-1.4,-1.4 Z" fill="#fbbf24"/>
+  <g transform="translate(230, 165)">
+    <g class="sparkle-5">
+      <path d="M0,-6 L1.4,-1.4 L6,0 L1.4,1.4 L0,6 L-1.4,1.4 L-6,0 L-1.4,-1.4 Z" fill="#fbbf24"/>
+    </g>
   </g>
-  <g class="sparkle-6" transform="translate(35, 110)">
-    <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#fde68a"/>
+  <g transform="translate(35, 110)">
+    <g class="sparkle-6">
+      <path d="M0,-4 L1,-1 L4,0 L1,1 L0,4 L-1,1 L-4,0 L-1,-1 Z" fill="#fde68a"/>
+    </g>
   </g>
 
   <!-- Vertical divider -->

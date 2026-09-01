@@ -21,7 +21,7 @@
       0% { stroke-dasharray: 0 440; }
       60%, 100% { stroke-dasharray: 330 440; }
     }
-    .gauge-ring { animation: gauge-fill 4s ease-out infinite; transform-origin: center; }
+    .gauge-ring { animation: gauge-fill 4s ease-out infinite; }
     @keyframes number-count {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.85; }
@@ -105,7 +105,7 @@
     <text x="0" y="-10" class="label">02 · 12 DIMENSIONS</text>
     <rect x="0" y="0" width="300" height="200" rx="12" class="frame"/>
 
-    <g transform="translate(150,105)">
+    <g transform="translate(150,88)">
       <circle cx="0" cy="0" r="80" fill="url(#ui-hub)"/>
       <circle cx="0" cy="0" r="72" fill="none" stroke="#0ea5e9" stroke-opacity="0.2"/>
       <circle cx="0" cy="0" r="50" fill="none" stroke="#0ea5e9" stroke-opacity="0.15"/>
@@ -148,9 +148,11 @@
       <circle cx="52" cy="-30" r="4" fill="#0ea5e9" class="dim-node-6"/>
     </g>
 
-    <!-- dimension labels, compact -->
-    <g transform="translate(20,185)">
-      <text class="dim-label" x="0" y="0">a11y · color · type · layout · component · hierarchy · interact · responsive · polish · perf · info-arch · platform</text>
+    <!-- dimension labels: wrapped onto three centred lines so none overflows the frame -->
+    <g transform="translate(150,170)" text-anchor="middle">
+      <text class="dim-label" x="0" y="0">a11y · color · type · layout</text>
+      <text class="dim-label" x="0" y="12">component · hierarchy · interact · responsive</text>
+      <text class="dim-label" x="0" y="24">polish · perf · info-arch · platform</text>
     </g>
   </g>
 
