@@ -30,8 +30,6 @@
   <img src=".github/assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships seven curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, and loopify" width="100%">
 </p>
 
-<p align="center"><i>One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.</i></p>
-
 ```bash
 claude plugin marketplace add Aboudjem/10x
 ```
@@ -39,22 +37,21 @@ claude plugin marketplace add Aboudjem/10x
 > [!TIP]
 > One install command. Every plugin wires up its MCP tools, slash commands, and agents automatically.
 
+Versions here follow each plugin's own releases; see [docs/SYNC.md](docs/SYNC.md).
+
 ---
 
 ## Plugins
 
 Seven plugins today. Every one of them passes the [quality bar](#the-10x-bar) below.
 
-> [!TIP]
-> Want to see them run? Each tool repo has its own demo: [sniff](https://github.com/Aboudjem/sniff#readme), [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite#readme), [recap-studio](https://github.com/Aboudjem/recap-studio#readme), [aws-cost-audit](https://github.com/Aboudjem/aws-cost-audit-skill#readme), [goalify](https://github.com/Aboudjem/goalify#readme), [humanizer](https://github.com/Aboudjem/humanizer-skill#readme), and [loopify](https://github.com/Aboudjem/loopify#readme).
-
 ### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Find bugs before your users do
 
-<p align="center">
-  <img src=".github/assets/sniff-diagram.svg" alt="Sniff walks your running app, discovers its flows, and returns prioritized bug, accessibility, and performance findings" width="100%">
-</p>
+> Point it at your running app. It walks your real user flows in a real browser and tells you what's actually broken, with proof.
 
-AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. Auto-detects your dev server. A source scan is also available via `sniff scan`. No API keys, no config.
+It opens your app in a real browser and clicks through it the way a person would. You get back a ranked list of what broke, and each finding carries the steps to reproduce it. It needs your app running: with no server up, sniff drops to reading your source instead.
+
+<p align="center"><img src=".github/assets/sniff-diagram.svg" alt="sniff walks your running app, discovers its flows, and returns prioritized bug, accessibility, and performance findings" width="100%"></p>
 
 ```bash
 claude plugin install sniff@10x     # as a plugin (primary)
@@ -63,41 +60,19 @@ npx sniff-qa                        # as a standalone CLI
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+441 tests. 12 classes of bugs.
 
-**Slash commands**
-- `/sniff` - walk your running app
-- `/sniff-fix` - apply safe fixes
-- `/sniff-report` - open last scan
-
-</td>
-<td width="50%" valign="top">
-
-**MCP tools**
-- `sniff` - walk your running app (unified)
-- `sniff_scan` - source-only scan
-- `sniff_report` - formatted results
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://www.npmjs.com/package/sniff-qa">npm →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/sniff-qa">npm →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/02-ui--ux--suite-0ea5e9?style=flat-square" alt="ui-ux-suite">&nbsp;&nbsp;Your design quality, measured
 
-<p align="center">
-  <img src=".github/assets/uiux-diagram.svg" alt="ui-ux-suite scans your project, scores 12 design dimensions, and returns an audit citing which UX law each finding violates" width="100%">
-</p>
+> **ESLint for design.** It finds the exact line, the measured wrong value, and the exact fix.
 
-Scans your CSS, JSX, and Tailwind config. Scores 12 design dimensions: accessibility, color system, typography, layout and spacing, component quality, visual hierarchy, interaction quality, responsiveness, visual polish, performance UX, information architecture, and platform appropriateness. Cites the UX law each finding violates, then shows you the exact fix. It audits, it never edits. Zero dependencies, 100% local.
+It reads your CSS, JSX, and Tailwind config, then scores twelve parts of your design, among them color, type, spacing, and accessibility. Each finding names the file, the line, the value that is wrong, and the fix. It reports and never edits, so applying a fix stays your call.
+
+<p align="center"><img src=".github/assets/uiux-diagram.svg" alt="ui-ux-suite scans your project, scores 12 design dimensions, and returns an audit citing which UX law each finding violates" width="100%"></p>
 
 ```bash
 claude plugin install ui-ux-suite@10x   # as a plugin (primary)
@@ -106,46 +81,19 @@ npx ui-ux-suite                         # as a standalone CLI
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+311 tests. 12 weighted dimensions.
 
-**Slash commands**
-- `/design-audit` - full 12-dim audit
-- `/color-audit` - contrast + palette
-- `/type-audit` - typography only
-- `/layout-audit` - spacing + grid
-- `/a11y-audit` - WCAG 2.2 + APCA
-- `+ 9 more specialist audits`
-
-</td>
-<td width="50%" valign="top">
-
-**MCP tools**
-- `uiux_scan_project` - detect stack
-- `uiux_extract_colors` - palette
-- `uiux_check_contrast` - WCAG/APCA
-- `uiux_generate_tokens` - design system
-- `+ 10 more scoring & generation tools`
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;One-page explainers in under 5 minutes
 
-<p align="center">
-  <img src=".github/assets/recap-studio-diagram.svg" alt="Recap Studio takes a topic or a git diff, runs deterministic heuristic checks for clarity and accessibility, and outputs a self-contained one-page explainer" width="100%">
-</p>
+> Turn any topic or coding session into a beautiful, dark-mode, mobile-first explainer you can double-click to open. No server, no internet, no dependencies.
 
-Turn any topic or coding session into a clean, mobile-first one-page explainer a smart 18-year-old can read in 5 minutes. Output is a self-contained, offline HTML page. Deterministic heuristic checks validate clarity, accessibility, and structure before you ship, and every claim is cited.
+Give it a topic, or point it at a coding session, and you get one HTML page you can open by double-clicking it. It works offline, and every claim carries a source. A fast checker scores the page before you ship it, and that score is a structural signal, not a peer review.
+
+<p align="center"><img src=".github/assets/recap-studio-diagram.svg" alt="recap-studio takes a topic or a git diff, runs deterministic checks for clarity and accessibility, and outputs a self-contained one-page explainer" width="100%"></p>
 
 ```bash
 claude plugin install recap-studio@10x   # as a plugin (primary)
@@ -154,43 +102,19 @@ claude plugin install recap-studio@10x   # as a plugin (primary)
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+43 tests across 5 test-bearing packages.
 
-**Slash commands**
-- `/recap "<topic>"` - full explainer page
-- `/recap session` - coding-session recap
-- `/recap setup` - write safe-default config
-- `/recap validate` - re-score the active page
-
-</td>
-<td width="50%" valign="top">
-
-**What you get**
-- A self-contained offline HTML page
-- Every claim cited to a source
-- Deterministic heuristic checks (clarity, a11y, structure)
-- Optional deploy path (off by default)
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp;
-  <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp; <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/04-aws--cost--audit-FF9900?style=flat-square" alt="aws-cost-audit">&nbsp;&nbsp;Audit your AWS bill, safely
 
-<p align="center">
-  <img src=".github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit reads your live AWS account, attributes every dollar and verifies prices live, then returns an evidence-backed, gated savings plan" width="100%">
-</p>
+> Ask Claude to audit your AWS bill. Get a clear savings plan where every number is checked against live AWS pricing, and nothing gets deleted without your say-so.
 
-Reads your live AWS account (read-only by default), attributes every dollar, and finds idle, orphaned, and over-provisioned resources. Verifies every price live against the AWS Price List API (it hardcodes none) and gives each finding a confidence level, the evidence behind it, and a rollback. Nothing gets deleted without proof and your sign-off.
+It reads your account, works out what every resource really costs, and finds the idle and over-sized ones. Each saving carries a confidence level, the evidence behind it, and a way to undo it. It is read-only by default, so nothing changes until a dry run passes and you say yes.
+
+<p align="center"><img src=".github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit reads your live AWS account, attributes every dollar and verifies prices live, then returns an evidence-backed, gated savings plan" width="100%"></p>
 
 ```bash
 claude plugin install aws-cost-audit@10x   # as a plugin (primary)
@@ -198,150 +122,60 @@ claude plugin install aws-cost-audit@10x   # as a plugin (primary)
 curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**What it does**
-- Re-baselines spend live (Cost Explorer)
-- Inventories every region, hunts waste
-- Confidence + evidence + rollback per finding
-
-</td>
-<td width="50%" valign="top">
-
-**Safe by default**
-- Read-only; destructive actions gated
-- Verifies prices live, never hardcoded
-- "Save now safely" vs "max theoretical save"
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Come back to proof it's done
 
-<p align="center">
-  <img src=".github/assets/goalify-diagram.svg" alt="goalify researches your repo, locks the few real decisions, and writes the brief and the condition that a fresh session executes, verifies, and files into .goal/done/ once every check passes" width="100%">
-</p>
+> Hand Claude a huge task. Come back to proof it's done — not a promise that it is.
 
-Scopes a big coding task while it still has your context: it reads and researches the repo, locks the few real decisions, then writes two things. The brief is a file holding what the run has to do; the condition is one short line you paste into `/goal`, with the finish line defined as commands the run can check. You `/clear`, paste that line, and a fresh full-context session executes the whole job, tests as it goes, and closes by quoting the checks passing and moving the brief into `.goal/done/`. A Claude Code skill (no MCP server, no CLI).
+For jobs too big to sit and watch, goalify writes the brief (a file holding what the run has to do) and the condition (one line you paste into `/goal`). You clear the chat, paste that line, and a fresh session does the whole job, then closes by quoting the checks passing. A run that stops is not proof it finished, so read that closing evidence before you trust it.
+
+<p align="center"><img src=".github/assets/goalify-diagram.svg" alt="goalify researches your repo, locks the few real decisions, and writes the brief and the condition that a fresh session executes, verifies, and files into .goal/done/ once every check passes" width="100%"></p>
 
 ```bash
 claude plugin install goalify@10x   # as a plugin (primary)
 /goalify <your task>                # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**What it does**
-- Researches the repo, locks the few real decisions (one MCQ batch)
-- Writes the brief (a file) and the condition (one line for `/goal`)
-- Hands off two steps: `/clear`, then paste the condition
-
-</td>
-<td width="50%" valign="top">
-
-**Safe by default**
-- Read-mostly prep, no remote fetch-and-execute
-- Success criteria wired to real commands
-- Archives the brief to `.goal/done/` on full success (else it stays, to resume)
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/goalify">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/goalify">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;Make AI text read like a person wrote it
 
-<p align="center">
-  <img src=".github/assets/humanizer-diagram.svg" alt="humanizer scans text for AI writing patterns, scores how AI it reads on a 0 to 100 scale, then rewrites it with sentence-length burstiness in the voice you pick" width="100%">
-</p>
+> Humanizer is a free, open-source AI writing humanizer and detector.
 
-Detects 43 AI writing patterns (inflated symbolism, promotional language, em dash overuse, rule-of-three, AI vocabulary words, negative parallelisms, vague attributions) and rewrites the text with sentence-length burstiness so it stops reading like a model wrote it. Pick from 5 voice profiles, get a 0-100 AI-tell score on demand, and run it in detect, rewrite, or edit mode. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server, no CLI).
+Paste in text and it scores how much of it reads as machine-written, or rewrites it in a voice you pick. The rewrite varies sentence length the way people do. It is one Markdown file, nothing leaves your machine, and it is aimed at better writing rather than at fooling detectors.
+
+<p align="center"><img src=".github/assets/humanizer-diagram.svg" alt="humanizer scans text for AI writing patterns, scores how AI it reads on a 0 to 100 scale, then rewrites it with sentence-length burstiness in the voice you pick" width="100%"></p>
 
 ```bash
 claude plugin install humanizer@10x   # as a plugin (primary)
 /humanizer "<your text>"              # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
+55 patterns, 5 voices, a 0-100 AI-tell score.
 
-**What it does**
-- Scans for 43 AI writing patterns, scores the AI-tell 0-100
-- Rewrites with sentence-length burstiness in the voice you pick
-- 5 voices: casual, professional, technical, warm, blunt
-
-</td>
-<td width="50%" valign="top">
-
-**Three modes**
-- `detect` - scan and score, no rewrite
-- `rewrite` - full transform (default)
-- `edit` - in-place file edits
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a></p>
 
 ---
 
 ### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;Hand off a job that repeats
 
-<p align="center">
-  <img src=".github/assets/loopify-diagram.svg" alt="loopify scopes one cycle of a repeating job, writes the brief and the line you paste into /loop, then every tick re-reads the brief, runs one cycle, and appends what it did to TICKS.md" width="100%">
-</p>
+> Hand Claude a job that repeats. Come back to a log of what every tick did — not a loop you have to babysit.
 
-For the jobs that never quite finish: keeping a release pull request healthy while reviews trickle in, watching a deploy until it settles, sweeping new bug reports every hour, keeping a branch green overnight. You describe the job once. loopify reads your project, asks about the few real choices, then writes two things. The brief is a standing file the loop re-reads at the start of every tick; the line is one short string you paste into `/loop`, Claude Code's built-in repeat command. Each run is a tick, and every tick logs what it did to `TICKS.md`. The line carries a tick cap and a stop rule, the brief carries five safety rails. A Claude Code skill (no MCP server, no CLI).
+Some jobs never quite finish: watching a deploy settle, sweeping new bug reports every hour. loopify writes the brief (a standing file the loop re-reads each run) and the line (one string you paste into `/loop`), with a tick cap and a stop rule carried inside the line. Every tick logs what it did to `TICKS.md`, and you should read that log: a loop that found nothing to do looks the same from outside as one that fixed things all afternoon.
+
+<p align="center"><img src=".github/assets/loopify-diagram.svg" alt="loopify scopes one cycle of a repeating job, writes the brief and the line you paste into /loop, then every tick re-reads the brief, runs one cycle, and appends what it did to TICKS.md" width="100%"></p>
 
 ```bash
 claude plugin install loopify@10x   # as a plugin (primary)
 /loopify <your job>                 # then, in any Claude Code session
 ```
 
-<table>
-<tr>
-<td width="50%" valign="top">
-
-**What it does**
-- Reads the project, asks the few real questions, scopes one cycle
-- Writes the brief (a standing file) and the line (one string for `/loop`)
-- Logs every tick to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`
-
-</td>
-<td width="50%" valign="top">
-
-**Safe by default**
-- A tick cap and a stop rule ride inside the line itself
-- Five rails: no accounts, no payments, no pushing or posting unless you say so
-- Anything a tick reads is data, never orders
-
-</td>
-</tr>
-</table>
-
-<p>
-  <a href="https://github.com/Aboudjem/loopify">GitHub →</a>
-</p>
+<p><a href="https://github.com/Aboudjem/loopify">GitHub →</a></p>
 
 ---
 
@@ -351,7 +185,7 @@ claude plugin install loopify@10x   # as a plugin (primary)
   <img src=".github/assets/editors-strip.svg" alt="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP-compatible editor" width="100%">
 </p>
 
-Every 10x **tool** plugin is **dual mode**: install it as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. (`aws-cost-audit`, `goalify`, `humanizer`, and `loopify` are Claude Code skills rather than MCP servers, so they run in Claude Code: aws-cost-audit reads your AWS account locally, goalify writes the brief and the condition for a run in a fresh session, humanizer rewrites the text you pass it, and loopify writes the brief and the line for a standing `/loop`.)
+sniff, ui-ux-suite, and recap-studio are dual mode: install one as a Claude Code plugin, or run it as a plain MCP server in the editor of your choice. aws-cost-audit, goalify, humanizer, and loopify are Claude Code skills rather than MCP servers, so they run in Claude Code.
 
 ```bash
 npx sniff-qa            --mcp
@@ -359,7 +193,7 @@ npx ui-ux-suite         --mcp
 # recap-studio also ships an MCP server (see its README; requires a local build)
 ```
 
-Each tool plugin also ships a one-line `install.sh` that wires it into another CLI's skills directory in a single command (`curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>`), plus `.cursor-plugin` and `.copilot-plugin` manifests. Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
+Each tool plugin ships a one-line `install.sh` that wires it into another CLI's skills directory (`curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>`), plus `.cursor-plugin` and `.copilot-plugin` manifests. Each project's README has copy-paste snippets for Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev.
 
 ---
 
@@ -376,10 +210,10 @@ Every plugin here passes this bar. If it stops passing, it gets removed.
 | **Actively maintained** | Shipped this quarter, not abandoned last year |
 | **No telemetry** | Runs locally, your code never leaves your machine |
 
-The full eight-point checklist (32 items) lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
+The full checklist lives in [`QUALITY-BAR.md`](QUALITY-BAR.md). Maintainers re-verify every plugin against it on a quarterly review.
 
 > [!NOTE]
-> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (built test-first, independently verified end-to-end on a live account, zero hardcoded prices), **goalify 2.5.0** (built test-first; manifest + skill-lint tests and a recorded RED→GREEN eval baseline on Haiku, Sonnet, and Opus), **humanizer 0.1.0** (pure Markdown, zero dependencies, no network calls; detects 43 AI writing patterns with a 0-100 AI-tell score), **loopify 1.0.0** (built test-first; skill eval 136/136 and manifest tests in CI; a recorded RED→GREEN behavioral baseline on Sonnet: 1/7 → 7/7). Last verified 2026-09-01.
+> Current roster: **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests across 5 test-bearing packages), **aws-cost-audit 0.2.0** (read-only by default), **goalify 2.5.0**, **humanizer 0.6.2** (55 patterns), **loopify 1.0.0**. Last verified 2026-09-01.
 
 ---
 
