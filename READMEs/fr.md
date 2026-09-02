@@ -1,252 +1,174 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/logo-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/logo-light.svg">
-  <img alt="10x" src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/logo-light.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="../.github/assets/hero-banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="../.github/assets/hero-banner-light.svg">
+  <img alt="10x: curated Claude Code plugins that ship quality" src="../.github/assets/hero-banner-light.svg" width="100%">
 </picture>
 
 <p align="center">
-  <a href="https://github.com/Aboudjem/10x/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square" alt="Licence"></a>
-  <a href="#plugins"><img src="https://img.shields.io/badge/plugins-7-f59e0b?style=flat-square" alt="7 plugins"></a>
-  <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=f59e0b" alt="Étoiles"></a>
+  <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-00D4FF?style=flat-square" alt="License MIT"></a>
+  <a href="https://github.com/Aboudjem/10x/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/Aboudjem/10x/validate.yml?branch=main&style=flat-square&color=7C3AED&label=validate" alt="validate workflow status"></a>
+  <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=FF2D78" alt="GitHub stars"></a>
 </p>
 
 <p align="center">
   <a href="../README.md">English</a> ·
-  <a href="https://github.com/Aboudjem/10x/blob/main/READMEs/zh-CN.md">简体中文</a> ·
-  <a href="https://github.com/Aboudjem/10x/blob/main/READMEs/ja.md">日本語</a> ·
-  <a href="https://github.com/Aboudjem/10x/blob/main/READMEs/es.md">Español</a> ·
+  <a href="zh-CN.md">简体中文</a> ·
+  <a href="ja.md">日本語</a> ·
+  <a href="es.md">Español</a> ·
   <b>Français</b>
 </p>
 
-<p align="center"><b>Une place de marché réunissant une sélection rigoureuse d'outils de développement pour Claude Code.</b><br/>Aucun superflu. Testé. Fonctionne dans n'importe quel éditeur IA.</p>
-
-![Démo de la place de marché 10x](https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/demo.gif)
-
----
-
-## Comment ça marche
+<p align="center"><b>Une place de marché de plugins est une liste depuis laquelle votre éditeur peut installer. Celle-ci contient sept outils de développement pour Claude Code, et vous l'ajoutez une seule fois.</b></p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/hero-diagram.svg" alt="Votre éditeur communique avec la place de marché 10x, qui propose sept plugins sélectionnés : sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer et loopify" width="100%">
+  <a href="#install">Installation</a> ·
+  <a href="#the-plugins">Les plugins</a> ·
+  <a href="#what-each-one-does">Ce que fait chaque plugin</a> ·
+  <a href="#works-with-any-ai-editor">Fonctionne avec n'importe quel éditeur IA</a> ·
+  <a href="#the-10x-bar">La barre 10x</a>
 </p>
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
 ```
 
-> [!TIP]
-> Une seule commande d'installation. Chaque plugin configure automatiquement ses outils MCP, ses commandes précédées d'une barre oblique et ses agents.
+<a id="install"></a>
 
-Les versions indiquées ici suivent les versions publiées par chaque plugin ; voir [docs/SYNC.md](https://github.com/Aboudjem/10x/blob/main/docs/SYNC.md).
+## Installation
 
----
-
-## Plugins
-
-Sept plugins aujourd'hui. Chacun d'eux respecte le [standard de qualité](#la-barre-10x) ci-dessous.
-
-### <img src="https://img.shields.io/badge/01-sniff-ef4444?style=flat-square" alt="sniff">&nbsp;&nbsp;Trouvez les bogues avant vos utilisateurs
-
-> Pointez-le vers votre application en cours d'exécution. Il parcourt vos parcours réels d'utilisateurs dans un vrai navigateur et vous dit ce qui ne fonctionne vraiment pas, preuves à l'appui.
-
-Il ouvre votre application dans un vrai navigateur et clique dessus comme le ferait une personne. Vous récupérez une liste hiérarchisée de ce qui ne fonctionne pas, et chaque problème est accompagné des étapes permettant de le reproduire. Il a besoin que votre application tourne : si aucun serveur n'est lancé, sniff analyse alors le code source à la place.
-
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/sniff-diagram.svg" alt="sniff parcourt votre application en cours d'exécution, découvre ses parcours et renvoie des résultats hiérarchisés sur les bogues, l'accessibilité et la performance" width="100%"></p>
+Ajoutez la place de marché une seule fois. Claude Code peut ensuite installer n'importe lequel des sept par son nom.
 
 ```bash
-claude plugin install sniff@10x     # as a plugin (primary)
-npx sniff-qa                        # as a standalone CLI
-# one-line multi-CLI install (Cursor, Codex, Gemini, Copilot, and more):
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex
+claude plugin marketplace add Aboudjem/10x
+claude plugin install sniff@10x
 ```
 
-441 tests. 12 classes de bogues.
-
-<p><a href="https://github.com/Aboudjem/sniff">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/sniff-qa">npm →</a></p>
-
----
-
-### <img src="https://img.shields.io/badge/02-ui--ux--suite-0ea5e9?style=flat-square" alt="ui-ux-suite">&nbsp;&nbsp;Votre qualité de design, mesurée
-
-> **ESLint pour le design.** Il trouve la ligne exacte, la valeur incorrecte mesurée, et le correctif exact.
-
-Il lit votre CSS, votre JSX et votre configuration Tailwind, puis note douze aspects de votre design, parmi lesquels la couleur, la typographie, l'espacement et l'accessibilité. Chaque résultat indique le fichier, la ligne, la valeur incorrecte et le correctif. Il fait un rapport et ne modifie jamais rien : appliquer un correctif reste votre décision.
-
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/uiux-diagram.svg" alt="ui-ux-suite analyse votre projet, note 12 dimensions de design et renvoie un audit citant la loi UX que chaque résultat enfreint" width="100%"></p>
+Remplacez `sniff` par n'importe quel nom du tableau ci-dessous. En dehors de Claude Code, les mêmes
+skills s'installent via la [CLI skills de Vercel](https://github.com/vercel-labs/skills), qui les installe dans le répertoire
+que lit votre agent :
 
 ```bash
-claude plugin install ui-ux-suite@10x   # as a plugin (primary)
-npx ui-ux-suite                         # as a standalone CLI
-# one-line multi-CLI install (Cursor, Codex, Gemini, Copilot, and more):
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex
+npx skills add Aboudjem/sniff
 ```
 
-311 tests. 12 dimensions pondérées.
+<a id="the-plugins"></a>
 
-<p><a href="https://github.com/Aboudjem/ui-ux-suite">GitHub →</a> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/ui-ux-suite">npm →</a></p>
+## Les plugins
 
----
+| | Plugin | À quoi ça sert | Installation | |
+|:-:|:--|:--|:--|:--|
+| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **sniff** | Parcourt votre application en cours d'exécution et trouve de vrais bugs | `claude plugin install sniff@10x` | [dépôt](https://github.com/Aboudjem/sniff) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **ui-ux-suite** | L'ESLint du design : la ligne, la valeur, le correctif | `claude plugin install ui-ux-suite@10x` | [dépôt](https://github.com/Aboudjem/ui-ux-suite) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **recap-studio** | Un explicatif HTML hors ligne à partir d'un sujet ou d'une session | `claude plugin install recap-studio@10x` | [dépôt](https://github.com/Aboudjem/recap-studio) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-512.png" width="28" alt=""> | **aws-cost-audit** | Audite votre facture AWS par rapport aux tarifs AWS en direct | `claude plugin install aws-cost-audit@10x` | [dépôt](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-512.png" width="28" alt=""> | **goalify** | Prépare une tâche énorme à exécuter en autonomie | `claude plugin install goalify@10x` | [dépôt](https://github.com/Aboudjem/goalify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **humanizer** | Identifie 55 habitudes d'écriture IA et les réécrit | `claude plugin install humanizer@10x` | [dépôt](https://github.com/Aboudjem/humanizer-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-512.png" width="28" alt=""> | **loopify** | Prépare une tâche répétitive pour la commande `/loop` de Claude Code | `claude plugin install loopify@10x` | [dépôt](https://github.com/Aboudjem/loopify) |
 
-### <img src="https://img.shields.io/badge/03-recap--studio-7c5cff?style=flat-square" alt="recap-studio">&nbsp;&nbsp;Des explications d’une page à lire en 5 minutes environ
+<a id="what-each-one-does"></a>
 
-> Transformez n'importe quel sujet ou session de code en un magnifique explicatif en mode sombre, conçu d'abord pour les appareils mobiles, que vous ouvrez d'un double-clic. Pas de serveur, pas d'internet, pas de dépendances.
+## Ce que fait chaque plugin
 
-Donnez-lui un sujet, ou pointez-le vers une session de code, et vous obtenez une page HTML que vous ouvrez d'un double-clic. Elle fonctionne hors ligne, et chaque affirmation est accompagnée d'une source. Un outil de vérification rapide note la page avant que vous ne la publiez, et ce score est un signal structurel, pas une relecture par des pairs.
+### sniff
 
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/recap-studio-diagram.svg" alt="recap-studio prend un sujet ou des modifications Git, exécute des contrôles déterministes de clarté et d'accessibilité, et produit un explicatif d'une page autonome" width="100%"></p>
+Pointez-le vers votre application en cours d'exécution : il clique à travers vos parcours réels dans un vrai navigateur, puis vous dit ce qui s'est cassé et les étapes, dans l'ordre, qui ont mené à la casse.
 
-```bash
-claude plugin install recap-studio@10x   # as a plugin (primary)
-/recap "Latest AI models"                # in any Claude Code session
-# one-line multi-CLI install (Cursor, Codex, Gemini, Copilot, and more):
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex
-```
+`claude plugin install sniff@10x`
 
-43 tests répartis sur 5 paquets contenant des tests.
+[GitHub](https://github.com/Aboudjem/sniff) · [npm](https://www.npmjs.com/package/sniff-qa)
 
-<p><a href="https://github.com/Aboudjem/recap-studio">GitHub →</a> &nbsp;·&nbsp; <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture →</a></p>
+### ui-ux-suite
 
----
+Il lit votre CSS, votre JSX, votre HTML et vos classes Tailwind, puis indique le fichier, la ligne, la valeur mesurée erronée et le correctif exact. Il audite, il ne modifie jamais.
 
-### <img src="https://img.shields.io/badge/04-aws--cost--audit-FF9900?style=flat-square" alt="aws-cost-audit">&nbsp;&nbsp;Auditez votre facture AWS, en toute sécurité
+`claude plugin install ui-ux-suite@10x`
 
-> Demandez à Claude d'auditer votre facture AWS. Obtenez un plan d'économies clair où chaque chiffre est vérifié à partir des tarifs AWS en vigueur, et où rien n'est supprimé sans votre accord.
+[GitHub](https://github.com/Aboudjem/ui-ux-suite) · [npm](https://www.npmjs.com/package/ui-ux-suite)
 
-Il lit votre compte, calcule ce que coûte réellement chaque ressource, et trouve celles qui sont inactives ou surdimensionnées. Chaque économie proposée est assortie d'un niveau de confiance, de preuves qui la justifient et d'un moyen de l'annuler. Il est en lecture seule par défaut, donc rien ne change tant qu'une simulation n'est pas validée et que vous n'avez pas dit oui.
+### recap-studio
 
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/aws-cost-audit-diagram.svg" alt="aws-cost-audit analyse votre compte AWS réel et ventile chaque dollar, vérifie les prix en direct, puis renvoie un plan d'économies étayé et soumis à validation" width="100%"></p>
+Il transforme un sujet ou une session de code en un seul fichier HTML sur lequel il suffit de double-cliquer, avec tous les styles intégrés et aucune requête externe, lisible hors ligne en environ cinq minutes.
 
-```bash
-claude plugin install aws-cost-audit@10x   # as a plugin (primary)
-# one-line install into another CLI's skills directory:
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex
-```
+`claude plugin install recap-studio@10x`
 
-<p><a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub →</a></p>
+[GitHub](https://github.com/Aboudjem/recap-studio) · [Architecture](https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md)
 
----
+### aws-cost-audit
 
-### <img src="https://img.shields.io/badge/05-goalify-3FB950?style=flat-square" alt="goalify">&nbsp;&nbsp;Revenez avec la preuve que c'est fait
+Il lit votre compte AWS en direct via la CLI AWS que vous avez déjà installée et vous remet un plan d'économies où chaque prix est vérifié en direct, jamais cité de mémoire.
 
-> Confiez à Claude une tâche énorme. Revenez avec la preuve que c'est fait — pas une promesse que ça l'est.
+`claude plugin install aws-cost-audit@10x`
 
-Pour les tâches trop vastes pour que vous les suiviez du début à la fin, goalify écrit le brief (un fichier qui contient ce que la session doit faire) et la condition (une ligne que vous collez dans `/goal`). Vous videz la conversation, vous collez cette ligne, et une nouvelle session fait tout le travail, puis se termine en citant les contrôles réussis. Une session qui s'arrête n'est pas la preuve qu'elle a fini : lisez cette preuve finale avant de lui faire confiance.
+[GitHub](https://github.com/Aboudjem/aws-cost-audit-skill)
 
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/goalify-diagram.svg" alt="goalify examine votre dépôt, verrouille les quelques vraies décisions, et écrit le brief et la condition qu'une nouvelle session exécute, vérifie, et archive dans .goal/done/ une fois chaque contrôle passé" width="100%"></p>
+### goalify
 
-```bash
-claude plugin install goalify@10x   # as a plugin (primary)
-/goalify <your task>                # then, in any Claude Code session
-```
+Pour une tâche trop grande pour rester à la regarder tourner, il rédige le brief (un fichier qui contient ce que l'exécution doit faire) et la condition (une ligne que vous collez dans `/goal`), afin qu'une session neuve fasse le travail et se termine en citant les vérifications réussies.
 
-<p><a href="https://github.com/Aboudjem/goalify">GitHub →</a></p>
+`claude plugin install goalify@10x`
 
----
+[GitHub](https://github.com/Aboudjem/goalify)
 
-### <img src="https://img.shields.io/badge/06-humanizer-d946ef?style=flat-square" alt="humanizer">&nbsp;&nbsp;Donnez aux textes produits par une IA un style aussi naturel que s'ils avaient été écrits par une personne
+### humanizer
 
-> Humanizer est un outil libre et gratuit qui détecte les textes produits par une IA et les rend plus naturels.
+Il identifie 55 habitudes qui font qu'un texte se lit comme écrit par une machine, évalue combien votre texte en porte sur une échelle de 0 à 100, et le réécrit dans la voix que vous choisissez.
 
-Collez du texte et il évalue à quel point il semble avoir été écrit par une machine, ou le réécrit selon le ton que vous choisissez. La réécriture varie la longueur des phrases comme le font les humains. C'est un seul fichier Markdown, rien ne quitte votre machine, et le but est d'améliorer l'écriture plutôt que de tromper les détecteurs.
+`claude plugin install humanizer@10x`
 
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/humanizer-diagram.svg" alt="humanizer analyse le texte à la recherche de motifs d'écriture IA, note à quel point il semble avoir été écrit par une IA sur une échelle de 0 à 100, puis le réécrit avec une variation de longueur de phrase selon le ton que vous choisissez" width="100%"></p>
+[GitHub](https://github.com/Aboudjem/humanizer-skill)
 
-```bash
-claude plugin install humanizer@10x   # as a plugin (primary)
-/humanizer "<your text>"              # then, in any Claude Code session
-```
+### loopify
 
-55 motifs, 5 voix, un score de 0-100 signalant les marqueurs d'écriture IA.
+Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le brief et la ligne que vous collez dans `/loop`, la commande de répétition intégrée à Claude Code, avec un plafond de ticks et une règle d'arrêt. Chaque tick journalise ce qu'il a fait.
 
-<p><a href="https://github.com/Aboudjem/humanizer-skill">GitHub →</a></p>
+`claude plugin install loopify@10x`
 
----
+[GitHub](https://github.com/Aboudjem/loopify)
 
-### <img src="https://img.shields.io/badge/07-loopify-14b8a6?style=flat-square" alt="loopify">&nbsp;&nbsp;Confiez une tâche qui se répète
-
-> Confiez à Claude une tâche qui se répète. À votre retour, consultez le journal de ce qu'a fait chaque itération — pas une boucle qu'il faut surveiller sans arrêt.
-
-Certaines tâches ne se terminent jamais vraiment : surveiller un déploiement jusqu'à ce qu'il se stabilise, passer en revue les nouveaux signalements de bogues toutes les heures. loopify écrit le brief (un fichier permanent que la boucle relit à chaque exécution) et la ligne (une chaîne que vous collez dans `/loop`), avec un plafond d'itérations et une règle d'arrêt portés dans la ligne elle-même. À chaque itération, Claude consigne ses actions dans `TICKS.md`, et vous devriez lire ce journal : une boucle qui n'a rien trouvé à faire ressemble, de l'extérieur, à une boucle qui a résolu des problèmes tout l'après-midi.
-
-<p align="center"><img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/loopify-diagram.svg" alt="loopify définit le périmètre d'un cycle de la tâche qui se répète, écrit le brief et la ligne que vous collez dans /loop, puis à chaque itération relit le brief, exécute un cycle et note ce qu'il a fait dans TICKS.md" width="100%"></p>
-
-```bash
-claude plugin install loopify@10x   # as a plugin (primary)
-/loopify <your job>                 # then, in any Claude Code session
-```
-
-<p><a href="https://github.com/Aboudjem/loopify">GitHub →</a></p>
-
----
+<a id="works-with-any-ai-editor"></a>
 
 ## Fonctionne avec n'importe quel éditeur IA
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Aboudjem/10x/main/.github/assets/editors-strip.svg" alt="Fonctionne avec Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue et tout éditeur compatible MCP" width="100%">
+  <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-sniff, ui-ux-suite et recap-studio fonctionnent de deux façons : installez-les comme plugin Claude Code, ou exécutez-les comme simple serveur MCP dans l'éditeur de votre choix. aws-cost-audit, goalify, humanizer et loopify sont des modules de compétence Claude Code plutôt que des serveurs MCP : ils s'exécutent donc dans Claude Code.
+Chaque plugin ici est livré sous forme de skills, des fichiers Markdown que votre agent lit. C'est pourquoi les sept
+s'installent en dehors de Claude Code via `npx skills add`, dont le README indique lui-même 77 agents pris en charge.
+Trois sont aussi des outils en ligne de commande. sniff et ui-ux-suite tournent chacun comme un serveur MCP autonome,
+directement depuis npm, le protocole que parle un éditeur pour atteindre un outil extérieur. recap-studio en propose
+un aussi, exécuté depuis un clone après une compilation du workspace. Les quatre autres sont uniquement des skills.
 
-```bash
-npx sniff-qa            --mcp
-npx ui-ux-suite         --mcp
-# recap-studio also ships an MCP server (see its README; requires a local build)
-```
+| Agent | Installation en une ligne |
+|:--|:--|
+| Claude Code | `claude plugin install <name>@10x` |
+| Cursor, Codex, Copilot, Gemini CLI, et [70+ de plus](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
+| N'importe quel client MCP (sniff, ui-ux-suite) | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp` |
+| Tout le reste | voir `docs/editors.md` dans le dépôt du plugin |
 
-Chaque plugin outil fournit aussi un `install.sh` en une ligne qui l'installe dans le répertoire de compétences d'une autre interface en ligne de commande (`curl -fsSL https://raw.githubusercontent.com/Aboudjem/<repo>/main/install.sh | bash -s <cli>`), ainsi que des manifestes `.cursor-plugin` et `.copilot-plugin`. Le README de chaque projet contient des extraits prêts à coller pour Cursor, VS Code + Copilot, Codex, Gemini, Windsurf et Continue.dev.
-
----
+<a id="the-10x-bar"></a>
 
 ## La barre 10x
 
-Chaque plugin présent ici respecte ce standard. S'il cesse de le respecter, il est retiré.
-
 | | |
 |---|---|
-| **Aucun superflu** | Node.js standard, aucune dépendance d'exécution |
-| **Installation en une commande** | Aucun fichier de configuration, aucune clé d'API |
-| **De vrais tests** | Pas des intentions, pas du « bientôt disponible » |
-| **Mode double** | Fonctionne comme plugin Claude Code ET comme serveur MCP |
-| **Activement maintenu** | Livré ce trimestre, pas abandonné l'an dernier |
-| **Aucune télémétrie** | S'exécute localement, votre code ne quitte jamais votre machine |
+| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse ; les autres n'en embarquent aucune. |
+| **Installation en une commande** | Aucun fichier de configuration, aucune inscription, aucune clé API pour démarrer. |
+| **De vrais tests** | Une CI qui vérifie le comportement, pas qu'un fichier existe. |
+| **Fonctionne en dehors de Claude Code** | S'installe dans [70+ agents](https://github.com/vercel-labs/skills#supported-agents) via `npx skills add`. |
+| **Maintenu activement** | Une publication ce trimestre, pas une archive de l'an dernier. |
+| **Aucune télémétrie** | Aucune analytics et aucun appel silencieux vers un serveur distant. Chaque outil ne parle qu'à ce vers quoi vous le pointez. |
 
-La liste complète se trouve dans [`QUALITY-BAR.md`](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md). Les mainteneurs revérifient chaque plugin selon cette liste lors d'une revue trimestrielle.
-
-> [!NOTE]
-> Liste actuelle : **sniff 0.7.0** (441 tests), **ui-ux-suite 0.5.0** (311 tests), **recap-studio 0.4.0** (43 tests répartis sur 5 paquets porteurs de tests), **aws-cost-audit 0.2.0** (en lecture seule par défaut), **goalify 2.5.0**, **humanizer 0.6.2** (55 motifs), **loopify 1.0.0**. Dernière vérification le 2026-09-01.
-
----
+Chaque plugin listé ici respecte cette barre. Si l'un d'eux cesse de la respecter, il est retiré. La liste complète,
+avec le registre et la date de dernière vérification, se trouve dans [QUALITY-BAR.md](../QUALITY-BAR.md).
 
 ## Contribuer
 
-Vous avez un plugin qui a sa place ici ? Voir [CONTRIBUTING.md](https://github.com/Aboudjem/10x/blob/main/CONTRIBUTING.md).
-
----
-
-## Historique des étoiles
-
-<a href="https://star-history.com/#Aboudjem/10x&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Aboudjem/10x&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Aboudjem/10x&type=Date" />
-    <img alt="Graphique de l'historique des étoiles pour Aboudjem/10x" src="https://api.star-history.com/svg?repos=Aboudjem/10x&type=Date" width="70%" />
-  </picture>
-</a>
-
----
+Vous avez un plugin qui a sa place ici ? [CONTRIBUTING.md](../CONTRIBUTING.md) détaille les étapes de proposition.
+Un workflow synchronise chaque épinglage de version depuis le dépôt propre du plugin ; [docs/SYNC.md](../docs/SYNC.md) explique la chaîne.
 
 <p align="center">
-  Si 10x vous a aidé à livrer un meilleur code, pensez à lui donner une étoile.<br/>
-  Cela aide d'autres développeurs à trouver ces outils.
+  <sub>Créé par <a href="https://github.com/Aboudjem">Adam Boudjemaa</a> · Licence MIT · Aucune télémétrie, aucune collecte de données</sub>
 </p>
 
-<p align="center">
-  <a href="https://www.linkedin.com/in/adam-boudjemaa/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-  <a href="https://x.com/AdamBoudj"><img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white" alt="X"></a>
-  <a href="https://adam-boudjemaa.com/"><img src="https://img.shields.io/badge/Website-f59e0b?style=flat-square&logo=googlechrome&logoColor=white" alt="Site web"></a>
-</p>
-
-<p align="center">
-  <sub>Créé par <a href="https://github.com/Aboudjem">Adam Boudjemaa</a> · Licence MIT · Aucune télémétrie · Aucune collecte de données</sub>
-</p>
-
+Traduction assistée par une machine ; le README anglais fait foi en cas de divergence.

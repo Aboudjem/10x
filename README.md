@@ -42,7 +42,7 @@ claude plugin install sniff@10x
 ```
 
 Swap `sniff` for any name in the table below. Outside Claude Code, the same skills install through
-the [Vercel skills CLI](https://github.com/vercel-labs/skills), which copies them into the directory
+the [Vercel skills CLI](https://github.com/vercel-labs/skills), which installs them into the directory
 your agent reads:
 
 ```bash
@@ -126,9 +126,10 @@ For a job that repeats rather than finishes, it writes the brief and the line yo
 </p>
 
 Every plugin here ships as skills, which are Markdown files your agent reads. That is why all seven
-install outside Claude Code through `npx skills add`, whose own README lists 77 supported agents. Three are also command-line tools. sniff,
-ui-ux-suite and recap-studio each run as a standalone MCP server, the protocol an editor speaks to
-reach an outside tool. The other four are skills only.
+install outside Claude Code through `npx skills add`, whose own README lists 77 supported agents.
+Three are also command-line tools. sniff and ui-ux-suite each run as a standalone MCP server straight
+from npm, the protocol an editor speaks to reach an outside tool. recap-studio ships one too, run
+from a clone after a workspace build. The other four are skills only.
 
 | Agent | One-line install |
 |:--|:--|

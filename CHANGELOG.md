@@ -2,6 +2,35 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [2.0.0] - 2026-09-02
+
+The whole marketplace was rebuilt in one pass: a new visual identity, a rewritten README on every
+repo, a released version of all seven plugins, and the hub's own docs reconciled against them.
+
+### Added
+- **Neon Noir identity.** The hub's assets were rebuilt on the palette in `.goal/research/svg-design-system.md`: new `hero-banner-dark.svg` and `hero-banner-light.svg` (1200x400), a rebuilt `logo-dark.svg` / `logo-light.svg` pair carrying the interlocking hub mark, a rebuilt `hero-diagram.svg` holding all seven plugin cards, a rebuilt `editors-strip.svg`, a rebuilt `social-preview.svg`, plus `logo-mark.png`, `logo-mark-512.png` and a regenerated 1280x640 `social-preview.png`. All motion that moves an element is now CSS, so `prefers-reduced-motion` actually stops it; SMIL is left only for gradient colour drift, which that media query cannot reach. Every file is GitHub-safe: no `<script>`, no external reference, and it renders in headless Chrome with no console error.
+- `QUALITY-BAR.md` gained a "Verification runs" table recording the exact command and output behind every test figure quoted on this site, all re-derived on 2026-09-02.
+
+### Changed
+- **README rewritten** to the marketplace-hub skeleton, 251 lines down to 161. One first screen with the hero banner, badges, the language row, a tagline that explains what a plugin marketplace is, jump links and the `claude plugin marketplace add Aboudjem/10x` line before the first heading. Then one `## Install` block showing the `claude plugin install <name>@10x` and `npx skills add Aboudjem/<repo>` patterns once each, one seven-row plugin table carrying each plugin's own logo mark, one four-line block per plugin, one editor table, and the six-row bar. The seven per-plugin diagrams, the Star History chart and the social badge row are gone.
+- **All seven plugins released and re-pinned**: sniff 0.7.0 to **0.8.0**, ui-ux-suite 0.5.0 to **0.6.0**, recap-studio 0.4.0 to **0.5.0**, aws-cost-audit 0.2.0 to **0.3.0**, goalify 2.5.0 to **2.6.0**, humanizer 0.6.2 to **0.7.0**, loopify 1.0.0 to **1.1.0**. Each release carries its own Neon Noir identity, a rewritten README with four translations, three shipped improvements and an `npx skills add` install path. `sync-plugins.yml` wrote every pin; `node scripts/sync-plugins.mjs --check` reports `drift: none`.
+- Every plugin `description` in `marketplace.json` now matches its plugin's rewritten README purpose, and `metadata.description` was rewritten to the same set of claims.
+- `CLAUDE.md`, `AGENTS.md`, `ECOSYSTEM.md`, `llms.txt` and `QUALITY-BAR.md` carry the seven new versions, the 2026-09-02 date, and test counts re-derived by running each plugin's own suite: sniff 507, ui-ux-suite 356, recap-studio 73, aws-cost-audit 62 smoke checks, goalify 126 manifest plus 83 skill-eval plus 18 lint checks, humanizer 64, loopify 158 manifest plus 153 skill-eval plus 13 lint checks.
+- **The "zero bloat" bar is now honest.** sniff carries 16 runtime dependencies, among them Playwright and Lighthouse, because walking a real app in a real browser needs a browser. `QUALITY-BAR.md` item 1 now reads as "no runtime dependency the tool does not need" rather than "zero", names sniff as the exception, and explains how a maintainer judges it. Item 4 became "runs outside Claude Code", since four of the seven are skill plugins with no MCP server.
+- `site/index.html` moved to the Neon Noir tokens, its copy is in sync with the README, and it no longer embeds `demo.gif`, which is on the retired amber palette and captions "ZERO DEPENDENCIES".
+- The `editors-strip.svg` header read "WORKS AS A STANDALONE MCP SERVER IN", copy carried over from a plugin repo. 10x is a marketplace, not an MCP server, so it now reads "WORKS IN THESE EDITORS AND ANY MCP CLIENT".
+- The four localized READMEs were rewritten from the new English README.
+
+### Fixed
+- `CLAUDE.md` documented `.github/workflows/bump-plugin.yml`, a file removed in 1.9.0 when `sync-plugins.yml` replaced it. That section now describes the workflow that actually runs, including its six-hour schedule, its `plugin-released` dispatch trigger, and the fact that it writes only `version` fields.
+- The stray `## [Unreleased] - 2026-05-29` section was folded into `[1.5.0]`, the release those changes actually shipped in.
+
+### Removed
+- The seven per-plugin diagram SVGs (`sniff-diagram.svg`, `uiux-diagram.svg`, `recap-studio-diagram.svg`, `aws-cost-audit-diagram.svg`, `goalify-diagram.svg`, `humanizer-diagram.svg`, `loopify-diagram.svg`). Each plugin now owns its own diagram in its own repo, where it stays in sync with the tool it describes. `deploy-pages.yml` no longer copies them.
+
+### Note on versioning
+This release also covers the CHANGELOG entries 1.6.0 to 1.9.0 (and the untagged 1.0.0 and 1.3.0), which were never tagged.
+
 ## [1.9.0] - 2026-09-01
 
 ### Added
@@ -66,24 +95,15 @@ All notable changes to this marketplace will be documented in this file.
 - `social-preview.png` regenerated from the updated `social-preview.svg` via headless Chrome at 1280x640 (the `system-ui` wordmark/taglines fall back to San Francisco since Inter is not installed; the JetBrains Mono install pill renders natively). It now reads "5 plugins ... goalify."
 - `demo.gif` rebuilt to a ~52s montage that now includes a `goalify` beat: a 3.0s green title-card segment (`scenes/goalify.html` -> `clips/cg.mp4`, accent `#3FB950`) inserted before the editors strip and crossfaded into the chain via an updated `xfade.txt`/`build_concat.sh`. `goalify` is skill-only so it has no hero segment. Output is 960x540, 5.79 MB (under the 10 MB GitHub cap). The demo pipeline (`demo-output/`, gitignored) and `make-titles.sh` were updated to include the goalify card.
 
-## [Unreleased] - 2026-05-29
+## [1.5.0] - 2026-05-30
 
 ### Changed
+- The 2026-05-29 doc-alignment pass, previously filed under a stray `[Unreleased]` heading, ships here.
 - Aligned the plugin one-liners across `marketplace.json`, `README.md`, `ECOSYSTEM.md`, and `llms.txt` so all four surfaces agree with each plugin's own README.
 - sniff: corrected the README blurb to "Auto-detects your dev server" (was "framework and port"), matching the marketplace and llms.txt; framed `/sniff` as the flow-walk and named the unified `sniff` MCP tool.
 - ui-ux-suite: aligned the 12 dimension labels in the README to the schema (interaction quality, information architecture, platform appropriateness) and stated it is audit-only ("it audits, it never edits"); kept the 311-test and 24-UX-law counts consistent.
 - aws-cost-audit: led the marketplace description and the ECOSYSTEM row with "read-only"; corrected the ECOSYSTEM license from Apache-2.0 to MIT (matches the repo LICENSE, plugin.json, and the other surfaces).
 - Removed marketing fluff ("Battle-tested") and sentence-break em-dashes from the docs.
-
-### Added
-- Marketplace montage demo (`.github/assets/demo.gif` + `demo.mp4`) embedded in the README.
-
-### Fixed
-- Animated SVGs now respect `prefers-reduced-motion`; added light-theme guards on the dark-only sniff and ui-ux diagrams.
-
-## [1.5.0] - 2026-05-30
-
-### Changed
 - Synced marketplace pins to the four released plugins: `recap-studio` 0.3.1 -> 0.4.0 and `aws-cost-audit` 0.1.0 -> 0.2.0 (the auto-bump bot had already set `sniff` 0.7.0 and `ui-ux-suite` 0.5.0). Cross-checked each entry's version, description, and license against the plugin's live `.claude-plugin/plugin.json`.
 - Removed the `metadata.keywords` array from `marketplace.json`. Claude Code ignores it at load time and its presence made `claude plugin validate . --strict` fail with an unknown-field error. `metadata.description` is kept, and per-entry `keywords` arrays are kept. Validation now passes clean under `--strict`.
 - Refreshed plugin versions across the prose docs that the bump bot does not touch (`README.md`, `ECOSYSTEM.md`, `llms.txt`, `QUALITY-BAR.md`, `AGENTS.md`) to sniff 0.7.0, ui-ux-suite 0.5.0, recap-studio 0.4.0, aws-cost-audit 0.2.0.
@@ -92,6 +112,7 @@ All notable changes to this marketplace will be documented in this file.
 - Updated `AGENTS.md` validation guidance to require `claude plugin validate . --strict` (clean), reflecting the removal of `metadata.keywords`.
 
 ### Added
+- Marketplace montage demo (`.github/assets/demo.gif` + `demo.mp4`) embedded in the README.
 - Discoverability layer: a static GitHub Pages hub landing page (`site/index.html`) listing all four plugins with install commands and the one-line curl, plus `.github/workflows/deploy-pages.yml` to publish it.
 - Localized full READMEs at `READMEs/{zh-CN,ja,es,fr}.md` and a language-switcher row at the top of the README.
 - A Star History `<picture>` (dark/light) for `Aboudjem/10x` near the end of the README.
@@ -99,6 +120,7 @@ All notable changes to this marketplace will be documented in this file.
 - `CLAUDE.md` documenting the marketplace conventions (per-entry versions, no top-level version, no `metadata.keywords`), the bump-bot prose-drift gotcha, the gitleaks CI approach, and the funding handle.
 
 ### Fixed
+- Animated SVGs now respect `prefers-reduced-motion`; added light-theme guards on the dark-only sniff and ui-ux diagrams.
 - The `validate` CI secret-scan job was red: `gitleaks/gitleaks-action@v2` fails on this repo with "failed to scan Git repository error=stderr is not empty" (a known action bug). Replaced it with a pinned gitleaks v8.24.3 binary running `gitleaks dir . --no-banner --redact --exit-code 1`, a working-tree scan that does not depend on git history. Verified locally to exit 0 (no leaks). The `claude plugin validate` step now runs with `--strict`.
 - Removed em-dashes (U+2014) from `CODE_OF_CONDUCT.md`, `SECURITY.md`, `docs/VIDEO-EMBED.md`, the `validate.yml` comments, and the `<text>` / comments of two SVG assets, per house style.
 
