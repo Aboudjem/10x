@@ -111,7 +111,7 @@ Pour une tâche trop grande pour rester à la regarder tourner, il rédige le br
 
 ### humanizer
 
-Il identifie 55 habitudes qui font qu'un texte se lit comme écrit par une machine, évalue combien votre texte en porte sur une échelle de 0 à 100, et le réécrit dans la voix que vous choisissez.
+Il connaît 55 habitudes qui font qu'un texte se lit comme écrit par une machine, nomme celles qu'il trouve dans votre texte, le note de 0 à 100 à partir de signaux mesurables, et le réécrit dans la voix que vous choisissez.
 
 `claude plugin install humanizer@10x`
 

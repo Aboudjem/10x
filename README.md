@@ -105,7 +105,7 @@ For a job too big to sit and watch, it writes the brief (a file holding what the
 
 ### humanizer
 
-It names 55 habits that make writing read as machine-written, scores how many your text carries on a 0 to 100 scale, and rewrites it in the voice you pick.
+It knows 55 habits that make writing read as machine-written, names the ones it finds in your text, scores the text 0 to 100 from measurable signals, and rewrites it in the voice you pick.
 
 `claude plugin install humanizer@10x`
 

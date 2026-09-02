@@ -108,7 +108,7 @@ Para un trabajo demasiado grande como para quedarse mirándolo, escribe el brief
 
 ### humanizer
 
-Nombra 55 hábitos que hacen que un texto se lea como escrito por una máquina, puntúa cuántos de ellos carga tu texto en una escala de 0 a 100, y lo reescribe con la voz que elijas.
+Conoce 55 hábitos que hacen que un texto se lea como escrito por una máquina, nombra los que encuentra en tu texto, lo puntúa de 0 a 100 a partir de señales medibles, y lo reescribe con la voz que elijas.
 
 `claude plugin install humanizer@10x`
 

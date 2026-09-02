@@ -114,7 +114,7 @@
         "source": "github",
         "repo": "Aboudjem/humanizer-skill"
       },
-      "description": "AI writing has a fingerprint. humanizer names 55 of those habits, scores how many your text carries on a 0 to 100 scale, and rewrites it in the voice you pick, restoring the sentence-length variation people write with. Pure Markdown, zero dependencies, nothing leaves your machine. A Claude Code skill (no MCP server).",
+      "description": "AI writing has a fingerprint. humanizer knows 55 of those habits, names the ones it finds in your text, scores the text 0 to 100 from measurable signals, and rewrites it in the voice you pick, restoring the sentence-length variation people write with. Pure Markdown, zero dependencies, nothing leaves your machine. A Claude Code skill (no MCP server).",
       "version": "0.7.0",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
