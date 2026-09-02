@@ -32,7 +32,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | ComposioHQ/awesome-claude-skills | sniff, ui-ux-suite | SKIPPED-out-of-scope | Their README scopes skills as "not MCP servers and not tools"; stale issue #685 closed with pointer to #1336 |
 | travisvn/awesome-claude-skills | humanizer | PR-OPEN | [#997](https://github.com/travisvn/awesome-claude-skills/pull/997), no bump (last touched 2026-08-25) |
 | travisvn/awesome-claude-skills | sniff, ui-ux-suite | FILED | [#1204](https://github.com/travisvn/awesome-claude-skills/pull/1204); stale issue #601 closed with a pointer to it and #997 |
-| jamesmurdza/awesome-ai-devtools | sniff, ui-ux-suite | FILED | [#1047](https://github.com/jamesmurdza/awesome-ai-devtools/pull/1047); stale issue #445 closed with a pointer |
+| jamesmurdza/awesome-ai-devtools | sniff, ui-ux-suite | FILED | [#1048](https://github.com/jamesmurdza/awesome-ai-devtools/pull/1048) (first try #1047 was bot-closed `invalid-template` in one second; re-filed with their exact headings); #445 closed, pointer corrected to #1048 |
 | e2b-dev/awesome-ai-agents | recap-studio | FILED | [#1484](https://github.com/e2b-dev/awesome-ai-agents/pull/1484); stale issue #940 closed with a pointer |
 | anthropics/skills | loopify | PR-OPEN | [#1702](https://github.com/anthropics/skills/pull/1702), ~861 open PRs in queue |
 | hesreallyhim/awesome-claude-code | humanizer | REPAIRED | [#1809](https://github.com/hesreallyhim/awesome-claude-code/issues/1809): description cut to 466/500 chars, 55 patterns, category moved to Writing & Prose Quality — label now `validation-passed`: "All validation checks passed! Your recommendation is ready for a maintainer to review." |
@@ -58,7 +58,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | npm | sniff-qa 0.7.0, ui-ux-suite 0.5.0 | LISTED | `npm view sniff-qa version`, `npm view ui-ux-suite version`; keyword tuning needs a release — recorded as Next |
 | skills.sh | humanizer | LISTED | skills.sh/Aboudjem/humanizer-skill, 554 installs |
 | skills.sh | loopify | LISTED | skills.sh/Aboudjem/loopify (1 install; search ranking is telemetry-driven) |
-| TensorBlock/awesome-mcp-servers | sniff | LISTED | Auto-crawled 2026-08-06 by their bot; no action possible |
+| TensorBlock/awesome-mcp-servers | sniff, ui-ux-suite | LISTED | Auto-crawled by their bot; no action possible |
 | mcpchangefeed / mcp-servers-live | sniff | LISTED | Auto-generated crawl pages; no submission channel |
 | claudemarketplaces.com / claudedirectory / skillsmp | 10x + plugins | LISTED-auto-indexed | Crawl/topic-driven; topics hygiene done this run (see below) |
 
