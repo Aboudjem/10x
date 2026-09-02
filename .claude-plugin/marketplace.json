@@ -33,7 +33,7 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) and cites the named UX law behind every finding, with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
       "keywords": [
@@ -76,7 +76,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Read-only, evidence-first AWS cost audit. Reads your live AWS account, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
@@ -95,7 +95,7 @@
         "repo": "Aboudjem/goalify"
       },
       "description": "Hand Claude a huge task. Come back to proof it's done, not a promise that it is. goalify locks the few real decisions and writes the brief (a file holding what the run has to do) plus the condition (one short line you paste into /goal), so a fresh full-context session does the job, quotes the checks passing in its closing turn, and archives the brief to .goal/done/. A Claude Code skill (no MCP server).",
-      "version": "2.5.0",
+      "version": "2.6.0",
       "homepage": "https://github.com/Aboudjem/goalify",
       "license": "MIT",
       "keywords": [
