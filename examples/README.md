@@ -6,7 +6,7 @@ Practical, copy-paste recipes for using the 10x marketplace with Claude Code.
 
 ## 1. Add the 10x marketplace and install a plugin
 
-### Step 1 — Register the marketplace
+### Step 1: Register the marketplace
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -15,7 +15,7 @@ claude plugin marketplace add Aboudjem/10x
 This registers the 10x marketplace in your Claude Code config. You only do this once.
 All seven plugins become available to install by name.
 
-### Step 2 — Install a plugin
+### Step 2: Install a plugin
 
 ```bash
 # Install the QA plugin (walks your running app, finds real bugs)
@@ -43,7 +43,7 @@ claude plugin install loopify@10x
 Each install wires up the plugin's MCP tools, slash commands, and agents automatically.
 No config files. No API keys.
 
-### Step 3 — Use it
+### Step 3: Use it
 
 After installing `sniff`, open any Claude Code session in a project with a running dev server:
 

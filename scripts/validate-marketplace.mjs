@@ -96,7 +96,7 @@ for (let i = 0; i < manifest.plugins.length; i++) {
     fail('marketplace.json must not have a top-level "version" field');
   }
 
-  pass(`plugin[${i}] "${plugin.name}" @ ${plugin.version} — all required fields present`);
+  pass(`plugin[${i}] "${plugin.name}" @ ${plugin.version}: all required fields present`);
 }
 
 // Confirm no top-level "version" field exists

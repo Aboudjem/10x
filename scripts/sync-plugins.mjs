@@ -81,7 +81,7 @@ export async function fetchPluginJsonFromGitHub(repo, { token = process.env.GITH
 // We never re-serialize the manifest. Re-serializing would silently reformat
 // hand-maintained JSON; instead we locate each plugin entry in the raw text
 // and swap the characters inside its `"version": "..."` string. Everything
-// else — key order, indentation, the trailing newline — survives byte for byte.
+// else (key order, indentation, the trailing newline) survives byte for byte.
 // ---------------------------------------------------------------------------
 
 /** Character spans of the top-level objects inside the "plugins" array. */

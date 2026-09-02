@@ -3,7 +3,7 @@
 Every plugin in [`.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json)
 carries a `version` pin. It has to match the `version` in that plugin repo's
 own `.claude-plugin/plugin.json`, or people install a stale listing. Nobody
-edits the pins by hand — [`scripts/sync-plugins.mjs`](../scripts/sync-plugins.mjs) does.
+edits the pins by hand. [`scripts/sync-plugins.mjs`](../scripts/sync-plugins.mjs) does.
 
 ## The chain
 
@@ -16,14 +16,14 @@ edits the pins by hand — [`scripts/sync-plugins.mjs`](../scripts/sync-plugins.
    `chore(sync): sniff 0.7.0 → 0.8.0` and pushes to `main`.
 
 The dispatch payload names one plugin, and the sync ignores it on purpose. It
-re-reads all of them, so a single event repairs every pin — not just the one
+re-reads all of them, so a single event repairs every pin, not just the one
 that fired.
 
 ## The safety net
 
 The same workflow runs on a schedule, at 17 past every sixth hour. If a
-dispatch never arrives — a missing token, a failed release job, a plugin repo
-with no `release.yml` yet — the next scheduled run picks it up anyway. Worst
+dispatch never arrives (a missing token, a failed release job, a plugin repo
+with no `release.yml` yet), the next scheduled run picks it up anyway. Worst
 case, a pin is stale for six hours. You can also run it from the Actions tab.
 
 ## The guard
@@ -65,7 +65,7 @@ through the authenticated API instead of `raw.githubusercontent.com`.
    [sniff's](https://github.com/Aboudjem/sniff/blob/main/.github/workflows/release.yml):
    publish, then a second job that POSTs the dispatch.
 3. Set the sender token (below). Until you do, the six-hourly pull sync keeps
-   the pin honest anyway — it just takes hours instead of a minute.
+   the pin honest anyway. It just takes hours instead of a minute.
 
 ## The sender token
 

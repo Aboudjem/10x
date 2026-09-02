@@ -1,7 +1,7 @@
 /**
  * tests/sync-plugins.test.mjs
  *
- * Unit tests for scripts/sync-plugins.mjs — the marketplace version sync.
+ * Unit tests for scripts/sync-plugins.mjs, the marketplace version sync.
  * Run: node --test tests/
  *
  * The script is imported as a module and driven with a fixture manifest on
