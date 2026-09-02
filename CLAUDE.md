@@ -24,21 +24,23 @@ here. The repo surface is `.claude-plugin/marketplace.json` plus docs, assets, a
 - **Validate after every edit.** Run `claude plugin validate . --strict`; it must pass clean
   (exit 0, no warnings). Also confirm the JSON parses: `python3 -m json.tool .claude-plugin/marketplace.json`.
 
-Current pins (cross-checked 2026-09-01): sniff 0.7.0 (Apache-2.0), ui-ux-suite 0.5.0 (MIT),
-recap-studio 0.4.0 (MIT), aws-cost-audit 0.2.0 (MIT), goalify 2.5.0 (MIT), humanizer 0.1.0 (MIT),
-loopify 1.0.0 (MIT).
+Current pins (cross-checked 2026-09-02): sniff 0.8.0 (Apache-2.0), ui-ux-suite 0.6.0 (MIT),
+recap-studio 0.5.0 (MIT), aws-cost-audit 0.3.0 (MIT), goalify 2.6.0 (MIT), humanizer 0.7.0 (MIT),
+loopify 1.1.0 (MIT).
 
-## KEY GOTCHA: the auto-bump bot only touches marketplace.json
+## KEY GOTCHA: the sync bot only touches marketplace.json
 
-`.github/workflows/bump-plugin.yml` auto-bumps a single plugin pin in
-`.claude-plugin/marketplace.json` when a plugin release fires a `repository_dispatch` event
-(type `plugin-released`), or when you run the workflow manually. It commits as
-`github-actions[bot]` and pushes.
+`.github/workflows/sync-plugins.yml` re-reads every listed plugin's upstream
+`.claude-plugin/plugin.json` and rewrites the lagging `version` pins in
+`.claude-plugin/marketplace.json`. It runs every six hours, on a `plugin-released`
+`repository_dispatch` event, and on demand (`gh workflow run sync-plugins.yml -R Aboudjem/10x`).
+It commits as `github-actions[bot]` and pushes. `docs/SYNC.md` explains the whole chain.
 
-That bot edits **only `marketplace.json`**. It does **not** touch the prose docs. So after a
-plugin version bump, these surfaces drift and must be updated by hand:
+That bot edits **only `marketplace.json`**, and only the `version` fields: it reports description
+drift without writing it. It does **not** touch the prose docs. So after a plugin version bump,
+these surfaces drift and must be updated by hand:
 
-- `README.md` (the roster note and the per-plugin install blocks)
+- `README.md` (the plugin table and the per-plugin blocks)
 - `ECOSYSTEM.md` (the version table, the hub version, the test counts)
 - `llms.txt` (the per-plugin version lines)
 - `QUALITY-BAR.md` (the roster table and "Last verified" date)

@@ -3,82 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>10x - a curated marketplace of developer tools for Claude Code</title>
-  <meta name="description" content="10x is a curated marketplace of seven Claude Code plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, and loopify. Add the marketplace once, install any plugin in one command. Zero bloat. Tested. Works in any AI editor." />
-  <meta property="og:title" content="10x - curated developer tools for Claude Code" />
-  <meta property="og:description" content="Seven curated plugins. One install command. No bloat, tested, runs locally, works in any AI editor." />
+  <title>10x - curated Claude Code plugins that ship quality</title>
+  <meta name="description" content="10x is a plugin marketplace for Claude Code: a list your editor can install from. Seven developer tools, added once. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify. All seven also install into 70+ other agents through npx skills add." />
+  <meta property="og:title" content="10x - curated Claude Code plugins that ship quality" />
+  <meta property="og:description" content="Seven curated plugins. One install command. Runs locally, no telemetry, and works in 70+ agents." />
   <meta property="og:image" content="assets/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <style>
     :root {
-      --bg: #0a0a0a;
-      --panel: #141414;
-      --ink: #ececec;
-      --muted: #9a9a9a;
-      --accent: #f59e0b;
-      --border: #262626;
+      --ink-900: #07070C;
+      --ink-800: #0A0F1C;
+      --ink-700: #0E1524;
+      --ink-600: #141C2E;
+      --hairline: #1E2A42;
+      --text-hi: #F2F6FF;
+      --text-mid: #B6C2DA;
+      --text-lo: #8494B0;
+      --cyan: #00D4FF;
+      --violet: #7C5CFF;
+      --pink: #FF2D78;
       --radius: 12px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(120% 80% at 50% 0%, #101A31 0%, var(--ink-800) 46%, var(--ink-900) 100%)
+        no-repeat fixed;
+      color: var(--text-hi);
+      font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--cyan); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
-    header { padding: 64px 0 16px; text-align: center; }
-    header img.logo { width: min(420px, 80%); height: auto; }
-    .tagline { font-size: 1.15rem; color: var(--muted); margin: 18px auto 0; max-width: 640px; }
+    header { padding: 56px 0 8px; text-align: center; }
+    header img.logo { width: min(560px, 92%); height: auto; }
+    .tagline { font-size: 1.1rem; color: var(--text-mid); margin: 20px auto 0; max-width: 660px; }
     .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 28px 0 8px; }
     .btn {
       display: inline-block; padding: 11px 18px; border-radius: 10px;
-      border: 1px solid var(--border); color: var(--ink); font-weight: 600;
+      border: 1px solid var(--hairline); color: var(--text-hi); font-weight: 600;
     }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #0a0a0a; }
-    .demo { margin: 36px 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--panel); }
-    .demo img { display: block; width: 100%; height: auto; }
+    .btn:hover { border-color: var(--cyan); text-decoration: none; }
+    .btn.primary { background: rgba(0, 212, 255, 0.1); border-color: var(--cyan); color: var(--cyan); }
+    .strip { margin: 40px 0; border: 1px solid var(--hairline); border-radius: var(--radius); overflow: hidden; }
+    .strip img { display: block; width: 100%; height: auto; }
     section { margin: 44px 0; }
-    h2 { font-size: 1.4rem; margin: 0 0 14px; }
+    h2 { font-size: 1.4rem; margin: 0 0 14px; letter-spacing: -0.01em; }
     pre {
-      background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+      background: var(--ink-700); border: 1px solid var(--hairline); border-radius: 10px;
       padding: 14px 16px; overflow-x: auto; font-size: 0.9rem; margin: 8px 0;
     }
     code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
     .plugin {
-      background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--ink-700); border: 1px solid var(--hairline); border-radius: var(--radius);
       padding: 20px 22px; margin: 18px 0;
     }
-    .plugin h3 { margin: 0 0 4px; font-size: 1.15rem; }
-    .plugin .lic { color: var(--muted); font-size: 0.82rem; font-weight: 400; }
-    .plugin p.desc { margin: 6px 0 12px; color: var(--ink); }
-    .plugin .links { margin-top: 10px; font-size: 0.92rem; }
+    .plugin h3 { margin: 0 0 4px; font-size: 1.12rem; }
+    .plugin .lic { color: var(--text-lo); font-size: 0.8rem; font-weight: 400; }
+    .plugin p.desc { margin: 6px 0 12px; color: var(--text-mid); }
+    .plugin .links { margin-top: 10px; font-size: 0.9rem; }
     .plugin .links a { margin-right: 14px; }
-    footer { color: var(--muted); text-align: center; padding: 40px 0 64px; font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 48px; }
+    footer {
+      color: var(--text-lo); text-align: center; padding: 40px 0 64px; font-size: 0.9rem;
+      border-top: 1px solid var(--hairline); margin-top: 48px;
+    }
   </style>
 </head>
 <body>
   <header class="wrap">
     <img class="logo" src="assets/logo-dark.svg" alt="10x" onerror="this.style.display='none'" />
-    <p class="tagline">A curated marketplace of developer tools for Claude Code. No bloat. Tested. Works in any AI editor.</p>
+    <p class="tagline">A plugin marketplace is a list your editor can install from. This one holds seven developer tools for Claude Code, and you add it once.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/Aboudjem/10x">View on GitHub</a>
       <a class="btn" href="#plugins">See the plugins</a>
-      <a class="btn" href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">Quality bar</a>
+      <a class="btn" href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">The 10x bar</a>
     </div>
   </header>
 
   <main class="wrap">
-    <div class="demo">
-      <img src="assets/demo.gif" alt="A montage of the 10x plugins running" onerror="this.style.display='none'" />
+    <div class="strip">
+      <img src="assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships seven curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, and loopify" onerror="this.style.display='none'" />
     </div>
 
     <section>
       <h2>Add the marketplace once</h2>
-      <pre><code>claude plugin marketplace add Aboudjem/10x</code></pre>
-      <p>Then install any plugin by name with <code>claude plugin install &lt;name&gt;@10x</code>. Each tool plugin also ships a one-line <code>install.sh</code> for other AI CLIs.</p>
+      <pre><code>claude plugin marketplace add Aboudjem/10x
+claude plugin install sniff@10x</code></pre>
+      <p>Swap <code>sniff</code> for any name below. Outside Claude Code, the same skills install through the
+      <a href="https://github.com/vercel-labs/skills">Vercel skills CLI</a>, which copies them into the directory your agent reads:</p>
+      <pre><code>npx skills add Aboudjem/sniff</code></pre>
     </section>
 
     <section id="plugins">
@@ -86,76 +101,72 @@
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
-        <p class="desc">AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs across accessibility, performance, and broken interactions. A source scan is also available via <code>sniff scan</code>.</p>
+        <p class="desc">Point it at your running app and it clicks through your real flows in a real browser, then tells you what broke and the ordered steps that broke it.</p>
         <pre><code>claude plugin install sniff@10x
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/sniff/main/install.sh | bash -s codex</code></pre>
+npx skills add Aboudjem/sniff</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/sniff">GitHub</a>
           <a href="https://www.npmjs.com/package/sniff-qa">npm: sniff-qa</a>
-          <a href="https://aboudjem.github.io/sniff/">Pages demo</a>
         </div>
       </div>
 
       <div class="plugin">
         <h3>ui-ux-suite <span class="lic">MIT</span></h3>
-        <p class="desc">Design audit tool that scores a project across 12 dimensions and cites the named UX law behind every finding, with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies. It audits, it never edits.</p>
+        <p class="desc">It reads your CSS, JSX, HTML and Tailwind classes and names the file, the line, the measured wrong value, and the exact fix. It audits, it never edits.</p>
         <pre><code>claude plugin install ui-ux-suite@10x
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.sh | bash -s codex</code></pre>
+npx skills add Aboudjem/ui-ux-suite</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub</a>
           <a href="https://www.npmjs.com/package/ui-ux-suite">npm: ui-ux-suite</a>
-          <a href="https://aboudjem.github.io/ui-ux-suite/">Pages demo</a>
         </div>
       </div>
 
       <div class="plugin">
         <h3>recap-studio <span class="lic">MIT</span></h3>
-        <p class="desc">Turns any topic or coding session into a clean, mobile-first one-page explainer you can read offline in about 5 minutes. Output is a self-contained, offline HTML page; deterministic heuristic checks validate clarity, accessibility, and structure before you ship.</p>
+        <p class="desc">It turns a topic or a coding session into one HTML file you can double-click, with every style inlined and no external request, readable offline in about five minutes.</p>
         <pre><code>claude plugin install recap-studio@10x
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/recap-studio/main/install.sh | bash -s codex</code></pre>
+npx skills add Aboudjem/recap-studio</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/recap-studio">GitHub</a>
           <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture</a>
-          <a href="https://aboudjem.github.io/recap-studio/">Pages demo</a>
         </div>
       </div>
 
       <div class="plugin">
         <h3>aws-cost-audit <span class="lic">MIT</span></h3>
-        <p class="desc">Read-only, evidence-first AWS cost audit. Reads your live AWS account, attributes every dollar, finds idle, orphaned, and over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).</p>
+        <p class="desc">It reads your live AWS account through the AWS CLI you already have and hands you a savings plan where every price is checked live, never quoted from memory. Read-only by default. A Claude Code skill (no MCP server).</p>
         <pre><code>claude plugin install aws-cost-audit@10x
-curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/install.sh | bash -s codex</code></pre>
+npx skills add Aboudjem/aws-cost-audit-skill</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub</a>
-          <a href="https://aboudjem.github.io/aws-cost-audit-skill/">Pages demo</a>
         </div>
       </div>
 
       <div class="plugin">
         <h3>goalify <span class="lic">MIT</span></h3>
-        <p class="desc">Sets up a big coding task to run on its own. Scopes the work, locks the few real decisions, and writes the brief (a file the run works from) plus the condition (one line you paste into <code>/goal</code>), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to <code>.goal/done/</code>. A Claude Code skill (no MCP server).</p>
+        <p class="desc">For a job too big to sit and watch, it writes the brief (a file holding what the run has to do) and the condition (one line you paste into <code>/goal</code>), so a fresh session does the work and closes by quoting the checks passing. A Claude Code skill (no MCP server).</p>
         <pre><code>claude plugin install goalify@10x
-/goalify &lt;your task&gt;</code></pre>
+npx skills add Aboudjem/goalify</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/goalify">GitHub</a>
         </div>
       </div>
 
-      <div class="plugin" style="border-color: #d946ef33;">
-        <h3 style="color: #d946ef;">humanizer <span class="lic">MIT</span></h3>
-        <p class="desc">Detects 55 AI writing patterns and rewrites text to read like a human wrote it. Measures burstiness and produces a 0-100 AI-tell score. Five voice profiles (casual, professional, technical, warm, blunt) and three modes: detect (scan and score only), rewrite (full transform, default), and edit (in-place file edits). Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).</p>
+      <div class="plugin">
+        <h3>humanizer <span class="lic">MIT</span></h3>
+        <p class="desc">It names 55 habits that make writing read as machine-written, scores how many your text carries on a 0 to 100 scale, and rewrites it in the voice you pick. Pure Markdown, nothing leaves your machine. A Claude Code skill (no MCP server).</p>
         <pre><code>claude plugin install humanizer@10x
-/humanizer "your text" [--mode detect|rewrite|edit] [--voice casual|professional|technical|warm|blunt] [--score]</code></pre>
+npx skills add Aboudjem/humanizer-skill</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/humanizer-skill">GitHub</a>
         </div>
       </div>
 
-      <div class="plugin" style="border-color: #14b8a633;">
-        <h3 style="color: #14b8a6;">loopify <span class="lic">MIT</span></h3>
-        <p class="desc">Hands off a job that repeats: babysitting a release PR, watching a deploy, sweeping new bug reports. Writes the brief (a standing file the loop re-reads at the start of every tick) plus the line (one short string you paste into Claude Code's built-in <code>/loop</code>), with a tick cap, a stop rule, and five safety rails. Every tick logs what it did to <code>TICKS.md</code>; what it cannot do safely waits in <code>QUEUE.md</code>. A Claude Code skill (no MCP server).</p>
+      <div class="plugin">
+        <h3>loopify <span class="lic">MIT</span></h3>
+        <p class="desc">For a job that repeats rather than finishes, it writes the brief and the line you paste into <code>/loop</code>, Claude Code's built-in repeat command, with a tick cap and a stop rule. Every tick logs what it did. A Claude Code skill (no MCP server).</p>
         <pre><code>claude plugin install loopify@10x
-/loopify &lt;your recurring job&gt;</code></pre>
+npx skills add Aboudjem/loopify</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/loopify">GitHub</a>
         </div>
@@ -163,8 +174,24 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/
     </section>
 
     <section>
+      <h2>Works with any AI editor</h2>
+      <div class="strip">
+        <img src="assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" onerror="this.style.display='none'" />
+      </div>
+      <p>Every plugin here ships as skills, which are Markdown files your agent reads. That is why all seven
+      install outside Claude Code through <code>npx skills add</code>. Three are also command-line tools. sniff,
+      ui-ux-suite and recap-studio each run as a standalone MCP server, the protocol an editor speaks to reach an
+      outside tool. The other four are skills only. Per-editor snippets live in each repo's <code>docs/editors.md</code>.</p>
+    </section>
+
+    <section>
       <h2>The 10x bar</h2>
-      <p>Every plugin here passes an explicit eight-point quality bar: zero runtime dependencies, one-command install, real tests, dual mode (plugin and MCP server, where applicable), active maintenance, and no telemetry. If a plugin stops passing, it gets removed. The full checklist lives in <a href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">QUALITY-BAR.md</a>.</p>
+      <p>Every plugin here passes an explicit eight-point quality bar: no dependency it does not need, a
+      one-command install with no signup, CI that asserts behaviour, an install path outside Claude Code,
+      a release this quarter, and no telemetry. Six of the seven ship zero runtime dependencies; sniff ships
+      Playwright and Lighthouse because it drives a real browser. If a plugin stops passing, it gets removed.
+      The full checklist, with the roster and the verification runs behind it, is in
+      <a href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">QUALITY-BAR.md</a>.</p>
     </section>
   </main>
 

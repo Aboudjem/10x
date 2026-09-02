@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app and finds real bugs (accessibility, performance, and broken flows), with an optional source scan. ui-ux-suite audits design across 12 dimensions and cites the named UX law behind every finding. recap-studio builds self-contained offline HTML explainers from any topic or coding session. aws-cost-audit reads your live AWS account read-only, attributes every dollar, and verifies prices live before recommending safe savings. goalify writes the brief and the condition so a fresh session runs a big coding task and comes back with proof it finished. humanizer detects 55 AI writing patterns and rewrites text with sentence-length burstiness, voice profiles, and a 0-100 AI-tell score. loopify writes the brief and the line so Claude Code's built-in /loop keeps a recurring job running on its own and logs what every tick did. Zero bloat. The tool plugins are dual-mode (install as a Claude Code plugin or as a standalone MCP server); aws-cost-audit, goalify, humanizer, and loopify are Claude Code skills (no MCP server)."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app in a real browser and tells you what is actually broken, with the steps to reproduce it. ui-ux-suite is ESLint for design: the exact line, the measured wrong value, the exact fix. recap-studio turns a topic or a coding session into one offline HTML explainer you can double-click. aws-cost-audit reads your live AWS account read-only and checks every price against live AWS pricing. goalify writes the brief and the condition for a big task a fresh session runs on its own. humanizer names 55 AI writing habits and rewrites text in the voice you pick. loopify writes the brief and the line that keep a repeating job running on Claude Code's built-in /loop. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); aws-cost-audit, goalify, humanizer and loopify are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -13,7 +13,7 @@
         "source": "github",
         "repo": "Aboudjem/sniff"
       },
-      "description": "AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs (accessibility, performance, and broken interactions). Auto-detects your dev server. A source scan is also available via `sniff scan`.",
+      "description": "Point it at your running app. It walks your real user flows in a real browser and tells you what is actually broken, with proof: the route, the ordered steps, and the screenshot or console excerpt behind every finding. A source scan is also available via `sniff scan`. No API key.",
       "version": "0.8.0",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
@@ -32,7 +32,7 @@
         "source": "github",
         "repo": "Aboudjem/ui-ux-suite"
       },
-      "description": "Design audit tool. Scores projects across 12 dimensions (color, typography, a11y, layout) and cites the named UX law behind every finding, with primary-source citations. WCAG, APCA, OKLCH color science. Zero dependencies.",
+      "description": "ESLint for design. It reads your CSS, JSX, HTML and Tailwind classes, then names the exact line, the measured wrong value, and the exact fix, with the WCAG criterion or named UX law behind it. Scores 12 dimensions. It audits, it never edits. Zero dependencies.",
       "version": "0.6.0",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
@@ -54,7 +54,7 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Generate beautiful, mobile-first one-page explainers you can read offline in about 5 minutes. Builds self-contained, offline HTML pages from any topic or coding session, with deterministic heuristic checks that validate clarity, accessibility, and structure before you ship.",
+      "description": "Turn any topic or coding session into a dark-mode, mobile-first explainer you can double-click to open. The output is one HTML file with every style inlined, no JavaScript and no external request, readable offline in about five minutes. Deterministic checks score it before you ship.",
       "version": "0.5.0",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
@@ -75,7 +75,7 @@
         "source": "github",
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
-      "description": "Read-only, evidence-first AWS cost audit. Reads your live AWS account, attributes every dollar, finds idle/orphaned/over-provisioned resources, verifies prices live (never hardcoded), and ships a safe, reversible, gated savings plan with confidence levels. A Claude Code skill (no MCP server).",
+      "description": "Ask Claude to audit your AWS bill. It reads your live account through the AWS CLI you already have, attributes every dollar, finds the idle and over-provisioned resources, and hands you a savings plan where every number is checked against live AWS pricing. Read-only by default. A Claude Code skill (no MCP server).",
       "version": "0.3.0",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
@@ -94,7 +94,7 @@
         "source": "github",
         "repo": "Aboudjem/goalify"
       },
-      "description": "Hand Claude a huge task. Come back to proof it's done, not a promise that it is. goalify locks the few real decisions and writes the brief (a file holding what the run has to do) plus the condition (one short line you paste into /goal), so a fresh full-context session does the job, quotes the checks passing in its closing turn, and archives the brief to .goal/done/. A Claude Code skill (no MCP server).",
+      "description": "Hand Claude a huge task. Come back to proof it's done, not a promise that it is. goalify writes the brief (a file holding what the run has to do) and the condition (one line you paste into `/goal`), so a fresh session does the job and quotes the checks passing in its closing turn. A Claude Code skill (no MCP server).",
       "version": "2.6.0",
       "homepage": "https://github.com/Aboudjem/goalify",
       "license": "MIT",
@@ -114,7 +114,7 @@
         "source": "github",
         "repo": "Aboudjem/humanizer-skill"
       },
-      "description": "Detects 55 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Catches inflated symbolism, promotional language, em dash overuse, rule-of-three, and AI vocabulary. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).",
+      "description": "AI writing has a fingerprint. humanizer names 55 of those habits, scores how many your text carries on a 0 to 100 scale, and rewrites it in the voice you pick, restoring the sentence-length variation people write with. Pure Markdown, zero dependencies, nothing leaves your machine. A Claude Code skill (no MCP server).",
       "version": "0.7.0",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
@@ -134,7 +134,7 @@
         "source": "github",
         "repo": "Aboudjem/loopify"
       },
-      "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit. loopify reads your project, asks the few real questions, and writes the brief (a standing file the loop re-reads every tick) plus the line (one short string you paste into Claude Code's built-in /loop), with a tick cap, a stop rule, and five safety rails. Every tick logs what it did to TICKS.md. A Claude Code skill (no MCP server).",
+      "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit. loopify writes the brief (a standing file the loop re-reads every tick) and the line (one string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule and five safety rails. A Claude Code skill (no MCP server).",
       "version": "1.1.0",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",

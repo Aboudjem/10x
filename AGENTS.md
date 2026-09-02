@@ -8,19 +8,20 @@ This repo is a **Claude Code plugin marketplace**, a curated hub, not a tool. It
 
 ## The seven plugins
 
-- **sniff** (0.7.0, Apache-2.0): AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs (accessibility, performance, broken interactions). Auto-detects the dev server; a source scan is available via `sniff scan`. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
-- **ui-ux-suite** (0.5.0, MIT): Design audit tool that scores a project across 12 dimensions and cites the named UX law behind every finding, with primary-source citations (WCAG, APCA, OKLCH). Zero dependencies. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
-- **recap-studio** (0.4.0, MIT): Builds self-contained, offline one-page HTML explainers from any topic or coding session; deterministic heuristic checks validate clarity, accessibility, and structure. Dual-mode. Repo: `Aboudjem/recap-studio`.
-- **aws-cost-audit** (0.2.0, MIT): A Claude Code skill that reads a live AWS account read-only, attributes every dollar, verifies prices live, and ships a safe, reversible, gated savings plan. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.
-- **goalify** (2.5.0, MIT): A Claude Code skill that scopes a big coding task, locks the few real decisions, and writes the brief (a file the run works from) plus the condition (one line you paste into `/goal`), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to `.goal/done/`. Skill plugin (no MCP server). Repo: `Aboudjem/goalify`.
-- **humanizer** (0.6.2, MIT): Detects 55 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Pure Markdown, zero dependencies, no network calls. Skill plugin (no MCP server). Repo: `Aboudjem/humanizer-skill`.
-- **loopify** (1.0.0, MIT): A Claude Code skill for a job that repeats. It writes the brief (a standing file the loop re-reads every tick) plus the line (one short string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule, and five safety rails; every tick logs what it did to `TICKS.md`. Skill plugin (no MCP server). Repo: `Aboudjem/loopify`.
+- **sniff** (0.8.0, Apache-2.0): Point it at your running app and it walks your real user flows in a real browser, reporting what is broken with the route, the ordered steps, and the screenshot or console excerpt behind each finding. A source scan is available via `sniff scan`. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
+- **ui-ux-suite** (0.6.0, MIT): ESLint for design. Reads CSS, JSX, HTML and Tailwind classes and names the file, the line, the measured wrong value and the exact fix, with the WCAG criterion or named UX law behind it. Scores 12 dimensions. It audits, it never edits. Zero runtime dependencies. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
+- **recap-studio** (0.5.0, MIT): Turns any topic or coding session into one self-contained HTML file with inlined styles, no JavaScript and no external request, readable offline in about five minutes; deterministic heuristic checks score it before you ship. Dual-mode. Repo: `Aboudjem/recap-studio`.
+- **aws-cost-audit** (0.3.0, MIT): A Claude Code skill that reads a live AWS account read-only through the AWS CLI, attributes every dollar, and ships a safe, reversible, gated savings plan. No price is quoted from memory; every figure comes from live AWS pricing. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.
+- **goalify** (2.6.0, MIT): A Claude Code skill that scopes a big coding task, locks the few real decisions, and writes the brief (a file the run works from) plus the condition (one line you paste into `/goal`), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to `.goal/done/`. Skill plugin (no MCP server). Repo: `Aboudjem/goalify`.
+- **humanizer** (0.7.0, MIT): Names 55 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Pure Markdown, zero dependencies, no network calls. Skill plugin (no MCP server). Repo: `Aboudjem/humanizer-skill`.
+- **loopify** (1.1.0, MIT): A Claude Code skill for a job that repeats. It writes the brief (a standing file the loop re-reads every tick) plus the line (one short string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule, and five safety rails; every tick logs what it did to `TICKS.md`. Skill plugin (no MCP server). Repo: `Aboudjem/loopify`.
 
 ## How an agent should install from this marketplace
 
 - Add the marketplace once: `claude plugin marketplace add Aboudjem/10x`.
 - Install a plugin by name: `claude plugin install <name>@10x`, for example `sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, or `loopify@10x`.
-- The tool plugins (sniff, ui-ux-suite, recap-studio) are dual-mode and also run as standalone MCP servers (e.g. `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`). For other AI editors (Cursor, VS Code + Copilot, Codex, Gemini CLI, Windsurf, Continue.dev), see each tool's own README for copy-paste MCP setup. `aws-cost-audit`, `goalify`, `humanizer`, and `loopify` are Claude Code skills, not MCP servers.
+- Outside Claude Code, install any of the seven with the Vercel skills CLI: `npx skills add Aboudjem/<repo>`, optionally with `-a <agent>` (`-a cursor`, `-a codex`, `-a github-copilot`, `-a gemini-cli`, and more). The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`.
+- The tool plugins (sniff, ui-ux-suite, recap-studio) are dual-mode and also run as standalone MCP servers (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`; recap-studio's server runs from a clone after a workspace build). Per-editor snippets live in each repo's `docs/editors.md`. `aws-cost-audit`, `goalify`, `humanizer`, and `loopify` are Claude Code skills, not MCP servers.
 
 ## Editing rules an agent MUST honor in this repo
 
@@ -30,16 +31,16 @@ These keep the marketplace correct and the listing honest.
 2. **Version pins must match the upstream plugin repos.** Do not invent or guess a version, and do not edit a pin by hand: `.github/workflows/sync-plugins.yml` reads every plugin repo's `.claude-plugin/plugin.json` and rewrites the pins itself. Run `node scripts/sync-plugins.mjs --check` to see the current state; see [docs/SYNC.md](docs/SYNC.md) for the whole chain.
 3. **No fabricated numbers.** Do not embed unverifiable test counts, scores, or "N-dimension" claims that you cannot confirm from the live plugin repo. Describe what a plugin does, not a stat that goes stale the moment upstream changes.
 4. **Plugin-specific behavior, bugs, and security issues belong in the plugin's own repo**, not here. This repo only owns the marketplace manifest, the quality bar, and the docs that describe the seven plugins.
-5. **Keep the animated SVGs.** Assets in `.github/assets/` are hand-authored SMIL/CSS with no `<script>` and no external references, so they are GitHub-safe. Edit only the stale text inside `<text>` elements; never add scripts or external refs.
+5. **Keep the animated SVGs.** Assets in `.github/assets/` are hand-authored CSS/SMIL with no `<script>` and no external references, so they are GitHub-safe. Edit only the stale text inside `<text>` elements; never add scripts or external refs. Motion that moves an element is CSS, so `prefers-reduced-motion` can stop it; SMIL is used only for gradient colour drift, which that media query cannot reach. Per-plugin diagrams live in each plugin's own repo, not here.
 
 ## Where things live
 
 - `.claude-plugin/marketplace.json`: the marketplace manifest (the plugin list). No `plugin.json` (10x is not a plugin).
-- `QUALITY-BAR.md`: the explicit eight-point, 28-item bar every listed plugin must pass, plus the roster table and "verify before listing" steps.
+- `QUALITY-BAR.md`: the explicit eight-point, 29-item bar every listed plugin must pass, plus the roster table and "verify before listing" steps.
 - `README.md`: human-facing overview; `CONTRIBUTING.md`: how to propose a plugin.
 - `CODE_OF_CONDUCT.md`, `SECURITY.md`, `LICENSE`, `CHANGELOG.md`: community and policy files.
-- `.github/assets/`: animated, GitHub-safe SVG hero, per-plugin diagrams, logos, editors strip, and the social preview.
-- `.github/workflows/`: `validate.yml` (JSON + manifest validation, link check, secret scan, and a blocking version-pin drift check) and `sync-plugins.yml` (syncs every version pin from upstream). `docs/SYNC.md` explains both.
+- `.github/assets/`: animated, GitHub-safe SVG hero banners, the hub logo pair, the hero diagram, the editors strip, the social preview, and the PNG logo marks.
+- `.github/workflows/`: `validate.yml` (JSON + manifest validation, link check, secret scan, and a blocking version-pin drift check), `sync-plugins.yml` (syncs every version pin from upstream) and `deploy-pages.yml` (publishes `site/index.html`). `docs/SYNC.md` explains the sync chain.
 - `scripts/` and `tests/`: `validate-marketplace.mjs` (structural checks) and `sync-plugins.mjs` (version sync), each with a `node:test` suite. `npm test` runs them; there are no dependencies to install.
 
 ## Validate before claiming done
@@ -58,7 +59,7 @@ A curated Claude Code plugin marketplace. You add it once with `claude plugin ma
 `claude plugin marketplace add Aboudjem/10x`, then `claude plugin install <name>@10x`.
 
 **Do the plugins work outside Claude Code?**
-The three tool plugins are dual-mode and also run as standalone MCP servers, so they work in Cursor, VS Code + Copilot, Codex, Gemini, Windsurf, and Continue.dev; see each tool's README. `aws-cost-audit`, `goalify`, `humanizer`, and `loopify` are Claude Code skills and run in Claude Code.
+Yes. All seven install into 70+ agents with `npx skills add Aboudjem/<repo>`, because every one of them ships as skills, which are Markdown files an agent reads. The three tool plugins additionally run as standalone MCP servers. See each repo's `docs/editors.md`.
 
 **Where do I report a bug in one of the plugins?**
 In that plugin's own GitHub repo (linked above). This repo only owns the marketplace itself.
