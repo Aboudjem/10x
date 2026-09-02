@@ -128,13 +128,13 @@ npx skills add Aboudjem/sniff
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-这里的每一款插件都以技能的形式发布（技能即你的智能体读取的 Markdown 文件）。这就是为什么这七款插件都可以在 Claude Code 之外通过 `npx skills add` 安装，该命令自己的 README 列出了 77 个受支持的智能体。其中三款同时也是命令行工具。sniff 和 ui-ux-suite 各自可以直接从 npm 作为独立的 MCP 服务器运行，MCP 是编辑器用来连接外部工具所使用的协议。recap-studio 也提供了 MCP 服务器，但需要先克隆仓库、完成工作区构建之后才能运行。其余四款则只有技能形式。
+这里的每一款插件都以技能的形式发布（技能即你的智能体读取的 Markdown 文件）。这就是为什么这七款插件都可以在 Claude Code 之外通过 `npx skills add` 安装，该命令自己的 README 列出了 77 个受支持的智能体。其中三款还能作为独立的 MCP 服务器运行，MCP 是编辑器用来连接外部工具所使用的协议：sniff 和 ui-ux-suite 可以直接从 npm 运行，recap-studio 则需要先克隆仓库、完成工作区构建之后才能运行。其余四款不提供 MCP 服务器。
 
 | 智能体 | 一行安装命令 |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
 | Cursor、Codex、Copilot、Gemini CLI，以及[70 多种其他智能体](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| 任意 MCP 客户端（sniff、ui-ux-suite） | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp` |
+| 任意 MCP 客户端 | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp`，recap-studio 需要从构建好的克隆中运行 |
 | 其他情况 | 参见插件自身仓库中的 `docs/editors.md` |
 
 <a id="the-10x-bar"></a>
@@ -142,14 +142,14 @@ npx skills add Aboudjem/sniff
 
 | | |
 |---|---|
-| **默认精简** | 不携带插件用不到的依赖。sniff 需要驱动真实浏览器，所以它包含 Playwright 和 Lighthouse；其余插件不带任何这类依赖。 |
-| **一条命令安装** | 不需要配置文件，不需要注册，开始使用也不需要 API key。 |
+| **默认精简** | 不携带插件用不到的依赖。ui-ux-suite 以及其余四款技能不带任何依赖。recap-studio 的各个包依赖 zod，它的 web 应用则依赖 Next 和 React。sniff 需要驱动真实浏览器，所以它包含 Playwright 和 Lighthouse。 |
+| **一条命令安装** | 不需要配置文件，也不需要注册。aws-cost-audit 是唯一需要你可能还没有的访问权限的插件：一个配置好、可以读取账户的 AWS CLI。 |
 | **真实的测试** | CI 断言的是行为，而不是某个文件是否存在。 |
 | **可在 Claude Code 之外运行** | 通过 `npx skills add` 安装进[70 多种智能体](https://github.com/vercel-labs/skills#supported-agents)。 |
 | **持续维护** | 本季度有发布记录，不是去年就已归档的项目。 |
 | **无遥测** | 没有数据分析，也不会回传任何信息。每个工具只会与你指定的目标通信。 |
 
-这里列出的每一款插件都满足这套标准。一旦某款插件不再满足，就会被移除。完整的检查清单，连同插件名单和最近一次验证日期，都在 [QUALITY-BAR.md](../QUALITY-BAR.md) 中。
+这里列出的每一款插件都要接受这套标准的约束。一旦某款插件不再达标，就会被移除。完整的检查清单，连同插件名单和最近一次验证日期，都在 [QUALITY-BAR.md](../QUALITY-BAR.md) 中。
 
 ## 参与贡献
 

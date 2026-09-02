@@ -127,29 +127,29 @@ For a job that repeats rather than finishes, it writes the brief and the line yo
 
 Every plugin here ships as skills, which are Markdown files your agent reads. That is why all seven
 install outside Claude Code through `npx skills add`, whose own README lists 77 supported agents.
-Three are also command-line tools. sniff and ui-ux-suite each run as a standalone MCP server straight
-from npm, the protocol an editor speaks to reach an outside tool. recap-studio ships one too, run
-from a clone after a workspace build. The other four are skills only.
+Three also run as a standalone MCP server, the protocol an editor speaks to reach an outside tool:
+sniff and ui-ux-suite straight from npm, recap-studio from a clone after a workspace build. The
+other four ship no MCP server.
 
 | Agent | One-line install |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
 | Cursor, Codex, Copilot, Gemini CLI, and [70+ more](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| Any MCP client (sniff, ui-ux-suite) | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp` |
+| Any MCP client | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`, recap-studio from a built clone |
 | Everything else | see `docs/editors.md` in the plugin's own repo |
 
 ## The 10x bar
 
 | | |
 |---|---|
-| **Lean by default** | No dependency a plugin does not need. sniff drives a real browser, so it carries Playwright and Lighthouse; the rest ship with none. |
-| **One-command install** | No config file, no signup, no API key to start. |
+| **Lean by default** | No dependency a plugin does not need. ui-ux-suite and the four skills ship none. recap-studio's packages pull zod, its web app Next and React. sniff drives a real browser, so it carries Playwright and Lighthouse. |
+| **One-command install** | No config file and no signup. aws-cost-audit is the one that needs access you may not have: an AWS CLI configured to read the account. |
 | **Real tests** | CI that asserts behaviour, not that a file exists. |
 | **Runs outside Claude Code** | Installs into [70+ agents](https://github.com/vercel-labs/skills#supported-agents) through `npx skills add`. |
 | **Actively maintained** | A release this quarter, not an archive from last year. |
 | **No telemetry** | No analytics and no phoning home. Each tool talks only to what you point it at. |
 
-Every plugin listed here passes this bar. If one stops passing, it gets removed. The full checklist,
+Every plugin listed here is held to this bar. If one stops passing, it gets removed. The full checklist,
 with the roster and the last verification date, is in [QUALITY-BAR.md](QUALITY-BAR.md).
 
 ## Contributing

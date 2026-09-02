@@ -12,11 +12,12 @@ on every quarterly review.
 ## 1. Zero bloat
 
 - [ ] **No runtime dependency the tool does not need** (devDependencies are fine).
-      Read this as "nothing pulled in for convenience", not "zero". Most plugins here do ship zero:
-      ui-ux-suite and recap-studio have an empty `dependencies` block and the four skill plugins are
-      pure Markdown. sniff is the exception and carries **16 runtime dependencies**, among them
-      Playwright and Lighthouse, because driving a real browser and measuring a real page is the
-      job. A plugin that cannot justify a dependency line by line does not pass this item.
+      Read this as "nothing pulled in for convenience", not "zero". ui-ux-suite ships zero and the
+      four skill plugins are pure Markdown with no `package.json` at all. recap-studio's root package
+      declares none, but its workspace packages pull `zod` and its web app pulls Next, React and
+      Mermaid. sniff carries **16 runtime dependencies**, among them Playwright and Lighthouse,
+      because driving a real browser and measuring a real page is the job. A plugin that cannot
+      justify a dependency line by line does not pass this item.
 - [ ] Bundle stays small on disk after `npm pack` (excluding test fixtures). 500 KB is the target
       for a dependency-free tool; a plugin that ships a browser engine is judged on its own code.
 - [ ] No telemetry, analytics SDK, or third-party network call the user did not ask for.
@@ -26,7 +27,9 @@ on every quarterly review.
 - [ ] `claude plugin install <name>@10x` succeeds with no follow-up prompts.
 - [ ] `npx <name>` works as a standalone CLI when relevant.
 - [ ] No required env vars on first run. Every feature with an env var has
-      a clearly-marked off-by-default path.
+      a clearly-marked off-by-default path. A plugin that needs credentials for a
+      service it audits (aws-cost-audit needs a configured AWS CLI) must say so on
+      its first screen.
 
 ## 3. Real tests
 
@@ -136,11 +139,12 @@ and local-only items; the MCP-server and standalone-CLI items do not apply to a 
 
 ## How item 1 is read
 
-"Zero bloat" is a judgement about necessity, not a count. Six of the seven plugins do ship zero
-runtime dependencies. sniff ships 16, including Playwright and Lighthouse, and it passes because
-walking a real app in a real browser cannot be done without a browser. The question this item asks
-is whether every dependency earns its line, and a maintainer answers it in the review, not with a
-number.
+"Zero bloat" is a judgement about necessity, not a count. Five of the seven ship no runtime
+dependency: ui-ux-suite and the four Markdown skills. recap-studio's root declares none while its
+workspace packages pull `zod`, Next, React and Mermaid, because it renders pages. sniff ships 16,
+including Playwright and Lighthouse, because walking a real app in a real browser cannot be done
+without a browser. The question this item asks is whether every dependency earns its line, and a
+maintainer answers it in the review, not with a number.
 
 ## Verification runs, 2026-09-02
 

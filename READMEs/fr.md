@@ -135,15 +135,15 @@ Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le bri
 
 Chaque plugin ici est livré sous forme de skills, des fichiers Markdown que votre agent lit. C'est pourquoi les sept
 s'installent en dehors de Claude Code via `npx skills add`, dont le README indique lui-même 77 agents pris en charge.
-Trois sont aussi des outils en ligne de commande. sniff et ui-ux-suite tournent chacun comme un serveur MCP autonome,
-directement depuis npm, le protocole que parle un éditeur pour atteindre un outil extérieur. recap-studio en propose
-un aussi, exécuté depuis un clone après une compilation du workspace. Les quatre autres sont uniquement des skills.
+Trois tournent aussi comme un serveur MCP autonome, le protocole que parle un éditeur pour atteindre un outil
+extérieur : sniff et ui-ux-suite directement depuis npm, recap-studio depuis un clone après une compilation du
+workspace. Les quatre autres ne fournissent aucun serveur MCP.
 
 | Agent | Installation en une ligne |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
 | Cursor, Codex, Copilot, Gemini CLI, et [70+ de plus](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| N'importe quel client MCP (sniff, ui-ux-suite) | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp` |
+| N'importe quel client MCP | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`, recap-studio depuis un clone compilé |
 | Tout le reste | voir `docs/editors.md` dans le dépôt du plugin |
 
 <a id="the-10x-bar"></a>
@@ -152,14 +152,14 @@ un aussi, exécuté depuis un clone après une compilation du workspace. Les qua
 
 | | |
 |---|---|
-| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse ; les autres n'en embarquent aucune. |
-| **Installation en une commande** | Aucun fichier de configuration, aucune inscription, aucune clé API pour démarrer. |
+| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. ui-ux-suite et les quatre skills n'en embarquent aucune. Les packages de recap-studio tirent zod, son application web Next et React. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse. |
+| **Installation en une commande** | Aucun fichier de configuration et aucune inscription. aws-cost-audit est le seul qui a besoin d'un accès que vous n'avez peut-être pas : une CLI AWS configurée pour lire le compte. |
 | **De vrais tests** | Une CI qui vérifie le comportement, pas qu'un fichier existe. |
 | **Fonctionne en dehors de Claude Code** | S'installe dans [70+ agents](https://github.com/vercel-labs/skills#supported-agents) via `npx skills add`. |
 | **Maintenu activement** | Une publication ce trimestre, pas une archive de l'an dernier. |
 | **Aucune télémétrie** | Aucune analytics et aucun appel silencieux vers un serveur distant. Chaque outil ne parle qu'à ce vers quoi vous le pointez. |
 
-Chaque plugin listé ici respecte cette barre. Si l'un d'eux cesse de la respecter, il est retiré. La liste complète,
+Chaque plugin listé ici est tenu de respecter cette barre. Si l'un d'eux cesse de la respecter, il est retiré. La liste complète,
 avec le registre et la date de dernière vérification, se trouve dans [QUALITY-BAR.md](../QUALITY-BAR.md).
 
 ## Contribuer

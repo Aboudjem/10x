@@ -131,15 +131,15 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 ここにあるすべてのプラグインは、エージェントが読み込むMarkdownファイルであるスキルとして提供されています。だからこそ、7つ
 すべてが `npx skills add` 経由でClaude Codeの外部でもインストールでき、そのREADME自体には77個のサポート対象エージェントが
-挙げられています。うち3つはコマンドラインツールでもあります。sniff と ui-ux-suite はそれぞれ、npmから直接、エディタが外部
-ツールに到達するためのプロトコルであるMCPサーバーとして単独で動作します。recap-studio も同様にMCPサーバーを備えていますが、
-クローンしてワークスペースをビルドした後に実行する必要があります。残る4つはスキルのみです。
+挙げられています。そのうち3つは、エディタが外部ツールに到達するためのプロトコルであるMCPサーバーとしても単独で動作します。
+sniff と ui-ux-suite は npm から直接、recap-studio はクローンしてワークスペースをビルドした後に実行します。残る4つは
+MCPサーバーを持ちません。
 
 | エージェント | 1行インストール |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
 | Cursor、Codex、Copilot、Gemini CLI、[他70以上](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| 任意のMCPクライアント(sniff、ui-ux-suite) | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp` |
+| 任意のMCPクライアント | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp`、recap-studio はビルド済みクローンから |
 | その他すべて | 各プラグイン自身のリポジトリ内の `docs/editors.md` を参照 |
 
 <a id="the-10x-bar"></a>
@@ -147,14 +147,14 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 | | |
 |---|---|
-| **無駄のない既定構成** | プラグインが必要としない依存関係は持ちません。sniff は実際のブラウザを操作するためPlaywrightとLighthouseを含みますが、それ以外は依存関係ゼロで提供されます。 |
-| **ワンコマンドインストール** | 設定ファイル、サインアップ、開始時のAPIキーは一切不要です。 |
+| **無駄のない既定構成** | プラグインが必要としない依存関係は持ちません。ui-ux-suiteと4つのスキルは依存関係を持ちません。recap-studioのパッケージはzodを、そのWebアプリはNextとReactを取り込みます。sniffは実際のブラウザを操作するためPlaywrightとLighthouseを含みます。 |
+| **ワンコマンドインストール** | 設定ファイルもサインアップも不要です。aws-cost-auditだけは、お持ちでない可能性のあるアクセス権、つまりアカウントを読み取れるよう設定されたAWS CLIを必要とします。 |
 | **本物のテスト** | ファイルが存在するかではなく、振る舞いを検証するCIです。 |
 | **Claude Code以外でも動作** | `npx skills add` 経由で[70以上のエージェント](https://github.com/vercel-labs/skills#supported-agents)にインストールできます。 |
 | **継続的にメンテナンス** | 今四半期のリリースがあり、去年のまま放置されたアーカイブではありません。 |
 | **テレメトリなし** | アナリティクスも外部への通信も一切ありません。各ツールは、指定した対象としか通信しません。 |
 
-ここに掲載されているすべてのプラグインはこの基準を満たしています。満たさなくなった場合は削除されます。ロースターと
+ここに掲載されているすべてのプラグインは、この基準の対象です。満たさなくなった場合は削除されます。ロースターと
 最終検証日を含む完全なチェックリストは [QUALITY-BAR.md](../QUALITY-BAR.md) にあります。
 
 ## コントリビューション

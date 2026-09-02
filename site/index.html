@@ -92,7 +92,7 @@
       <pre><code>claude plugin marketplace add Aboudjem/10x
 claude plugin install sniff@10x</code></pre>
       <p>Swap <code>sniff</code> for any name below. Outside Claude Code, the same skills install through the
-      <a href="https://github.com/vercel-labs/skills">Vercel skills CLI</a>, which copies them into the directory your agent reads:</p>
+      <a href="https://github.com/vercel-labs/skills">Vercel skills CLI</a>, which installs them into the directory your agent reads:</p>
       <pre><code>npx skills add Aboudjem/sniff</code></pre>
     </section>
 
@@ -179,17 +179,19 @@ npx skills add Aboudjem/loopify</code></pre>
         <img src="assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" onerror="this.style.display='none'" />
       </div>
       <p>Every plugin here ships as skills, which are Markdown files your agent reads. That is why all seven
-      install outside Claude Code through <code>npx skills add</code>. Three are also command-line tools. sniff,
-      ui-ux-suite and recap-studio each run as a standalone MCP server, the protocol an editor speaks to reach an
-      outside tool. The other four are skills only. Per-editor snippets live in each repo's <code>docs/editors.md</code>.</p>
+      install outside Claude Code through <code>npx skills add</code>. Three also run as a standalone MCP server,
+      the protocol an editor speaks to reach an outside tool: sniff and ui-ux-suite straight from npm,
+      recap-studio from a clone after a workspace build. The other four ship no MCP server. Per-editor snippets
+      live in each repo's <code>docs/editors.md</code>.</p>
     </section>
 
     <section>
       <h2>The 10x bar</h2>
-      <p>Every plugin here passes an explicit eight-point quality bar: no dependency it does not need, a
+      <p>Every plugin here is held to an explicit eight-point quality bar: no dependency it does not need, a
       one-command install with no signup, CI that asserts behaviour, an install path outside Claude Code,
-      a release this quarter, and no telemetry. Six of the seven ship zero runtime dependencies; sniff ships
-      Playwright and Lighthouse because it drives a real browser. If a plugin stops passing, it gets removed.
+      a release this quarter, and no telemetry. ui-ux-suite and the four skills ship no runtime dependency;
+      recap-studio's packages pull zod, its web app Next and React; sniff carries Playwright and Lighthouse
+      because it drives a real browser. If a plugin stops passing, it gets removed.
       The full checklist, with the roster and the verification runs behind it, is in
       <a href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">QUALITY-BAR.md</a>.</p>
     </section>
