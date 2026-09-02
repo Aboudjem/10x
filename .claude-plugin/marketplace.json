@@ -14,7 +14,7 @@
         "repo": "Aboudjem/sniff"
       },
       "description": "AI-powered QA that walks your running app like a user, discovers its flows, and finds real bugs (accessibility, performance, and broken interactions). Auto-detects your dev server. A source scan is also available via `sniff scan`.",
-      "version": "0.7.0",
+      "version": "0.8.0",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
       "keywords": [
