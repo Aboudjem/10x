@@ -55,7 +55,7 @@
         "repo": "Aboudjem/recap-studio"
       },
       "description": "Generate beautiful, mobile-first one-page explainers you can read offline in about 5 minutes. Builds self-contained, offline HTML pages from any topic or coding session, with deterministic heuristic checks that validate clarity, accessibility, and structure before you ship.",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
@@ -115,7 +115,7 @@
         "repo": "Aboudjem/humanizer-skill"
       },
       "description": "Detects 55 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Catches inflated symbolism, promotional language, em dash overuse, rule-of-three, and AI vocabulary. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server).",
-      "version": "0.6.2",
+      "version": "0.7.0",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
       "keywords": [
@@ -135,7 +135,7 @@
         "repo": "Aboudjem/loopify"
       },
       "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit. loopify reads your project, asks the few real questions, and writes the brief (a standing file the loop re-reads every tick) plus the line (one short string you paste into Claude Code's built-in /loop), with a tick cap, a stop rule, and five safety rails. Every tick logs what it did to TICKS.md. A Claude Code skill (no MCP server).",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
       "keywords": [
