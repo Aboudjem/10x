@@ -18,6 +18,9 @@ The demoable hook: the demo GIF already shows the install flow. The per-plugin d
 
 ## Phase 1: Ecosystem registries (immediate, passive, compounding)
 
+> **Status 2026-09-02:** executed. The complete live map of every venue, filing, and blocker now lives in
+> [docs/DISTRIBUTION.md](DISTRIBUTION.md) — read that first; the notes below are the original plan.
+
 ### 1a. hesreallyhim/awesome-claude-code
 
 Submit via the web-UI issue form only: https://github.com/hesreallyhim/awesome-claude-code/issues/new
