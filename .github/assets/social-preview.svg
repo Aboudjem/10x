@@ -1,51 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" fill="none" role="img" aria-label="10x, Claude Code plugins that ship quality: seven plugins, one install command, runs locally">
   <defs>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#fde047"/>
-      <stop offset="100%" stop-color="#facc15"/>
+    <linearGradient id="sp-ground" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="60%" stop-color="#080C16"/>
+      <stop offset="100%" stop-color="#07070C"/>
+    </linearGradient>
+    <radialGradient id="sp-bloom" cx="0.5" cy="1" r="0.75">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.30"/>
+      <stop offset="38%" stop-color="#7C5CFF" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sp-word" x1="0" y1="0" x2="1" y2="0.25" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="46%" stop-color="#8E7BFF"/>
+      <stop offset="100%" stop-color="#FF2D78"/>
+    </linearGradient>
+    <linearGradient id="sp-rule" gradientUnits="userSpaceOnUse" x1="80" y1="520" x2="1200" y2="520">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0"/>
+      <stop offset="22%" stop-color="#00D4FF" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#C77DFF" stop-opacity="0.8"/>
+      <stop offset="82%" stop-color="#FF2D78" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FF2D78" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect width="1280" height="640" fill="#0a0a0a"/>
+  <style>
+    .disp { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .head { font-size: 40px; font-weight: 700; fill: #F2F6FF; letter-spacing: -0.6px; }
+    .sub  { font-size: 18px; letter-spacing: 1.4px; fill: #8494B0; }
+    .tag  { font-size: 15px; letter-spacing: 0.8px; fill: #8494B0; }
+  </style>
 
-  <!-- Left accent bar -->
-  <rect x="0" y="0" width="10" height="640" fill="url(#accent)"/>
+  <rect width="1280" height="640" fill="url(#sp-ground)"/>
+  <ellipse cx="640" cy="690" rx="780" ry="210" fill="url(#sp-bloom)" opacity="0.9"/>
 
-  <!-- Soft glow -->
-  <circle cx="1120" cy="140" r="240" fill="#fde047" opacity="0.08"/>
+  <text class="disp" x="100" y="310" font-size="190" font-weight="800" letter-spacing="-8" fill="url(#sp-word)">10x</text>
 
-  <!-- Wordmark "10x" -->
-  <text x="120" y="310"
-        font-family="Inter, system-ui, -apple-system, sans-serif"
-        font-size="260" font-weight="900"
-        fill="url(#accent)"
-        letter-spacing="-8">10x</text>
-
-  <!-- Tagline -->
-  <text x="120" y="400"
-        font-family="Inter, system-ui, -apple-system, sans-serif"
-        font-size="38" font-weight="700"
-        fill="#ffffff">Claude Code plugins that ship quality.</text>
-
-  <!-- Sub-tagline -->
-  <text x="120" y="452"
-        font-family="Inter, system-ui, -apple-system, sans-serif"
-        font-size="24" font-weight="400"
-        fill="#a1a1aa">7 plugins. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify. Zero bloat.</text>
-
-  <!-- Install command pill -->
-  <g transform="translate(120, 510)">
-    <rect x="0" y="0" width="570" height="54" rx="27" fill="#fde047"/>
-    <text x="285" y="36"
-          font-family="JetBrains Mono, Menlo, monospace"
-          font-size="22" font-weight="700"
-          fill="#0a0a0a" text-anchor="middle">claude plugin marketplace add Aboudjem/10x</text>
+  <g>
+    <rect x="104" y="336" width="26" height="6" rx="3" fill="#2BE8C8"/>
+    <rect x="139" y="336" width="26" height="6" rx="3" fill="#00D4FF"/>
+    <rect x="174" y="336" width="26" height="6" rx="3" fill="#5B9DFF"/>
+    <rect x="209" y="336" width="26" height="6" rx="3" fill="#8E7BFF"/>
+    <rect x="244" y="336" width="26" height="6" rx="3" fill="#C77DFF"/>
+    <rect x="279" y="336" width="26" height="6" rx="3" fill="#FF4D8D"/>
+    <rect x="314" y="336" width="26" height="6" rx="3" fill="#FFB341"/>
   </g>
 
-  <!-- Repo URL -->
-  <text x="1160" y="600"
-        font-family="JetBrains Mono, Menlo, monospace"
-        font-size="20"
-        fill="#71717a" text-anchor="end">github.com/Aboudjem/10x</text>
+  <text class="disp head" x="104" y="396">Claude Code plugins that ship quality.</text>
+  <text class="mono sub"  x="106" y="432">seven plugins  ·  one install command  ·  runs locally</text>
+
+  <g>
+    <rect x="104" y="462" width="600" height="56" rx="28" fill="#00D4FF" fill-opacity="0.10" stroke="#00D4FF" stroke-opacity="0.55"/>
+    <text class="mono" x="404" y="497" text-anchor="middle" font-size="21" font-weight="700" fill="#00D4FF">claude plugin marketplace add Aboudjem/10x</text>
+  </g>
+
+  <line x1="80" y1="552" x2="1200" y2="552" stroke="url(#sp-rule)" stroke-width="1.25"/>
+
+  <text class="mono tag" x="104" y="596">sniff · ui-ux-suite · recap-studio · aws-cost-audit · goalify · humanizer · loopify</text>
+  <text class="mono tag" x="1200" y="596" text-anchor="end">github.com/Aboudjem/10x</text>
 </svg>

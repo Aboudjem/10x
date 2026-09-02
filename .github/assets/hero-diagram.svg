@@ -1,265 +1,282 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 480" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships seven plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer and loopify">
+  <defs>
+    <linearGradient id="hd-ground" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="60%" stop-color="#080C16"/>
+      <stop offset="100%" stop-color="#07070C"/>
+    </linearGradient>
+
+    <linearGradient id="hd-brand" x1="0" y1="0" x2="1" y2="0.25" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="46%" stop-color="#8E7BFF"/>
+      <stop offset="100%" stop-color="#FF2D78"/>
+      <animateTransform attributeName="gradientTransform" type="translate"
+        values="-0.12 0; 0.12 0; -0.12 0" dur="18s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <radialGradient id="hd-hub" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#7C5CFF" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#00D4FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="hd-spine" gradientUnits="userSpaceOnUse" x1="260" y1="240" x2="398" y2="240">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <filter id="hd-glow-sm" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
   <style>
-    .bg-grid { stroke: #f59e0b; stroke-width: 1; opacity: 0.05; }
-    .node-stroke { stroke: #f59e0b; stroke-width: 1.5; }
-    .node-bg { fill: #0b0b0f; }
-    .label { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; font-weight: 600; fill: #f59e0b; }
-    .sub { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 10px; fill: #9ca3af; letter-spacing: 0.5px; }
-    .title { font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif; font-size: 16px; font-weight: 700; fill: #f3f4f6; }
-    .chip { font-family: ui-monospace, Menlo, monospace; font-size: 10px; fill: #f59e0b; font-weight: 600; }
-    .hub-ring { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 4 6; transform-origin: 480px 240px; animation: ring-spin 24s linear infinite; }
-    .hub-ring-2 { fill: none; stroke: #f59e0b; stroke-width: 1; stroke-dasharray: 2 4; opacity: 0.4; transform-origin: 480px 240px; animation: ring-spin-rev 18s linear infinite; }
-    .flow-path { stroke: #f59e0b; stroke-width: 1.5; opacity: 0.35; fill: none; stroke-dasharray: 3 4; }
-    @keyframes ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    @keyframes ring-spin-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-    @keyframes hub-glow {
-      0%, 100% { filter: drop-shadow(0 0 12px rgba(245,158,11,0.4)); }
-      50% { filter: drop-shadow(0 0 24px rgba(245,158,11,0.8)); }
-    }
-    .hub-core { animation: hub-glow 3s ease-in-out infinite; transform-origin: 480px 240px; }
-    @keyframes node-glow {
-      0%, 100% { filter: drop-shadow(0 0 6px rgba(245,158,11,0.2)); }
-      50% { filter: drop-shadow(0 0 12px rgba(245,158,11,0.5)); }
-    }
-    .node-card { animation: node-glow 4s ease-in-out infinite; }
-    .node-card-2 { animation: node-glow 4s ease-in-out infinite 0.8s; }
-    .node-card-3 { animation: node-glow 4s ease-in-out infinite 1.6s; }
-    .node-card-4 { animation: node-glow 4s ease-in-out infinite 2.4s; }
-    .node-card-5 { animation: node-glow 4s ease-in-out infinite 3.2s; }
-    .node-card-6 { animation: node-glow 4s ease-in-out infinite 4s; }
-    .node-card-7 { animation: node-glow 4s ease-in-out infinite 4.8s; }
-    @media (prefers-color-scheme: light) {
-      .node-bg { fill: #ffffff; }
-      .title { fill: #111827; }
-      .sub { fill: #6b7280; }
-      .bg-grid { opacity: 0.08; }
-    }
+    .disp { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
+    .card  { fill: #0E1524; stroke: #1E2A42; stroke-width: 1; }
+    .title { font-size: 17px; font-weight: 700; fill: #F2F6FF; letter-spacing: -0.2px; }
+    .sub   { font-size: 11.5px; letter-spacing: 1.6px; fill: #8494B0; }
+    .body  { font-size: 12.5px; fill: #B6C2DA; }
+    .chip  { font-size: 9.5px; font-weight: 600; letter-spacing: 0.6px; }
+    .edchip { font-size: 11px; fill: #B6C2DA; }
+
+    @keyframes hd-flow { to { stroke-dashoffset: -240; } }
+    .flowline { animation: hd-flow 14s linear infinite; }
+
+    @keyframes hd-pip { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
+    .p1 { animation: hd-pip 5s ease-in-out infinite 0s; }
+    .p2 { animation: hd-pip 5s ease-in-out infinite 0.35s; }
+    .p3 { animation: hd-pip 5s ease-in-out infinite 0.7s; }
+    .p4 { animation: hd-pip 5s ease-in-out infinite 1.05s; }
+    .p5 { animation: hd-pip 5s ease-in-out infinite 1.4s; }
+    .p6 { animation: hd-pip 5s ease-in-out infinite 1.75s; }
+    .p7 { animation: hd-pip 5s ease-in-out infinite 2.1s; }
+
+    @keyframes hd-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .row-0 { animation: hd-rise 0.6s ease-out 0.1s both; }
+    .row-1 { animation: hd-rise 0.6s ease-out 0.4s both; }
+    .row-2 { animation: hd-rise 0.6s ease-out 0.6s both; }
+    .row-3 { animation: hd-rise 0.6s ease-out 0.8s both; }
+    .row-4 { animation: hd-rise 0.6s ease-out 1s both; }
+    .row-5 { animation: hd-rise 0.6s ease-out 1.2s both; }
+    .row-6 { animation: hd-rise 0.6s ease-out 1.4s both; }
+    .row-7 { animation: hd-rise 0.6s ease-out 1.6s both; }
+
+    @keyframes hd-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes hd-spin-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+    .ring-a { transform-origin: 480px 240px; animation: hd-spin 24s linear infinite; }
+    .ring-b { transform-origin: 480px 240px; animation: hd-spin-rev 18s linear infinite; }
+
+    @keyframes hd-breathe { 0%,100% { opacity: 0.6; } 50% { opacity: 1; } }
+    .halo { animation: hd-breathe 9s ease-in-out infinite; }
+
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
     }
   </style>
 
-  <defs>
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" class="bg-grid"/>
-    </pattern>
-    <radialGradient id="hub-grad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
-      <stop offset="60%" stop-color="#f59e0b" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+  <rect width="1560" height="480" fill="url(#hd-ground)"/>
+  <circle class="halo" cx="480" cy="240" r="210" fill="url(#hd-hub)"/>
 
-  <rect width="1560" height="480" fill="url(#grid)"/>
-  <circle cx="480" cy="240" r="200" fill="url(#hub-grad)"/>
-
-  <!-- LEFT: Your editor -->
-  <g class="node-card">
-    <rect x="40" y="160" width="220" height="160" rx="14" class="node-bg node-stroke"/>
-    <text x="60" y="190" class="sub">01 · YOUR WORKFLOW</text>
-    <text x="60" y="218" class="title">Your editor</text>
-    <g transform="translate(60,242)">
-      <g>
-        <rect x="0" y="0" width="70" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
-        <text x="35" y="16" text-anchor="middle" class="chip">claude</text>
-      </g>
-      <g transform="translate(78,0)">
-        <rect x="0" y="0" width="60" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
-        <text x="30" y="16" text-anchor="middle" class="chip">cursor</text>
-      </g>
-      <g transform="translate(146,0)">
-        <rect x="0" y="0" width="48" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
-        <text x="24" y="16" text-anchor="middle" class="chip">vscode</text>
-      </g>
-      <g transform="translate(0,32)">
-        <rect x="0" y="0" width="56" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
-        <text x="28" y="16" text-anchor="middle" class="chip">codex</text>
-      </g>
-      <g transform="translate(64,32)">
-        <rect x="0" y="0" width="70" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
-        <text x="35" y="16" text-anchor="middle" class="chip">windsurf</text>
-      </g>
-      <g transform="translate(142,32)">
-        <rect x="0" y="0" width="52" height="24" rx="6" fill="none" stroke="#f59e0b" stroke-opacity="0.4"/>
-        <text x="26" y="16" text-anchor="middle" class="chip">gemini</text>
+  <!-- 01 your editor -->
+  <g transform="translate(40,160)">
+    <g class="row-0">
+      <rect x="0" y="0" width="220" height="160" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="52" rx="1.5" fill="#00D4FF"/>
+      <text class="mono sub"   x="20" y="34">01 · YOUR WORKFLOW</text>
+      <text class="disp title" x="20" y="60">Your editor</text>
+      <g transform="translate(20,74)">
+        <rect x="0" y="0" width="70" height="24" rx="6" fill="none" stroke="#1E2A42"/>
+        <text class="mono edchip" x="35" y="16" text-anchor="middle">claude</text>
+        <rect x="78" y="0" width="60" height="24" rx="6" fill="none" stroke="#1E2A42"/>
+        <text class="mono edchip" x="108" y="16" text-anchor="middle">cursor</text>
+        <rect x="0" y="32" width="62" height="24" rx="6" fill="none" stroke="#1E2A42"/>
+        <text class="mono edchip" x="31" y="48" text-anchor="middle">vscode</text>
+        <rect x="70" y="32" width="58" height="24" rx="6" fill="none" stroke="#1E2A42"/>
+        <text class="mono edchip" x="99" y="48" text-anchor="middle">codex</text>
+        <rect x="0" y="64" width="74" height="24" rx="6" fill="none" stroke="#1E2A42"/>
+        <text class="mono edchip" x="37" y="80" text-anchor="middle">windsurf</text>
+        <rect x="82" y="64" width="66" height="24" rx="6" fill="none" stroke="#1E2A42"/>
+        <text class="mono edchip" x="115" y="80" text-anchor="middle">gemini</text>
       </g>
     </g>
   </g>
 
-  <!-- flow path: editor -> hub -->
-  <path d="M 260 240 L 398 240" class="flow-path"/>
-  <circle r="4" fill="#f59e0b">
-    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 260 240 L 398 240"/>
-  </circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6">
-    <animateMotion dur="2.2s" begin="0.7s" repeatCount="indefinite" path="M 260 240 L 398 240"/>
-  </circle>
-  <circle r="2" fill="#f59e0b" opacity="0.4">
-    <animateMotion dur="2.2s" begin="1.4s" repeatCount="indefinite" path="M 260 240 L 398 240"/>
-  </circle>
+  <!-- editor -> hub -->
+  <line x1="260" y1="240" x2="398" y2="240" stroke="url(#hd-spine)" stroke-width="1.5"/>
+  <line class="flowline" x1="260" y1="240" x2="398" y2="240" stroke="#00D4FF" stroke-width="1.5"
+        stroke-dasharray="3 9" opacity="0.75"/>
 
-  <!-- HUB: 10x marketplace -->
-  <g>
-    <circle cx="480" cy="240" r="110" class="hub-ring"/>
-    <circle cx="480" cy="240" r="130" class="hub-ring-2"/>
-    <g class="hub-core">
-      <circle cx="480" cy="240" r="72" fill="#0b0b0f" stroke="#f59e0b" stroke-width="2"/>
-      <text x="480" y="236" text-anchor="middle" font-family="'SF Pro Display', system-ui, sans-serif" font-weight="800" font-size="38" fill="#f59e0b">10x</text>
-      <text x="480" y="258" text-anchor="middle" class="sub">MARKETPLACE</text>
-    </g>
-    <g transform="translate(480,240)">
-      <g>
-        <circle cx="110" cy="0" r="3" fill="#f59e0b"/>
-        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite"/>
+  <!-- hub -> the seven plugins -->
+  <g fill="none" stroke-width="1.4" opacity="0.4">
+    <path d="M 548 206 Q 620 150 680 135" stroke="#FF4D8D"/>
+    <path d="M 552 212 Q 730 120 898 135" stroke="#00D4FF"/>
+    <path d="M 552 218 Q 840 96 1116 135" stroke="#5B9DFF"/>
+    <path d="M 554 226 Q 950 86 1334 135" stroke="#FFB341"/>
+    <path d="M 548 274 Q 660 336 789 359" stroke="#8E7BFF"/>
+    <path d="M 552 268 Q 780 372 1007 359" stroke="#C77DFF"/>
+    <path d="M 554 262 Q 900 392 1225 359" stroke="#2BE8C8"/>
+  </g>
+  <g class="flowline" fill="none" stroke-width="1.6" stroke-dasharray="3 9" opacity="0.9">
+    <path d="M 548 206 Q 620 150 680 135" stroke="#FF4D8D"/>
+    <path d="M 552 212 Q 730 120 898 135" stroke="#00D4FF"/>
+    <path d="M 552 218 Q 840 96 1116 135" stroke="#5B9DFF"/>
+    <path d="M 554 226 Q 950 86 1334 135" stroke="#FFB341"/>
+    <path d="M 548 274 Q 660 336 789 359" stroke="#8E7BFF"/>
+    <path d="M 552 268 Q 780 372 1007 359" stroke="#C77DFF"/>
+    <path d="M 554 262 Q 900 392 1225 359" stroke="#2BE8C8"/>
+  </g>
+
+  <!-- the hub -->
+  <circle class="ring-a" cx="480" cy="240" r="110" fill="none" stroke="#8E7BFF" stroke-width="1.6"
+          stroke-dasharray="4 10" opacity="0.55"/>
+  <circle class="ring-b" cx="480" cy="240" r="130" fill="none" stroke="#00D4FF" stroke-width="1"
+          stroke-dasharray="2 8" opacity="0.4"/>
+  <circle cx="480" cy="240" r="72" fill="#0E1524" stroke="url(#hd-brand)" stroke-width="2"/>
+  <text class="disp" x="480" y="238" text-anchor="middle" font-size="38" font-weight="800"
+        letter-spacing="-1.4" fill="url(#hd-brand)">10x</text>
+  <text class="mono sub" x="480" y="262" text-anchor="middle">MARKETPLACE</text>
+
+  <!-- 01 sniff -->
+  <g transform="translate(680,76)">
+    <g class="row-1">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#FF4D8D"/>
+      <g class="p1"><circle cx="20" cy="26" r="4" fill="#FF4D8D" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 01</text>
+      <text class="disp title" x="18" y="56">sniff</text>
+      <text class="disp body"  x="18" y="76">QA scanner</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="50" height="18" rx="4" fill="#FF4D8D" fill-opacity="0.14" stroke="#FF4D8D" stroke-opacity="0.5"/>
+        <text class="mono chip" x="25" y="12.5" text-anchor="middle" fill="#FF4D8D">BUGS</text>
+        <rect x="56" y="0" width="50" height="18" rx="4" fill="#FF4D8D" fill-opacity="0.14" stroke="#FF4D8D" stroke-opacity="0.5"/>
+        <text class="mono chip" x="81" y="12.5" text-anchor="middle" fill="#FF4D8D">A11Y</text>
+        <rect x="112" y="0" width="50" height="18" rx="4" fill="#FF4D8D" fill-opacity="0.14" stroke="#FF4D8D" stroke-opacity="0.5"/>
+        <text class="mono chip" x="137" y="12.5" text-anchor="middle" fill="#FF4D8D">PERF</text>
       </g>
-      <g>
-        <circle cx="130" cy="0" r="2" fill="#f59e0b" opacity="0.6"/>
-        <animateTransform attributeName="transform" type="rotate" from="180" to="540" dur="16s" repeatCount="indefinite"/>
+    </g>
+  </g>
+
+  <!-- 02 ui-ux-suite -->
+  <g transform="translate(898,76)">
+    <g class="row-2">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#00D4FF"/>
+      <g class="p2"><circle cx="20" cy="26" r="4" fill="#00D4FF" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 02</text>
+      <text class="disp title" x="18" y="56">ui-ux-suite</text>
+      <text class="disp body"  x="18" y="76">Design audit</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="44" height="18" rx="4" fill="#00D4FF" fill-opacity="0.14" stroke="#00D4FF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="22" y="12.5" text-anchor="middle" fill="#00D4FF">12D</text>
+        <rect x="50" y="0" width="52" height="18" rx="4" fill="#00D4FF" fill-opacity="0.14" stroke="#00D4FF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="76" y="12.5" text-anchor="middle" fill="#00D4FF">WCAG</text>
+        <rect x="108" y="0" width="52" height="18" rx="4" fill="#00D4FF" fill-opacity="0.14" stroke="#00D4FF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="134" y="12.5" text-anchor="middle" fill="#00D4FF">APCA</text>
       </g>
     </g>
   </g>
 
-  <!-- flow paths: hub -> 7 plugin cards (4 top, 3 bottom) -->
-  <path d="M 548 206 Q 620 150 680 135" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" repeatCount="indefinite" path="M 548 206 Q 620 150 680 135"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 548 206 Q 620 150 680 135"/></circle>
-
-  <path d="M 552 212 Q 730 120 898 135" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.3s" repeatCount="indefinite" path="M 552 212 Q 730 120 898 135"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite" path="M 552 212 Q 730 120 898 135"/></circle>
-
-  <path d="M 552 218 Q 840 96 1116 135" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.8s" begin="0.5s" repeatCount="indefinite" path="M 552 218 Q 840 96 1116 135"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.8s" begin="1.9s" repeatCount="indefinite" path="M 552 218 Q 840 96 1116 135"/></circle>
-
-  <path d="M 554 226 Q 950 86 1334 135" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="3s" begin="0.7s" repeatCount="indefinite" path="M 554 226 Q 950 86 1334 135"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="3s" begin="2.2s" repeatCount="indefinite" path="M 554 226 Q 950 86 1334 135"/></circle>
-
-  <path d="M 548 274 Q 660 336 789 359" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.4s" begin="0.6s" repeatCount="indefinite" path="M 548 274 Q 660 336 789 359"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.4s" begin="1.8s" repeatCount="indefinite" path="M 548 274 Q 660 336 789 359"/></circle>
-
-  <path d="M 552 268 Q 780 372 1007 359" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.6s" begin="0.9s" repeatCount="indefinite" path="M 552 268 Q 780 372 1007 359"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.6s" begin="2.1s" repeatCount="indefinite" path="M 552 268 Q 780 372 1007 359"/></circle>
-
-  <path d="M 554 262 Q 900 392 1225 359" class="flow-path"/>
-  <circle r="4" fill="#f59e0b"><animateMotion dur="2.8s" begin="1.1s" repeatCount="indefinite" path="M 554 262 Q 900 392 1225 359"/></circle>
-  <circle r="3" fill="#f59e0b" opacity="0.6"><animateMotion dur="2.8s" begin="2.4s" repeatCount="indefinite" path="M 554 262 Q 900 392 1225 359"/></circle>
-
-  <!-- CARD 01: sniff (top-left) -->
-  <g class="node-card" transform="translate(680,76)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke"/>
-    <text x="18" y="28" class="sub">PLUGIN · 01</text>
-    <text x="18" y="52" class="title">sniff</text>
-    <text x="18" y="72" class="sub">QA scanner</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="50" height="18" rx="4" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-opacity="0.5"/>
-      <text x="25" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#ef4444" font-weight="600">BUGS</text>
-      <rect x="56" y="0" width="50" height="18" rx="4" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-opacity="0.5"/>
-      <text x="81" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#f59e0b" font-weight="600">A11Y</text>
-      <rect x="112" y="0" width="50" height="18" rx="4" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-opacity="0.5"/>
-      <text x="137" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#10b981" font-weight="600">PERF</text>
+  <!-- 03 recap-studio -->
+  <g transform="translate(1116,76)">
+    <g class="row-3">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#5B9DFF"/>
+      <g class="p3"><circle cx="20" cy="26" r="4" fill="#5B9DFF" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 03</text>
+      <text class="disp title" x="18" y="56">recap-studio</text>
+      <text class="disp body"  x="18" y="76">Explainers</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="48" height="18" rx="4" fill="#5B9DFF" fill-opacity="0.14" stroke="#5B9DFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="24" y="12.5" text-anchor="middle" fill="#5B9DFF">5-MIN</text>
+        <rect x="54" y="0" width="62" height="18" rx="4" fill="#5B9DFF" fill-opacity="0.14" stroke="#5B9DFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="85" y="12.5" text-anchor="middle" fill="#5B9DFF">OFFLINE</text>
+        <rect x="122" y="0" width="44" height="18" rx="4" fill="#5B9DFF" fill-opacity="0.14" stroke="#5B9DFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="144" y="12.5" text-anchor="middle" fill="#5B9DFF">CITE</text>
+      </g>
     </g>
   </g>
 
-  <!-- CARD 02: ui-ux-suite (top-middle) -->
-  <g class="node-card-2" transform="translate(898,76)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke"/>
-    <text x="18" y="28" class="sub">PLUGIN · 02</text>
-    <text x="18" y="52" class="title">ui-ux-suite</text>
-    <text x="18" y="72" class="sub">Design audit</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="44" height="18" rx="4" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-opacity="0.5"/>
-      <text x="22" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#0ea5e9" font-weight="600">12D</text>
-      <rect x="50" y="0" width="46" height="18" rx="4" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-opacity="0.5"/>
-      <text x="73" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#8b5cf6" font-weight="600">WCAG</text>
-      <rect x="102" y="0" width="46" height="18" rx="4" fill="#ec4899" fill-opacity="0.15" stroke="#ec4899" stroke-opacity="0.5"/>
-      <text x="125" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#ec4899" font-weight="600">APCA</text>
+  <!-- 04 aws-cost-audit -->
+  <g transform="translate(1334,76)">
+    <g class="row-4">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#FFB341"/>
+      <g class="p4"><circle cx="20" cy="26" r="4" fill="#FFB341" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 04</text>
+      <text class="disp title" x="18" y="56">aws-cost-audit</text>
+      <text class="disp body"  x="18" y="76">AWS cost audit</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="46" height="18" rx="4" fill="#FFB341" fill-opacity="0.14" stroke="#FFB341" stroke-opacity="0.5"/>
+        <text class="mono chip" x="23" y="12.5" text-anchor="middle" fill="#FFB341">LIVE</text>
+        <rect x="52" y="0" width="54" height="18" rx="4" fill="#FFB341" fill-opacity="0.14" stroke="#FFB341" stroke-opacity="0.5"/>
+        <text class="mono chip" x="79" y="12.5" text-anchor="middle" fill="#FFB341">GATED</text>
+        <rect x="112" y="0" width="48" height="18" rx="4" fill="#FFB341" fill-opacity="0.14" stroke="#FFB341" stroke-opacity="0.5"/>
+        <text class="mono chip" x="136" y="12.5" text-anchor="middle" fill="#FFB341">SAVE</text>
+      </g>
     </g>
   </g>
 
-  <!-- CARD 03: recap-studio (top-right) -->
-  <g class="node-card-3" transform="translate(1116,76)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#7c5cff"/>
-    <text x="18" y="28" class="sub" fill="#7c5cff">PLUGIN · 03</text>
-    <text x="18" y="52" class="title">recap-studio</text>
-    <text x="18" y="72" class="sub">Explainers</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="46" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
-      <text x="23" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">5-MIN</text>
-      <rect x="52" y="0" width="62" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
-      <text x="83" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">OFFLINE</text>
-      <rect x="120" y="0" width="44" height="18" rx="4" fill="#7c5cff" fill-opacity="0.15" stroke="#7c5cff" stroke-opacity="0.5"/>
-      <text x="142" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#7c5cff" font-weight="600">CITE</text>
+  <!-- 05 goalify -->
+  <g transform="translate(789,300)">
+    <g class="row-5">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#8E7BFF"/>
+      <g class="p5"><circle cx="20" cy="26" r="4" fill="#8E7BFF" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 05</text>
+      <text class="disp title" x="18" y="56">goalify</text>
+      <text class="disp body"  x="18" y="76">Autonomous run</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="50" height="18" rx="4" fill="#8E7BFF" fill-opacity="0.14" stroke="#8E7BFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="25" y="12.5" text-anchor="middle" fill="#8E7BFF">/goal</text>
+        <rect x="56" y="0" width="56" height="18" rx="4" fill="#8E7BFF" fill-opacity="0.14" stroke="#8E7BFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="84" y="12.5" text-anchor="middle" fill="#8E7BFF">VERIFY</text>
+        <rect x="118" y="0" width="46" height="18" rx="4" fill="#8E7BFF" fill-opacity="0.14" stroke="#8E7BFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="141" y="12.5" text-anchor="middle" fill="#8E7BFF">AUTO</text>
+      </g>
     </g>
   </g>
 
-  <!-- CARD 04: aws-cost-audit (top-right) -->
-  <g class="node-card-4" transform="translate(1334,76)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#FF9900"/>
-    <text x="18" y="28" class="sub" fill="#FF9900">PLUGIN · 04</text>
-    <text x="18" y="52" class="title">aws-cost-audit</text>
-    <text x="18" y="72" class="sub">AWS cost audit</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="46" height="18" rx="4" fill="#FF9900" fill-opacity="0.15" stroke="#FF9900" stroke-opacity="0.5"/>
-      <text x="23" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#FF9900" font-weight="600">LIVE</text>
-      <rect x="52" y="0" width="50" height="18" rx="4" fill="#3FB6B2" fill-opacity="0.15" stroke="#3FB6B2" stroke-opacity="0.5"/>
-      <text x="77" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB6B2" font-weight="600">GATED</text>
-      <rect x="108" y="0" width="48" height="18" rx="4" fill="#58A6FF" fill-opacity="0.15" stroke="#58A6FF" stroke-opacity="0.5"/>
-      <text x="132" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#58A6FF" font-weight="600">SAVE</text>
+  <!-- 06 humanizer -->
+  <g transform="translate(1007,300)">
+    <g class="row-6">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#C77DFF"/>
+      <g class="p6"><circle cx="20" cy="26" r="4" fill="#C77DFF" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 06</text>
+      <text class="disp title" x="18" y="56">humanizer</text>
+      <text class="disp body"  x="18" y="76">AI-writing fixer</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="54" height="18" rx="4" fill="#C77DFF" fill-opacity="0.14" stroke="#C77DFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="27" y="12.5" text-anchor="middle" fill="#C77DFF">SCORE</text>
+        <rect x="60" y="0" width="52" height="18" rx="4" fill="#C77DFF" fill-opacity="0.14" stroke="#C77DFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="86" y="12.5" text-anchor="middle" fill="#C77DFF">VOICE</text>
+        <rect x="118" y="0" width="52" height="18" rx="4" fill="#C77DFF" fill-opacity="0.14" stroke="#C77DFF" stroke-opacity="0.5"/>
+        <text class="mono chip" x="144" y="12.5" text-anchor="middle" fill="#C77DFF">BURST</text>
+      </g>
     </g>
   </g>
 
-  <!-- CARD 05: goalify (bottom-left) -->
-  <g class="node-card-5" transform="translate(789,300)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#3FB950"/>
-    <text x="18" y="28" class="sub" fill="#3FB950">PLUGIN · 05</text>
-    <text x="18" y="52" class="title">goalify</text>
-    <text x="18" y="72" class="sub">Autonomous run</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="50" height="18" rx="4" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-opacity="0.5"/>
-      <text x="25" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB950" font-weight="600">/goal</text>
-      <rect x="56" y="0" width="54" height="18" rx="4" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-opacity="0.5"/>
-      <text x="83" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB950" font-weight="600">VERIFY</text>
-      <rect x="116" y="0" width="46" height="18" rx="4" fill="#3FB950" fill-opacity="0.15" stroke="#3FB950" stroke-opacity="0.5"/>
-      <text x="139" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#3FB950" font-weight="600">AUTO</text>
+  <!-- 07 loopify -->
+  <g transform="translate(1225,300)">
+    <g class="row-7">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#2BE8C8"/>
+      <g class="p7"><circle cx="20" cy="26" r="4" fill="#2BE8C8" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN · 07</text>
+      <text class="disp title" x="18" y="56">loopify</text>
+      <text class="disp body"  x="18" y="76">Recurring jobs</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="50" height="18" rx="4" fill="#2BE8C8" fill-opacity="0.14" stroke="#2BE8C8" stroke-opacity="0.5"/>
+        <text class="mono chip" x="25" y="12.5" text-anchor="middle" fill="#2BE8C8">/loop</text>
+        <rect x="56" y="0" width="52" height="18" rx="4" fill="#2BE8C8" fill-opacity="0.14" stroke="#2BE8C8" stroke-opacity="0.5"/>
+        <text class="mono chip" x="82" y="12.5" text-anchor="middle" fill="#2BE8C8">TICKS</text>
+        <rect x="114" y="0" width="50" height="18" rx="4" fill="#2BE8C8" fill-opacity="0.14" stroke="#2BE8C8" stroke-opacity="0.5"/>
+        <text class="mono chip" x="139" y="12.5" text-anchor="middle" fill="#2BE8C8">RAILS</text>
+      </g>
     </g>
   </g>
 
-  <!-- CARD 06: humanizer (bottom-middle) -->
-  <g class="node-card-6" transform="translate(1007,300)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#d946ef"/>
-    <text x="18" y="28" class="sub" fill="#d946ef">PLUGIN · 06</text>
-    <text x="18" y="52" class="title">humanizer</text>
-    <text x="18" y="72" class="sub">AI-writing fixer</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="54" height="18" rx="4" fill="#d946ef" fill-opacity="0.15" stroke="#d946ef" stroke-opacity="0.5"/>
-      <text x="27" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#d946ef" font-weight="600">SCORE</text>
-      <rect x="60" y="0" width="52" height="18" rx="4" fill="#d946ef" fill-opacity="0.15" stroke="#d946ef" stroke-opacity="0.5"/>
-      <text x="86" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#d946ef" font-weight="600">VOICE</text>
-      <rect x="118" y="0" width="52" height="18" rx="4" fill="#d946ef" fill-opacity="0.15" stroke="#d946ef" stroke-opacity="0.5"/>
-      <text x="144" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#d946ef" font-weight="600">BURST</text>
-    </g>
-  </g>
-
-  <!-- CARD 07: loopify (bottom-right) -->
-  <g class="node-card-7" transform="translate(1225,300)">
-    <rect x="0" y="0" width="200" height="118" rx="14" class="node-bg node-stroke" stroke="#14b8a6"/>
-    <text x="18" y="28" class="sub" fill="#14b8a6">PLUGIN · 07</text>
-    <text x="18" y="52" class="title">loopify</text>
-    <text x="18" y="72" class="sub">Recurring jobs</text>
-    <g transform="translate(18,82)">
-      <rect x="0" y="0" width="50" height="18" rx="4" fill="#14b8a6" fill-opacity="0.15" stroke="#14b8a6" stroke-opacity="0.5"/>
-      <text x="25" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#14b8a6" font-weight="600">/loop</text>
-      <rect x="56" y="0" width="52" height="18" rx="4" fill="#14b8a6" fill-opacity="0.15" stroke="#14b8a6" stroke-opacity="0.5"/>
-      <text x="82" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#14b8a6" font-weight="600">TICKS</text>
-      <rect x="114" y="0" width="50" height="18" rx="4" fill="#14b8a6" fill-opacity="0.15" stroke="#14b8a6" stroke-opacity="0.5"/>
-      <text x="139" y="13" text-anchor="middle" font-family="Menlo,monospace" font-size="9" fill="#14b8a6" font-weight="600">RAILS</text>
-    </g>
-  </g>
-
-  <!-- bottom caption -->
-  <text x="780" y="458" text-anchor="middle" class="sub">one install command · zero config · runs locally · no telemetry</text>
+  <text class="mono sub" x="780" y="458" text-anchor="middle">one install command  ·  zero config  ·  runs locally  ·  no telemetry</text>
 </svg>
