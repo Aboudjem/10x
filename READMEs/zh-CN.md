@@ -54,13 +54,13 @@ npx skills add Aboudjem/sniff
 
 | | 插件 | 用途 | 安装方式 | |
 |:-:|:--|:--|:--|:--|
-| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **sniff** | 遍历你正在运行的应用，发现真实存在的 bug | `claude plugin install sniff@10x` | [仓库](https://github.com/Aboudjem/sniff) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **ui-ux-suite** | 面向设计的 ESLint：具体到行、具体到值、给出修复方法 | `claude plugin install ui-ux-suite@10x` | [仓库](https://github.com/Aboudjem/ui-ux-suite) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **recap-studio** | 把一个主题或一次会话变成一份离线 HTML 讲解页 | `claude plugin install recap-studio@10x` | [仓库](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-512.png" width="28" alt=""> | **aws-cost-audit** | 对照实时 AWS 价格审计你的 AWS 账单 | `claude plugin install aws-cost-audit@10x` | [仓库](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-512.png" width="28" alt=""> | **goalify** | 为一项庞大的任务准备好自主运行所需的材料 | `claude plugin install goalify@10x` | [仓库](https://github.com/Aboudjem/goalify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **humanizer** | 指出 55 种 AI 写作习惯，并加以改写 | `claude plugin install humanizer@10x` | [仓库](https://github.com/Aboudjem/humanizer-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-512.png" width="28" alt=""> | **loopify** | 为 Claude Code 的 `/loop` 命令准备一项重复性任务 | `claude plugin install loopify@10x` | [仓库](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | 遍历你正在运行的应用，发现真实存在的 bug | `claude plugin install sniff@10x` | [仓库](https://github.com/Aboudjem/sniff) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | 面向设计的 ESLint：具体到行、具体到值、给出修复方法 | `claude plugin install ui-ux-suite@10x` | [仓库](https://github.com/Aboudjem/ui-ux-suite) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | 把一个主题或一次会话变成一份离线 HTML 讲解页 | `claude plugin install recap-studio@10x` | [仓库](https://github.com/Aboudjem/recap-studio) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | 对照实时 AWS 价格审计你的 AWS 账单 | `claude plugin install aws-cost-audit@10x` | [仓库](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 为一项庞大的任务准备好自主运行所需的材料 | `claude plugin install goalify@10x` | [仓库](https://github.com/Aboudjem/goalify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | 指出 55 种 AI 写作习惯，并加以改写 | `claude plugin install humanizer@10x` | [仓库](https://github.com/Aboudjem/humanizer-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | 为 Claude Code 的 `/loop` 命令准备一项重复性任务 | `claude plugin install loopify@10x` | [仓库](https://github.com/Aboudjem/loopify) |
 
 <a id="what-each-one-does"></a>
 ## 各插件的功能

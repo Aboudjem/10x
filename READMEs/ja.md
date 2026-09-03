@@ -55,13 +55,13 @@ npx skills add Aboudjem/sniff
 
 | | プラグイン | 用途 | インストール | |
 |:-:|:--|:--|:--|:--|
-| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **sniff** | 起動中のアプリを歩き回り、実際のバグを見つけます | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **ui-ux-suite** | デザイン版ESLint: 該当行、測定値、修正方法を示します | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **recap-studio** | トピックやセッションから、1つのオフラインHTML解説ファイルを生成します | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-512.png" width="28" alt=""> | **aws-cost-audit** | AWSの請求額を、AWSのライブ価格と照合して監査します | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-512.png" width="28" alt=""> | **goalify** | 大きなタスクを、自律実行できるように準備します | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **humanizer** | AI特有の書き癖55個を特定し、書き直します | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-512.png" width="28" alt=""> | **loopify** | Claude Code の `/loop` 向けに、繰り返しジョブを準備します | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | 起動中のアプリを歩き回り、実際のバグを見つけます | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | デザイン版ESLint: 該当行、測定値、修正方法を示します | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | トピックやセッションから、1つのオフラインHTML解説ファイルを生成します | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | AWSの請求額を、AWSのライブ価格と照合して監査します | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 大きなタスクを、自律実行できるように準備します | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | AI特有の書き癖55個を特定し、書き直します | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Claude Code の `/loop` 向けに、繰り返しジョブを準備します | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
 
 <a id="what-each-one-does"></a>
 ## 各プラグインの機能

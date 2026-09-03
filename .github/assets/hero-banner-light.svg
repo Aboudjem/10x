@@ -1,138 +1,123 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none" role="img" aria-label="10x, a curated Claude Code plugin marketplace: seven plugins, one install command, runs locally">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none" role="img"
+     aria-label="10x, a curated Claude Code plugin marketplace: seven plugins, one install command, runs locally">
+  <title>10x</title>
   <defs>
-    <linearGradient id="hl-word" x1="0" y1="0" x2="1" y2="0.25" gradientUnits="objectBoundingBox">
-      <stop offset="0%" stop-color="#00819C"/>
-      <stop offset="46%" stop-color="#725BFF"/>
-      <stop offset="100%" stop-color="#EB0054"/>
-      <animateTransform attributeName="gradientTransform" type="translate"
-        values="-0.12 0; 0.12 0; -0.12 0" dur="18s" repeatCount="indefinite"/>
+    <linearGradient id="tx-ground" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="55%" stop-color="#F7F8FB"/>
+      <stop offset="100%" stop-color="#EEF1F7"/>
     </linearGradient>
-
-    <linearGradient id="hl-rule" gradientUnits="userSpaceOnUse" x1="452" y1="112" x2="452" y2="272">
-      <stop offset="0%" stop-color="#00819C" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#00819C" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#EB0054" stop-opacity="0"/>
+    <radialGradient id="tx-bloomA" cx="0.15" cy="0.13" r="0.44">
+      <stop offset="0%" stop-color="#006A80" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#006A80" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-bloomB" cx="0.88" cy="0.85" r="0.50">
+      <stop offset="0%" stop-color="#5D4BD1" stop-opacity="0.09"/>
+      <stop offset="100%" stop-color="#5D4BD1" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-bloomC" cx="0.52" cy="0.04" r="0.36">
+      <stop offset="0%" stop-color="#C10045" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#C10045" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-wash" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#006A80" stop-opacity="0.07"/>
+      <stop offset="42%"  stop-color="#5D4BD1" stop-opacity="0.043"/>
+      <stop offset="76%"  stop-color="#C10045" stop-opacity="0.016"/>
+      <stop offset="100%" stop-color="#C10045" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="tx-frame"><rect width="1200" height="400"/></clipPath>
+    <linearGradient id="tx-rule" gradientUnits="userSpaceOnUse" x1="500" y1="100" x2="500" y2="300">
+      <stop offset="0%"   stop-color="#006A80" stop-opacity="0"/>
+      <stop offset="45%"  stop-color="#006A80" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#5D4BD1" stop-opacity="0"/>
     </linearGradient>
-
-    <linearGradient id="hl-horizonline" gradientUnits="userSpaceOnUse" x1="60" y1="332" x2="1140" y2="332">
-      <stop offset="0%" stop-color="#00819C" stop-opacity="0"/>
-      <stop offset="22%" stop-color="#00819C" stop-opacity="0.45"/>
-      <stop offset="55%" stop-color="#725BFF" stop-opacity="0.6"/>
-      <stop offset="82%" stop-color="#EB0054" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#EB0054" stop-opacity="0"/>
+    <linearGradient id="tx-ink" gradientUnits="userSpaceOnUse" x1="78" y1="178" x2="190" y2="70">
+      <stop class="txk1" offset="0%"   stop-color="#006A80"/>
+      <stop class="txk2" offset="52%"  stop-color="#5D4BD1"/>
+      <stop class="txk3" offset="100%" stop-color="#C10045"/>
     </linearGradient>
-
-    <linearGradient id="hl-gridfade" gradientUnits="userSpaceOnUse" x1="0" y1="332" x2="0" y2="400">
-      <stop offset="0%" stop-color="#00819C" stop-opacity="0.4"/>
-      <stop offset="55%" stop-color="#725BFF" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#EB0054" stop-opacity="0.05"/>
+    <linearGradient id="tx-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.66"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
     </linearGradient>
-
-    <linearGradient id="hl-sheen" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#07070C" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#07070C" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#07070C" stop-opacity="0"/>
-    </linearGradient>
-
-    <clipPath id="hl-gridclip">
-      <rect x="0" y="332" width="1200" height="68"/>
+    <clipPath id="tx-barclip">
+      <rect x="-66" y="-8.5" width="132" height="17" rx="8.5" transform="translate(144,112) rotate(-45)"/>
     </clipPath>
-
-    <clipPath id="hl-wordclip">
-      <text x="82" y="236" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
-            font-size="164" font-weight="800" letter-spacing="-6">10x</text>
-    </clipPath>
+    <linearGradient id="tx-word" x1="0" y1="0" x2="1" y2="0.25">
+      <stop class="txk1" offset="0%"   stop-color="#006A80"/>
+      <stop class="txk2" offset="46%"  stop-color="#5D4BD1"/>
+      <stop class="txk3" offset="100%" stop-color="#C10045"/>
+    </linearGradient>
   </defs>
 
   <style>
     .disp { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
-    .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 4.5px; fill: #1A2233; }
-    .head    { font-size: 34px; font-weight: 700; fill: #07070C; letter-spacing: -0.5px; }
-    .sub     { font-size: 16px; font-weight: 500; fill: #1A2233; }
+    .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 4.5px; fill: #006A80; }
+    .head    { font-size: 34px; font-weight: 700; fill: #1A2233; letter-spacing: -0.5px; }
+    .sub     { font-size: 16.5px; font-weight: 500; fill: #48546B; }
     .tag     { font-size: 11.5px; letter-spacing: 1.6px; fill: #48546B; }
-
-    @keyframes hl-flow { to { stroke-dashoffset: -240; } }
-    .flowline { animation: hl-flow 14s linear infinite; }
-
-    @keyframes hl-dot { 0%,100% { opacity: 0.45; } 50% { opacity: 1; } }
-    .d1 { animation: hl-dot 5s ease-in-out infinite 0s; }
-    .d2 { animation: hl-dot 5s ease-in-out infinite 0.35s; }
-    .d3 { animation: hl-dot 5s ease-in-out infinite 0.7s; }
-    .d4 { animation: hl-dot 5s ease-in-out infinite 1.05s; }
-    .d5 { animation: hl-dot 5s ease-in-out infinite 1.4s; }
-    .d6 { animation: hl-dot 5s ease-in-out infinite 1.75s; }
-    .d7 { animation: hl-dot 5s ease-in-out infinite 2.1s; }
-
-    @keyframes hl-sheen {
-      0%   { transform: translateX(0); }
-      34%  { transform: translateX(700px); }
-      100% { transform: translateX(700px); }
-    }
-    .sheen { animation: hl-sheen 7.5s linear infinite; }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; }
-    }
+    .chip    { font-size: 11.5px; letter-spacing: 1.2px; fill: #48546B; }
+    @keyframes tx-breathe { 0%,100% { opacity:0.72; } 50% { opacity:1; } }
+    .txbloom { animation: tx-breathe 11s ease-in-out infinite; }
+    @keyframes tx-sweep { 0% { transform: translateX(-360px); } 100% { transform: translateX(1560px); } }
+    .txwash { animation: tx-sweep 17s cubic-bezier(.5,0,.5,1) infinite; }
+    @keyframes tx-pip { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+    .txp1 { animation: tx-pip 5s ease-in-out infinite 0.0s; }
+    .txp2 { animation: tx-pip 5s ease-in-out infinite 0.35s; }
+    .txp3 { animation: tx-pip 5s ease-in-out infinite 0.7s; }
+    .txp4 { animation: tx-pip 5s ease-in-out infinite 1.05s; }
+    .txp5 { animation: tx-pip 5s ease-in-out infinite 1.4s; }
+    .txp6 { animation: tx-pip 5s ease-in-out infinite 1.75s; }
+    .txp7 { animation: tx-pip 5s ease-in-out infinite 2.1s; }
+    @keyframes tx-orbit { to { stroke-dashoffset: -1000; } }
+    .txring { stroke-dasharray: 300 700; animation: tx-orbit 7s linear infinite; }
+    @keyframes tx-slash { 0% { transform: translateX(-74px); } 46%,100% { transform: translateX(74px); } }
+    .txslash { animation: tx-slash 7s cubic-bezier(.4,0,.3,1) infinite; }
+    @keyframes tx-k1 { 0%,100% { stop-color:#006A80; } 50% { stop-color:#0959D1; } }
+    @keyframes tx-k2 { 0%,100% { stop-color:#5D4BD1; } 50% { stop-color:#8A2CD1; } }
+    @keyframes tx-k3 { 0%,100% { stop-color:#C10045; } 50% { stop-color:#8C5400; } }
+    .txk1 { animation: tx-k1 16s ease-in-out infinite; }
+    .txk2 { animation: tx-k2 16s ease-in-out infinite; }
+    .txk3 { animation: tx-k3 16s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
 
-  <rect width="1200" height="400" fill="#F7F8FB"/>
-
-  <!-- perspective grid below the horizon, off by default (flip opacity to 1 for the full retro read) -->
-  <g id="grid" clip-path="url(#hl-gridclip)" opacity="0">
-    <g stroke="url(#hl-gridfade)" stroke-width="1" fill="none">
-      <path d="M600 332 L-1180 400"/><path d="M600 332 L-560 400"/><path d="M600 332 L-190 400"/>
-      <path d="M600 332 L40 400"/>   <path d="M600 332 L200 400"/>  <path d="M600 332 L320 400"/>
-      <path d="M600 332 L415 400"/>  <path d="M600 332 L490 400"/>  <path d="M600 332 L548 400"/>
-      <path d="M600 332 L600 400"/>
-      <path d="M600 332 L652 400"/>  <path d="M600 332 L710 400"/>  <path d="M600 332 L785 400"/>
-      <path d="M600 332 L880 400"/>  <path d="M600 332 L1000 400"/> <path d="M600 332 L1160 400"/>
-      <path d="M600 332 L1390 400"/> <path d="M600 332 L1760 400"/> <path d="M600 332 L2380 400"/>
-    </g>
-    <g stroke="url(#hl-gridfade)" stroke-width="1" fill="none">
-      <line x1="0" y1="335"   x2="1200" y2="335"/>
-      <line x1="0" y1="339.5" x2="1200" y2="339.5"/>
-      <line x1="0" y1="345.5" x2="1200" y2="345.5"/>
-      <line x1="0" y1="353.5" x2="1200" y2="353.5"/>
-      <line x1="0" y1="364"   x2="1200" y2="364"/>
-      <line x1="0" y1="378"   x2="1200" y2="378"/>
-      <line x1="0" y1="396"   x2="1200" y2="396"/>
+  <rect width="1200" height="400" fill="url(#tx-ground)"/>
+  <g class="txbloom">
+    <rect width="1200" height="400" fill="url(#tx-bloomA)"/>
+    <rect width="1200" height="400" fill="url(#tx-bloomB)"/>
+    <rect width="1200" height="400" fill="url(#tx-bloomC)"/>
+  </g>
+  <g clip-path="url(#tx-frame)">
+    <g transform="translate(0,196)">
+      <ellipse class="txwash" cx="0" cy="0" rx="430" ry="300" fill="url(#tx-wash)"/>
     </g>
   </g>
-
-  <g opacity="0.95">
-    <line x1="60" y1="332" x2="1140" y2="332" stroke="url(#hl-horizonline)" stroke-width="1.25"/>
-    <line class="flowline" x1="60" y1="332" x2="1140" y2="332" stroke="url(#hl-horizonline)"
-          stroke-width="1.25" stroke-dasharray="3 9" opacity="0.85"/>
+  <g transform="translate(66,56) scale(0.5781)">
+  <path d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" fill="none" stroke="#006A80" stroke-opacity="0.26"
+        stroke-width="14" stroke-linecap="round"/>
+  <g>
+    <path class="txring" d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" pathLength="1000" fill="none"
+          stroke="url(#tx-ink)" stroke-width="14" stroke-linecap="round"/>
   </g>
-
-  <text class="disp" x="82" y="236" font-size="164" font-weight="800" letter-spacing="-6" fill="url(#hl-word)">10x</text>
-
-  <g clip-path="url(#hl-wordclip)">
-    <g transform="skewX(-18)">
-      <rect class="sheen" x="-200" y="60" width="120" height="220" fill="url(#hl-sheen)" opacity="0.8"/>
-    </g>
+  <g>
+    <line x1="100" y1="156" x2="188" y2="68" stroke="url(#tx-ink)"
+          stroke-width="16" stroke-linecap="round"/>
   </g>
-
-  <line x1="452" y1="112" x2="452" y2="272" stroke="url(#hl-rule)" stroke-width="1.5"/>
-
-  <g transform="translate(500,0)">
-    <circle cx="5" cy="126" r="4" fill="#00819C"/>
-    <text class="mono eyebrow" x="22" y="130">CLAUDE CODE MARKETPLACE</text>
-    <text class="disp head"   x="0" y="180">Curated plugins that ship quality</text>
-    <text class="disp sub"    x="0" y="212">Seven plugins. One install command. Runs locally.</text>
-
-    <g transform="translate(0,248)">
-      <g class="d1"><circle cx="0"   cy="0" r="4.5" fill="#0E8571"/></g>
-      <g class="d2"><circle cx="22"  cy="0" r="4.5" fill="#00819C"/></g>
-      <g class="d3"><circle cx="44"  cy="0" r="4.5" fill="#0B6DFF"/></g>
-      <g class="d4"><circle cx="66"  cy="0" r="4.5" fill="#725BFF"/></g>
-      <g class="d5"><circle cx="88"  cy="0" r="4.5" fill="#A836FF"/></g>
-      <g class="d6"><circle cx="110" cy="0" r="4.5" fill="#EB0054"/></g>
-      <g class="d7"><circle cx="132" cy="0" r="4.5" fill="#AB6600"/></g>
-      <text class="mono tag" x="158" y="4">SEVEN PLUGINS</text>
-    </g>
+  <g transform="translate(188,68)"><g><circle r="6" fill="#006A80"/><circle r="6" fill="none" stroke="#FFFFFF" stroke-width="2.4"/></g></g>
   </g>
-
-  <text class="mono tag" x="82" y="318">zero config  ·  no telemetry  ·  runs locally</text>
+  <g>
+    <text class="disp" x="76" y="286" font-size="128" font-weight="800"
+          letter-spacing="-4.5" fill="url(#tx-word)">10x</text>
+  </g>
+  <line x1="500" y1="100" x2="500" y2="300" stroke="url(#tx-rule)" stroke-width="1.5"/>
+  <g transform="translate(544,0)">
+    <text class="mono eyebrow" x="0" y="134">CLAUDE CODE MARKETPLACE</text>
+    <text class="disp head" x="0" y="186">Curated plugins that ship quality</text>
+    <text class="disp sub" x="0" y="222">Seven plugins. One install command. Runs locally.</text>
+    <g transform="translate(0,265)"><g class="txp1"><circle cx="0" cy="0" r="4.5" fill="#0E8571"/></g><g class="txp2"><circle cx="22" cy="0" r="4.5" fill="#00819C"/></g><g class="txp3"><circle cx="44" cy="0" r="4.5" fill="#0B6DFF"/></g><g class="txp4"><circle cx="66" cy="0" r="4.5" fill="#725BFF"/></g><g class="txp5"><circle cx="88" cy="0" r="4.5" fill="#A836FF"/></g><g class="txp6"><circle cx="110" cy="0" r="4.5" fill="#EB0054"/></g><g class="txp7"><circle cx="132" cy="0" r="4.5" fill="#AB6600"/></g><text class="mono tag" x="168" y="4">SEVEN PLUGINS</text></g>
+  </g>
+  <text class="mono tag" x="76" y="352">zero config  &#183;  no telemetry  &#183;  runs locally</text>
 </svg>

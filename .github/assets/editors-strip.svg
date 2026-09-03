@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" fill="none" role="img" aria-label="Works with Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, and Continue">
   <defs>
     <linearGradient id="es-ground" x1="0" y1="0" x2="0.35" y2="1">
-      <stop offset="0%" stop-color="#0A0F1C"/>
-      <stop offset="60%" stop-color="#080C16"/>
-      <stop offset="100%" stop-color="#07070C"/>
+      <stop offset="0%" stop-color="#0D1424"/>
+      <stop offset="60%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#080C18"/>
     </linearGradient>
     <linearGradient id="es-rule" gradientUnits="userSpaceOnUse" x1="40" y1="106" x2="1160" y2="106">
       <stop offset="0%" stop-color="#00D4FF" stop-opacity="0"/>
@@ -16,6 +16,14 @@
       <feGaussianBlur stdDeviation="3.2" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+      <radialGradient id="v2-bloomA" cx="0.18" cy="0.22" r="0.72">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="v2-bloomB" cx="0.84" cy="0.86" r="0.68">
+      <stop offset="0%" stop-color="#8E7BFF" stop-opacity="0.11"/>
+      <stop offset="100%" stop-color="#8E7BFF" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
   <style>
@@ -23,8 +31,8 @@
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
     .chip { fill: #0E1524; stroke: #1E2A42; stroke-width: 1; }
     .lbl  { font-size: 13px; font-weight: 600; fill: #F2F6FF; }
-    .sub  { font-size: 11px; letter-spacing: 2.6px; fill: #8494B0; }
-    .open { font-size: 10.5px; letter-spacing: 0.6px; fill: #8494B0; }
+    .sub  { font-size: 11px; letter-spacing: 2.6px; fill: #93A2BE; }
+    .open { font-size: 10.5px; letter-spacing: 0.6px; fill: #93A2BE; }
 
     @keyframes es-flow { to { stroke-dashoffset: -240; } }
     .flowline { animation: es-flow 14s linear infinite; }
@@ -41,9 +49,12 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
     }
+      @keyframes v2-breathe { 0%,100% { opacity:0.66; } 50% { opacity:1; } }
+    .v2bloom { animation: v2-breathe 11s ease-in-out infinite; }
   </style>
 
   <rect width="1200" height="120" fill="url(#es-ground)"/>
+  <g class="v2bloom"><rect width="1200" height="120" fill="url(#v2-bloomA)"/><rect width="1200" height="120" fill="url(#v2-bloomB)"/></g>
 
   <text class="mono sub" x="600" y="26" text-anchor="middle">WORKS IN THESE EDITORS AND ANY MCP CLIENT</text>
 

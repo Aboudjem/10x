@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img"
+     aria-label="10x: an open ring with a light circling it and an ascending bar escaping the gap">
+  <title>10x</title>
+  <desc>Animated light-mode logo mark. The whole mark is drawn as a muted track; one bright
+  element travels over it, so no frame is an incomplete logo and the reduced-motion resting frame
+  is the finished mark.</desc>
+  <defs>
+    <linearGradient id="tx-plate" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="58%" stop-color="#F7F8FB"/>
+      <stop offset="100%" stop-color="#EEF1F7"/>
+    </linearGradient>
+    <radialGradient id="tx-bloomA" cx="0.24" cy="0.24" r="0.68">
+      <stop offset="0%" stop-color="#006A80" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#006A80" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-bloomB" cx="0.80" cy="0.82" r="0.64">
+      <stop offset="0%" stop-color="#5D4BD1" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#5D4BD1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tx-ink" gradientUnits="userSpaceOnUse" x1="78" y1="178" x2="190" y2="70">
+      <stop class="txk1" offset="0%"   stop-color="#006A80"/>
+      <stop class="txk2" offset="52%"  stop-color="#5D4BD1"/>
+      <stop class="txk3" offset="100%" stop-color="#C10045"/>
+    </linearGradient>
+    <linearGradient id="tx-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.66"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="tx-barclip">
+      <rect x="-66" y="-8.5" width="132" height="17" rx="8.5" transform="translate(144,112) rotate(-45)"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes tx-breathe { 0%,100% { opacity:0.72; } 50% { opacity:1; } }
+    .txbloom { animation: tx-breathe 9s ease-in-out infinite; }
+    @keyframes tx-orbit { to { stroke-dashoffset: -1000; } }
+    .txring { stroke-dasharray: 300 700; animation: tx-orbit 7s linear infinite; }
+    @keyframes tx-slash { 0% { transform: translateX(-74px); } 46%,100% { transform: translateX(74px); } }
+    .txslash { animation: tx-slash 7s cubic-bezier(.4,0,.3,1) infinite; }
+    @keyframes tx-k1 { 0%,100% { stop-color:#006A80; } 50% { stop-color:#0959D1; } }
+    @keyframes tx-k2 { 0%,100% { stop-color:#5D4BD1; } 50% { stop-color:#8A2CD1; } }
+    @keyframes tx-k3 { 0%,100% { stop-color:#C10045; } 50% { stop-color:#8C5400; } }
+    .txk1 { animation: tx-k1 16s ease-in-out infinite; }
+    .txk2 { animation: tx-k2 16s ease-in-out infinite; }
+    .txk3 { animation: tx-k3 16s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <rect width="256" height="256" rx="56" fill="url(#tx-plate)"/>
+  <g class="txbloom">
+    <rect width="256" height="256" rx="56" fill="url(#tx-bloomA)"/>
+    <rect width="256" height="256" rx="56" fill="url(#tx-bloomB)"/>
+  </g>
+  <rect x="0.9" y="0.9" width="254.2" height="254.2" rx="55.2" fill="none"
+        stroke="#D8DEE9" stroke-width="1.8"/>
+
+  <path d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" fill="none" stroke="#006A80" stroke-opacity="0.26"
+        stroke-width="14" stroke-linecap="round"/>
+  <g>
+    <path class="txring" d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" pathLength="1000" fill="none"
+          stroke="url(#tx-ink)" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g>
+    <line x1="100" y1="156" x2="188" y2="68" stroke="url(#tx-ink)"
+          stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(188,68)"><g><circle r="6" fill="#006A80"/><circle r="6" fill="none" stroke="#FFFFFF" stroke-width="2.4"/></g></g>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img"
+     aria-label="10x: an open ring with a light circling it and an ascending bar escaping the gap">
+  <title>10x</title>
+  <desc>Animated dark-mode logo mark. The whole mark is drawn as a muted track; one bright
+  element travels over it, so no frame is an incomplete logo and the reduced-motion resting frame
+  is the finished mark.</desc>
+  <defs>
+    <linearGradient id="tx-plate" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#0D1424"/>
+      <stop offset="58%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#080C18"/>
+    </linearGradient>
+    <radialGradient id="tx-bloomA" cx="0.24" cy="0.24" r="0.68">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-bloomB" cx="0.80" cy="0.82" r="0.64">
+      <stop offset="0%" stop-color="#8E7BFF" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#8E7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tx-ink" gradientUnits="userSpaceOnUse" x1="78" y1="178" x2="190" y2="70">
+      <stop class="txk1" offset="0%"   stop-color="#00D4FF"/>
+      <stop class="txk2" offset="52%"  stop-color="#A78CFF"/>
+      <stop class="txk3" offset="100%" stop-color="#FF4D8D"/>
+    </linearGradient>
+    <filter id="tx-glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="7.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tx-glow-sm" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="3.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="tx-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.66"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="tx-barclip">
+      <rect x="-66" y="-8.5" width="132" height="17" rx="8.5" transform="translate(144,112) rotate(-45)"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    @keyframes tx-breathe { 0%,100% { opacity:0.62; } 50% { opacity:1; } }
+    .txbloom { animation: tx-breathe 9s ease-in-out infinite; }
+    @keyframes tx-orbit { to { stroke-dashoffset: -1000; } }
+    .txring { stroke-dasharray: 300 700; animation: tx-orbit 7s linear infinite; }
+    @keyframes tx-slash { 0% { transform: translateX(-74px); } 46%,100% { transform: translateX(74px); } }
+    .txslash { animation: tx-slash 7s cubic-bezier(.4,0,.3,1) infinite; }
+    @keyframes tx-k1 { 0%,100% { stop-color:#00D4FF; } 50% { stop-color:#2BE8C8; } }
+    @keyframes tx-k2 { 0%,100% { stop-color:#A78CFF; } 50% { stop-color:#C77DFF; } }
+    @keyframes tx-k3 { 0%,100% { stop-color:#FF4D8D; } 50% { stop-color:#FF7AA8; } }
+    .txk1 { animation: tx-k1 16s ease-in-out infinite; }
+    .txk2 { animation: tx-k2 16s ease-in-out infinite; }
+    .txk3 { animation: tx-k3 16s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <rect width="256" height="256" rx="56" fill="url(#tx-plate)"/>
+  <g class="txbloom">
+    <rect width="256" height="256" rx="56" fill="url(#tx-bloomA)"/>
+    <rect width="256" height="256" rx="56" fill="url(#tx-bloomB)"/>
+  </g>
+  <rect x="0.9" y="0.9" width="254.2" height="254.2" rx="55.2" fill="none"
+        stroke="#22314D" stroke-width="1.8"/>
+
+  <path d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" fill="none" stroke="#00D4FF" stroke-opacity="0.32"
+        stroke-width="14" stroke-linecap="round"/>
+  <g filter="url(#tx-glow)">
+    <path class="txring" d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" pathLength="1000" fill="none"
+          stroke="url(#tx-ink)" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#tx-glow)">
+    <line x1="100" y1="156" x2="188" y2="68" stroke="url(#tx-ink)"
+          stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(188,68)"><g filter="url(#tx-glow-sm)"><circle r="6" fill="#FFFFFF"/></g></g>
+  <g clip-path="url(#tx-barclip)">
+    <g transform="translate(144,112) rotate(45)">
+      <rect class="txslash" x="-15" y="-30" width="30" height="60" fill="url(#tx-sheen)" opacity="0.8"/>
+    </g>
+  </g>
+</svg>

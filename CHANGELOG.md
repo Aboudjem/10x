@@ -2,6 +2,41 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [2.0.1] - 2026-09-03
+
+A motion identity across the whole fleet, and the literal synthwave scenery removed everywhere.
+No behaviour changes, no new plugins.
+
+### Changed
+
+- **Every tracked asset in all eight repos is rebuilt** on one principle: the whole mark is drawn
+  once as a muted track and a single bright element travels over it, so no frame of the loop is an
+  incomplete logo and the reduced-motion resting frame is the finished mark. The hub's own motion is
+  a light circling an open ring while a bar escapes through its gap.
+- **The scenery is gone.** No sun disc, no horizon line, no perspective grid and no band cuts in any
+  of the 61 tracked SVGs across the eight repos. The palette, the soft dual-tone wash, the restrained
+  glow and the mono eyebrows stay.
+- **Zero SMIL.** 42 SMIL nodes became CSS, gradient colour drift included, so the
+  `prefers-reduced-motion` guard now reaches every animation in the system.
+- **The plugin table shows the marks.** Each row's thumbnail is now that plugin's
+  `logo-mark-animated.svg` at 40 px instead of a static PNG at 28 px, in `README.md` and all four
+  translations. 28 px was measured and four of the eight marks did not read at it.
+- **Every text fill re-measured** against the ground it actually ships on, by rendering each file
+  with its text removed and sampling under each run. Tightest pair in this repo: 4.66:1.
+- `site/index.html` takes the lifted v2 ground and text tokens.
+- **All seven plugins released and re-pinned**: sniff 0.8.0 to **0.8.1**, ui-ux-suite 0.6.0 to
+  **0.6.1**, recap-studio 0.5.0 to **0.5.1**, aws-cost-audit 0.3.0 to **0.3.1**, goalify 2.6.0 to
+  **2.6.1**, humanizer 0.7.0 to **0.7.1**, loopify 1.1.0 to **1.1.1**. Every prose surface
+  (`ECOSYSTEM.md`, `llms.txt`, `QUALITY-BAR.md`, `AGENTS.md`, `CLAUDE.md`) was refreshed to match,
+  and every test figure in them was re-derived by running the command in the plugin's own repo.
+
+### Added
+
+- `.github/assets/logo-mark-animated.svg` and `.github/assets/logo-mark-animated-light.svg`, a
+  256x256 animated mark on a rounded tile with dark and light variants.
+- `logo-mark.png`, `logo-mark-512.png` and `social-preview.png` are now headless-Chrome renders of
+  the mark's reduced-motion resting frame, so the raster cannot drift from the vector.
+
 ## [2.0.0] - 2026-09-02
 
 The whole marketplace was rebuilt in one pass: a new visual identity, a rewritten README on every

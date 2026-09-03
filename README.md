@@ -53,13 +53,13 @@ npx skills add Aboudjem/sniff
 
 | | Plugin | What it is for | Install | |
 |:-:|:--|:--|:--|:--|
-| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **sniff** | Walks your running app and finds real bugs | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **ui-ux-suite** | ESLint for design: the line, the value, the fix | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **recap-studio** | One offline HTML explainer from a topic or a session | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-512.png" width="28" alt=""> | **aws-cost-audit** | Audits your AWS bill against live AWS pricing | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-512.png" width="28" alt=""> | **goalify** | Preps a huge task to run on its own | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-512.png" width="28" alt=""> | **humanizer** | Names 55 AI writing habits and rewrites them | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-512.png" width="28" alt=""> | **loopify** | Preps a repeating job for Claude Code's `/loop` | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | Walks your running app and finds real bugs | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | ESLint for design: the line, the value, the fix | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | One offline HTML explainer from a topic or a session | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Audits your AWS bill against live AWS pricing | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Preps a huge task to run on its own | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Names 55 AI writing habits and rewrites them | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Preps a repeating job for Claude Code's `/loop` | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
 
 ## What each one does
 

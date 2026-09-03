@@ -108,13 +108,13 @@ document its slash commands and MCP tools.
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
-| 1 | `sniff`           | 0.8.0 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
-| 2 | `ui-ux-suite`     | 0.6.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
-| 3 | `recap-studio`    | 0.5.0 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
-| 4 | `aws-cost-audit`  | 0.3.0 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| 5 | `goalify`         | 2.6.0 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
-| 6 | `humanizer`       | 0.7.0 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
-| 7 | `loopify`         | 1.1.0 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
+| 1 | `sniff`           | 0.8.1 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
+| 2 | `ui-ux-suite`     | 0.6.1 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
+| 3 | `recap-studio`    | 0.5.1 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
+| 4 | `aws-cost-audit`  | 0.3.1 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| 5 | `goalify`         | 2.6.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
+| 6 | `humanizer`       | 0.7.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 7 | `loopify`         | 1.1.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -146,7 +146,7 @@ including Playwright and Lighthouse, because walking a real app in a real browse
 without a browser. The question this item asks is whether every dependency earns its line, and a
 maintainer answers it in the review, not with a number.
 
-## Verification runs, 2026-09-02
+## Verification runs, 2026-09-03
 
 Each command was run in the plugin's own repo on the released commit.
 
@@ -160,4 +160,4 @@ Each command was run in the plugin's own repo on the released commit.
 | humanizer | metrics CLI suite | 64 tests |
 | loopify | `python3 tests/test_manifests.py` | `158/158 checks passed` (plus `153/153` skill eval, `13/13` ticks lint) |
 
-Last verified: 2026-09-02.
+Last verified: 2026-09-03.

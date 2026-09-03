@@ -1,62 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" fill="none" role="img" aria-label="10x, Claude Code plugins that ship quality: seven plugins, one install command, runs locally">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" fill="none" role="img"
+     aria-label="10x: Claude Code plugins that ship quality.">
+  <title>10x</title>
   <defs>
-    <linearGradient id="sp-ground" x1="0" y1="0" x2="0.35" y2="1">
-      <stop offset="0%" stop-color="#0A0F1C"/>
-      <stop offset="60%" stop-color="#080C16"/>
-      <stop offset="100%" stop-color="#07070C"/>
+    <linearGradient id="tx-ground" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#0D1424"/>
+      <stop offset="55%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#080C18"/>
     </linearGradient>
-    <radialGradient id="sp-bloom" cx="0.5" cy="1" r="0.75">
-      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.30"/>
-      <stop offset="38%" stop-color="#7C5CFF" stop-opacity="0.14"/>
-      <stop offset="100%" stop-color="#7C5CFF" stop-opacity="0"/>
+    <radialGradient id="tx-bloomA" cx="0.15" cy="0.13" r="0.44">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="sp-word" x1="0" y1="0" x2="1" y2="0.25" gradientUnits="objectBoundingBox">
-      <stop offset="0%" stop-color="#00D4FF"/>
-      <stop offset="46%" stop-color="#8E7BFF"/>
-      <stop offset="100%" stop-color="#FF2D78"/>
-    </linearGradient>
-    <linearGradient id="sp-rule" gradientUnits="userSpaceOnUse" x1="80" y1="520" x2="1200" y2="520">
-      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0"/>
-      <stop offset="22%" stop-color="#00D4FF" stop-opacity="0.5"/>
-      <stop offset="55%" stop-color="#C77DFF" stop-opacity="0.8"/>
-      <stop offset="82%" stop-color="#FF2D78" stop-opacity="0.6"/>
+    <radialGradient id="tx-bloomB" cx="0.88" cy="0.85" r="0.50">
+      <stop offset="0%" stop-color="#8E7BFF" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#8E7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-bloomC" cx="0.52" cy="0.04" r="0.36">
+      <stop offset="0%" stop-color="#FF2D78" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#FF2D78" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tx-wash" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#7FE4FF" stop-opacity="0.20"/>
+      <stop offset="42%"  stop-color="#8E7BFF" stop-opacity="0.124"/>
+      <stop offset="76%"  stop-color="#FF2D78" stop-opacity="0.046"/>
+      <stop offset="100%" stop-color="#FF2D78" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="tx-frame"><rect width="1280" height="640"/></clipPath>
+    <linearGradient id="tx-ink" gradientUnits="userSpaceOnUse" x1="78" y1="178" x2="190" y2="70">
+      <stop class="txk1" offset="0%"   stop-color="#00D4FF"/>
+      <stop class="txk2" offset="52%"  stop-color="#A78CFF"/>
+      <stop class="txk3" offset="100%" stop-color="#FF4D8D"/>
     </linearGradient>
+    <filter id="tx-glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="7.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tx-glow-sm" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="3.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="tx-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.66"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="tx-barclip">
+      <rect x="-66" y="-8.5" width="132" height="17" rx="8.5" transform="translate(144,112) rotate(-45)"/>
+    </clipPath>
+    <linearGradient id="tx-word" x1="0" y1="0" x2="1" y2="0.25">
+      <stop class="txk1" offset="0%"   stop-color="#00D4FF"/>
+      <stop class="txk2" offset="46%"  stop-color="#A78CFF"/>
+      <stop class="txk3" offset="100%" stop-color="#FF4D8D"/>
+    </linearGradient>
+    <linearGradient id="tx-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="tx-wordclip">
+      <text x="96" y="358" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+            font-size="122" font-weight="800" letter-spacing="-4.3">10x</text>
+    </clipPath>
   </defs>
 
   <style>
     .disp { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
     .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace; }
-    .head { font-size: 40px; font-weight: 700; fill: #F2F6FF; letter-spacing: -0.6px; }
-    .sub  { font-size: 18px; letter-spacing: 1.4px; fill: #8494B0; }
-    .tag  { font-size: 15px; letter-spacing: 0.8px; fill: #8494B0; }
+    .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 4.5px; fill: #7FE4FF; }
+    .head    { font-size: 36px; font-weight: 700; fill: #F2F6FF; letter-spacing: -0.5px; }
+    .sub     { font-size: 20px; font-weight: 500; fill: #C2CDE4; }
+    .tag     { font-size: 15px; letter-spacing: 1.6px; fill: #93A2BE; }
+    .chip    { font-size: 11.5px; letter-spacing: 1.2px; fill: #C2CDE4; }
+    .chipbig { font-size: 17px; letter-spacing: 1px; fill: #C2CDE4; }
+    .tagsm { font-size: 12.5px; letter-spacing: 1.6px; fill: #93A2BE; }
+    .eyebrow { font-size: 17px; letter-spacing: 5px; }
+    @keyframes tx-breathe { 0%,100% { opacity:0.62; } 50% { opacity:1; } }
+    .txbloom { animation: tx-breathe 11s ease-in-out infinite; }
+    @keyframes tx-sweep { 0% { transform: translateX(-360px); } 100% { transform: translateX(1640px); } }
+    .txwash { animation: tx-sweep 19s cubic-bezier(.5,0,.5,1) infinite; }
+    @keyframes tx-sheen { 0% { transform: translateX(0); } 15%,100% { transform: translateX(561px); } }
+    .txsheen { animation: tx-sheen 8.5s cubic-bezier(.4,0,.3,1) infinite; }
+    @keyframes tx-orbit { to { stroke-dashoffset: -1000; } }
+    .txring { stroke-dasharray: 300 700; animation: tx-orbit 7s linear infinite; }
+    @keyframes tx-slash { 0% { transform: translateX(-74px); } 46%,100% { transform: translateX(74px); } }
+    .txslash { animation: tx-slash 7s cubic-bezier(.4,0,.3,1) infinite; }
+    @keyframes tx-k1 { 0%,100% { stop-color:#00D4FF; } 50% { stop-color:#2BE8C8; } }
+    @keyframes tx-k2 { 0%,100% { stop-color:#A78CFF; } 50% { stop-color:#C77DFF; } }
+    @keyframes tx-k3 { 0%,100% { stop-color:#FF4D8D; } 50% { stop-color:#FF7AA8; } }
+    .txk1 { animation: tx-k1 16s ease-in-out infinite; }
+    .txk2 { animation: tx-k2 16s ease-in-out infinite; }
+    .txk3 { animation: tx-k3 16s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
   </style>
 
-  <rect width="1280" height="640" fill="url(#sp-ground)"/>
-  <ellipse cx="640" cy="690" rx="780" ry="210" fill="url(#sp-bloom)" opacity="0.9"/>
-
-  <text class="disp" x="100" y="310" font-size="190" font-weight="800" letter-spacing="-8" fill="url(#sp-word)">10x</text>
-
-  <g>
-    <rect x="104" y="336" width="26" height="6" rx="3" fill="#2BE8C8"/>
-    <rect x="139" y="336" width="26" height="6" rx="3" fill="#00D4FF"/>
-    <rect x="174" y="336" width="26" height="6" rx="3" fill="#5B9DFF"/>
-    <rect x="209" y="336" width="26" height="6" rx="3" fill="#8E7BFF"/>
-    <rect x="244" y="336" width="26" height="6" rx="3" fill="#C77DFF"/>
-    <rect x="279" y="336" width="26" height="6" rx="3" fill="#FF4D8D"/>
-    <rect x="314" y="336" width="26" height="6" rx="3" fill="#FFB341"/>
+  <rect width="1280" height="640" fill="url(#tx-ground)"/>
+  <g class="txbloom">
+    <rect width="1280" height="640" fill="url(#tx-bloomA)"/>
+    <rect width="1280" height="640" fill="url(#tx-bloomB)"/>
+    <rect width="1280" height="640" fill="url(#tx-bloomC)"/>
   </g>
-
-  <text class="disp head" x="104" y="396">Claude Code plugins that ship quality.</text>
-  <text class="mono sub"  x="106" y="432">seven plugins  ·  one install command  ·  runs locally</text>
-
-  <g>
-    <rect x="104" y="462" width="600" height="56" rx="28" fill="#00D4FF" fill-opacity="0.10" stroke="#00D4FF" stroke-opacity="0.55"/>
-    <text class="mono" x="404" y="497" text-anchor="middle" font-size="21" font-weight="700" fill="#00D4FF">claude plugin marketplace add Aboudjem/10x</text>
+  <g clip-path="url(#tx-frame)">
+    <g transform="translate(0,320)">
+      <ellipse class="txwash" cx="0" cy="0" rx="520" ry="380" fill="url(#tx-wash)"/>
+    </g>
   </g>
-
-  <line x1="80" y1="552" x2="1200" y2="552" stroke="url(#sp-rule)" stroke-width="1.25"/>
-
-  <text class="mono tag" x="104" y="596">sniff · ui-ux-suite · recap-studio · aws-cost-audit · goalify · humanizer · loopify</text>
-  <text class="mono tag" x="1200" y="596" text-anchor="end">github.com/Aboudjem/10x</text>
+  <g transform="translate(872,126) scale(1.2188)">
+  <path d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" fill="none" stroke="#00D4FF" stroke-opacity="0.32"
+        stroke-width="14" stroke-linecap="round"/>
+  <g filter="url(#tx-glow)">
+    <path class="txring" d="M170.2 122.5 A52 52 0 1 1 133.5 85.8" pathLength="1000" fill="none"
+          stroke="url(#tx-ink)" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#tx-glow)">
+    <line x1="100" y1="156" x2="188" y2="68" stroke="url(#tx-ink)"
+          stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(188,68)"><g filter="url(#tx-glow-sm)"><circle r="6" fill="#FFFFFF"/></g></g>
+  <g clip-path="url(#tx-barclip)">
+    <g transform="translate(144,112) rotate(45)">
+      <rect class="txslash" x="-15" y="-30" width="30" height="60" fill="url(#tx-sheen)" opacity="0.8"/>
+    </g>
+  </g>
+  </g>
+  <g filter="url(#tx-glow)">
+    <text class="disp" x="96" y="358" font-size="122" font-weight="800"
+          letter-spacing="-4.3" fill="url(#tx-word)">10x</text>
+  </g>
+  <g clip-path="url(#tx-wordclip)">
+    <g transform="skewX(-18)">
+      <rect class="txsheen" x="-38" y="236" width="56"
+            height="165" fill="url(#tx-sheen)" opacity="0.45"/>
+    </g>
+  </g>
+  <text class="mono eyebrow" x="96" y="258">CLAUDE CODE MARKETPLACE</text>
+  <text class="disp head" x="96" y="416">Claude Code plugins that ship quality.</text>
+  <text class="disp sub" x="96" y="458">seven plugins  &#183;  one install command  &#183;  runs locally</text>
+  <g transform="translate(0,474)"><rect x="96" y="0" width="514" height="38" rx="19" fill="#0E1524" stroke="#1E2A42" stroke-width="1"/><text class="mono chipbig" x="118" y="25">claude plugin marketplace add Aboudjem/10x</text></g>
+  <text class="mono tagsm" x="96" y="532">sniff  &#183;  ui-ux-suite  &#183;  recap-studio  &#183;  aws-cost-audit  &#183;  goalify  &#183;  humanizer  &#183;  loopify</text>
+  <text class="mono tag" x="96" y="604">github.com/Aboudjem/10x</text>
 </svg>
