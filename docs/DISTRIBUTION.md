@@ -1,6 +1,6 @@
 # Distribution status — 10x marketplace and its seven plugins
 
-Last full audit: 2026-09-02. Every row carries evidence. Statuses: **FILED** (submitted this run,
+Last full audit: 2026-09-02; rows re-checked 2026-09-04. Every row carries evidence. Statuses: **FILED** (submitted this run,
 awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LISTED** (live now) ·
 **PR-OPEN** (pre-existing open PR) · **PENDING** (submitted earlier, no public tracker) ·
 **BLOCKED-\<reason\>** · **SKIPPED-\<reason\>**.
@@ -55,7 +55,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | claudepluginhub.com | any | BLOCKED-captcha | Submit page sits behind a Cloudflare human-verification interstitial |
 | claudecodemarketplace.net | any | BLOCKED-site-down | Page renders only "no available server" on both attempts 2026-09-02 |
 | cursor.directory | sniff-qa, ui-ux-suite | BLOCKED-needs-login | "Submit a plugin" → /login (GitHub/Google OAuth); Cursor-audience, low fit |
-| npm | sniff-qa 0.7.0, ui-ux-suite 0.5.0 | LISTED | `npm view sniff-qa version`, `npm view ui-ux-suite version`; keyword tuning needs a release — recorded as Next |
+| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.8.1, ui-ux-suite 0.6.1 (re-checked 2026-09-04). Keyword tuning: ui-ux-suite now carries `claude-code`, `claude-code-plugin`, `mcp`; sniff-qa still lacks `claude-code`/`mcp-server` — needs its next release |
 | skills.sh | humanizer | LISTED | skills.sh/Aboudjem/humanizer-skill, 554 installs |
 | skills.sh | loopify | LISTED | skills.sh/Aboudjem/loopify (1 install; search ranking is telemetry-driven) |
 | TensorBlock/awesome-mcp-servers | sniff, ui-ux-suite | LISTED | Auto-crawled by their bot; no action possible |
