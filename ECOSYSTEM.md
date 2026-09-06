@@ -21,6 +21,7 @@ in any editor. Last aligned **2026-09-03**.
 | **goalify** | 2.6.1 | Autonomous task prep. Scopes a big coding task, locks the few real decisions, and writes **the brief** (a file the run works from) plus **the condition** (one line you paste into `/goal`), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to `.goal/done/`. A Claude Code skill (no MCP server). | `claude plugin install goalify@10x` | [Aboudjem/goalify](https://github.com/Aboudjem/goalify) | _(skill, no npm)_ | MIT |
 | **humanizer** | 0.7.1 | AI-writing detector and rewriter. Names **55 AI writing patterns** (inflated symbolism, em dash overuse, promotional language, rule-of-three, and more), rewrites with sentence-length burstiness across **5 voice profiles** (casual, professional, technical, warm, blunt), and produces a **0-100 AI-tell score**. Three modes: detect, rewrite, edit. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server). | `claude plugin install humanizer@10x` | [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) | _(skill, no npm)_ | MIT |
 | **loopify** | 1.1.1 | Recurring-job prep. For work that repeats rather than finishes: writes **the brief** (a standing file the loop re-reads every tick) plus **the line** (one short string you paste into Claude Code's built-in `/loop`), with a **tick cap**, a **stop rule** and five safety rails. Every tick logs what it did to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`. A Claude Code skill (no MCP server). | `claude plugin install loopify@10x` | [Aboudjem/loopify](https://github.com/Aboudjem/loopify) | _(skill, no npm)_ | MIT |
+| **lockpatch** | 0.1.0 | Attack-surface hardening. Finds **what a stranger can take** from your app, proves every finding with **a real command whose output you can see**, then fixes only what you approve and re-runs the same command to prove the hole is shut and your own login still works. Covers secrets and key scope, authentication, record and tenant access, injection and transport, data leaving the app, abuse and business logic, and dependency and CI integrity. A Claude Code skill (no MCP server). | `claude plugin install lockpatch@10x` | [Aboudjem/lockpatch](https://github.com/Aboudjem/lockpatch) | _(skill, no npm)_ | MIT |
 
 Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v2.0.1).
 
@@ -45,10 +46,12 @@ Every figure below was re-derived on 2026-09-03 by running the command in the pl
 - **loopify**: `python3 tests/test_manifests.py` prints `158/158 checks passed`,
   `python3 evals/check_skill.py skills/loopify/SKILL.md` prints `153/153`, and
   `python3 tests/test_ticks_lint.py` prints `13/13`.
+- **lockpatch**: nothing re-derived yet. It is listed at 0.1.0 and its command is
+  `python3 tests/test_manifests.py`, but no run has been recorded here, so no figure is quoted.
 
 ## Multi-editor support
 
-Every plugin ships as skills, so `npx skills add Aboudjem/<repo>` installs any of the seven into
+Every plugin ships as skills, so `npx skills add Aboudjem/<repo>` installs any of the eight into
 Claude Code, Cursor, Codex, GitHub Copilot, Gemini CLI, OpenCode, Zed, Kimi Code CLI and 70+ other
 agents. The three tool plugins (sniff, ui-ux-suite, recap-studio) additionally run as a standalone
 MCP server and ship an `install.sh` that delegates to the skills CLI, plus `.cursor-plugin` and

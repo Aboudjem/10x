@@ -13,7 +13,7 @@ on every quarterly review.
 
 - [ ] **No runtime dependency the tool does not need** (devDependencies are fine).
       Read this as "nothing pulled in for convenience", not "zero". ui-ux-suite ships zero and the
-      four skill plugins are pure Markdown with no `package.json` at all. recap-studio's root package
+      five skill plugins are pure Markdown with no `package.json` at all. recap-studio's root package
       declares none, but its workspace packages pull `zod` and its web app pulls Next, React and
       Mermaid. sniff carries **16 runtime dependencies**, among them Playwright and Lighthouse,
       because driving a real browser and measuring a real page is the job. A plugin that cannot
@@ -104,7 +104,7 @@ document its slash commands and MCP tools.
 
 ---
 
-## Current roster (7)
+## Current roster (8)
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
@@ -115,6 +115,7 @@ document its slash commands and MCP tools.
 | 5 | `goalify`         | 2.6.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
 | 6 | `humanizer`       | 0.7.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
 | 7 | `loopify`         | 1.1.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
+| 8 | `lockpatch`       | 0.1.0 | MIT        | [`Aboudjem/lockpatch`](https://github.com/Aboudjem/lockpatch) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -137,10 +138,16 @@ install loopify@10x`), real-verification (`python3 tests/test_manifests.py` prin
 passed` and `python3 evals/check_skill.py skills/loopify/SKILL.md` prints `153/153`), no-telemetry,
 and local-only items; the MCP-server and standalone-CLI items do not apply to a skill plugin.
 
+`lockpatch` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the
+bar's zero-bloat (pure Markdown, no runtime dependency, no network call of its own), one-command-install
+(`claude plugin install lockpatch@10x`), no-telemetry, and local-only items; the MCP-server and
+standalone-CLI items do not apply to a skill plugin. Its real-verification item is the one still open:
+`python3 tests/test_manifests.py` is the command, and its output has not been recorded here yet.
+
 ## How item 1 is read
 
-"Zero bloat" is a judgement about necessity, not a count. Five of the seven ship no runtime
-dependency: ui-ux-suite and the four Markdown skills. recap-studio's root declares none while its
+"Zero bloat" is a judgement about necessity, not a count. Six of the eight ship no runtime
+dependency: ui-ux-suite and the five Markdown skills. recap-studio's root declares none while its
 workspace packages pull `zod`, Next, React and Mermaid, because it renders pages. sniff ships 16,
 including Playwright and Lighthouse, because walking a real app in a real browser cannot be done
 without a browser. The question this item asks is whether every dependency earns its line, and a
@@ -159,5 +166,6 @@ Each command was run in the plugin's own repo on the released commit.
 | goalify | `python3 tests/test_manifests.py` | `126/126 checks passed` (plus `83/83` skill eval, `18/18` condition lint) |
 | humanizer | metrics CLI suite | 64 tests |
 | loopify | `python3 tests/test_manifests.py` | `158/158 checks passed` (plus `153/153` skill eval, `13/13` ticks lint) |
+| lockpatch | `python3 tests/test_manifests.py` | pending verification, not yet run for this listing |
 
 Last verified: 2026-09-03.

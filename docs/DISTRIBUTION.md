@@ -1,4 +1,4 @@
-# Distribution status — 10x marketplace and its seven plugins
+# Distribution status: 10x marketplace and its eight plugins
 
 Last full audit: 2026-09-02; rows re-checked 2026-09-04. Every row carries evidence. Statuses: **FILED** (submitted this run,
 awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LISTED** (live now) ·
@@ -64,9 +64,10 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 
 ## Topics + previews (auto-indexer food)
 
-All seven plugin repos carry `claude-code` (and the two MCP repos carry `mcp-server`); sniff gained
-`claude-code-plugin` this run. The 10x social preview is set (GraphQL `usesCustomOpenGraphImage:
-true`). Verify:
+The seven published plugin repos all carry `claude-code` (and the two MCP repos carry `mcp-server`);
+sniff gained `claude-code-plugin` this run. `lockpatch` is listed in the marketplace but is not on
+GitHub yet, so it has no topics to check and no venue row above. The 10x social preview is set
+(GraphQL `usesCustomOpenGraphImage: true`). Verify:
 
 ```
 for r in sniff ui-ux-suite recap-studio aws-cost-audit-skill goalify humanizer-skill loopify; do gh repo view Aboudjem/$r --json repositoryTopics --jq '[.repositoryTopics[].name]|join(",")'; done

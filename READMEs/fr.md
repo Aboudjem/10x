@@ -18,7 +18,7 @@
   <b>Français</b>
 </p>
 
-<p align="center"><b>Une place de marché de plugins est une liste depuis laquelle votre éditeur peut installer. Celle-ci contient sept outils de développement pour Claude Code, et vous l'ajoutez une seule fois.</b></p>
+<p align="center"><b>Une place de marché de plugins est une liste depuis laquelle votre éditeur peut installer. Celle-ci contient huit outils de développement pour Claude Code, et vous l'ajoutez une seule fois.</b></p>
 
 <p align="center">
   <a href="#install">Installation</a> ·
@@ -36,7 +36,7 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Installation
 
-Ajoutez la place de marché une seule fois. Claude Code peut ensuite installer n'importe lequel des sept par son nom.
+Ajoutez la place de marché une seule fois. Claude Code peut ensuite installer n'importe lequel des huit par son nom.
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -64,6 +64,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Prépare une tâche énorme à exécuter en autonomie | `claude plugin install goalify@10x` | [dépôt](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Identifie 55 habitudes d'écriture IA et les réécrit | `claude plugin install humanizer@10x` | [dépôt](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Prépare une tâche répétitive pour la commande `/loop` de Claude Code | `claude plugin install loopify@10x` | [dépôt](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | Trouve ce qu'un inconnu peut vous prendre, puis prouve que c'est fermé | `claude plugin install lockpatch@10x` | [dépôt](https://github.com/Aboudjem/lockpatch) |
 
 <a id="what-each-one-does"></a>
 
@@ -125,6 +126,14 @@ Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le bri
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
+### lockpatch
+
+Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque constat avec une vraie commande dont vous voyez la sortie, puis corrige uniquement ce que vous validez et relance la même commande pour prouver que la faille est fermée et que votre propre connexion fonctionne toujours.
+
+`claude plugin install lockpatch@10x`
+
+[GitHub](https://github.com/Aboudjem/lockpatch)
+
 <a id="works-with-any-ai-editor"></a>
 
 ## Fonctionne avec n'importe quel éditeur IA
@@ -133,11 +142,11 @@ Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le bri
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-Chaque plugin ici est livré sous forme de skills, des fichiers Markdown que votre agent lit. C'est pourquoi les sept
+Chaque plugin ici est livré sous forme de skills, des fichiers Markdown que votre agent lit. C'est pourquoi les huit
 s'installent en dehors de Claude Code via `npx skills add`, dont le README indique lui-même 77 agents pris en charge.
 Trois tournent aussi comme un serveur MCP autonome, le protocole que parle un éditeur pour atteindre un outil
 extérieur : sniff et ui-ux-suite directement depuis npm, recap-studio depuis un clone après une compilation du
-workspace. Les quatre autres ne fournissent aucun serveur MCP.
+workspace. Les cinq autres ne fournissent aucun serveur MCP.
 
 | Agent | Installation en une ligne |
 |:--|:--|
@@ -152,7 +161,7 @@ workspace. Les quatre autres ne fournissent aucun serveur MCP.
 
 | | |
 |---|---|
-| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. ui-ux-suite et les quatre skills n'en embarquent aucune. Les packages de recap-studio tirent zod, son application web Next et React. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse. |
+| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. ui-ux-suite et les cinq skills n'en embarquent aucune. Les packages de recap-studio tirent zod, son application web Next et React. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse. |
 | **Installation en une commande** | Aucun fichier de configuration et aucune inscription. aws-cost-audit est le seul qui a besoin d'un accès que vous n'avez peut-être pas : une CLI AWS configurée pour lire le compte. |
 | **De vrais tests** | Une CI qui vérifie le comportement, pas qu'un fichier existe. |
 | **Fonctionne en dehors de Claude Code** | S'installe dans [70+ agents](https://github.com/vercel-labs/skills#supported-agents) via `npx skills add`. |

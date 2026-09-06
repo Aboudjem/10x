@@ -13,7 +13,7 @@ claude plugin marketplace add Aboudjem/10x
 ```
 
 This registers the 10x marketplace in your Claude Code config. You only do this once.
-All seven plugins become available to install by name.
+All eight plugins become available to install by name.
 
 ### Step 2: Install a plugin
 
@@ -38,6 +38,9 @@ claude plugin install humanizer@10x
 
 # Install loopify (Claude Code skill; writes the brief and the line for a standing /loop)
 claude plugin install loopify@10x
+
+# Install lockpatch (Claude Code skill; finds what a stranger can take, then proves it shut)
+claude plugin install lockpatch@10x
 ```
 
 Each install wires up the plugin's MCP tools, slash commands, and agents automatically.
@@ -85,6 +88,12 @@ After installing `loopify`, in any Claude Code session:
 
 ```
 /loopify <your recurring job>
+```
+
+After installing `lockpatch`, open a session in the project you want checked:
+
+```
+/lockpatch
 ```
 
 ---

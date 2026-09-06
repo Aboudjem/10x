@@ -42,7 +42,7 @@ and the trailing newline come out byte-identical.
 **Not synced:** descriptions, keywords, homepages, README prose. Marketplace
 descriptions are written for someone browsing the listing; `plugin.json`
 descriptions are written for the plugin's own repo. They are allowed to differ,
-and today all seven do. The run summary prints a `description drift:` section
+and today all eight do. The run summary prints a `description drift:` section
 so a human can look, but the script never writes a description.
 
 ## Running it yourself
@@ -56,7 +56,7 @@ npm test             # unit tests
 No dependencies to install; Node 22 or newer. Set `GITHUB_TOKEN` to read
 through the authenticated API instead of `raw.githubusercontent.com`.
 
-## Adding plugin #8
+## Adding plugin #9
 
 1. Add the entry to `.claude-plugin/marketplace.json`, with `source.repo`
    pointing at the plugin's GitHub repo and `version` matching what is on its

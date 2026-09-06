@@ -18,7 +18,7 @@
   <a href="READMEs/fr.md">Français</a>
 </p>
 
-<p align="center"><b>A plugin marketplace is a list your editor can install from. This one holds seven developer tools for Claude Code, and you add it once.</b></p>
+<p align="center"><b>A plugin marketplace is a list your editor can install from. This one holds eight developer tools for Claude Code, and you add it once.</b></p>
 
 <p align="center">
   <a href="#install">Install</a> ·
@@ -34,7 +34,7 @@ claude plugin marketplace add Aboudjem/10x
 
 ## Install
 
-Add the marketplace once. Claude Code can then install any of the seven by name.
+Add the marketplace once. Claude Code can then install any of the eight by name.
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -60,6 +60,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Preps a huge task to run on its own | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Names 55 AI writing habits and rewrites them | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Preps a repeating job for Claude Code's `/loop` | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | Finds what a stranger can take, then proves it shut | `claude plugin install lockpatch@10x` | [repo](https://github.com/Aboudjem/lockpatch) |
 
 ## What each one does
 
@@ -119,17 +120,25 @@ For a job that repeats rather than finishes, it writes the brief and the line yo
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
+### lockpatch
+
+It finds what a stranger can take from your app, proves every finding with a real command whose output you can see, then fixes only what you approve and re-runs the same command to prove the hole is shut and your own login still works.
+
+`claude plugin install lockpatch@10x`
+
+[GitHub](https://github.com/Aboudjem/lockpatch)
+
 ## Works with any AI editor
 
 <p align="center">
   <img src=".github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-Every plugin here ships as skills, which are Markdown files your agent reads. That is why all seven
+Every plugin here ships as skills, which are Markdown files your agent reads. That is why all eight
 install outside Claude Code through `npx skills add`, whose own README lists 77 supported agents.
 Three also run as a standalone MCP server, the protocol an editor speaks to reach an outside tool:
 sniff and ui-ux-suite straight from npm, recap-studio from a clone after a workspace build. The
-other four ship no MCP server.
+other five ship no MCP server.
 
 | Agent | One-line install |
 |:--|:--|
@@ -142,7 +151,7 @@ other four ship no MCP server.
 
 | | |
 |---|---|
-| **Lean by default** | No dependency a plugin does not need. ui-ux-suite and the four skills ship none. recap-studio's packages pull zod, its web app Next and React. sniff drives a real browser, so it carries Playwright and Lighthouse. |
+| **Lean by default** | No dependency a plugin does not need. ui-ux-suite and the five skills ship none. recap-studio's packages pull zod, its web app Next and React. sniff drives a real browser, so it carries Playwright and Lighthouse. |
 | **One-command install** | No config file and no signup. aws-cost-audit is the one that needs access you may not have: an AWS CLI configured to read the account. |
 | **Real tests** | CI that asserts behaviour, not that a file exists. |
 | **Runs outside Claude Code** | Installs into [70+ agents](https://github.com/vercel-labs/skills#supported-agents) through `npx skills add`. |

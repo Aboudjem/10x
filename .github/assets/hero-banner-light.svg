@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none" role="img"
-     aria-label="10x, a curated Claude Code plugin marketplace: seven plugins, one install command, runs locally">
+     aria-label="10x, a curated Claude Code plugin marketplace: eight plugins, one install command, runs locally">
   <title>10x</title>
   <defs>
     <linearGradient id="tx-ground" x1="0" y1="0" x2="0.4" y2="1">
@@ -71,6 +71,7 @@
     .txp5 { animation: tx-pip 5s ease-in-out infinite 1.4s; }
     .txp6 { animation: tx-pip 5s ease-in-out infinite 1.75s; }
     .txp7 { animation: tx-pip 5s ease-in-out infinite 2.1s; }
+    .txp8 { animation: tx-pip 5s ease-in-out infinite 2.45s; }
     @keyframes tx-orbit { to { stroke-dashoffset: -1000; } }
     .txring { stroke-dasharray: 300 700; animation: tx-orbit 7s linear infinite; }
     @keyframes tx-slash { 0% { transform: translateX(-74px); } 46%,100% { transform: translateX(74px); } }
@@ -116,8 +117,8 @@
   <g transform="translate(544,0)">
     <text class="mono eyebrow" x="0" y="134">CLAUDE CODE MARKETPLACE</text>
     <text class="disp head" x="0" y="186">Curated plugins that ship quality</text>
-    <text class="disp sub" x="0" y="222">Seven plugins. One install command. Runs locally.</text>
-    <g transform="translate(0,265)"><g class="txp1"><circle cx="0" cy="0" r="4.5" fill="#0E8571"/></g><g class="txp2"><circle cx="22" cy="0" r="4.5" fill="#00819C"/></g><g class="txp3"><circle cx="44" cy="0" r="4.5" fill="#0B6DFF"/></g><g class="txp4"><circle cx="66" cy="0" r="4.5" fill="#725BFF"/></g><g class="txp5"><circle cx="88" cy="0" r="4.5" fill="#A836FF"/></g><g class="txp6"><circle cx="110" cy="0" r="4.5" fill="#EB0054"/></g><g class="txp7"><circle cx="132" cy="0" r="4.5" fill="#AB6600"/></g><text class="mono tag" x="168" y="4">SEVEN PLUGINS</text></g>
+    <text class="disp sub" x="0" y="222">Eight plugins. One install command. Runs locally.</text>
+    <g transform="translate(0,265)"><g class="txp1"><circle cx="0" cy="0" r="4.5" fill="#0E8571"/></g><g class="txp2"><circle cx="22" cy="0" r="4.5" fill="#00819C"/></g><g class="txp3"><circle cx="44" cy="0" r="4.5" fill="#0B6DFF"/></g><g class="txp4"><circle cx="66" cy="0" r="4.5" fill="#725BFF"/></g><g class="txp5"><circle cx="88" cy="0" r="4.5" fill="#A836FF"/></g><g class="txp6"><circle cx="110" cy="0" r="4.5" fill="#EB0054"/></g><g class="txp7"><circle cx="132" cy="0" r="4.5" fill="#AB6600"/></g><g class="txp8"><circle cx="154" cy="0" r="4.5" fill="#0F851F"/></g><text class="mono tag" x="190" y="4">EIGHT PLUGINS</text></g>
   </g>
   <text class="mono tag" x="76" y="352">zero config  &#183;  no telemetry  &#183;  runs locally</text>
 </svg>

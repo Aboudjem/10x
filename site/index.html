@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>10x - curated Claude Code plugins that ship quality</title>
-  <meta name="description" content="10x is a plugin marketplace for Claude Code: a list your editor can install from. Seven developer tools, added once. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify. All seven also install into 70+ other agents through npx skills add." />
+  <meta name="description" content="10x is a plugin marketplace for Claude Code: a list your editor can install from. Eight developer tools, added once. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, lockpatch. All eight also install into 70+ other agents through npx skills add." />
   <meta property="og:title" content="10x - curated Claude Code plugins that ship quality" />
-  <meta property="og:description" content="Seven curated plugins. One install command. Runs locally, no telemetry, and works in 70+ agents." />
+  <meta property="og:description" content="Eight curated plugins. One install command. Runs locally, no telemetry, and works in 70+ agents." />
   <meta property="og:image" content="assets/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
@@ -74,7 +74,7 @@
 <body>
   <header class="wrap">
     <img class="logo" src="assets/logo-dark.svg" alt="10x" onerror="this.style.display='none'" />
-    <p class="tagline">A plugin marketplace is a list your editor can install from. This one holds seven developer tools for Claude Code, and you add it once.</p>
+    <p class="tagline">A plugin marketplace is a list your editor can install from. This one holds eight developer tools for Claude Code, and you add it once.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/Aboudjem/10x">View on GitHub</a>
       <a class="btn" href="#plugins">See the plugins</a>
@@ -84,7 +84,7 @@
 
   <main class="wrap">
     <div class="strip">
-      <img src="assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships seven curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, and loopify" onerror="this.style.display='none'" />
+      <img src="assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships eight curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, and lockpatch" onerror="this.style.display='none'" />
     </div>
 
     <section>
@@ -97,7 +97,7 @@ claude plugin install sniff@10x</code></pre>
     </section>
 
     <section id="plugins">
-      <h2>The seven plugins</h2>
+      <h2>The eight plugins</h2>
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
@@ -171,6 +171,16 @@ npx skills add Aboudjem/loopify</code></pre>
           <a href="https://github.com/Aboudjem/loopify">GitHub</a>
         </div>
       </div>
+
+      <div class="plugin">
+        <h3>lockpatch <span class="lic">MIT</span></h3>
+        <p class="desc">It finds what a stranger can take from your app, proves every finding with a real command whose output you can see, then fixes only what you approve and re-runs the same command to prove the hole is shut and your own login still works. A Claude Code skill (no MCP server).</p>
+        <pre><code>claude plugin install lockpatch@10x
+npx skills add Aboudjem/lockpatch</code></pre>
+        <div class="links">
+          <a href="https://github.com/Aboudjem/lockpatch">GitHub</a>
+        </div>
+      </div>
     </section>
 
     <section>
@@ -178,10 +188,10 @@ npx skills add Aboudjem/loopify</code></pre>
       <div class="strip">
         <img src="assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" onerror="this.style.display='none'" />
       </div>
-      <p>Every plugin here ships as skills, which are Markdown files your agent reads. That is why all seven
+      <p>Every plugin here ships as skills, which are Markdown files your agent reads. That is why all eight
       install outside Claude Code through <code>npx skills add</code>. Three also run as a standalone MCP server,
       the protocol an editor speaks to reach an outside tool: sniff and ui-ux-suite straight from npm,
-      recap-studio from a clone after a workspace build. The other four ship no MCP server. Per-editor snippets
+      recap-studio from a clone after a workspace build. The other five ship no MCP server. Per-editor snippets
       live in each repo's <code>docs/editors.md</code>.</p>
     </section>
 
@@ -189,7 +199,7 @@ npx skills add Aboudjem/loopify</code></pre>
       <h2>The 10x bar</h2>
       <p>Every plugin here is held to an explicit eight-point quality bar: no dependency it does not need, a
       one-command install with no signup, CI that asserts behaviour, an install path outside Claude Code,
-      a release this quarter, and no telemetry. ui-ux-suite and the four skills ship no runtime dependency;
+      a release this quarter, and no telemetry. ui-ux-suite and the five skills ship no runtime dependency;
       recap-studio's packages pull zod, its web app Next and React; sniff carries Playwright and Lighthouse
       because it drives a real browser. If a plugin stops passing, it gets removed.
       The full checklist, with the roster and the verification runs behind it, is in

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 480" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships seven plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer and loopify">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 480" fill="none" role="img" aria-label="10x marketplace flow: your editor connects to the 10x hub which ships eight plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify and lockpatch">
   <defs>
     <linearGradient id="hd-ground" x1="0" y1="0" x2="0.35" y2="1">
       <stop offset="0%" stop-color="#0D1424"/>
@@ -58,6 +58,7 @@
     .p5 { animation: hd-pip 5s ease-in-out infinite 1.4s; }
     .p6 { animation: hd-pip 5s ease-in-out infinite 1.75s; }
     .p7 { animation: hd-pip 5s ease-in-out infinite 2.1s; }
+    .p8 { animation: hd-pip 5s ease-in-out infinite 2.45s; }
 
     @keyframes hd-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     .row-0 { animation: hd-rise 0.6s ease-out 0.1s both; }
@@ -68,6 +69,7 @@
     .row-5 { animation: hd-rise 0.6s ease-out 1.2s both; }
     .row-6 { animation: hd-rise 0.6s ease-out 1.4s both; }
     .row-7 { animation: hd-rise 0.6s ease-out 1.6s both; }
+    .row-8 { animation: hd-rise 0.6s ease-out 1.8s both; }
 
     @keyframes hd-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     @keyframes hd-spin-rev { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
@@ -123,24 +125,26 @@
   <line class="flowline" x1="260" y1="240" x2="398" y2="240" stroke="#00D4FF" stroke-width="1.5"
         stroke-dasharray="3 9" opacity="0.75"/>
 
-  <!-- hub -> the seven plugins -->
+  <!-- hub -> the eight plugins -->
   <g fill="none" stroke-width="1.4" opacity="0.4">
     <path d="M 548 206 Q 620 150 680 135" stroke="#FF4D8D"/>
     <path d="M 552 212 Q 730 120 898 135" stroke="#00D4FF"/>
     <path d="M 552 218 Q 840 96 1116 135" stroke="#5B9DFF"/>
     <path d="M 554 226 Q 950 86 1334 135" stroke="#FFB341"/>
-    <path d="M 548 274 Q 660 336 789 359" stroke="#8E7BFF"/>
-    <path d="M 552 268 Q 780 372 1007 359" stroke="#C77DFF"/>
-    <path d="M 554 262 Q 900 392 1225 359" stroke="#2BE8C8"/>
+    <path d="M 548 274 Q 620 330 680 359" stroke="#8E7BFF"/>
+    <path d="M 552 268 Q 730 360 898 359" stroke="#C77DFF"/>
+    <path d="M 552 262 Q 840 384 1116 359" stroke="#2BE8C8"/>
+    <path d="M 554 254 Q 950 394 1334 359" stroke="#2BE844"/>
   </g>
   <g class="flowline" fill="none" stroke-width="1.6" stroke-dasharray="3 9" opacity="0.9">
     <path d="M 548 206 Q 620 150 680 135" stroke="#FF4D8D"/>
     <path d="M 552 212 Q 730 120 898 135" stroke="#00D4FF"/>
     <path d="M 552 218 Q 840 96 1116 135" stroke="#5B9DFF"/>
     <path d="M 554 226 Q 950 86 1334 135" stroke="#FFB341"/>
-    <path d="M 548 274 Q 660 336 789 359" stroke="#8E7BFF"/>
-    <path d="M 552 268 Q 780 372 1007 359" stroke="#C77DFF"/>
-    <path d="M 554 262 Q 900 392 1225 359" stroke="#2BE8C8"/>
+    <path d="M 548 274 Q 620 330 680 359" stroke="#8E7BFF"/>
+    <path d="M 552 268 Q 730 360 898 359" stroke="#C77DFF"/>
+    <path d="M 552 262 Q 840 384 1116 359" stroke="#2BE8C8"/>
+    <path d="M 554 254 Q 950 394 1334 359" stroke="#2BE844"/>
   </g>
 
   <!-- the hub -->
@@ -234,7 +238,7 @@
   </g>
 
   <!-- 05 goalify -->
-  <g transform="translate(789,300)">
+  <g transform="translate(680,300)">
     <g class="row-5">
       <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
       <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#8E7BFF"/>
@@ -254,7 +258,7 @@
   </g>
 
   <!-- 06 humanizer -->
-  <g transform="translate(1007,300)">
+  <g transform="translate(898,300)">
     <g class="row-6">
       <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
       <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#C77DFF"/>
@@ -274,7 +278,7 @@
   </g>
 
   <!-- 07 loopify -->
-  <g transform="translate(1225,300)">
+  <g transform="translate(1116,300)">
     <g class="row-7">
       <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
       <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#2BE8C8"/>
@@ -289,6 +293,26 @@
         <text class="mono chip" x="82" y="12.5" text-anchor="middle" fill="#2BE8C8">TICKS</text>
         <rect x="114" y="0" width="50" height="18" rx="4" fill="#2BE8C8" fill-opacity="0.14" stroke="#2BE8C8" stroke-opacity="0.5"/>
         <text class="mono chip" x="139" y="12.5" text-anchor="middle" fill="#2BE8C8">RAILS</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 08 lockpatch -->
+  <g transform="translate(1334,300)">
+    <g class="row-8">
+      <rect x="0" y="0" width="200" height="118" rx="14" class="card"/>
+      <rect x="0" y="24" width="3" height="70" rx="1.5" fill="#2BE844"/>
+      <g class="p8"><circle cx="20" cy="26" r="4" fill="#2BE844" filter="url(#hd-glow-sm)"/></g>
+      <text class="mono sub"   x="34" y="30">PLUGIN &#183; 08</text>
+      <text class="disp title" x="18" y="56">lockpatch</text>
+      <text class="disp body"  x="18" y="76">Attack surface</text>
+      <g transform="translate(18,86)">
+        <rect x="0" y="0" width="46" height="18" rx="4" fill="#2BE844" fill-opacity="0.14" stroke="#2BE844" stroke-opacity="0.5"/>
+        <text class="mono chip" x="23" y="12.5" text-anchor="middle" fill="#2BE844">SCAN</text>
+        <rect x="52" y="0" width="54" height="18" rx="4" fill="#2BE844" fill-opacity="0.14" stroke="#2BE844" stroke-opacity="0.5"/>
+        <text class="mono chip" x="79" y="12.5" text-anchor="middle" fill="#2BE844">PROOF</text>
+        <rect x="112" y="0" width="54" height="18" rx="4" fill="#2BE844" fill-opacity="0.14" stroke="#2BE844" stroke-opacity="0.5"/>
+        <text class="mono chip" x="139" y="12.5" text-anchor="middle" fill="#2BE844">PATCH</text>
       </g>
     </g>
   </g>
