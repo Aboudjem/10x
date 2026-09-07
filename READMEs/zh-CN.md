@@ -61,7 +61,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 为一项庞大的任务准备好自主运行所需的材料 | `claude plugin install goalify@10x` | [仓库](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | 指出 55 种 AI 写作习惯，并加以改写 | `claude plugin install humanizer@10x` | [仓库](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | 为 Claude Code 的 `/loop` 命令准备一项重复性任务 | `claude plugin install loopify@10x` | [仓库](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | 找出陌生人能从你的应用里拿走什么，再证明它已经堵上 | `claude plugin install lockpatch@10x` | [仓库](https://github.com/Aboudjem/lockpatch) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | 找出陌生人能从你的应用里拿走什么，再证明它已经堵上 | `claude plugin install secure-my-app@10x` | [仓库](https://github.com/Aboudjem/secure-my-app) |
 
 <a id="what-each-one-does"></a>
 ## 各插件的功能
@@ -122,13 +122,13 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### lockpatch
+### secure-my-app
 
-它会找出陌生人能从你的应用里拿走什么，并用一条你能亲眼看到输出的真实命令来佐证每一项发现，然后只修复你批准的部分，再重新运行同一条命令，证明这个漏洞已经堵上，而你自己的登录依然可用。
+它会找出陌生人能从你的应用里拿走什么，并用一条你能读到输出的命令来佐证每一项发现，然后只修复你批准的部分，再重新运行同一条命令，证明这个漏洞已经堵上，而你自己的登录依然可用。共 65 项控制项，分为七组。没有发现问题的一次运行也绝不会被称为安全：第三个闸门标签写着 `NOTHING CONFIRMED HERE`。
 
-`claude plugin install lockpatch@10x`
+`claude plugin install secure-my-app@10x`
 
-[GitHub](https://github.com/Aboudjem/lockpatch)
+[GitHub](https://github.com/Aboudjem/secure-my-app)
 
 <a id="works-with-any-ai-editor"></a>
 ## 适配任意 AI 编辑器

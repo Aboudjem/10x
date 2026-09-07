@@ -64,7 +64,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Prépare une tâche énorme à exécuter en autonomie | `claude plugin install goalify@10x` | [dépôt](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Identifie 55 habitudes d'écriture IA et les réécrit | `claude plugin install humanizer@10x` | [dépôt](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Prépare une tâche répétitive pour la commande `/loop` de Claude Code | `claude plugin install loopify@10x` | [dépôt](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | Trouve ce qu'un inconnu peut vous prendre, puis prouve que c'est fermé | `claude plugin install lockpatch@10x` | [dépôt](https://github.com/Aboudjem/lockpatch) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | Trouve ce qu'un inconnu peut vous prendre, puis prouve que c'est fermé | `claude plugin install secure-my-app@10x` | [dépôt](https://github.com/Aboudjem/secure-my-app) |
 
 <a id="what-each-one-does"></a>
 
@@ -126,13 +126,13 @@ Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le bri
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### lockpatch
+### secure-my-app
 
-Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque constat avec une vraie commande dont vous voyez la sortie, puis corrige uniquement ce que vous validez et relance la même commande pour prouver que la faille est fermée et que votre propre connexion fonctionne toujours.
+Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque constat avec une commande dont vous lisez la sortie, puis corrige uniquement ce que vous validez et relance cette même commande pour prouver que la faille est fermée et que votre propre connexion fonctionne toujours. 65 contrôles en sept groupes. Une exécution sans constat n'est jamais déclarée sûre : le troisième libellé du verdict indique `NOTHING CONFIRMED HERE`.
 
-`claude plugin install lockpatch@10x`
+`claude plugin install secure-my-app@10x`
 
-[GitHub](https://github.com/Aboudjem/lockpatch)
+[GitHub](https://github.com/Aboudjem/secure-my-app)
 
 <a id="works-with-any-ai-editor"></a>
 

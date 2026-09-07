@@ -60,7 +60,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Preps a huge task to run on its own | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Names 55 AI writing habits and rewrites them | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Preps a repeating job for Claude Code's `/loop` | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | Finds what a stranger can take, then proves it shut | `claude plugin install lockpatch@10x` | [repo](https://github.com/Aboudjem/lockpatch) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | Finds what a stranger can take, then proves it shut | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
 
 ## What each one does
 
@@ -120,13 +120,13 @@ For a job that repeats rather than finishes, it writes the brief and the line yo
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### lockpatch
+### secure-my-app
 
-It finds what a stranger can take from your app, proves every finding with a real command whose output you can see, then fixes only what you approve and re-runs the same command to prove the hole is shut and your own login still works.
+It finds what a stranger can take from your app, proves each finding with a command whose output you can read, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. 65 controls in seven groups. A clean run is never called secure: the third gate label reads `NOTHING CONFIRMED HERE`.
 
-`claude plugin install lockpatch@10x`
+`claude plugin install secure-my-app@10x`
 
-[GitHub](https://github.com/Aboudjem/lockpatch)
+[GitHub](https://github.com/Aboudjem/secure-my-app)
 
 ## Works with any AI editor
 

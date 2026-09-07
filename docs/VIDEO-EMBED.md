@@ -23,7 +23,7 @@ This is a **marketplace montage**: a single ~57s reel covering seven of the eigh
 > `clips/cl.mp4`, teal `#14b8a6`) inserted before the editors strip, not as a hero segment.
 > The first four plugins each get a title card plus a hero segment.
 
-> `lockpatch` joined the marketplace after this reel was cut, so it has no beat at all. Re-rendering
+> `secure-my-app` joined the marketplace after this reel was cut, so it has no beat at all. Re-rendering
 > is the manual pass described below, and until someone runs it the built reel stays a seven-beat cut
 > of an eight-plugin marketplace. Every count in this file that describes the reel says seven on
 > purpose; do not raise one to eight before the frames exist.
@@ -69,7 +69,7 @@ GitHub will not host an mp4 from the repo tree. To get an inline player:
 - The voiced `output.mp4` and its script `narration/vo.txt` are still the
   four-plugin cut ("one install command, and you get four plugins"). Only the
   silent montage and the GIF carry the seven beats that exist; neither carries a
-  lockpatch beat. Rewrite `vo.txt` before re-muxing, or the narration will not
+  secure-my-app beat. Rewrite `vo.txt` before re-muxing, or the narration will not
   match the video.
 
 ## Narration note (edge-tts is broken here)
@@ -121,7 +121,7 @@ gifsicle -O3 --lossy=80 --colors 200 /tmp/raw.gif -o ../.github/assets/demo.gif
 du -h ../.github/assets/demo.gif   # must be <= 10MB
 ```
 
-Current numbers for the seven-beat reel as built, before a lockpatch beat is added:
+Current numbers for the seven-beat reel as built, before a secure-my-app beat is added:
 `output_silent.mp4` is 57.033 s / 1711 frames at
 1920x1080; `demo.gif` is 960x540, 675 frames, 6,166,885 B (5.9 MiB), comfortably inside the
 10 MB cap, so none of the fallbacks below were needed.

@@ -136,6 +136,6 @@
   <text class="disp head" x="96" y="416">Claude Code plugins that ship quality.</text>
   <text class="disp sub" x="96" y="458">eight plugins  &#183;  one install command  &#183;  runs locally</text>
   <g transform="translate(0,474)"><rect x="96" y="0" width="514" height="38" rx="19" fill="#0E1524" stroke="#1E2A42" stroke-width="1"/><text class="mono chipbig" x="118" y="25">claude plugin marketplace add Aboudjem/10x</text></g>
-  <text class="mono tagsm" x="96" y="532">sniff  &#183;  ui-ux-suite  &#183;  recap-studio  &#183;  aws-cost-audit  &#183;  goalify  &#183;  humanizer  &#183;  loopify  &#183;  lockpatch</text>
+  <text class="mono tagsm" x="96" y="532">sniff  &#183;  ui-ux-suite  &#183;  recap-studio  &#183;  aws-cost-audit  &#183;  goalify  &#183;  humanizer  &#183;  loopify  &#183;  secure-my-app</text>
   <text class="mono tag" x="96" y="604">github.com/Aboudjem/10x</text>
 </svg>

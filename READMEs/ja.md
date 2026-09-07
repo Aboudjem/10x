@@ -62,7 +62,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 大きなタスクを、自律実行できるように準備します | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | AI特有の書き癖55個を特定し、書き直します | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Claude Code の `/loop` 向けに、繰り返しジョブを準備します | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | 見知らぬ他人が持ち出せるものを見つけ、塞がったことを証明します | `claude plugin install lockpatch@10x` | [repo](https://github.com/Aboudjem/lockpatch) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | 見知らぬ他人が持ち出せるものを見つけ、塞がったことを証明します | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
 
 <a id="what-each-one-does"></a>
 ## 各プラグインの機能
@@ -123,13 +123,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### lockpatch
+### secure-my-app
 
-見知らぬ他人があなたのアプリから持ち出せるものを見つけ、出力を自分の目で確認できる実際のコマンドで一つひとつの指摘を裏づけます。そのうえで、あなたが承認したものだけを修正し、同じコマンドをもう一度実行して、穴が塞がったことと、あなた自身のログインが今も通ることを証明します。
+見知らぬ他人があなたのアプリから持ち出せるものを見つけ、出力を自分で読めるコマンドで一つひとつの指摘を裏づけます。そのうえで、あなたが承認したものだけを修正し、同じコマンドをもう一度実行して、穴が塞がったことと、あなた自身のログインが今も通ることを証明します。コントロールは 7 グループで 65 項目です。指摘が出ない実行でも安全だとは決して述べません。3 つ目のゲートのラベルは `NOTHING CONFIRMED HERE` です。
 
-`claude plugin install lockpatch@10x`
+`claude plugin install secure-my-app@10x`
 
-[GitHub](https://github.com/Aboudjem/lockpatch)
+[GitHub](https://github.com/Aboudjem/secure-my-app)
 
 <a id="works-with-any-ai-editor"></a>
 ## どのAIエディタでも動作

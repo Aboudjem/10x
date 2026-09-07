@@ -62,7 +62,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Prepara una tarea enorme para que se ejecute por su cuenta | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Nombra 55 hábitos de escritura de IA y los reescribe | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Prepara un trabajo repetitivo para el `/loop` de Claude Code | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/lockpatch/main/assets/logo-mark-animated.svg" width="40" alt=""> | **lockpatch** | Encuentra lo que un extraño puede llevarse y luego demuestra que quedó cerrado | `claude plugin install lockpatch@10x` | [repo](https://github.com/Aboudjem/lockpatch) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | Encuentra lo que un extraño puede llevarse y luego demuestra que quedó cerrado | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
 
 <a id="what-each-one-does"></a>
 ## Qué hace cada uno
@@ -123,13 +123,13 @@ Para un trabajo que se repite en lugar de terminar, escribe el brief y la línea
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### lockpatch
+### secure-my-app
 
-Encuentra lo que un extraño puede llevarse de tu aplicación, respalda cada hallazgo con un comando real cuya salida puedes ver, y luego arregla solo lo que apruebas y vuelve a ejecutar ese mismo comando para demostrar que el hueco quedó cerrado y que tu propio inicio de sesión sigue funcionando.
+Encuentra lo que un extraño puede llevarse de tu aplicación, respalda cada hallazgo con un comando cuya salida puedes leer, y luego arregla solo lo que apruebas y vuelve a ejecutar ese mismo comando para demostrar que el hueco quedó cerrado y que tu propio inicio de sesión sigue funcionando. 65 controles en siete grupos. Una ejecución limpia nunca se declara segura: la tercera etiqueta del veredicto dice `NOTHING CONFIRMED HERE`.
 
-`claude plugin install lockpatch@10x`
+`claude plugin install secure-my-app@10x`
 
-[GitHub](https://github.com/Aboudjem/lockpatch)
+[GitHub](https://github.com/Aboudjem/secure-my-app)
 
 <a id="works-with-any-ai-editor"></a>
 ## Funciona con cualquier editor de IA

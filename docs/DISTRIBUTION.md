@@ -65,8 +65,9 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 ## Topics + previews (auto-indexer food)
 
 The seven published plugin repos all carry `claude-code` (and the two MCP repos carry `mcp-server`);
-sniff gained `claude-code-plugin` this run. `lockpatch` is listed in the marketplace but is not on
-GitHub yet, so it has no topics to check and no venue row above. The 10x social preview is set
+sniff gained `claude-code-plugin` this run. `secure-my-app` is public on GitHub now but carries no repo
+topics yet (`gh api repos/Aboudjem/secure-my-app/topics` returns an empty list), so it is out of the
+loop below and has no venue row above. The 10x social preview is set
 (GraphQL `usesCustomOpenGraphImage: true`). Verify:
 
 ```

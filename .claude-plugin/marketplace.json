@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app in a real browser and tells you what is actually broken, with the steps to reproduce it. ui-ux-suite is ESLint for design: the exact line, the measured wrong value, the exact fix. recap-studio turns a topic or a coding session into one offline HTML explainer you can double-click. aws-cost-audit reads your live AWS account read-only and checks every price against live AWS pricing. goalify writes the brief and the condition for a big task a fresh session runs on its own. humanizer names 55 AI writing habits and rewrites text in the voice you pick. loopify writes the brief and the line that keep a repeating job running on Claude Code's built-in /loop. lockpatch finds what a stranger can take from your app, then proves each fix shut with the same command that found it. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); aws-cost-audit, goalify, humanizer, loopify and lockpatch are Claude Code skills (no MCP server)."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app in a real browser and tells you what is actually broken, with the steps to reproduce it. ui-ux-suite is ESLint for design: the exact line, the measured wrong value, the exact fix. recap-studio turns a topic or a coding session into one offline HTML explainer you can double-click. aws-cost-audit reads your live AWS account read-only and checks every price against live AWS pricing. goalify writes the brief and the condition for a big task a fresh session runs on its own. humanizer names 55 AI writing habits and rewrites text in the voice you pick. loopify writes the brief and the line that keep a repeating job running on Claude Code's built-in /loop. secure-my-app finds what a stranger can take from your app, then proves each fix shut with the same command that found it. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); aws-cost-audit, goalify, humanizer, loopify and secure-my-app are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -151,14 +151,14 @@
       ]
     },
     {
-      "name": "lockpatch",
+      "name": "secure-my-app",
       "source": {
         "source": "github",
-        "repo": "Aboudjem/lockpatch"
+        "repo": "Aboudjem/secure-my-app"
       },
-      "description": "lockpatch finds what a stranger can take from your app, proves every finding with a real command whose output you can see, then fixes only what you approve and re-runs the same command to prove it is shut and your own login still works. It covers secrets and key scope, authentication, record and tenant access, injection and transport, data leaving the app, abuse and business logic, and dependency and CI integrity. Anthropic's own `/security-review` finds the bug you wrote; lockpatch adds the defence you never wrote. A Claude Code skill (no MCP server).",
-      "version": "0.1.0",
-      "homepage": "https://github.com/Aboudjem/lockpatch",
+      "description": "Finds what a stranger can take from your app, proves each finding with a command whose output you can read, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. 65 controls across secrets, authentication, record and tenant access, injection, data leaks, abuse, and dependencies. Anthropic's own `/security-review` finds the bug you wrote; secure-my-app adds the defence you never wrote. A Claude Code skill (no MCP server).",
+      "version": "0.2.0",
+      "homepage": "https://github.com/Aboudjem/secure-my-app",
       "license": "MIT",
       "keywords": [
         "security",

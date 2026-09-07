@@ -15,14 +15,14 @@ This repo is a **Claude Code plugin marketplace**, a curated hub, not a tool. It
 - **goalify** (2.6.1, MIT): A Claude Code skill that scopes a big coding task, locks the few real decisions, and writes the brief (a file the run works from) plus the condition (one line you paste into `/goal`), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to `.goal/done/`. Skill plugin (no MCP server). Repo: `Aboudjem/goalify`.
 - **humanizer** (0.7.1, MIT): Names 55 AI writing patterns and rewrites text with sentence-length burstiness, 5 voice profiles, and a 0-100 AI-tell score. Pure Markdown, zero dependencies, no network calls. Skill plugin (no MCP server). Repo: `Aboudjem/humanizer-skill`.
 - **loopify** (1.1.1, MIT): A Claude Code skill for a job that repeats. It writes the brief (a standing file the loop re-reads every tick) plus the line (one short string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule, and five safety rails; every tick logs what it did to `TICKS.md`. Skill plugin (no MCP server). Repo: `Aboudjem/loopify`.
-- **lockpatch** (0.1.0, MIT): A Claude Code skill that finds what a stranger can take from your app, proves every finding with a real command whose output you can see, then fixes only what you approve and re-runs the same command to prove the hole is shut and your own login still works. It covers secrets and key scope, authentication, record and tenant access, injection and transport, data leaving the app, abuse and business logic, and dependency and CI integrity. Skill plugin (no MCP server). Repo: `Aboudjem/lockpatch`.
+- **secure-my-app** (0.2.0, MIT): A Claude Code skill that finds what a stranger can take from your app, proves each finding with a command whose output you can read, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. 65 controls in seven groups: secrets, authentication, record and tenant access, injection, data leaving the app, abuse, and dependencies. A clean run is never called secure: the third gate label reads `NOTHING CONFIRMED HERE`. Skill plugin (no MCP server). Repo: `Aboudjem/secure-my-app`.
 
 ## How an agent should install from this marketplace
 
 - Add the marketplace once: `claude plugin marketplace add Aboudjem/10x`.
-- Install a plugin by name: `claude plugin install <name>@10x`, for example `sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, `loopify@10x`, or `lockpatch@10x`.
-- Outside Claude Code, install any of the eight with the Vercel skills CLI: `npx skills add Aboudjem/<repo>`, optionally with `-a <agent>` (`-a cursor`, `-a codex`, `-a github-copilot`, `-a gemini-cli`, and more). The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`, `lockpatch`.
-- The tool plugins (sniff, ui-ux-suite, recap-studio) are dual-mode and also run as standalone MCP servers (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`; recap-studio's server runs from a clone after a workspace build). Per-editor snippets live in each repo's `docs/editors.md`. `aws-cost-audit`, `goalify`, `humanizer`, `loopify`, and `lockpatch` are Claude Code skills, not MCP servers.
+- Install a plugin by name: `claude plugin install <name>@10x`, for example `sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, `loopify@10x`, or `secure-my-app@10x`.
+- Outside Claude Code, install any of the eight with the Vercel skills CLI: `npx skills add Aboudjem/<repo>`, optionally with `-a <agent>` (`-a cursor`, `-a codex`, `-a github-copilot`, `-a gemini-cli`, and more). The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`, `secure-my-app`.
+- The tool plugins (sniff, ui-ux-suite, recap-studio) are dual-mode and also run as standalone MCP servers (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`; recap-studio's server runs from a clone after a workspace build). Per-editor snippets live in each repo's `docs/editors.md`. `aws-cost-audit`, `goalify`, `humanizer`, `loopify`, and `secure-my-app` are Claude Code skills, not MCP servers.
 
 ## Editing rules an agent MUST honor in this repo
 
@@ -54,7 +54,7 @@ These keep the marketplace correct and the listing honest.
 ## Q&A
 
 **What is 10x?**
-A curated Claude Code plugin marketplace. You add it once with `claude plugin marketplace add Aboudjem/10x`, then install any of its eight plugins (sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, lockpatch). It is a hub, not a tool.
+A curated Claude Code plugin marketplace. You add it once with `claude plugin marketplace add Aboudjem/10x`, then install any of its eight plugins (sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, secure-my-app). It is a hub, not a tool.
 
 **How do I install a plugin from 10x?**
 `claude plugin marketplace add Aboudjem/10x`, then `claude plugin install <name>@10x`.

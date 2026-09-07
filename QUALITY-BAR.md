@@ -115,7 +115,7 @@ document its slash commands and MCP tools.
 | 5 | `goalify`         | 2.6.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
 | 6 | `humanizer`       | 0.7.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
 | 7 | `loopify`         | 1.1.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
-| 8 | `lockpatch`       | 0.1.0 | MIT        | [`Aboudjem/lockpatch`](https://github.com/Aboudjem/lockpatch) |
+| 8 | `secure-my-app`       | 0.2.0 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -138,9 +138,9 @@ install loopify@10x`), real-verification (`python3 tests/test_manifests.py` prin
 passed` and `python3 evals/check_skill.py skills/loopify/SKILL.md` prints `153/153`), no-telemetry,
 and local-only items; the MCP-server and standalone-CLI items do not apply to a skill plugin.
 
-`lockpatch` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the
+`secure-my-app` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the
 bar's zero-bloat (pure Markdown, no runtime dependency, no network call of its own), one-command-install
-(`claude plugin install lockpatch@10x`), no-telemetry, and local-only items; the MCP-server and
+(`claude plugin install secure-my-app@10x`), no-telemetry, and local-only items; the MCP-server and
 standalone-CLI items do not apply to a skill plugin. Its real-verification item is the one still open:
 `python3 tests/test_manifests.py` is the command, and its output has not been recorded here yet.
 
@@ -166,6 +166,6 @@ Each command was run in the plugin's own repo on the released commit.
 | goalify | `python3 tests/test_manifests.py` | `126/126 checks passed` (plus `83/83` skill eval, `18/18` condition lint) |
 | humanizer | metrics CLI suite | 64 tests |
 | loopify | `python3 tests/test_manifests.py` | `158/158 checks passed` (plus `153/153` skill eval, `13/13` ticks lint) |
-| lockpatch | `python3 tests/test_manifests.py` | pending verification, not yet run for this listing |
+| secure-my-app | `python3 tests/test_manifests.py` | pending verification, not yet run for this listing |
 
 Last verified: 2026-09-03.
