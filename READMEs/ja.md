@@ -18,7 +18,7 @@
   <a href="fr.md">Français</a>
 </p>
 
-<p align="center"><b>プラグインマーケットプレイスとは、エディタがそこからインストールできる一覧のことです。ここには Claude Code 向けの開発ツールが8つ収録されており、追加は一度だけで済みます。</b></p>
+<p align="center"><b>プラグインマーケットプレイスとは、エディタがそこからインストールできる一覧のことです。ここには Claude Code 向けの開発ツールが9つ収録されており、追加は一度だけで済みます。</b></p>
 
 <p align="center">
   <a href="#install">インストール</a> ·
@@ -35,7 +35,7 @@ claude plugin marketplace add Aboudjem/10x
 <a id="install"></a>
 ## インストール
 
-マーケットプレイスを一度追加すれば、Claude Code はそこから8つのプラグインを名前でインストールできるようになります。
+マーケットプレイスを一度追加すれば、Claude Code はそこから9つのプラグインを名前でインストールできるようになります。
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -63,6 +63,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | AI特有の書き癖55個を特定し、書き直します | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Claude Code の `/loop` 向けに、繰り返しジョブを準備します | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | 見知らぬ他人が持ち出せるものを見つけ、塞がったことを証明します | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | エージェント向け指示を作り、今も正しいかを検査します | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
 
 <a id="what-each-one-does"></a>
 ## 各プラグインの機能
@@ -131,6 +132,16 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 [GitHub](https://github.com/Aboudjem/secure-my-app)
 
+### contextify
+
+**Tell every coding agent how your repo works. Then prove it is still true.**
+
+リポジトリのファイルを根拠に一つの `AGENTS.md` と各エージェント向けの参照ファイルを作ります。ローカルの変更検査はモデルを呼び出しません。更新時は差分を表示し、管理ブロック外の人間が書いた内容を保持します。
+
+`claude plugin install contextify@10x`
+
+[GitHub](https://github.com/Aboudjem/contextify)
+
 <a id="works-with-any-ai-editor"></a>
 ## どのAIエディタでも動作
 
@@ -138,10 +149,10 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-ここにあるすべてのプラグインは、エージェントが読み込むMarkdownファイルであるスキルとして提供されています。だからこそ、8つ
+ここにあるすべてのプラグインは、エージェントが読み込むMarkdownファイルであるスキルとして提供されています。だからこそ、9つ
 すべてが `npx skills add` 経由でClaude Codeの外部でもインストールでき、そのREADME自体には77個のサポート対象エージェントが
 挙げられています。そのうち3つは、エディタが外部ツールに到達するためのプロトコルであるMCPサーバーとしても単独で動作します。
-sniff と ui-ux-suite は npm から直接、recap-studio はクローンしてワークスペースをビルドした後に実行します。残る5つは
+sniff と ui-ux-suite は npm から直接、recap-studio はクローンしてワークスペースをビルドした後に実行します。残る6つは
 MCPサーバーを持ちません。
 
 | エージェント | 1行インストール |
@@ -156,7 +167,7 @@ MCPサーバーを持ちません。
 
 | | |
 |---|---|
-| **無駄のない既定構成** | プラグインが必要としない依存関係は持ちません。ui-ux-suiteと5つのスキルは依存関係を持ちません。recap-studioのパッケージはzodを、そのWebアプリはNextとReactを取り込みます。sniffは実際のブラウザを操作するためPlaywrightとLighthouseを含みます。 |
+| **無駄のない既定構成** | プラグインが必要としない依存関係は持ちません。ui-ux-suiteと6つのスキルは依存関係を持ちません。recap-studioのパッケージはzodを、そのWebアプリはNextとReactを取り込みます。sniffは実際のブラウザを操作するためPlaywrightとLighthouseを含みます。 |
 | **ワンコマンドインストール** | 設定ファイルもサインアップも不要です。aws-cost-auditだけは、お持ちでない可能性のあるアクセス権、つまりアカウントを読み取れるよう設定されたAWS CLIを必要とします。 |
 | **本物のテスト** | ファイルが存在するかではなく、振る舞いを検証するCIです。 |
 | **Claude Code以外でも動作** | `npx skills add` 経由で[70以上のエージェント](https://github.com/vercel-labs/skills#supported-agents)にインストールできます。 |

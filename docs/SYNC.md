@@ -42,7 +42,7 @@ and the trailing newline come out byte-identical.
 **Not synced:** descriptions, keywords, homepages, README prose. Marketplace
 descriptions are written for someone browsing the listing; `plugin.json`
 descriptions are written for the plugin's own repo. They are allowed to differ,
-and today all eight do. The run summary prints a `description drift:` section
+and all nine listed plugins do. The run summary prints a `description drift:` section
 so a human can look, but the script never writes a description.
 
 ## Running it yourself

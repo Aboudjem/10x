@@ -18,7 +18,7 @@
   <a href="fr.md">Français</a>
 </p>
 
-<p align="center"><b>插件市场是一份你的编辑器可以从中安装的清单。这个市场收录了面向 Claude Code 的八款开发者工具，你只需要添加一次。</b></p>
+<p align="center"><b>插件市场是一份你的编辑器可以从中安装的清单。这个市场收录了面向 Claude Code 的九款开发者工具，你只需要添加一次。</b></p>
 
 <p align="center">
   <a href="#install">安装</a> ·
@@ -35,7 +35,7 @@ claude plugin marketplace add Aboudjem/10x
 <a id="install"></a>
 ## 安装
 
-把市场添加一次。之后 Claude Code 就能按名称安装这八款插件中的任意一款。
+把市场添加一次。之后 Claude Code 就能按名称安装这九款插件中的任意一款。
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -62,6 +62,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | 指出 55 种 AI 写作习惯，并加以改写 | `claude plugin install humanizer@10x` | [仓库](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | 为 Claude Code 的 `/loop` 命令准备一项重复性任务 | `claude plugin install loopify@10x` | [仓库](https://github.com/Aboudjem/loopify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | 找出陌生人能从你的应用里拿走什么，再证明它已经堵上 | `claude plugin install secure-my-app@10x` | [仓库](https://github.com/Aboudjem/secure-my-app) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | 编写代理说明，并检查说明是否仍然有效 | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
 
 <a id="what-each-one-does"></a>
 ## 各插件的功能
@@ -130,6 +131,16 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/secure-my-app)
 
+### contextify
+
+**Tell every coding agent how your repo works. Then prove it is still true.**
+
+根据仓库文件编写一个 `AGENTS.md`，并为其他编程代理生成引用文件。本地脚本检测变化，无需调用模型。更新时显示差异，并保留管理区块之外的人工内容。
+
+`claude plugin install contextify@10x`
+
+[GitHub](https://github.com/Aboudjem/contextify)
+
 <a id="works-with-any-ai-editor"></a>
 ## 适配任意 AI 编辑器
 
@@ -137,7 +148,7 @@ npx skills add Aboudjem/sniff
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-这里的每一款插件都以技能的形式发布（技能即你的智能体读取的 Markdown 文件）。这就是为什么这八款插件都可以在 Claude Code 之外通过 `npx skills add` 安装，该命令自己的 README 列出了 77 个受支持的智能体。其中三款还能作为独立的 MCP 服务器运行，MCP 是编辑器用来连接外部工具所使用的协议：sniff 和 ui-ux-suite 可以直接从 npm 运行，recap-studio 则需要先克隆仓库、完成工作区构建之后才能运行。其余五款不提供 MCP 服务器。
+这里的每一款插件都以技能的形式发布（技能即你的智能体读取的 Markdown 文件）。这就是为什么这九款插件都可以在 Claude Code 之外通过 `npx skills add` 安装，该命令自己的 README 列出了 77 个受支持的智能体。其中三款还能作为独立的 MCP 服务器运行，MCP 是编辑器用来连接外部工具所使用的协议：sniff 和 ui-ux-suite 可以直接从 npm 运行，recap-studio 则需要先克隆仓库、完成工作区构建之后才能运行。其余六款不提供 MCP 服务器。
 
 | 智能体 | 一行安装命令 |
 |:--|:--|
@@ -151,7 +162,7 @@ npx skills add Aboudjem/sniff
 
 | | |
 |---|---|
-| **默认精简** | 不携带插件用不到的依赖。ui-ux-suite 以及其余五款技能不带任何依赖。recap-studio 的各个包依赖 zod，它的 web 应用则依赖 Next 和 React。sniff 需要驱动真实浏览器，所以它包含 Playwright 和 Lighthouse。 |
+| **默认精简** | 不携带插件用不到的依赖。ui-ux-suite 以及其余六款技能不带任何依赖。recap-studio 的各个包依赖 zod，它的 web 应用则依赖 Next 和 React。sniff 需要驱动真实浏览器，所以它包含 Playwright 和 Lighthouse。 |
 | **一条命令安装** | 不需要配置文件，也不需要注册。aws-cost-audit 是唯一需要你可能还没有的访问权限的插件：一个配置好、可以读取账户的 AWS CLI。 |
 | **真实的测试** | CI 断言的是行为，而不是某个文件是否存在。 |
 | **可在 Claude Code 之外运行** | 通过 `npx skills add` 安装进[70 多种智能体](https://github.com/vercel-labs/skills#supported-agents)。 |

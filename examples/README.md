@@ -13,7 +13,7 @@ claude plugin marketplace add Aboudjem/10x
 ```
 
 This registers the 10x marketplace in your Claude Code config. You only do this once.
-All eight plugins become available to install by name.
+All nine plugins become available to install by name.
 
 ### Step 2: Install a plugin
 
@@ -41,6 +41,9 @@ claude plugin install loopify@10x
 
 # Install secure-my-app (Claude Code skill; finds what a stranger can take, then proves it shut)
 claude plugin install secure-my-app@10x
+
+# Install contextify (agent instructions and deterministic drift checks)
+claude plugin install contextify@10x
 ```
 
 Each install wires up the plugin's MCP tools, slash commands, and agents automatically.
@@ -155,3 +158,11 @@ curl -fsSL https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/install.s
 
 For full documentation on each plugin, see the individual plugin repos linked from the
 [main README](../README.md).
+
+After installing `contextify`, open a session in the repository to document:
+
+```text
+/contextify init
+```
+
+Review the proposed diff; subsequent `/contextify check` runs report evidence drift without rewriting instructions.

@@ -13,7 +13,7 @@
 ## Bundled plugin commands
 
 Each bundled plugin owns its own command surface. These live in upstream repos and
-are installed automatically when the user runs `claude plugin marketplace add Aboudjem/10x`.
+become available after adding the marketplace; install each one with `claude plugin install <name>@10x`.
 They are not consolidated here because each one is a distinct tool with a distinct job.
 
 | Plugin | Primary slash command | Secondary commands |
@@ -22,6 +22,7 @@ They are not consolidated here because each one is a distinct tool with a distin
 | ui-ux-suite | `/design-audit` | `/color-audit`, `/type-audit`, `/layout-audit`, `/a11y-audit`, + 9 specialist audits |
 | recap-studio | `/recap "<topic>"` | `/recap session`, `/recap setup`, `/recap validate` |
 | aws-cost-audit | (skill, invoked via natural language) | n/a |
+| contextify | `/contextify init` | `/contextify update`, `/contextify check`, `/contextify accept` |
 
 ## Consolidation decision
 

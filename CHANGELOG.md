@@ -2,6 +2,13 @@
 
 All notable changes to this marketplace will be documented in this file.
 
+## [Unreleased]
+
+### Added
+
+- **contextify** (0.1.0, MIT) as the ninth plugin: one evidence-backed instruction source for coding agents, thin pointers, managed-block updates and deterministic drift checks.
+- Contextify install instructions across the marketplace listing, translations, command surface and examples.
+
 ## [2.0.1] - 2026-09-03
 
 A motion identity across the whole fleet, and the literal synthwave scenery removed everywhere.

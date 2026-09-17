@@ -18,7 +18,7 @@
   <a href="fr.md">Français</a>
 </p>
 
-<p align="center"><b>Un marketplace de plugins es una lista desde la que tu editor puede instalar. Esta contiene ocho herramientas de desarrollo para Claude Code, y la agregas una sola vez.</b></p>
+<p align="center"><b>Un marketplace de plugins es una lista desde la que tu editor puede instalar. Esta contiene nueve herramientas de desarrollo para Claude Code, y la agregas una sola vez.</b></p>
 
 <p align="center">
   <a href="#install">Instalación</a> ·
@@ -35,7 +35,7 @@ claude plugin marketplace add Aboudjem/10x
 <a id="install"></a>
 ## Instalación
 
-Agrega el marketplace una sola vez. Claude Code puede entonces instalar cualquiera de los ocho por su nombre.
+Agrega el marketplace una sola vez. Claude Code puede entonces instalar cualquiera de los nueve por su nombre.
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -63,6 +63,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Nombra 55 hábitos de escritura de IA y los reescribe | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Prepara un trabajo repetitivo para el `/loop` de Claude Code | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | Encuentra lo que un extraño puede llevarse y luego demuestra que quedó cerrado | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | Redacta instrucciones para agentes y comprueba que siguen vigentes | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
 
 <a id="what-each-one-does"></a>
 ## Qué hace cada uno
@@ -131,6 +132,16 @@ Encuentra lo que un extraño puede llevarse de tu aplicación, respalda cada hal
 
 [GitHub](https://github.com/Aboudjem/secure-my-app)
 
+### contextify
+
+**Tell every coding agent how your repo works. Then prove it is still true.**
+
+Escribe un `AGENTS.md` basado en los archivos del repositorio y referencias para otros agentes. Un script local detecta cambios sin llamar a un modelo. Las actualizaciones muestran un diff y conservan el contenido humano fuera de los bloques gestionados.
+
+`claude plugin install contextify@10x`
+
+[GitHub](https://github.com/Aboudjem/contextify)
+
 <a id="works-with-any-ai-editor"></a>
 ## Funciona con cualquier editor de IA
 
@@ -138,11 +149,11 @@ Encuentra lo que un extraño puede llevarse de tu aplicación, respalda cada hal
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-Cada plugin de aquí se distribuye como skills, que son archivos Markdown que tu agente lee. Por eso los ocho
+Cada plugin de aquí se distribuye como skills, que son archivos Markdown que tu agente lee. Por eso los nueve
 se instalan fuera de Claude Code mediante `npx skills add`, cuyo propio README lista 77 agentes compatibles.
 Tres también se ejecutan como un servidor MCP independiente, el protocolo que un editor habla para llegar a
 una herramienta externa: sniff y ui-ux-suite directamente desde npm, recap-studio desde un clon tras
-compilar el proyecto. Los otros cinco no incluyen servidor MCP.
+compilar el proyecto. Los otros seis no incluyen servidor MCP.
 
 | Agente | Instalación en una línea |
 |:--|:--|
@@ -156,7 +167,7 @@ compilar el proyecto. Los otros cinco no incluyen servidor MCP.
 
 | | |
 |---|---|
-| **Sin relleno por defecto** | Ninguna dependencia que un plugin no necesite. ui-ux-suite y las cinco skills no llevan ninguna. Los paquetes de recap-studio incorporan zod, y su aplicación web, Next y React. sniff maneja un navegador real, así que incluye Playwright y Lighthouse. |
+| **Sin relleno por defecto** | Ninguna dependencia que un plugin no necesite. ui-ux-suite y las seis skills no llevan ninguna. Los paquetes de recap-studio incorporan zod, y su aplicación web, Next y React. sniff maneja un navegador real, así que incluye Playwright y Lighthouse. |
 | **Instalación en un comando** | Sin archivo de configuración y sin registro. aws-cost-audit es el único que necesita un acceso que quizá no tengas: un AWS CLI configurado para leer la cuenta. |
 | **Pruebas reales** | CI que verifica el comportamiento, no que un archivo exista. |
 | **Se ejecuta fuera de Claude Code** | Se instala en [70+ agentes](https://github.com/vercel-labs/skills#supported-agents) mediante `npx skills add`. |
