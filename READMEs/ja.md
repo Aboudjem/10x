@@ -136,7 +136,7 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 **Tell every coding agent how your repo works. Then prove it is still true.**
 
-リポジトリのファイルを根拠に一つの `AGENTS.md` と各エージェント向けの参照ファイルを作ります。ローカルの変更検査はモデルを呼び出しません。更新時は差分を表示し、管理ブロック外の人間が書いた内容を保持します。
+`AGENTS.md` を短く保ち、正確な既存資料を再利用します。必要に応じて `docs/context/architecture.md` や `docs/context/workflows.md` を各120行以内で作成し、必要なときに読むためのリンクを付けます。インストール済みの Git フックがコミットとプッシュ時にモデルを使わず検査します。セッションフックは任意です。更新時は差分を表示し、管理ブロック外の人間が書いた内容を保持します。
 
 `claude plugin install contextify@10x`
 

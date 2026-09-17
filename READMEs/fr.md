@@ -139,7 +139,7 @@ Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque cons
 
 **Tell every coding agent how your repo works. Then prove it is still true.**
 
-Il rédige un `AGENTS.md` fondé sur les fichiers du dépôt et des renvois pour les autres agents de code. Un script local détecte les changements sans appeler de modèle. Les mises à jour affichent un diff et préservent le contenu humain hors des blocs gérés.
+Il garde `AGENTS.md` court et réutilise les documents existants qui sont à jour. Au besoin, il ajoute `docs/context/architecture.md` ou `docs/context/workflows.md`, limités à 120 lignes chacun et accessibles par des liens. Les hooks Git installés vérifient le contexte au commit et au push, sans appeler de modèle ; les hooks de session sont facultatifs. Les mises à jour affichent un diff et préservent le contenu humain hors des blocs gérés.
 
 `claude plugin install contextify@10x`
 

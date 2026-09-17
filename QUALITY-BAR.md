@@ -116,7 +116,7 @@ document its slash commands and MCP tools.
 | 6 | `humanizer`       | 0.7.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
 | 7 | `loopify`         | 1.1.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
 | 8 | `secure-my-app`       | 0.2.0 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
-| 9 | `contextify` | 0.1.0 | MIT | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
+| 9 | `contextify` | 0.2.0 | MIT | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -145,7 +145,7 @@ bar's zero-bloat (pure Markdown, no runtime dependency, no network call of its o
 standalone-CLI items do not apply to a skill plugin. Its real-verification item is the one still open:
 `python3 tests/test_manifests.py` is the command, and its output has not been recorded here yet.
 
-`contextify` is a skill plugin with local shell/Python scripts and no package dependencies or MCP server. Its drift check runs without a model; generation uses the host coding agent. See its [evaluation record](https://github.com/Aboudjem/contextify/blob/main/evals/dogfood.md) for measured behavior and validation limits.
+`contextify` is a skill plugin with local shell/Python scripts and no package dependencies or MCP server. Its drift check runs without a model; generation uses the host coding agent. See its [0.2 feature evaluation](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) for measured behavior and validation limits.
 
 ## How item 1 is read
 
@@ -174,11 +174,11 @@ Each command was run in the plugin's own repo on the released commit.
 Last verified: 2026-09-03.
 
 
-## Contextify verification, 2026-09-17
+## Contextify 0.1 verification, 2026-09-17 (historical)
 
 These checks ran in the Contextify repository during the Codex continuation. They do not refresh the older plugins' 2026-09-03 results above.
 
-| Command | Current output |
+| Command | Historical 0.1 output |
 | --- | --- |
 | `python3 tests/test_ctx_check.py` | `119/119 checks passed` |
 | `python3 tests/test_verify_claims.py` | `30/30 checks passed` |
@@ -188,3 +188,19 @@ These checks ran in the Contextify repository during the Codex continuation. The
 | `python3 evals/check_skill.py skills/contextify/SKILL.md` | `110/110` |
 
 Claude model validation remains unperformed because the weekly Claude limit was reached. Deterministic Claude CLI manifest validation is a separate check; it does not consume a model run or establish model quality. The [evaluation record](https://github.com/Aboudjem/contextify/blob/main/evals/dogfood.md) documents the independent Codex review and dogfood limits.
+
+## Contextify 0.2 verification, 2026-09-17
+
+The Contextify extension was checked locally after implementation. These results cover the current feature tests, not fresh validation of any other listed plugin.
+
+| Command | 0.2 local output |
+| --- | --- |
+| `python3 tests/test_ctx_check.py` | `119/119 checks passed` |
+| `python3 tests/test_verify_claims.py` | `30/30 checks passed` |
+| `python3 tests/test_regressions.py` | 23 tests passed |
+| `python3 tests/test_hooks.py` | 20 tests passed |
+| `python3 tests/test_supporting_docs.py` | 16 tests passed |
+| `python3 tests/test_manifests.py` | `130/130 checks passed` |
+| `python3 evals/check_skill.py skills/contextify/SKILL.md` | `114/114` |
+
+The [0.2 evaluation record](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) records local validation, generated context and remaining limits. Independent Codex review covered the implementation. Claude model validation remains unavailable; CLI validation is separate. Git hooks are advisory by default, inspect the current working tree and never rewrite context. Supporting documents carry the same evidence and preservation requirements as agent instructions.

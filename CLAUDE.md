@@ -28,7 +28,7 @@ Current pins (cross-checked 2026-09-03): sniff 0.8.1 (Apache-2.0), ui-ux-suite 0
 recap-studio 0.5.1 (MIT), aws-cost-audit 0.3.1 (MIT), goalify 2.6.1 (MIT), humanizer 0.7.1 (MIT),
 loopify 1.1.1 (MIT).
 
-Listing addition prepared 2026-09-17: secure-my-app 0.2.0 (existing pin), contextify 0.1.0 (MIT, sourced from its plugin manifest). The older cross-check date above is not a new verification of the other pins.
+Listing addition prepared 2026-09-17: secure-my-app 0.2.0 (existing pin), contextify 0.2.0 (MIT; release alignment recorded in QUALITY-BAR.md). The older cross-check date above is not a new verification of the other pins.
 
 ## KEY GOTCHA: the sync bot only touches marketplace.json
 

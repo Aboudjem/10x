@@ -135,7 +135,7 @@ npx skills add Aboudjem/sniff
 
 **Tell every coding agent how your repo works. Then prove it is still true.**
 
-根据仓库文件编写一个 `AGENTS.md`，并为其他编程代理生成引用文件。本地脚本检测变化，无需调用模型。更新时显示差异，并保留管理区块之外的人工内容。
+保持 `AGENTS.md` 简短，优先复用准确的现有文档。需要时添加 `docs/context/architecture.md` 或 `docs/context/workflows.md`，每个文件最多120行，通过链接按需读取。安装后的 Git 钩子在提交和推送时检查上下文，无需调用模型；会话钩子可选。更新时显示差异，并保留管理区块外的人工内容。
 
 `claude plugin install contextify@10x`
 

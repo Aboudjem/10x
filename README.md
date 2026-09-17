@@ -133,7 +133,7 @@ It finds what a stranger can take from your app, proves each finding with a comm
 
 **Tell every coding agent how your repo works. Then prove it is still true.**
 
-It writes one evidence-backed `AGENTS.md` and thin pointers for other coding agents. Its local drift check uses no model; updates show a diff and preserve human content outside managed blocks.
+It keeps `AGENTS.md` short and reuses accurate existing docs. When useful, it adds `docs/context/architecture.md` or `docs/context/workflows.md`, at most 120 lines each, linked for reading when needed. Installed Git hooks check at commit and push without calling a model; session hooks are opt-in. Updates show a diff and preserve human content outside managed blocks.
 
 `claude plugin install contextify@10x`
 

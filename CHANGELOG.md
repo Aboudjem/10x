@@ -4,6 +4,12 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- **contextify** 0.2.0: optional evidence-backed architecture and workflow documents, capped at 120 lines each and linked from a short `AGENTS.md`; accurate existing docs are reused first.
+- Contextify defaults to installed Git checks at commit and push. Session hooks are opt-in; safe activation preserves existing hook configurations. Git checks inspect the working tree and are advisory by default.
+- Updated the Contextify listing and 0.2 evaluation links across the hub. The 0.1 addition and evaluation remain historical records.
+
 ### Added
 
 - **contextify** (0.1.0, MIT) as the ninth plugin: one evidence-backed instruction source for coding agents, thin pointers, managed-block updates and deterministic drift checks.

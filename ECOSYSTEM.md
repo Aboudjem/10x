@@ -2,7 +2,7 @@
 
 **10x** is a curated marketplace of Claude Code plugins. Every one of them also installs into 70+
 other agents through the Vercel skills CLI, and three of them run as a standalone MCP server or CLI
-in any editor. Existing release alignment: **2026-09-03**. Contextify listing prepared **2026-09-17**; its live pin and release checks are part of the listing gate.
+in any editor. Existing release alignment: **2026-09-03**. Contextify 0.2 alignment: **2026-09-17**. Its local feature evidence is recorded separately from the older plugins below.
 
 > Install any tool in two lines:
 > ```
@@ -22,7 +22,7 @@ in any editor. Existing release alignment: **2026-09-03**. Contextify listing pr
 | **humanizer** | 0.7.1 | AI-writing detector and rewriter. Names **55 AI writing patterns** (inflated symbolism, em dash overuse, promotional language, rule-of-three, and more), rewrites with sentence-length burstiness across **5 voice profiles** (casual, professional, technical, warm, blunt), and produces a **0-100 AI-tell score**. Three modes: detect, rewrite, edit. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server). | `claude plugin install humanizer@10x` | [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) | _(skill, no npm)_ | MIT |
 | **loopify** | 1.1.1 | Recurring-job prep. For work that repeats rather than finishes: writes **the brief** (a standing file the loop re-reads every tick) plus **the line** (one short string you paste into Claude Code's built-in `/loop`), with a **tick cap**, a **stop rule** and five safety rails. Every tick logs what it did to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`. A Claude Code skill (no MCP server). | `claude plugin install loopify@10x` | [Aboudjem/loopify](https://github.com/Aboudjem/loopify) | _(skill, no npm)_ | MIT |
 | **secure-my-app** | 0.2.0 | Attack-surface hardening. Finds **what a stranger can take** from your app, proves each finding with **a command whose output you can read**, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. **65 controls in seven groups**: secrets, authentication, record and tenant access, injection, data leaving the app, abuse, and dependencies. A clean run is never called secure: the third gate label reads `NOTHING CONFIRMED HERE`. A Claude Code skill (no MCP server). | `claude plugin install secure-my-app@10x` | [Aboudjem/secure-my-app](https://github.com/Aboudjem/secure-my-app) | _(skill, no npm)_ | MIT |
-| **contextify** | 0.1.0 | Evidence-backed agent instructions with thin pointers, preserved human edits and deterministic drift checks. | `claude plugin install contextify@10x` | [Aboudjem/contextify](https://github.com/Aboudjem/contextify) | _(skill, no npm)_ | MIT |
+| **contextify** | 0.2.0 | Short instructions, optional architecture/workflow docs, preserved human edits and installed Git checks at commit/push. | `claude plugin install contextify@10x` | [Aboudjem/contextify](https://github.com/Aboudjem/contextify) | _(skill, no npm)_ | MIT |
 
 Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v2.0.1).
 
@@ -50,9 +50,11 @@ Every figure below was re-derived on 2026-09-03 by running the command in the pl
 - **secure-my-app**: nothing re-derived yet. It is listed at 0.2.0 and its command is
   `python3 tests/test_manifests.py`, but no run has been recorded here, so no figure is quoted.
 
-## Contextify verification, 2026-09-17
+## Contextify 0.2 verification, 2026-09-17
 
-Contextify's current local checks passed: 119 drift/writer checks, 30 claim checks, 23 regression tests, 6 hook tests, 135 manifest checks and 110 skill checks. These results come from the Codex continuation; they do not refresh the older plugins' results above. Claude model validation remains unavailable because the weekly limit was reached. See the [evaluation record](https://github.com/Aboudjem/contextify/blob/main/evals/dogfood.md) for the scope and limits.
+Local checks passed: 119 drift/writer checks, 30 claim checks, 23 regression tests, 20 hook tests, 16 supporting-document tests, 130 manifest checks and 114 skill checks. These results do not refresh the older plugins' results above. The [0.2 feature evaluation](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) records the tested behavior, generated self-context and limits. The [0.1 dogfood record](https://github.com/Aboudjem/contextify/blob/main/evals/dogfood.md) remains historical evidence.
+
+Installed Git hooks inspect the working tree, not staged snapshots or pushed refs. Architecture and workflow documents are optional, limited to 120 lines each and read when relevant. Claude model validation remains unavailable because the weekly limit was reached.
 
 ## Multi-editor support
 

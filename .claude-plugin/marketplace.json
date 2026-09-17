@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app in a real browser and tells you what is actually broken, with the steps to reproduce it. ui-ux-suite is ESLint for design: the exact line, the measured wrong value, the exact fix. recap-studio turns a topic or a coding session into one offline HTML explainer you can double-click. aws-cost-audit reads your live AWS account read-only and checks every price against live AWS pricing. goalify writes the brief and the condition for a big task a fresh session runs on its own. humanizer names 55 AI writing habits and rewrites text in the voice you pick. loopify writes the brief and the line that keep a repeating job running on Claude Code's built-in /loop. secure-my-app finds what a stranger can take from your app, then proves each fix shut with the same command that found it. contextify writes evidence-backed agent instructions and checks for drift without a model. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); aws-cost-audit, goalify, humanizer, loopify, secure-my-app and contextify are Claude Code skills (no MCP server)."
+    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app in a real browser and tells you what is actually broken, with the steps to reproduce it. ui-ux-suite is ESLint for design: the exact line, the measured wrong value, the exact fix. recap-studio turns a topic or a coding session into one offline HTML explainer you can double-click. aws-cost-audit reads your live AWS account read-only and checks every price against live AWS pricing. goalify writes the brief and the condition for a big task a fresh session runs on its own. humanizer names 55 AI writing habits and rewrites text in the voice you pick. loopify writes the brief and the line that keep a repeating job running on Claude Code's built-in /loop. secure-my-app finds what a stranger can take from your app, then proves each fix shut with the same command that found it. contextify writes short agent instructions and optional architecture/workflow docs, then uses installed Git hooks to check drift at commit and push without a model. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); aws-cost-audit, goalify, humanizer, loopify, secure-my-app and contextify are Claude Code skills (no MCP server)."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -174,7 +174,7 @@
     {
       "name": "contextify",
       "description": "Tell every coding agent how your repo works. Then prove it is still true.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "homepage": "https://github.com/Aboudjem/contextify",
       "license": "MIT",
       "keywords": [
