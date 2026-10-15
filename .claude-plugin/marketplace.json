@@ -55,7 +55,7 @@
         "repo": "Aboudjem/recap-studio"
       },
       "description": "Turn any topic or coding session into a dark-mode, mobile-first explainer you can double-click to open. The output is one HTML file with every style inlined, no JavaScript and no external request, readable offline in about five minutes. Deterministic checks score it before you ship.",
-      "version": "0.5.1",
+      "version": "0.5.2",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
