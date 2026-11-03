@@ -94,7 +94,7 @@
         "source": "github",
         "repo": "Aboudjem/goalify"
       },
-      "description": "Hand Claude a huge task. Come back to proof it's done, not a promise that it is. goalify asks every question up front, writes the brief (a file holding what the run has to do) and the condition (one line you paste into `/goal`), so a fresh session works non-stop and quotes the checks passing in its closing turn. New in 3.0: a run preview page, proof receipts with /goalify verify, /goalify status, and check detection. A Claude Code skill (no MCP server).",
+      "description": "Give your AI a big job. goalify asks all the questions first. Then the AI works alone, for hours, and shows you proof at the end. New in 3.0: a plan preview page and proof receipts. Works best in Claude Code and Codex. A Claude Code skill (no MCP server).",
       "version": "3.0.0",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
