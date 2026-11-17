@@ -74,4 +74,11 @@ jobs:
             bumps="marketplace version pins"
           fi
           git commit -m "chore(sync): $bumps"
-          git push
+          # Another push can land while this job runs. Rebase onto it and retry;
+          # a conflict on marketplace.json stops the job instead of forcing.
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase origin main
+          done
+          echo "push failed after 3 attempts" >&2
+          exit 1

@@ -4,6 +4,34 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.1] - 2026-11-17
+
+Fixes from an independent check of 2.1.0, plus three plugin patch releases. Install commands are unchanged.
+
+### Fixed
+
+- `npm run sync:check` no longer prints `drift: none` when it could not read a plugin repo.
+  It prints `unverified: <n> of <total> ...` and exits 1. Tests cover the all-failed and partly-failed cases.
+- The scheduled sync writes only pins it read. A run that read none exits 1 and commits nothing.
+  It now rebases and retries when another push lands first.
+- `llms.txt` and `AGENTS.md` claimed a 29-item checklist; `QUALITY-BAR.md` has 30. They no longer state a count,
+  and a test fails if any doc states one that differs.
+- README: the Proof column names a line each command prints. The quick-start block shows both commands.
+- "third gate label" now reads "third verdict", as in secure-my-app's own README.
+- `QUALITY-BAR.md`: "Verify before listing" is now two short lists, tool plugins and skill plugins,
+  with commands that work today. A stale sentence about 2026-09-03 results is gone.
+- `docs/SYNC.md` no longer says the listed descriptions differ from upstream; all nine match.
+
+### Added
+
+- README Limits: sniff's MCP server downloads a browser stack on first start and can pass the connect timeout.
+  Warm it up with `npx -y sniff-qa --version`. `claude plugin list` can show informational notes.
+
+### Changed
+
+- Pins: humanizer 0.8.1, loopify 1.2.2, contextify 0.3.2. The humanizer listing uses its new upstream description.
+- Test counts refreshed: loopify gained a `5/5` suite, contextify's manifest suite is `155/155`.
+
 ## [2.1.0] - 2026-11-17
 
 Two plugins joined the list since 2.0.1, all nine got a new release, and CI now loads the manifest

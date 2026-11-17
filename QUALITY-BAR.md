@@ -30,7 +30,7 @@ the fleet standard wins and this file gets fixed.
 
 - [ ] `claude plugin install <name>@10x` succeeds with no follow-up prompts.
       `claude plugin list` may still print an informational note (recap-studio shows a lockfile
-      note). A note is allowed; an install that asks a question or fails is not.
+      note, and sniff 0.9.0 says the packages it lists are not installed). A note is allowed; an install that asks a question or fails is not.
 - [ ] `npx <name>` works as a standalone CLI when relevant.
 - [ ] No required env vars on first run. Every feature with an env var has
       a clearly-marked off-by-default path. A plugin that needs credentials for a
@@ -130,10 +130,10 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 | 3 | `recap-studio`    | 0.6.1 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
 | 4 | `aws-cost-audit`  | 0.4.1 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | 5 | `goalify`         | 3.1.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
-| 6 | `humanizer`       | 0.8.0 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
-| 7 | `loopify`         | 1.2.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
+| 6 | `humanizer`       | 0.8.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 7 | `loopify`         | 1.2.2 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
 | 8 | `secure-my-app`   | 0.3.0 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
-| 9 | `contextify`      | 0.3.1 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
+| 9 | `contextify`      | 0.3.2 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -186,9 +186,9 @@ Run the command in a clone of that repo to re-print it.
 | aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
 | goalify | `make test` | `10/10 suites passed`, `448/448 checks passed` |
 | humanizer | `npm test` | `# pass 77`, `# fail 0` |
-| loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18` |
+| loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18`, `5/5` |
 | secure-my-app | `make test` | `79/79`, `138/138`, `33/33` |
-| contextify | `make test` | `128/128`, `30/30`, `131/131`, `114/114`, three unittest suites OK |
+| contextify | `make test` | `128/128`, `30/30`, `155/155`, `114/114`, three unittest suites OK |
 
 Last verified: 2026-11-17.
 

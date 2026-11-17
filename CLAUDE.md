@@ -26,8 +26,8 @@ here. The repo surface is `.claude-plugin/marketplace.json` plus docs, assets, a
 
 Current pins (cross-checked 2026-11-17 against each plugin repo's `.claude-plugin/plugin.json`):
 sniff 0.9.0 (Apache-2.0), ui-ux-suite 0.7.0 (MIT), recap-studio 0.6.1 (MIT), aws-cost-audit 0.4.1 (MIT),
-goalify 3.1.1 (MIT), humanizer 0.8.0 (MIT), loopify 1.2.1 (MIT), secure-my-app 0.3.0 (MIT),
-contextify 0.3.1 (MIT). Each entry's `description` now equals the upstream `plugin.json` description,
+goalify 3.1.1 (MIT), humanizer 0.8.1 (MIT), loopify 1.2.2 (MIT), secure-my-app 0.3.0 (MIT),
+contextify 0.3.2 (MIT). Each entry's `description` now equals the upstream `plugin.json` description,
 so `npm run sync:check` reports no description drift.
 
 ## KEY GOTCHA: the sync bot only touches marketplace.json

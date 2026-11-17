@@ -259,7 +259,7 @@ No. The repo holds a JSON file, docs and images. Nothing in it runs on your mach
 - aws-cost-audit needs an AWS CLI that can read your account.
 - sniff's MCP server downloads a browser stack on its first start. That can pass Claude Code's connect timeout. Warm it up once first: `npx -y sniff-qa --version`.
   If a cut-off download left npx with an `Invalid Version` error, clear its cache (`rm -rf ~/.npm/_npx`) and run the warmup again.
-- `claude plugin list` can show an informational note next to a plugin, for example recap-studio's lockfile note. The plugin still installs and runs.
+- `claude plugin list` can show an informational note next to a plugin, for example recap-studio's lockfile note, or sniff 0.9.0 saying the packages it lists are not installed. The plugin still installs and runs.
 - The version listed here can trail a new plugin release by up to six hours, until the sync job runs.
 - Each plugin keeps its own license. sniff is Apache-2.0, the other eight are MIT.
 

@@ -259,7 +259,7 @@ CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每
 - aws-cost-audit 需要一个能读取你账户的 AWS CLI。
 - sniff 的 MCP 服务器首次启动时会下载一套浏览器工具。这可能超过 Claude Code 的连接超时。请先预热一次：`npx -y sniff-qa --version`。
   如果下载中断导致 npx 报 `Invalid Version` 错误，请清掉它的缓存（`rm -rf ~/.npm/_npx`），再预热一次。
-- `claude plugin list` 可能会在某个插件旁显示一条提示信息，例如 recap-studio 的 lockfile 提示。插件照样能安装和运行。
+- `claude plugin list` 可能会在某个插件旁显示一条提示信息，例如 recap-studio 的 lockfile 提示，或 sniff 0.9.0 提示它列出的包未安装。插件照样能安装和运行。
 - 在同步任务运行之前，这里列出的版本可能比插件的新版本最多落后六小时。
 - 每款插件保留自己的许可证。sniff 采用 Apache-2.0，其余八款采用 MIT。
 
