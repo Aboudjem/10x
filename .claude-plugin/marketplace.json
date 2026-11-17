@@ -79,7 +79,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Ranks what to cut on your AWS bill, three cuts first. Each cut is priced from AWS at run time; a priced finding without its lookup record is rejected. Dry-run by default.",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
@@ -141,7 +141,7 @@
         "repo": "Aboudjem/loopify"
       },
       "description": "Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE.",
-      "version": "1.2.3",
+      "version": "1.2.4",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
       "keywords": [
