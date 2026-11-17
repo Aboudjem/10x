@@ -57,7 +57,7 @@
         "repo": "Aboudjem/recap-studio"
       },
       "description": "Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send.",
-      "version": "0.6.2",
+      "version": "0.6.3",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
@@ -99,7 +99,7 @@
         "repo": "Aboudjem/goalify"
       },
       "description": "Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt.",
-      "version": "3.1.2",
+      "version": "3.1.3",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
       "keywords": [
