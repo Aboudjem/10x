@@ -15,10 +15,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.x"
 
@@ -49,26 +51,40 @@ jobs:
           print(f"PASS: valid JSON with {len(data['plugins'])} plugin(s) -> {path}")
           PY
 
-      # (b) claude plugin validate: run only if the CLI is available (do not hard-fail if absent)
-      - name: claude plugin validate (if CLI available)
+      # (b) claude plugin validate: the real loader, on a pinned Claude Code.
+      # No login is needed to validate a manifest. The version is bumped by hand,
+      # after `claude plugin validate . --strict` passes locally on the new one.
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code (pinned)
         shell: bash
+        env:
+          CLAUDE_CODE_VERSION: "2.1.326"
         run: |
-          if command -v claude >/dev/null 2>&1; then
-            echo "claude CLI found, validating marketplace manifest (strict)"
-            claude plugin validate . --strict
-          else
-            echo "SKIP: 'claude' CLI is not installed on this runner; skipping plugin validate."
-            echo "JSON validity is already enforced by the previous step."
-          fi
+          # The native binary is an optional dependency whose download can
+          # stall, so check that it runs and retry from a clean state.
+          for attempt in 1 2 3; do
+            timeout -k 10 300 npm install -g --include=optional "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}" || true
+            if claude --version; then exit 0; fi
+            npm uninstall -g @anthropic-ai/claude-code || true
+            npm cache clean --force || true
+            sleep $((attempt * 10))
+          done
+          echo "::error::Claude Code did not install after 3 attempts."
+          exit 1
+
+      - name: claude plugin validate (strict)
+        run: claude plugin validate . --strict
 
       # (c) MARKDOWN LINK CHECK (lychee)
-      # GitHub answers 404 to any non-browser client on /stargazers pages
-      # (even for vercel/next.js), so the star-badge link is skipped like
-      # linkedin.com; the token lets lychee resolve other github.com links
-      # through the API. adam-boudjemaa.com is up (200 from a browser) but
-      # refuses connections from GitHub-hosted runners, so it is skipped too.
+      # The token lets lychee resolve github.com links through the API.
+      # adam-boudjemaa.com is up (200 from a browser) but refuses connections
+      # from GitHub-hosted runners, so it is skipped like linkedin.com.
       - name: Markdown link check
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: >-
@@ -76,7 +92,6 @@ jobs:
             --accept 200,206,403,429
             --exclude linkedin\.com
             --exclude adam-boudjemaa\.com
-            --exclude 'github\.com/.*/stargazers'
             './**/*.md'
             './llms.txt'
           fail: true
@@ -108,15 +123,20 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "22"
 
       - name: Unit tests
-        run: node --test "tests/**/*.test.mjs"
+        run: npm test
+
+      - name: Marketplace structure
+        run: npm run validate
 
       # Blocking: a pin that lags its plugin repo, or a plugin whose
       # plugin.json cannot be read, fails the build. sync-plugins.yml is what

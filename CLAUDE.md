@@ -67,9 +67,15 @@ plugin's own README (do not carry a stale number forward), and update the "Last 
 `.github/workflows/validate.yml` runs on push to `main` and on every pull request. Steps:
 
 1. **JSON validity** of `marketplace.json` (Python `json.load`, checks required fields).
-2. **`claude plugin validate . --strict`** when the `claude` CLI is available on the runner.
+2. **`claude plugin validate . --strict`** on a pinned Claude Code (`CLAUDE_CODE_VERSION` in the
+   workflow, installed from npm). The step is unconditional: a manifest that does not load fails the build.
 3. **Markdown link check** (lychee) over `**/*.md` and `llms.txt`.
 4. **Secret scan (gitleaks).**
+
+A second job, `drift`, runs `npm test`, `npm run validate` and `node scripts/sync-plugins.mjs --check`.
+
+Every action is pinned to a commit sha with the version in a comment. `.github/dependabot.yml` opens
+the weekly update. Do not put an action back on a moving tag such as `@v4`.
 
 ### gitleaks CI approach
 
