@@ -24,6 +24,27 @@ The marketplace manifest is `.claude-plugin/marketplace.json`. Keep entries conc
 
 Version pins are not edited by hand; they sync automatically from each plugin repo. See [docs/SYNC.md](docs/SYNC.md).
 
+## Plugin names never change
+
+A plugin's `name` in `marketplace.json` is part of every install command (`claude plugin install <name>@10x`).
+Renaming an entry breaks that command for everyone who already uses it. So:
+
+- Never rename a listed plugin.
+- A plugin that changes its repo keeps its `name`. Only the `source` moves.
+- If a rename is ever unavoidable, add the old name to a top-level `renames` map
+  (`"old-name": "new-name"`) in the same commit, so existing installs keep resolving.
+
+## Before you open a pull request
+
+```bash
+npm test
+npm run validate
+npm run sync:check
+claude plugin validate . --strict
+```
+
+All four must exit 0. CI runs the same four.
+
 ## License
 
 By contributing, you agree your contributions will be licensed under the MIT License.

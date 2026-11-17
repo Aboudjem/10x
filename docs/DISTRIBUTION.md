@@ -9,14 +9,14 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 
 | Asset | Status | Evidence |
 |---|---|---|
-| loopify | PENDING | Submitted 2026-09-01, "Your plugin submission has been received"; no public tracker — check the Console |
-| 10x marketplace | BLOCKED-form-plugin-only | Form is plugin-scoped ("Link to plugin", "Plugin name"; no marketplace entry type) — screenshots anthropic-form-step1-intro.jpg / anthropic-form-step2-plugin-scoped.jpg |
-| sniff | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review — Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-sniff.jpg |
-| ui-ux-suite | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review — Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-ui-ux-suite.jpg |
-| recap-studio | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review — Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-recap-studio.jpg |
-| aws-cost-audit | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review — Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-aws-cost-audit.jpg |
-| goalify | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review — Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-goalify.jpg |
-| humanizer | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review — Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-humanizer.jpg |
+| loopify | PENDING | Submitted 2026-09-01, "Your plugin submission has been received"; no public tracker, check the Console |
+| 10x marketplace | BLOCKED-form-plugin-only | Form is plugin-scoped ("Link to plugin", "Plugin name"; no marketplace entry type). Screenshots anthropic-form-step1-intro.jpg / anthropic-form-step2-plugin-scoped.jpg |
+| sniff | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review", then "Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-sniff.jpg |
+| ui-ux-suite | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review", then "Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-ui-ux-suite.jpg |
+| recap-studio | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review", then "Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-recap-studio.jpg |
+| aws-cost-audit | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review", then "Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-aws-cost-audit.jpg |
+| goalify | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review", then "Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-goalify.jpg |
+| humanizer | FILED | Submitted 2026-09-02; confirmation: "Plugin submitted for review", then "Your plugin submission has been received." Screenshot in .goal/audit/screens/anthropic-humanizer.jpg |
 
 ## GitHub lists
 
@@ -26,7 +26,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | punkpeye/awesome-mcp-servers | ui-ux-suite | FILED | [#13424](https://github.com/punkpeye/awesome-mcp-servers/pull/13424), same invitation |
 | composio-community/awesome-claude-plugins | 6 plugins + loopify + 10x | REPAIRED | [#257](https://github.com/composio-community/awesome-claude-plugins/pull/257): was CONFLICTING, merged upstream 2026-09-02, now MERGEABLE; rows updated (humanizer 55, sourced ui-ux copy) and extended with loopify + the 10x marketplace |
 | rohitg00/awesome-claude-code-toolkit | recap-studio, aws-cost-audit, goalify, loopify, 10x | REPAIRED | [#471](https://github.com/rohitg00/awesome-claude-code-toolkit/pull/471): branch refreshed 2026-09-02 with a loopify row and the 7-plugin 10x row; MERGEABLE; sniff-qa already listed upstream, not re-added |
-| ComposioHQ/awesome-claude-plugins | 10x marketplace | SKIPPED-same-repo | github.com/ComposioHQ/awesome-claude-plugins redirects to composio-community/awesome-claude-plugins (org move, verified via API + push redirect 2026-09-02) — covered by #257 |
+| ComposioHQ/awesome-claude-plugins | 10x marketplace | SKIPPED-same-repo | github.com/ComposioHQ/awesome-claude-plugins redirects to composio-community/awesome-claude-plugins (org move, verified via API + push redirect 2026-09-02), covered by #257 |
 | ComposioHQ/awesome-claude-skills | humanizer | PR-OPEN | [#1336](https://github.com/ComposioHQ/awesome-claude-skills/pull/1336), ready-to-merge, no bump (last touched 2026-08-25) |
 | ComposioHQ/awesome-claude-skills | loopify | PR-OPEN | [#1792](https://github.com/ComposioHQ/awesome-claude-skills/pull/1792), ready-to-merge |
 | ComposioHQ/awesome-claude-skills | sniff, ui-ux-suite | SKIPPED-out-of-scope | Their README scopes skills as "not MCP servers and not tools"; stale issue #685 closed with pointer to #1336 |
@@ -35,7 +35,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | jamesmurdza/awesome-ai-devtools | sniff, ui-ux-suite | FILED | [#1048](https://github.com/jamesmurdza/awesome-ai-devtools/pull/1048) (first try #1047 was bot-closed `invalid-template` in one second; re-filed with their exact headings); #445 closed, pointer corrected to #1048 |
 | e2b-dev/awesome-ai-agents | recap-studio | FILED | [#1484](https://github.com/e2b-dev/awesome-ai-agents/pull/1484); stale issue #940 closed with a pointer |
 | anthropics/skills | loopify | PR-OPEN | [#1702](https://github.com/anthropics/skills/pull/1702), ~861 open PRs in queue |
-| hesreallyhim/awesome-claude-code | humanizer | REPAIRED | [#1809](https://github.com/hesreallyhim/awesome-claude-code/issues/1809): description cut to 466/500 chars, 55 patterns, category moved to Writing & Prose Quality — label now `validation-passed`: "All validation checks passed! Your recommendation is ready for a maintainer to review." |
+| hesreallyhim/awesome-claude-code | humanizer | REPAIRED | [#1809](https://github.com/hesreallyhim/awesome-claude-code/issues/1809): description cut to 466/500 chars, 55 patterns, category moved to Writing & Prose Quality. Label now `validation-passed`: "All validation checks passed! Your recommendation is ready for a maintainer to review." |
 | hesreallyhim/awesome-claude-code | everything else | BLOCKED-one-submission-per-author | #1809 occupies the single slot; goalify #2692 auto-closed for this rule 2026-09-01; loopify window opens 2026-09-15 (form values in loopify docs/launch.md) |
 | GiladShoham/awesome-claude-plugins | any | SKIPPED-vendoring-required | Requires copying plugin files into their repo; no link-only path (README checked 2026-09-02) |
 
@@ -55,7 +55,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | claudepluginhub.com | any | BLOCKED-captcha | Submit page sits behind a Cloudflare human-verification interstitial |
 | claudecodemarketplace.net | any | BLOCKED-site-down | Page renders only "no available server" on both attempts 2026-09-02 |
 | cursor.directory | sniff-qa, ui-ux-suite | BLOCKED-needs-login | "Submit a plugin" → /login (GitHub/Google OAuth); Cursor-audience, low fit |
-| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.8.1, ui-ux-suite 0.6.1 (re-checked 2026-09-04). Keyword tuning: ui-ux-suite now carries `claude-code`, `claude-code-plugin`, `mcp`; sniff-qa still lacks `claude-code`/`mcp-server` — needs its next release |
+| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.8.1, ui-ux-suite 0.6.1 (re-checked 2026-09-04). Keyword tuning: ui-ux-suite now carries `claude-code`, `claude-code-plugin`, `mcp`; sniff-qa still lacks `claude-code`/`mcp-server` (needs its next release) |
 | skills.sh | humanizer | LISTED | skills.sh/Aboudjem/humanizer-skill, 554 installs |
 | skills.sh | loopify | LISTED | skills.sh/Aboudjem/loopify (1 install; search ranking is telemetry-driven) |
 | TensorBlock/awesome-mcp-servers | sniff, ui-ux-suite | LISTED | Auto-crawled by their bot; no action possible |

@@ -7,6 +7,10 @@ This document is the **explicit checklist** behind the short version in the
 README. Maintainers run through it before listing a new plugin, and again
 on every quarterly review.
 
+The bar says what a plugin must be. [FLEET-STANDARD.md](FLEET-STANDARD.md) says how each repo is
+checked, rule by rule, with `node scripts/fleet-check.mjs --group plugins`. Where the two disagree,
+the fleet standard wins and this file gets fixed.
+
 ---
 
 ## 1. Zero bloat
@@ -55,6 +59,8 @@ on every quarterly review.
 - [ ] `docs/editors.md` has copy-paste setup for at least 6 editors
       (Claude Code, Cursor, VS Code + Copilot, Codex, Gemini CLI, Windsurf,
       Continue.dev, OpenCode, Zed), and the README links it.
+- [ ] README sections in the fleet order: install, how it works, proof, FAQ, limits
+      ([FLEET-STANDARD.md](FLEET-STANDARD.md) rules R3 and R4).
 - [ ] No emoji in section headers. No em dashes. No marketing fluff.
 
 ## 6. Polish
@@ -62,7 +68,8 @@ on every quarterly review.
 - [ ] Light and dark `.github/assets/logo-*.svg` exist.
 - [ ] Logos are **animated** (subtle, respecting `prefers-reduced-motion`
       via the same media query strategy).
-- [ ] Badge row: license, CI status, npm version, Node version, stars.
+- [ ] Badge row: license and CI status, plus npm version and Node version when the plugin ships a package.
+      No stars badge and no star count: [FLEET-STANDARD.md](FLEET-STANDARD.md) rule R6 forbids both.
 - [ ] Social footer with at least LinkedIn + X + website.
 
 ## 7. Maintenance

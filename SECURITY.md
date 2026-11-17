@@ -25,6 +25,8 @@ repository and has its own security policy. Report plugin-specific issues there:
 - `goalify` → https://github.com/Aboudjem/goalify
 - `humanizer` → https://github.com/Aboudjem/humanizer-skill
 - `loopify` → https://github.com/Aboudjem/loopify
+- `secure-my-app` → https://github.com/Aboudjem/secure-my-app
+- `contextify` → https://github.com/Aboudjem/contextify
 
 ## Reporting a vulnerability
 
@@ -44,6 +46,8 @@ responsibly with credit to the reporter if wanted.
   their own `Aboudjem/<repo>` GitHub source.
 - This repo has no telemetry, no analytics, and no runtime network calls; it is a manifest plus
   docs and static assets.
-- CI (`.github/workflows/validate.yml`) validates that the manifest is valid JSON, checks that every
-  version pin matches the upstream plugin repo (`scripts/sync-plugins.mjs --check`), and scans tracked
-  files for secrets on every push and pull request.
+- CI (`.github/workflows/validate.yml`) validates that the manifest is valid JSON, loads it with a
+  pinned Claude Code (`claude plugin validate . --strict`), checks that every version pin matches the
+  upstream plugin repo (`scripts/sync-plugins.mjs --check`), and scans tracked files for secrets on
+  every push and pull request.
+- Every GitHub Action in the workflows is pinned to a commit sha. Dependabot proposes the updates.

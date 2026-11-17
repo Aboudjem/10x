@@ -1,6 +1,6 @@
 # The 10x ecosystem: one place to see it all
 
-**10x** is a curated marketplace of Claude Code plugins. Every one of them also installs into 70+
+**10x** is a curated marketplace of Claude Code plugins. Every one of them also installs into
 other agents through the Vercel skills CLI, and three of them run as a standalone MCP server or CLI
 in any editor. Existing release alignment: **2026-09-03**. Contextify 0.2 alignment: **2026-09-17**. Its local feature evidence is recorded separately from the older plugins below.
 
@@ -59,8 +59,8 @@ Installed Git hooks inspect the working tree, not staged snapshots or pushed ref
 ## Multi-editor support
 
 Every plugin ships as skills, so `npx skills add Aboudjem/<repo>` installs any of the nine into
-Claude Code, Cursor, Codex, GitHub Copilot, Gemini CLI, OpenCode, Zed, Kimi Code CLI and 70+ other
-agents. The three tool plugins (sniff, ui-ux-suite, recap-studio) additionally run as a standalone
+Claude Code, Cursor, Codex, GitHub Copilot, Gemini CLI, OpenCode, Zed, Kimi Code CLI and the other agents on
+[the skills CLI list](https://github.com/vercel-labs/skills#supported-agents). The three tool plugins (sniff, ui-ux-suite, recap-studio) additionally run as a standalone
 MCP server and ship an `install.sh` that delegates to the skills CLI, plus `.cursor-plugin` and
 `.copilot-plugin` manifests. Every repo carries a `docs/editors.md` with per-editor snippets.
 

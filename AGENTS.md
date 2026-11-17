@@ -61,7 +61,7 @@ A curated Claude Code plugin marketplace. You add it once with `claude plugin ma
 `claude plugin marketplace add Aboudjem/10x`, then `claude plugin install <name>@10x`.
 
 **Do the plugins work outside Claude Code?**
-Yes. All nine install into 70+ agents with `npx skills add Aboudjem/<repo>`, because every one of them ships as skills, which are Markdown files an agent reads. The three tool plugins additionally run as standalone MCP servers. See each repo's `docs/editors.md`.
+Yes. All nine install into other agents with `npx skills add Aboudjem/<repo>`, because every one of them ships as skills, which are Markdown files an agent reads. The three tool plugins additionally run as standalone MCP servers. See each repo's `docs/editors.md`.
 
 **Where do I report a bug in one of the plugins?**
 In that plugin's own GitHub repo (linked above). This repo only owns the marketplace itself.
