@@ -24,11 +24,11 @@ here. The repo surface is `.claude-plugin/marketplace.json` plus docs, assets, a
 - **Validate after every edit.** Run `claude plugin validate . --strict`; it must pass clean
   (exit 0, no warnings). Also confirm the JSON parses: `python3 -m json.tool .claude-plugin/marketplace.json`.
 
-Current pins (cross-checked 2026-09-03): sniff 0.8.1 (Apache-2.0), ui-ux-suite 0.6.1 (MIT),
-recap-studio 0.5.1 (MIT), aws-cost-audit 0.3.1 (MIT), goalify 2.6.1 (MIT), humanizer 0.7.1 (MIT),
-loopify 1.1.1 (MIT).
-
-Listing addition prepared 2026-09-17: secure-my-app 0.2.0 (existing pin), contextify 0.2.0 (MIT; release alignment recorded in QUALITY-BAR.md). The older cross-check date above is not a new verification of the other pins.
+Current pins (cross-checked 2026-11-17 against each plugin repo's `.claude-plugin/plugin.json`):
+sniff 0.9.0 (Apache-2.0), ui-ux-suite 0.7.0 (MIT), recap-studio 0.6.1 (MIT), aws-cost-audit 0.4.1 (MIT),
+goalify 3.1.1 (MIT), humanizer 0.8.0 (MIT), loopify 1.2.1 (MIT), secure-my-app 0.3.0 (MIT),
+contextify 0.3.1 (MIT). Each entry's `description` now equals the upstream `plugin.json` description,
+so `npm run sync:check` reports no description drift.
 
 ## KEY GOTCHA: the sync bot only touches marketplace.json
 

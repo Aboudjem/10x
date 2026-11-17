@@ -17,9 +17,9 @@ the fleet standard wins and this file gets fixed.
 
 - [ ] **No runtime dependency the tool does not need** (devDependencies are fine).
       Read this as "nothing pulled in for convenience", not "zero". ui-ux-suite ships zero and the
-      six skill plugins have no `package.json`; contextify also includes standard-library scripts. recap-studio's root package
+      six skill plugins declare no runtime dependency (humanizer's `package.json` holds only its test script); contextify also includes standard-library scripts. recap-studio's root package
       declares none, but its workspace packages pull `zod` and its web app pulls Next, React and
-      Mermaid. sniff carries **16 runtime dependencies**, among them Playwright and Lighthouse,
+      Mermaid. sniff carries **17 runtime dependencies**, among them Playwright and Lighthouse,
       because driving a real browser and measuring a real page is the job. A plugin that cannot
       justify a dependency line by line does not pass this item.
 - [ ] Bundle stays small on disk after `npm pack` (excluding test fixtures). 500 KB is the target
@@ -115,15 +115,15 @@ document its slash commands and MCP tools.
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
-| 1 | `sniff`           | 0.8.1 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
-| 2 | `ui-ux-suite`     | 0.6.1 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
-| 3 | `recap-studio`    | 0.5.1 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
-| 4 | `aws-cost-audit`  | 0.3.1 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| 5 | `goalify`         | 2.6.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
-| 6 | `humanizer`       | 0.7.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
-| 7 | `loopify`         | 1.1.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
-| 8 | `secure-my-app`       | 0.2.0 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
-| 9 | `contextify` | 0.2.0 | MIT | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
+| 1 | `sniff`           | 0.9.0 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
+| 2 | `ui-ux-suite`     | 0.7.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
+| 3 | `recap-studio`    | 0.6.1 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
+| 4 | `aws-cost-audit`  | 0.4.1 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| 5 | `goalify`         | 3.1.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
+| 6 | `humanizer`       | 0.8.0 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 7 | `loopify`         | 1.2.1 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
+| 8 | `secure-my-app`   | 0.3.0 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
+| 9 | `contextify`      | 0.3.1 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -142,15 +142,15 @@ local-only items; the dual-mode/MCP and standalone-CLI items do not apply to a s
 
 `loopify` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the bar's
 zero-bloat (a single `SKILL.md` plus docs, no runtime deps), one-command-install (`claude plugin
-install loopify@10x`), real-verification (`python3 tests/test_manifests.py` prints `158/158 checks
-passed` and `python3 evals/check_skill.py skills/loopify/SKILL.md` prints `153/153`), no-telemetry,
+install loopify@10x`), real-verification (`make test` prints `170/170` manifest checks and `161/161`
+skill checks), no-telemetry,
 and local-only items; the MCP-server and standalone-CLI items do not apply to a skill plugin.
 
 `secure-my-app` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the
 bar's zero-bloat (pure Markdown, no runtime dependency, no network call of its own), one-command-install
 (`claude plugin install secure-my-app@10x`), no-telemetry, and local-only items; the MCP-server and
-standalone-CLI items do not apply to a skill plugin. Its real-verification item is the one still open:
-`python3 tests/test_manifests.py` is the command, and its output has not been recorded here yet.
+standalone-CLI items do not apply to a skill plugin. Its real-verification item: `make test` prints `79/79`
+skill checks, `138/138` manifest checks and `33/33` fixture checks.
 
 `contextify` is a skill plugin with local shell/Python scripts and no package dependencies or MCP server. Its drift check runs without a model; generation uses the host coding agent. See its [0.2 feature evaluation](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) for measured behavior and validation limits.
 
@@ -158,27 +158,29 @@ standalone-CLI items do not apply to a skill plugin. Its real-verification item 
 
 "Zero bloat" is a judgement about necessity, not a count. Seven of the nine ship no runtime
 dependency: ui-ux-suite and the six Markdown and script skills. recap-studio's root declares none while its
-workspace packages pull `zod`, Next, React and Mermaid, because it renders pages. sniff ships 16,
+workspace packages pull `zod`, Next, React and Mermaid, because it renders pages. sniff ships 17,
 including Playwright and Lighthouse, because walking a real app in a real browser cannot be done
 without a browser. The question this item asks is whether every dependency earns its line, and a
 maintainer answers it in the review, not with a number.
 
-## Verification runs, 2026-09-03
+## Verification runs, 2026-11-17
 
-Each command was run in the plugin's own repo on the released commit.
+Each figure comes from the Proof section of the plugin's README at the released commit.
+Run the command in a clone of that repo to re-print it.
 
 | Plugin | Command | Output |
 | --- | --- | --- |
-| sniff | `npx vitest run` | `Tests 507 passed (507)`, 48 test files |
-| ui-ux-suite | `npm test` | 356 tests |
-| recap-studio | `npm test` | 73 tests across six workspace projects |
-| aws-cost-audit | `bash tests/smoke.sh` | `Results: 62 passed, 0 failed` |
-| goalify | `python3 tests/test_manifests.py` | `126/126 checks passed` (plus `83/83` skill eval, `18/18` condition lint) |
-| humanizer | metrics CLI suite | 64 tests |
-| loopify | `python3 tests/test_manifests.py` | `158/158 checks passed` (plus `153/153` skill eval, `13/13` ticks lint) |
-| secure-my-app | `python3 tests/test_manifests.py` | pending verification, not yet run for this listing |
+| sniff | `npm test` | `Tests  534 passed (534)`, 50 test files |
+| ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
+| recap-studio | `npm run test:count` | 109 tests |
+| aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
+| goalify | `make test` | `10/10 suites passed`, `448/448 checks passed` |
+| humanizer | `npm test` | `# pass 77`, `# fail 0` |
+| loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18` |
+| secure-my-app | `make test` | `79/79`, `138/138`, `33/33` |
+| contextify | `make test` | `128/128`, `30/30`, `131/131`, `114/114`, three unittest suites OK |
 
-Last verified: 2026-09-03.
+Last verified: 2026-11-17.
 
 
 ## Contextify 0.1 verification, 2026-09-17 (historical)
@@ -196,7 +198,7 @@ These checks ran in the Contextify repository during the Codex continuation. The
 
 Claude model validation remains unperformed because the weekly Claude limit was reached. Deterministic Claude CLI manifest validation is a separate check; it does not consume a model run or establish model quality. The [evaluation record](https://github.com/Aboudjem/contextify/blob/main/evals/dogfood.md) documents the independent Codex review and dogfood limits.
 
-## Contextify 0.2 verification, 2026-09-17
+## Contextify 0.2 verification, 2026-09-17 (historical)
 
 The Contextify extension was checked locally after implementation. These results cover the current feature tests, not fresh validation of any other listed plugin.
 

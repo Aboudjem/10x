@@ -4,19 +4,50 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
-### Changed
+## [2.1.0] - 2026-11-17
 
-- **contextify** 0.2.0: optional evidence-backed architecture and workflow documents, capped at 120 lines each and linked from a short `AGENTS.md`; accurate existing docs are reused first.
-- Contextify defaults to installed Git checks at commit and push. Session hooks are opt-in; safe activation preserves existing hook configurations. Git checks inspect the working tree and are advisory by default.
-- Updated the Contextify listing and 0.2 evaluation links across the hub. The 0.1 addition and evaluation remain historical records.
+Two plugins joined the list since 2.0.1, all nine got a new release, and CI now loads the manifest
+with a real Claude Code. No breaking change: every install command stays the same.
 
 ### Added
 
-- `FLEET-STANDARD.md`: one bar for every public repo of the owner, with a check id per rule.
-- `FLEET-TRIAGE.md`: a verdict, a reason and evidence for each of the 54 public repos, checked on 2026-11-17. 24 were archived.
-- `scripts/fleet-check.mjs` and its tests: the checker for the standard. Run it with `npm run fleet:triage`, `fleet:plugins`, `fleet:rest` or `fleet:all`.
-- **contextify** (0.1.0, MIT) as the ninth plugin: one evidence-backed instruction source for coding agents, thin pointers, managed-block updates and deterministic drift checks.
-- Contextify install instructions across the marketplace listing, translations, command surface and examples.
+- **secure-my-app** (MIT) as the eighth plugin. It finds what a stranger can take from your app,
+  then proves each fix shut with the same command. It was first listed as `lockpatch`.
+- **contextify** (MIT) as the ninth plugin. It tells every coding agent how your repo works, then
+  checks that it is still true.
+- `category` on each marketplace entry, shown by Claude Code before install.
+- A Proof section in the README: four claims, each with the command that prints it.
+- A FAQ (six questions) and a Limits section in the README.
+- CI loads the manifest with a pinned Claude Code (`claude plugin validate . --strict`) on every push
+  and pull request. The step used to skip when the CLI was absent, which was always.
+- Every GitHub Action is pinned to a commit sha; dependabot keeps them current. CODEOWNERS and a
+  pull request template.
+- `CONTRIBUTING.md`: plugin names never change; use the `renames` map if one must.
+- `FLEET-STANDARD.md`, `FLEET-TRIAGE.md` and `scripts/fleet-check.mjs` with its tests: one bar for every
+  public repo of the owner, a verdict per repo, and the checker. Run it with `npm run fleet:plugins`.
+
+### Changed
+
+- Version pins, synced from each plugin repo: sniff 0.9.0, ui-ux-suite 0.7.0, recap-studio 0.6.1,
+  aws-cost-audit 0.4.1, goalify 3.1.1, humanizer 0.8.0, loopify 1.2.1, secure-my-app 0.3.0,
+  contextify 0.3.1.
+- Each entry's description now equals the one in the plugin's own `plugin.json`, so
+  `npm run sync:check` reports no description drift.
+- `README.md`, `ECOSYSTEM.md`, `llms.txt`, `QUALITY-BAR.md`, `AGENTS.md` and `CLAUDE.md` agree with the
+  manifest. The test counts were re-derived from each plugin's README Proof section, with the command.
+- `QUALITY-BAR.md`: verification table and "Last verified" date are now 2026-11-17. It no longer asks
+  plugins for a stars badge and points to `FLEET-STANDARD.md`.
+- README order is now install, the plugins, how it works, proof, FAQ, limits. The first screen shows
+  the real output of the two install commands. The stars badge is gone.
+- The README says that `npx skills add Aboudjem/10x` finds no skills, and why: install per plugin repo.
+- Agent counts ("77", "70+") are replaced by a link to the skills CLI's own list.
+- `SECURITY.md` lists all nine plugin repos. The four translated READMEs follow the new structure.
+- `docs/DISTRIBUTION.md` and `docs/VIDEO-EMBED.md` count nine plugins.
+
+### Removed
+
+- `docs/LAUNCH-PLAN.md`, an internal note for the four-plugin launch.
+- `docs/VIRAL-AUDIT.md`, an internal score sheet that no command can re-print.
 
 ## [2.0.1] - 2026-09-03
 

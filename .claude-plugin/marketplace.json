@@ -13,7 +13,7 @@
         "source": "github",
         "repo": "Aboudjem/sniff"
       },
-      "description": "Point it at your running app. It walks your real user flows in a real browser and tells you what is actually broken, with proof: the route, the ordered steps, and the screenshot or console excerpt behind every finding. A source scan is also available via `sniff scan`. No API key.",
+      "description": "Autonomous QA scanner via sniff-qa: walks your running app in a real browser and reports real bugs (broken pages/links, console/network errors, broken forms, state-loss, empty/placeholder data, bad loading/error states, responsive + a11y) with reproduction proof, severity, confidence, and a fix. No API key.",
       "version": "0.9.0",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
@@ -33,7 +33,7 @@
         "source": "github",
         "repo": "Aboudjem/ui-ux-suite"
       },
-      "description": "ESLint for design. It reads your CSS, JSX, HTML and Tailwind classes, then names the exact line, the measured wrong value, and the exact fix, with the WCAG criterion or named UX law behind it. Scores 12 dimensions. It audits, it never edits. Zero dependencies.",
+      "description": "Design audit tool. Scores projects across 12 dimensions: color, typography, accessibility, layout, and more. WCAG, APCA, OKLCH color science. Zero dependencies.",
       "version": "0.7.0",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
@@ -56,7 +56,7 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Turn any topic or coding session into a dark-mode, mobile-first explainer you can double-click to open. The output is one HTML file with every style inlined, no JavaScript and no external request, readable offline in about five minutes. Deterministic checks score it before you ship.",
+      "description": "Turn a topic or a coding session into one dark-mode HTML explainer you double-click and read offline in about five minutes.",
       "version": "0.6.1",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
@@ -78,7 +78,7 @@
         "source": "github",
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
-      "description": "Ask Claude to audit your AWS bill. It reads your live account through the AWS CLI you already have, attributes every dollar, finds the idle and over-provisioned resources, and hands you a savings plan where every number is checked against live AWS pricing. Read-only by default. A Claude Code skill (no MCP server).",
+      "description": "Audit a live AWS account end-to-end: attribute every dollar, find idle/orphaned resources, rightsize, check Savings Plans/RI coverage, and produce an evidence-backed savings plan with confidence levels and reversible, gated actions. Verifies prices live; hardcodes none.",
       "version": "0.4.1",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
@@ -98,7 +98,7 @@
         "source": "github",
         "repo": "Aboudjem/goalify"
       },
-      "description": "Give your AI a big job. goalify asks all the questions first. Then the AI works alone, for hours, and shows you proof at the end. New in 3.0: a plan preview page and proof receipts. Works best in Claude Code and Codex. A Claude Code skill (no MCP server).",
+      "description": "Give your AI a big job and get proof it is done. Writes the brief and the /goal condition for Claude Code and Codex.",
       "version": "3.1.1",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
@@ -119,7 +119,7 @@
         "source": "github",
         "repo": "Aboudjem/humanizer-skill"
       },
-      "description": "AI writing has a fingerprint. humanizer knows 55 of those habits, names the ones it finds in your text, scores the text 0 to 100 from measurable signals, and rewrites it in the voice you pick, restoring the sentence-length variation people write with. Pure Markdown, zero dependencies, nothing leaves your machine. A Claude Code skill (no MCP server).",
+      "description": "Detects 55 AI writing patterns and rewrites text in five voice profiles so it reads like a specific human wrote it, with an optional 0-100 AI-tell score. Use when text sounds AI-generated or like a chatbot, when preparing a blog post, README, or LinkedIn post for publication, when auditing prose for AI tells, or when editing a Markdown file in place. Triggers on phrases like \"humanize this\", \"make this sound less AI\", \"make this sound human\", \"remove AI tells\", \"does this read like ChatGPT\", and \"rewrite so it does not sound AI-generated\". Pure Markdown, zero dependencies, no network calls.",
       "version": "0.8.0",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
@@ -140,7 +140,7 @@
         "source": "github",
         "repo": "Aboudjem/loopify"
       },
-      "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit. loopify writes the brief (a standing file the loop re-reads every tick) and the line (one string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule and five safety rails. A Claude Code skill (no MCP server).",
+      "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit.",
       "version": "1.2.1",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
@@ -163,7 +163,7 @@
         "source": "github",
         "repo": "Aboudjem/secure-my-app"
       },
-      "description": "Finds what a stranger can take from your app, proves each finding with a command whose output you can read, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. 65 controls across secrets, authentication, record and tenant access, injection, data leaks, abuse, and dependencies. Anthropic's own `/security-review` finds the bug you wrote; secure-my-app adds the defence you never wrote. A Claude Code skill (no MCP server).",
+      "description": "Find what a stranger can take from your app. Then close it and prove it closed.",
       "version": "0.3.0",
       "homepage": "https://github.com/Aboudjem/secure-my-app",
       "license": "MIT",

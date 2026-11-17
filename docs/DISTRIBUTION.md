@@ -1,4 +1,4 @@
-# Distribution status: 10x marketplace and its eight plugins
+# Distribution status: 10x marketplace and its nine plugins
 
 Last full audit: 2026-09-02; rows re-checked 2026-09-04. Every row carries evidence. Statuses: **FILED** (submitted this run,
 awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LISTED** (live now) ·
@@ -55,7 +55,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | claudepluginhub.com | any | BLOCKED-captcha | Submit page sits behind a Cloudflare human-verification interstitial |
 | claudecodemarketplace.net | any | BLOCKED-site-down | Page renders only "no available server" on both attempts 2026-09-02 |
 | cursor.directory | sniff-qa, ui-ux-suite | BLOCKED-needs-login | "Submit a plugin" → /login (GitHub/Google OAuth); Cursor-audience, low fit |
-| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.8.1, ui-ux-suite 0.6.1 (re-checked 2026-09-04). Keyword tuning: ui-ux-suite now carries `claude-code`, `claude-code-plugin`, `mcp`; sniff-qa still lacks `claude-code`/`mcp-server` (needs its next release) |
+| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.9.0, ui-ux-suite 0.7.0 (re-checked 2026-11-17) |
 | skills.sh | humanizer | LISTED | skills.sh/Aboudjem/humanizer-skill, 554 installs |
 | skills.sh | loopify | LISTED | skills.sh/Aboudjem/loopify (1 install; search ranking is telemetry-driven) |
 | TensorBlock/awesome-mcp-servers | sniff, ui-ux-suite | LISTED | Auto-crawled by their bot; no action possible |
@@ -64,14 +64,12 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 
 ## Topics + previews (auto-indexer food)
 
-The seven published plugin repos all carry `claude-code` (and the two MCP repos carry `mcp-server`);
-sniff gained `claude-code-plugin` this run. `secure-my-app` is public on GitHub now but carries no repo
-topics yet (`gh api repos/Aboudjem/secure-my-app/topics` returns an empty list), so it is out of the
-loop below and has no venue row above. The 10x social preview is set
+All nine plugin repos carry `claude-code` and `claude-code-plugin`, and the three MCP repos carry
+`mcp-server` (re-checked 2026-11-17). The 10x social preview is set
 (GraphQL `usesCustomOpenGraphImage: true`). Verify:
 
 ```
-for r in sniff ui-ux-suite recap-studio aws-cost-audit-skill goalify humanizer-skill loopify; do gh repo view Aboudjem/$r --json repositoryTopics --jq '[.repositoryTopics[].name]|join(",")'; done
+for r in sniff ui-ux-suite recap-studio aws-cost-audit-skill goalify humanizer-skill loopify secure-my-app contextify; do gh repo view Aboudjem/$r --json repositoryTopics --jq '[.repositoryTopics[].name]|join(",")'; done
 ```
 
 ## Social (decision D1: drafts only, nothing posted)

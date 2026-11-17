@@ -2,7 +2,7 @@
 
 **10x** is a curated marketplace of Claude Code plugins. Every one of them also installs into
 other agents through the Vercel skills CLI, and three of them run as a standalone MCP server or CLI
-in any editor. Existing release alignment: **2026-09-03**. Contextify 0.2 alignment: **2026-09-17**. Its local feature evidence is recorded separately from the older plugins below.
+in any editor. Versions and test counts below were last aligned on **2026-11-17**.
 
 > Install any tool in two lines:
 > ```
@@ -14,47 +14,37 @@ in any editor. Existing release alignment: **2026-09-03**. Contextify 0.2 alignm
 
 | Tool | Version | What it does (the job-to-be-done) | Install | Repo | npm | License |
 |---|---|---|---|---|---|---|
-| **sniff** | 0.8.1 | Autonomous QA. Point it at your running app and it **walks the app like a user**, reporting real bugs (broken pages, dead forms, accessibility, console errors, broken links) with the ordered steps that produced each one. A source scan is still available via `sniff scan`. | `claude plugin install sniff@10x` | [Aboudjem/sniff](https://github.com/Aboudjem/sniff) | [`sniff-qa`](https://www.npmjs.com/package/sniff-qa) | Apache-2.0 |
-| **ui-ux-suite** | 0.6.1 | Design audit. Reads CSS, JSX, HTML and Tailwind classes and returns **located, measured, fixed** findings across **12 dimensions**, each citing the WCAG criterion or named UX law behind it. WCAG 2.2, APCA, OKLCH color science. Zero runtime deps. It audits, it never edits. | `claude plugin install ui-ux-suite@10x` | [Aboudjem/ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite) | [`ui-ux-suite`](https://www.npmjs.com/package/ui-ux-suite) | MIT |
-| **recap-studio** | 0.5.1 | One-page explainers. Turns a topic or a coding session into **one self-contained HTML file** (inlined CSS, zero JS, opens by double-click, reads offline in about five minutes). Validation is a set of deterministic heuristic checks. | `claude plugin install recap-studio@10x` | [Aboudjem/recap-studio](https://github.com/Aboudjem/recap-studio) | _(placeholder redirect package only; run from a clone)_ | MIT |
-| **aws-cost-audit** | 0.3.1 | AWS cost audit. **Read-only** by default: reads your live account through the AWS CLI, attributes every dollar, and returns a gated savings plan. **No price from memory**, every figure comes from live AWS pricing, and CI fails the build if a price is hardcoded. | `claude plugin install aws-cost-audit@10x` | [Aboudjem/aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill) | _(skill, no npm)_ | MIT |
-| **goalify** | 2.6.1 | Autonomous task prep. Scopes a big coding task, locks the few real decisions, and writes **the brief** (a file the run works from) plus **the condition** (one line you paste into `/goal`), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to `.goal/done/`. A Claude Code skill (no MCP server). | `claude plugin install goalify@10x` | [Aboudjem/goalify](https://github.com/Aboudjem/goalify) | _(skill, no npm)_ | MIT |
-| **humanizer** | 0.7.1 | AI-writing detector and rewriter. Names **55 AI writing patterns** (inflated symbolism, em dash overuse, promotional language, rule-of-three, and more), rewrites with sentence-length burstiness across **5 voice profiles** (casual, professional, technical, warm, blunt), and produces a **0-100 AI-tell score**. Three modes: detect, rewrite, edit. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server). | `claude plugin install humanizer@10x` | [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) | _(skill, no npm)_ | MIT |
-| **loopify** | 1.1.1 | Recurring-job prep. For work that repeats rather than finishes: writes **the brief** (a standing file the loop re-reads every tick) plus **the line** (one short string you paste into Claude Code's built-in `/loop`), with a **tick cap**, a **stop rule** and five safety rails. Every tick logs what it did to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`. A Claude Code skill (no MCP server). | `claude plugin install loopify@10x` | [Aboudjem/loopify](https://github.com/Aboudjem/loopify) | _(skill, no npm)_ | MIT |
-| **secure-my-app** | 0.2.0 | Attack-surface hardening. Finds **what a stranger can take** from your app, proves each finding with **a command whose output you can read**, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. **65 controls in seven groups**: secrets, authentication, record and tenant access, injection, data leaving the app, abuse, and dependencies. A clean run is never called secure: the third gate label reads `NOTHING CONFIRMED HERE`. A Claude Code skill (no MCP server). | `claude plugin install secure-my-app@10x` | [Aboudjem/secure-my-app](https://github.com/Aboudjem/secure-my-app) | _(skill, no npm)_ | MIT |
-| **contextify** | 0.2.0 | Short instructions, optional architecture/workflow docs, preserved human edits and installed Git checks at commit/push. | `claude plugin install contextify@10x` | [Aboudjem/contextify](https://github.com/Aboudjem/contextify) | _(skill, no npm)_ | MIT |
+| **sniff** | 0.9.0 | Autonomous QA. Point it at your running app and it **walks the app like a user**, reporting real bugs (broken pages, dead forms, accessibility, console errors, broken links) with the ordered steps that produced each one. A source scan is still available via `sniff scan`. | `claude plugin install sniff@10x` | [Aboudjem/sniff](https://github.com/Aboudjem/sniff) | [`sniff-qa`](https://www.npmjs.com/package/sniff-qa) | Apache-2.0 |
+| **ui-ux-suite** | 0.7.0 | Design audit. Reads CSS, JSX, HTML and Tailwind classes and returns **located, measured, fixed** findings across **12 dimensions**, each citing the WCAG criterion or named UX law behind it. WCAG 2.2, APCA, OKLCH color science. Zero runtime deps. It audits, it never edits. | `claude plugin install ui-ux-suite@10x` | [Aboudjem/ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite) | [`ui-ux-suite`](https://www.npmjs.com/package/ui-ux-suite) | MIT |
+| **recap-studio** | 0.6.1 | One-page explainers. Turns a topic or a coding session into **one self-contained HTML file** (inlined CSS, zero JS, opens by double-click, reads offline in about five minutes). Validation is a set of deterministic heuristic checks. | `claude plugin install recap-studio@10x` | [Aboudjem/recap-studio](https://github.com/Aboudjem/recap-studio) | _(placeholder redirect package only; run from a clone)_ | MIT |
+| **aws-cost-audit** | 0.4.1 | AWS cost audit. **Read-only** by default: reads your live account through the AWS CLI, attributes every dollar, and returns a gated savings plan. **No price from memory**, every figure comes from live AWS pricing, and CI fails the build if a price is hardcoded. | `claude plugin install aws-cost-audit@10x` | [Aboudjem/aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill) | _(skill, no npm)_ | MIT |
+| **goalify** | 3.1.1 | Autonomous task prep. Scopes a big coding task, locks the few real decisions, and writes **the brief** (a file the run works from) plus **the condition** (one line you paste into `/goal`), so a fresh full-context session executes the whole job, quotes the passing checks in its closing turn, and archives the brief to `.goal/done/`. A Claude Code skill (no MCP server). | `claude plugin install goalify@10x` | [Aboudjem/goalify](https://github.com/Aboudjem/goalify) | _(skill, no npm)_ | MIT |
+| **humanizer** | 0.8.0 | AI-writing detector and rewriter. Names **55 AI writing patterns** (inflated symbolism, em dash overuse, promotional language, rule-of-three, and more), rewrites with sentence-length burstiness across **5 voice profiles** (casual, professional, technical, warm, blunt), and produces a **0-100 AI-tell score**. Three modes: detect, rewrite, edit. Pure Markdown, zero dependencies, no network calls. A Claude Code skill (no MCP server). | `claude plugin install humanizer@10x` | [Aboudjem/humanizer-skill](https://github.com/Aboudjem/humanizer-skill) | _(skill, no npm)_ | MIT |
+| **loopify** | 1.2.1 | Recurring-job prep. For work that repeats rather than finishes: writes **the brief** (a standing file the loop re-reads every tick) plus **the line** (one short string you paste into Claude Code's built-in `/loop`), with a **tick cap**, a **stop rule** and five safety rails. Every tick logs what it did to `TICKS.md`; what it cannot do safely waits in `QUEUE.md`. A Claude Code skill (no MCP server). | `claude plugin install loopify@10x` | [Aboudjem/loopify](https://github.com/Aboudjem/loopify) | _(skill, no npm)_ | MIT |
+| **secure-my-app** | 0.3.0 | Attack-surface hardening. Finds **what a stranger can take** from your app, proves each finding with **a command whose output you can read**, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. **65 controls in seven groups**: secrets, authentication, record and tenant access, injection, data leaving the app, abuse, and dependencies. A clean run is never called secure: the third gate label reads `NOTHING CONFIRMED HERE`. A Claude Code skill (no MCP server). | `claude plugin install secure-my-app@10x` | [Aboudjem/secure-my-app](https://github.com/Aboudjem/secure-my-app) | _(skill, no npm)_ | MIT |
+| **contextify** | 0.3.1 | Agent instructions. Tells every coding agent how your repo works, then proves it is still true: a short `AGENTS.md`, optional architecture and workflow docs, and a drift check that runs without a model. A Claude Code skill (no MCP server). | `claude plugin install contextify@10x` | [Aboudjem/contextify](https://github.com/Aboudjem/contextify) | _(skill, no npm)_ | MIT |
 
-Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v2.0.1).
+Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v2.1.0).
 
 ## What's tested
 
-Every figure below was re-derived on 2026-09-03 by running the command in the plugin's own repo.
+Every figure below comes from the Proof section of the plugin's own README on 2026-11-17.
+Run the command in a clone of that repo to re-print it.
 
-- **sniff**: `npx vitest run` prints `Tests 507 passed (507)` across 48 test files, including a
-  real-browser planted-bug fixture gate (21 bugs across 12 classes, no false positive on a clean
-  control page).
-- **ui-ux-suite**: `npm test` runs **356 tests**, and a shipped broken fixture must keep producing
-  findings that carry a file, a line and a fix.
-- **recap-studio**: **73 tests** pass across six workspace projects, on Node 20 and 22.
-- **aws-cost-audit**: `bash tests/smoke.sh` prints `Results: 62 passed, 0 failed`. CI also checks
-  frontmatter, JSON validity, no hardcoded prices, no secrets, and link resolution.
-- **goalify**: `python3 tests/test_manifests.py` prints `126/126 checks passed`,
-  `python3 evals/check_skill.py skills/goalify/SKILL.md` prints `83/83`, and
-  `python3 tests/test_condition_lint.py` prints `18/18`.
-- **humanizer**: **64 tests** pin the metrics CLI's behaviour. CI also validates the SKILL.md
-  structure, the 55-pattern catalog (the README badge count must match the catalog), and zero em
-  dashes in its own docs, so the skill obeys its own anti-em-dash rule.
-- **loopify**: `python3 tests/test_manifests.py` prints `158/158 checks passed`,
-  `python3 evals/check_skill.py skills/loopify/SKILL.md` prints `153/153`, and
-  `python3 tests/test_ticks_lint.py` prints `13/13`.
-- **secure-my-app**: nothing re-derived yet. It is listed at 0.2.0 and its command is
-  `python3 tests/test_manifests.py`, but no run has been recorded here, so no figure is quoted.
+| Plugin | Command | What it prints |
+|---|---|---|
+| sniff | `npm test` | `Tests  534 passed (534)` across 50 test files |
+| sniff | `npm run build && npm run proof` | `Recall: 21/21 (100%)` on the planted-bug fixture, 0 findings on the clean page |
+| ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
+| recap-studio | `npm run test:count` | 109 tests |
+| aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
+| goalify | `make test` | `10/10 suites passed`, then `448/448 checks passed` |
+| humanizer | `npm test` | `# pass 77` and `# fail 0` |
+| loopify | `make test` | `161/161` skill checks, `170/170` manifest checks, `13/13`, `62/62` and `18/18` on the other suites |
+| secure-my-app | `make test` | `79/79` skill checks, `138/138` manifest checks, `33/33` fixture checks |
+| contextify | `make test` | `128/128` drift checks, `30/30` claim checks, `131/131` manifest checks, `114/114` skill checks, three unittest suites OK |
 
-## Contextify 0.2 verification, 2026-09-17
-
-Local checks passed: 119 drift/writer checks, 30 claim checks, 23 regression tests, 20 hook tests, 16 supporting-document tests, 130 manifest checks and 114 skill checks. These results do not refresh the older plugins' results above. The [0.2 feature evaluation](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) records the tested behavior, generated self-context and limits. The [0.1 dogfood record](https://github.com/Aboudjem/contextify/blob/main/evals/dogfood.md) remains historical evidence.
-
-Installed Git hooks inspect the working tree, not staged snapshots or pushed refs. Architecture and workflow documents are optional, limited to 120 lines each and read when relevant. Claude model validation remains unavailable because the weekly limit was reached.
+Each repo's CI runs the same command on every push and pull request.
 
 ## Multi-editor support
 
