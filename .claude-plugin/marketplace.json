@@ -79,7 +79,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Ask Claude to audit your AWS bill. It reads your live account through the AWS CLI you already have, attributes every dollar, finds the idle and over-provisioned resources, and hands you a savings plan where every number is checked against live AWS pricing. Read-only by default. A Claude Code skill (no MCP server).",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
@@ -141,7 +141,7 @@
         "repo": "Aboudjem/loopify"
       },
       "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit. loopify writes the brief (a standing file the loop re-reads every tick) and the line (one string you paste into Claude Code's built-in `/loop`), with a tick cap, a stop rule and five safety rails. A Claude Code skill (no MCP server).",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
       "keywords": [
