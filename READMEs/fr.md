@@ -7,7 +7,6 @@
 <p align="center">
   <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-00D4FF?style=flat-square" alt="License MIT"></a>
   <a href="https://github.com/Aboudjem/10x/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/Aboudjem/10x/validate.yml?branch=main&style=flat-square&color=7C3AED&label=validate" alt="validate workflow status"></a>
-  <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=FF2D78" alt="GitHub stars"></a>
 </p>
 
 <p align="center">
@@ -23,13 +22,21 @@
 <p align="center">
   <a href="#install">Installation</a> ·
   <a href="#the-plugins">Les plugins</a> ·
-  <a href="#what-each-one-does">Ce que fait chaque plugin</a> ·
-  <a href="#works-with-any-ai-editor">Fonctionne avec n'importe quel éditeur IA</a> ·
-  <a href="#the-10x-bar">La barre 10x</a>
+  <a href="#how-it-works">Fonctionnement</a> ·
+  <a href="#proof">Preuves</a> ·
+  <a href="#faq">FAQ</a> ·
+  <a href="#limits">Limites</a>
 </p>
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
+```
+
+Ce que vous voyez après les deux commandes d'installation (exécution réelle, 2026-11-17) :
+
+```text
+✔ Successfully added marketplace: 10x (declared in user settings)
+✔ Successfully installed plugin: humanizer@10x (scope: user)
 ```
 
 <a id="install"></a>
@@ -43,13 +50,18 @@ claude plugin marketplace add Aboudjem/10x
 claude plugin install sniff@10x
 ```
 
-Remplacez `sniff` par n'importe quel nom du tableau ci-dessous. En dehors de Claude Code, les mêmes
-skills s'installent via la [CLI skills de Vercel](https://github.com/vercel-labs/skills), qui les installe dans le répertoire
-que lit votre agent :
+Remplacez `sniff` par n'importe quel nom du tableau ci-dessous.
+
+Un plugin peut lancer des commandes et lire des fichiers avec vos permissions. Lisez le dépôt d'un plugin avant de l'installer.
+
+Vous n'utilisez pas Claude Code ? Installez un plugin à la fois avec la [CLI skills de Vercel](https://github.com/vercel-labs/skills).
+Elle copie les skills dans le dossier que lit votre agent.
 
 ```bash
 npx skills add Aboudjem/sniff
 ```
+
+Utilisez le nom du dépôt du plugin, pas `Aboudjem/10x`. Ce dépôt est une liste et ne contient aucun skill.
 
 <a id="the-plugins"></a>
 
@@ -69,9 +81,9 @@ npx skills add Aboudjem/sniff
 
 <a id="what-each-one-does"></a>
 
-## Ce que fait chaque plugin
+### Ce que fait chaque plugin
 
-### sniff
+#### sniff
 
 Pointez-le vers votre application en cours d'exécution : il clique à travers vos parcours réels dans un vrai navigateur, puis vous dit ce qui s'est cassé et les étapes, dans l'ordre, qui ont mené à la casse.
 
@@ -79,7 +91,7 @@ Pointez-le vers votre application en cours d'exécution : il clique à travers v
 
 [GitHub](https://github.com/Aboudjem/sniff) · [npm](https://www.npmjs.com/package/sniff-qa)
 
-### ui-ux-suite
+#### ui-ux-suite
 
 Il lit votre CSS, votre JSX, votre HTML et vos classes Tailwind, puis indique le fichier, la ligne, la valeur mesurée erronée et le correctif exact. Il audite, il ne modifie jamais.
 
@@ -87,7 +99,7 @@ Il lit votre CSS, votre JSX, votre HTML et vos classes Tailwind, puis indique le
 
 [GitHub](https://github.com/Aboudjem/ui-ux-suite) · [npm](https://www.npmjs.com/package/ui-ux-suite)
 
-### recap-studio
+#### recap-studio
 
 Il transforme un sujet ou une session de code en un seul fichier HTML sur lequel il suffit de double-cliquer, avec tous les styles intégrés et aucune requête externe, lisible hors ligne en environ cinq minutes.
 
@@ -95,7 +107,7 @@ Il transforme un sujet ou une session de code en un seul fichier HTML sur lequel
 
 [GitHub](https://github.com/Aboudjem/recap-studio) · [Architecture](https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md)
 
-### aws-cost-audit
+#### aws-cost-audit
 
 Il lit votre compte AWS en direct via la CLI AWS que vous avez déjà installée et vous remet un plan d'économies où chaque prix est vérifié en direct, jamais cité de mémoire.
 
@@ -103,7 +115,7 @@ Il lit votre compte AWS en direct via la CLI AWS que vous avez déjà installée
 
 [GitHub](https://github.com/Aboudjem/aws-cost-audit-skill)
 
-### goalify
+#### goalify
 
 Pour une tâche trop grande pour rester à la regarder tourner, il rédige le brief (un fichier qui contient ce que l'exécution doit faire) et la condition (une ligne que vous collez dans `/goal`), afin qu'une session neuve fasse le travail et se termine en citant les vérifications réussies.
 
@@ -111,7 +123,7 @@ Pour une tâche trop grande pour rester à la regarder tourner, il rédige le br
 
 [GitHub](https://github.com/Aboudjem/goalify)
 
-### humanizer
+#### humanizer
 
 Il connaît 55 habitudes qui font qu'un texte se lit comme écrit par une machine, nomme celles qu'il trouve dans votre texte, le note de 0 à 100 à partir de signaux mesurables, et le réécrit dans la voix que vous choisissez.
 
@@ -119,7 +131,7 @@ Il connaît 55 habitudes qui font qu'un texte se lit comme écrit par une machin
 
 [GitHub](https://github.com/Aboudjem/humanizer-skill)
 
-### loopify
+#### loopify
 
 Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le brief et la ligne que vous collez dans `/loop`, la commande de répétition intégrée à Claude Code, avec un plafond de ticks et une règle d'arrêt. Chaque tick journalise ce qu'il a fait.
 
@@ -127,7 +139,7 @@ Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le bri
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### secure-my-app
+#### secure-my-app
 
 Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque constat avec une commande dont vous lisez la sortie, puis corrige uniquement ce que vous validez et relance cette même commande pour prouver que la faille est fermée et que votre propre connexion fonctionne toujours. 65 contrôles en sept groupes. Une exécution sans constat n'est jamais déclarée sûre : le troisième libellé du verdict indique `NOTHING CONFIRMED HERE`.
 
@@ -135,7 +147,7 @@ Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque cons
 
 [GitHub](https://github.com/Aboudjem/secure-my-app)
 
-### contextify
+#### contextify
 
 **Tell every coding agent how your repo works. Then prove it is still true.**
 
@@ -145,42 +157,109 @@ Il garde `AGENTS.md` court et réutilise les documents existants qui sont à jou
 
 [GitHub](https://github.com/Aboudjem/contextify)
 
-<a id="works-with-any-ai-editor"></a>
+<a id="how-it-works"></a>
 
-## Fonctionne avec n'importe quel éditeur IA
+## Fonctionnement
+
+10x tient en un fichier : [`.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json). Il ne contient aucun code de plugin.
+
+1. Chaque entrée nomme un plugin, son dépôt GitHub et la version listée ici.
+2. `claude plugin marketplace add Aboudjem/10x` clone ce dépôt et lit ce fichier.
+3. `claude plugin install <name>@10x` récupère le plugin depuis son propre dépôt.
+4. Une tâche planifiée relit chaque dépôt de plugin et met à jour les numéros de version. [docs/SYNC.md](../docs/SYNC.md) explique la chaîne.
+
+<a id="other-agents"></a>
+
+### Autres agents
 
 <p align="center">
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-Chaque plugin ici est livré sous forme de skills, des fichiers Markdown que votre agent lit. C'est pourquoi les neuf
-s'installent en dehors de Claude Code via `npx skills add`, dont le README indique lui-même 77 agents pris en charge.
-Trois tournent aussi comme un serveur MCP autonome, le protocole que parle un éditeur pour atteindre un outil
-extérieur : sniff et ui-ux-suite directement depuis npm, recap-studio depuis un clone après une compilation du
-workspace. Les six autres ne fournissent aucun serveur MCP.
+Chaque plugin ici est livré sous forme de skills, des fichiers Markdown que votre agent lit.
+C'est pourquoi les neuf s'installent en dehors de Claude Code via `npx skills add`.
+La CLI skills tient sa propre [liste des agents pris en charge](https://github.com/vercel-labs/skills#supported-agents).
+
+Trois plugins tournent aussi comme serveur MCP autonome. MCP est le protocole que parle un éditeur pour atteindre un outil extérieur.
+sniff et ui-ux-suite se lancent directement depuis npm. recap-studio se lance depuis un clone, après une compilation du workspace.
+Les six autres ne fournissent aucun serveur MCP.
 
 | Agent | Installation en une ligne |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
-| Cursor, Codex, Copilot, Gemini CLI, et [70+ de plus](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
+| Cursor, Codex, Copilot, Gemini CLI, et [le reste de la liste](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
 | N'importe quel client MCP | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`, recap-studio depuis un clone compilé |
 | Tout le reste | voir `docs/editors.md` dans le dépôt du plugin |
 
+<a id="proof"></a>
+
+## Preuves
+
+Chaque affirmation ci-dessous vient avec la commande qui l'affiche. Lancez-les depuis un clone de ce dépôt.
+
+| Affirmation | Commande | Dernière ligne affichée |
+|:--|:--|:--|
+| La liste contient neuf plugins valides | `npm run validate` | `All checks passed. Marketplace has 9 valid plugin(s).` |
+| Chaque version listée correspond au dépôt du plugin | `npm run sync:check` | `drift: none` |
+| Le manifeste se charge dans Claude Code | `claude plugin validate . --strict` | `Validation passed` |
+| Les tests du dépôt passent | `npm test` | `# fail 0` |
+
+La CI lance les quatre à chaque push et à chaque pull request. Elle vérifie aussi chaque lien et cherche les secrets.
+
 <a id="the-10x-bar"></a>
 
-## La barre 10x
+### La barre 10x
 
 | | |
 |---|---|
 | **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. ui-ux-suite et les six skills n'en embarquent aucune. Les packages de recap-studio tirent zod, son application web Next et React. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse. |
 | **Installation en une commande** | Aucun fichier de configuration et aucune inscription. aws-cost-audit est le seul qui a besoin d'un accès que vous n'avez peut-être pas : une CLI AWS configurée pour lire le compte. |
 | **De vrais tests** | Une CI qui vérifie le comportement, pas qu'un fichier existe. |
-| **Fonctionne en dehors de Claude Code** | S'installe dans [70+ agents](https://github.com/vercel-labs/skills#supported-agents) via `npx skills add`. |
+| **Fonctionne hors de Claude Code** | S'installe dans d'autres agents via `npx skills add`. |
 | **Maintenu activement** | Une publication ce trimestre, pas une archive de l'an dernier. |
 | **Aucune télémétrie** | Aucune analytics et aucun appel silencieux vers un serveur distant. Chaque outil ne parle qu'à ce vers quoi vous le pointez. |
 
 Chaque plugin listé ici est tenu de respecter cette barre. Si l'un d'eux cesse de la respecter, il est retiré. La liste complète,
 avec le registre et la date de dernière vérification, se trouve dans [QUALITY-BAR.md](../QUALITY-BAR.md).
+
+<a id="faq"></a>
+
+## FAQ
+
+### Qu'est-ce qu'une place de marché de plugins ?
+
+C'est une liste depuis laquelle votre éditeur peut installer. Vous ajoutez la liste une fois, puis vous installez chaque plugin par son nom.
+
+### Dois-je installer les neuf ?
+
+Non. Ajouter la place de marché n'installe rien. Chaque `claude plugin install <name>@10x` installe un seul plugin.
+
+### Est-ce que ça marche sans Claude Code ?
+
+Oui, un plugin à la fois. Lancez `npx skills add Aboudjem/<repo>` avec le nom du dépôt du plugin, pris dans le tableau.
+
+### Pourquoi `npx skills add Aboudjem/10x` ne trouve-t-il aucun skill ?
+
+Ce dépôt n'est que la liste. Les skills vivent dans le dépôt de chaque plugin : pointez la commande vers ce dépôt.
+
+### Comment mettre à jour ou retirer un plugin ?
+
+Lancez `claude plugin update <name>@10x` pour mettre à jour. Lancez `claude plugin uninstall <name>@10x` pour le retirer.
+
+### Est-ce que 10x collecte des données ?
+
+Non. Le dépôt contient un fichier JSON, de la documentation et des images. Rien ne s'exécute sur votre machine.
+
+<a id="limits"></a>
+
+## Limites
+
+- 10x liste des plugins. Il ne les isole pas. Un plugin s'exécute avec vos permissions.
+- Les commandes Claude Code demandent la CLI `claude`. Les autres agents passent par `npx skills add`, un dépôt de plugin à la fois.
+- Seuls trois plugins fournissent un serveur MCP : sniff, ui-ux-suite et recap-studio.
+- aws-cost-audit a besoin d'une AWS CLI capable de lire votre compte.
+- La version listée ici peut avoir jusqu'à six heures de retard sur une nouvelle version d'un plugin, le temps que la synchronisation tourne.
+- Chaque plugin garde sa propre licence. sniff est sous Apache-2.0, les huit autres sous MIT.
 
 ## Contribuer
 

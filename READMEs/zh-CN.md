@@ -7,7 +7,6 @@
 <p align="center">
   <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-00D4FF?style=flat-square" alt="License MIT"></a>
   <a href="https://github.com/Aboudjem/10x/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/Aboudjem/10x/validate.yml?branch=main&style=flat-square&color=7C3AED&label=validate" alt="validate workflow status"></a>
-  <a href="https://github.com/Aboudjem/10x/stargazers"><img src="https://img.shields.io/github/stars/Aboudjem/10x?style=flat-square&color=FF2D78" alt="GitHub stars"></a>
 </p>
 
 <p align="center">
@@ -23,16 +22,25 @@
 <p align="center">
   <a href="#install">安装</a> ·
   <a href="#the-plugins">插件</a> ·
-  <a href="#what-each-one-does">各插件的功能</a> ·
-  <a href="#works-with-any-ai-editor">适配任意 AI 编辑器</a> ·
-  <a href="#the-10x-bar">10x 标准</a>
+  <a href="#how-it-works">工作原理</a> ·
+  <a href="#proof">证明</a> ·
+  <a href="#faq">常见问题</a> ·
+  <a href="#limits">限制</a>
 </p>
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
 ```
 
+运行两条安装命令后你会看到（真实运行，2026-11-17）：
+
+```text
+✔ Successfully added marketplace: 10x (declared in user settings)
+✔ Successfully installed plugin: humanizer@10x (scope: user)
+```
+
 <a id="install"></a>
+
 ## 安装
 
 把市场添加一次。之后 Claude Code 就能按名称安装这九款插件中的任意一款。
@@ -42,12 +50,18 @@ claude plugin marketplace add Aboudjem/10x
 claude plugin install sniff@10x
 ```
 
-把 `sniff` 换成下表中的任意名称即可。在 Claude Code 之外，同样的技能也可以通过
-[Vercel skills CLI](https://github.com/vercel-labs/skills) 安装，它会把这些技能安装到你的智能体读取的目录中：
+把 `sniff` 换成下表中的任意名称即可。
+
+插件可以用你的权限运行命令、读取文件。安装之前，请先看一看插件的仓库。
+
+不用 Claude Code？可以用 [Vercel skills CLI](https://github.com/vercel-labs/skills) 一次安装一款插件。
+它会把技能复制到你的智能体读取的目录中。
 
 ```bash
 npx skills add Aboudjem/sniff
 ```
+
+请使用插件自己的仓库名，而不是 `Aboudjem/10x`。这个仓库只是一份清单，本身不包含任何技能。
 
 <a id="the-plugins"></a>
 ## 插件
@@ -65,9 +79,10 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | 编写代理说明，并检查说明是否仍然有效 | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
 
 <a id="what-each-one-does"></a>
-## 各插件的功能
 
-### sniff
+### 各插件的功能
+
+#### sniff
 
 把它指向你正在运行的应用，它会在真实浏览器里点击你的真实使用流程，然后告诉你哪里坏了，以及导致问题发生的按顺序排列的步骤。
 
@@ -75,7 +90,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/sniff) · [npm](https://www.npmjs.com/package/sniff-qa)
 
-### ui-ux-suite
+#### ui-ux-suite
 
 它会读取你的 CSS、JSX、HTML 和 Tailwind 类名，并指出具体文件、具体行、实测的错误数值，以及确切的修复方法。它只做审计，从不修改代码。
 
@@ -83,7 +98,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/ui-ux-suite) · [npm](https://www.npmjs.com/package/ui-ux-suite)
 
-### recap-studio
+#### recap-studio
 
 它会把一个主题或一次编程会话变成一个可以双击打开的 HTML 文件，所有样式都内联在文件里，不发起任何外部请求，离线状态下大约五分钟就能读完。
 
@@ -91,7 +106,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/recap-studio) · [架构文档](https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md)
 
-### aws-cost-audit
+#### aws-cost-audit
 
 它会通过你机器上已有的 AWS CLI 读取你真实的 AWS 账户，交给你一份节省方案，其中每一个价格都是实时查证的，绝不是凭记忆给出的。
 
@@ -99,7 +114,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/aws-cost-audit-skill)
 
-### goalify
+#### goalify
 
 对于大到没法坐在旁边盯着看的任务，它会写出 brief（一个文件，记录这次运行要完成什么）和 condition（一行文字，你把它粘贴进 `/goal`），这样一个全新的会话就能完成这项工作，并在收尾时引用通过的检查项，作为完成的证明。
 
@@ -107,7 +122,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/goalify)
 
-### humanizer
+#### humanizer
 
 它掌握 55 种让文字读起来像机器写的习惯，指出你的文本中出现的那些，依据可测量的信号给文本打出 0 到 100 分，并按你选定的语气重写文本。
 
@@ -115,7 +130,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/humanizer-skill)
 
-### loopify
+#### loopify
 
 对于不断重复而非一次性完成的任务，它会写出 brief，以及你粘贴进 `/loop`（Claude Code 内置的重复执行命令）的那一行文字，其中带有执行次数上限和停止规则。每次执行都会把它做了什么记录下来。
 
@@ -123,7 +138,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/loopify)
 
-### secure-my-app
+#### secure-my-app
 
 它会找出陌生人能从你的应用里拿走什么，并用一条你能读到输出的命令来佐证每一项发现，然后只修复你批准的部分，再重新运行同一条命令，证明这个漏洞已经堵上，而你自己的登录依然可用。共 65 项控制项，分为七组。没有发现问题的一次运行也绝不会被称为安全：第三个闸门标签写着 `NOTHING CONFIRMED HERE`。
 
@@ -131,7 +146,7 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/secure-my-app)
 
-### contextify
+#### contextify
 
 **Tell every coding agent how your repo works. Then prove it is still true.**
 
@@ -141,35 +156,108 @@ npx skills add Aboudjem/sniff
 
 [GitHub](https://github.com/Aboudjem/contextify)
 
-<a id="works-with-any-ai-editor"></a>
-## 适配任意 AI 编辑器
+<a id="how-it-works"></a>
+
+## 工作原理
+
+10x 就是一个文件：[`.claude-plugin/marketplace.json`](../.claude-plugin/marketplace.json)。其中不包含任何插件代码。
+
+1. 每个条目写明一款插件、它的 GitHub 仓库，以及这里列出的版本。
+2. `claude plugin marketplace add Aboudjem/10x` 会克隆这个仓库并读取该文件。
+3. `claude plugin install <name>@10x` 会从插件自己的仓库获取插件。
+4. 一个定时任务会重新读取每个插件仓库并更新版本号。[docs/SYNC.md](../docs/SYNC.md) 说明了这条链路。
+
+<a id="other-agents"></a>
+
+### 其他智能体
 
 <p align="center">
   <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
 </p>
 
-这里的每一款插件都以技能的形式发布（技能即你的智能体读取的 Markdown 文件）。这就是为什么这九款插件都可以在 Claude Code 之外通过 `npx skills add` 安装，该命令自己的 README 列出了 77 个受支持的智能体。其中三款还能作为独立的 MCP 服务器运行，MCP 是编辑器用来连接外部工具所使用的协议：sniff 和 ui-ux-suite 可以直接从 npm 运行，recap-studio 则需要先克隆仓库、完成工作区构建之后才能运行。其余六款不提供 MCP 服务器。
+这里的每款插件都以技能的形式发布，也就是你的智能体会读取的 Markdown 文件。
+正因如此，九款插件都能通过 `npx skills add` 安装到 Claude Code 之外的环境中。
+skills CLI 维护着自己的[受支持智能体列表](https://github.com/vercel-labs/skills#supported-agents)。
+
+其中三款还能作为独立的 MCP 服务器运行。MCP 是编辑器用来连接外部工具的协议。
+sniff 和 ui-ux-suite 可以直接从 npm 运行。recap-studio 需要克隆仓库并完成工作区构建后运行。
+其余六款不提供 MCP 服务器。
 
 | 智能体 | 一行安装命令 |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
-| Cursor、Codex、Copilot、Gemini CLI，以及[70 多种其他智能体](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| 任意 MCP 客户端 | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp`，recap-studio 需要从构建好的克隆中运行 |
+| Cursor、Codex、Copilot、Gemini CLI，以及[列表中的其余智能体](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
+| 任意 MCP 客户端 | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp`，recap-studio 需从构建后的克隆仓库运行 |
 | 其他情况 | 参见插件自身仓库中的 `docs/editors.md` |
 
+<a id="proof"></a>
+
+## 证明
+
+下面每一项说法都附带能打印出它的命令。请在这个仓库的克隆目录中运行。
+
+| 说法 | 命令 | 打印的最后一行 |
+|:--|:--|:--|
+| 清单中有九款有效插件 | `npm run validate` | `All checks passed. Marketplace has 9 valid plugin(s).` |
+| 列出的每个版本都与插件自己的仓库一致 | `npm run sync:check` | `drift: none` |
+| 清单文件能在 Claude Code 中加载 | `claude plugin validate . --strict` | `Validation passed` |
+| 仓库自身的测试全部通过 | `npm test` | `# fail 0` |
+
+CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每个链接并扫描密钥。
+
 <a id="the-10x-bar"></a>
-## 10x 标准
+
+### 10x 标准
 
 | | |
 |---|---|
 | **默认精简** | 不携带插件用不到的依赖。ui-ux-suite 以及其余六款技能不带任何依赖。recap-studio 的各个包依赖 zod，它的 web 应用则依赖 Next 和 React。sniff 需要驱动真实浏览器，所以它包含 Playwright 和 Lighthouse。 |
 | **一条命令安装** | 不需要配置文件，也不需要注册。aws-cost-audit 是唯一需要你可能还没有的访问权限的插件：一个配置好、可以读取账户的 AWS CLI。 |
 | **真实的测试** | CI 断言的是行为，而不是某个文件是否存在。 |
-| **可在 Claude Code 之外运行** | 通过 `npx skills add` 安装进[70 多种智能体](https://github.com/vercel-labs/skills#supported-agents)。 |
+| **可在 Claude Code 之外运行** | 通过 `npx skills add` 安装到其他智能体中。 |
 | **持续维护** | 本季度有发布记录，不是去年就已归档的项目。 |
 | **无遥测** | 没有数据分析，也不会回传任何信息。每个工具只会与你指定的目标通信。 |
 
 这里列出的每一款插件都要接受这套标准的约束。一旦某款插件不再达标，就会被移除。完整的检查清单，连同插件名单和最近一次验证日期，都在 [QUALITY-BAR.md](../QUALITY-BAR.md) 中。
+
+<a id="faq"></a>
+
+## 常见问题
+
+### 什么是插件市场？
+
+它是一份你的编辑器可以从中安装的清单。清单只需添加一次，之后就能按名称安装其中任意一款插件。
+
+### 必须九款全部安装吗？
+
+不必。添加市场本身不会安装任何东西。每条 `claude plugin install <name>@10x` 只安装一款插件。
+
+### 没有 Claude Code 也能用吗？
+
+可以，一次安装一款。运行 `npx skills add Aboudjem/<repo>`，其中的仓库名取自上面的表格。
+
+### 为什么 `npx skills add Aboudjem/10x` 找不到任何技能？
+
+这个仓库只是清单。技能位于每款插件自己的仓库中，所以请把命令指向那个仓库。
+
+### 如何更新或移除插件？
+
+更新请运行 `claude plugin update <name>@10x`。移除请运行 `claude plugin uninstall <name>@10x`。
+
+### 10x 会收集数据吗？
+
+不会。仓库里只有一个 JSON 文件、文档和图片。其中没有任何内容会在你的机器上运行。
+
+<a id="limits"></a>
+
+## 限制
+
+- 10x 只负责列出插件，不会把它们放进沙箱。插件以你的权限运行。
+- Claude Code 的命令需要 `claude` CLI。其他智能体使用 `npx skills add`，一次一个插件仓库。
+- 只有三款插件提供 MCP 服务器：sniff、ui-ux-suite 和 recap-studio。
+- aws-cost-audit 需要一个能读取你账户的 AWS CLI。
+- 在同步任务运行之前，这里列出的版本可能比插件的新版本最多落后六小时。
+- 每款插件保留自己的许可证。sniff 采用 Apache-2.0，其余八款采用 MIT。
 
 ## 参与贡献
 
