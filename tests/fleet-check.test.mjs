@@ -45,6 +45,7 @@ import {
   testCommand,
   parseArgs,
   WALK_MAX,
+  countSkillsFound,
 } from "../scripts/fleet-check.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -2515,5 +2516,23 @@ describe("this repo", () => {
         s[`fleet:${g}`],
         `node scripts/fleet-check.mjs --group ${g}`,
       );
+  });
+});
+
+describe("countSkillsFound", () => {
+  it("reads the count from plain output", () => {
+    assert.equal(countSkillsFound("Found 3 skills"), 3);
+    assert.equal(countSkillsFound("Found 1 skill"), 1);
+  });
+  it("reads the count when the CLI colours the number", () => {
+    assert.equal(
+      countSkillsFound("\u001b[?25l\u25c7  Found \u001b[32m1\u001b[39m skill"),
+      1,
+    );
+    assert.equal(countSkillsFound("Found \u001b[32m14\u001b[39m skills"), 14);
+  });
+  it("returns 0 when the CLI finds nothing", () => {
+    assert.equal(countSkillsFound("No skills found"), 0);
+    assert.equal(countSkillsFound(""), 0);
   });
 });

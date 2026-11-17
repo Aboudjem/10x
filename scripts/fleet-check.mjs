@@ -84,6 +84,16 @@ const TOOL_KINDS = [
 ];
 const FULL_KINDS = [...TOOL_KINDS, "guide", "solidity-reference"];
 
+/**
+ * Read the skill count from the output of `skills add <dir> --list`.
+ * The CLI colours the number when it detects an agent, so colour codes are removed first.
+ */
+export const countSkillsFound = (out) => {
+  const plain = String(out || "").replace(/\u001b\[[0-9;?]*[A-Za-z]/g, "");
+  const m = plain.match(/Found (\d+) skills?/i);
+  return m ? Number(m[1]) : 0;
+};
+
 // ---------------------------------------------------------------------------
 // Small file helpers
 // ---------------------------------------------------------------------------
@@ -3059,10 +3069,7 @@ export function realIo({ hub = HUB } = {}) {
           },
         },
       );
-      const m = `${r.stdout || ""}${r.stderr || ""}`.match(
-        /Found (\d+) skills?/i,
-      );
-      return m ? Number(m[1]) : 0;
+      return countSkillsFound(`${r.stdout || ""}${r.stderr || ""}`);
     },
     skillsListing: (repo) =>
       memo(`skills:${repo}`, async () => {
