@@ -79,7 +79,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Audit a live AWS account end-to-end: attribute every dollar, find idle/orphaned resources, rightsize, check Savings Plans/RI coverage, and produce an evidence-backed savings plan with confidence levels and reversible, gated actions. Verifies prices live; hardcodes none.",
-      "version": "0.4.1",
+      "version": "0.4.2",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
@@ -99,7 +99,7 @@
         "repo": "Aboudjem/goalify"
       },
       "description": "Give your AI a big job and get proof it is done. Writes the brief and the /goal condition for Claude Code and Codex.",
-      "version": "3.1.1",
+      "version": "3.1.2",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
       "keywords": [
@@ -182,7 +182,7 @@
     {
       "name": "contextify",
       "description": "Tell every coding agent how your repo works. Then prove it is still true.",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "homepage": "https://github.com/Aboudjem/contextify",
       "license": "MIT",
       "keywords": [
