@@ -120,7 +120,7 @@
         "repo": "Aboudjem/humanizer-skill"
       },
       "description": "Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own.",
-      "version": "0.8.3",
+      "version": "0.8.4",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
       "keywords": [
@@ -164,7 +164,7 @@
         "repo": "Aboudjem/secure-my-app"
       },
       "description": "Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "homepage": "https://github.com/Aboudjem/secure-my-app",
       "license": "MIT",
       "keywords": [
