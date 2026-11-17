@@ -31,6 +31,9 @@ const ROOT = resolve(__dirname, "..");
 export const DEFAULT_MANIFEST = resolve(ROOT, ".claude-plugin/marketplace.json");
 
 const FETCH_TIMEOUT_MS = 15_000;
+/** A rate limit or a network blip must not read as drift: try each repo this many times. */
+const FETCH_ATTEMPTS = 3;
+const FETCH_RETRY_DELAY_MS = 1_500;
 
 // ---------------------------------------------------------------------------
 // Upstream fetch
@@ -42,11 +45,31 @@ const FETCH_TIMEOUT_MS = 15_000;
  * With GITHUB_TOKEN set we use the authenticated contents API (much higher
  * rate limit, which matters on a 6-hourly schedule); without one we fall back
  * to raw.githubusercontent.com so the script still runs locally.
+ * A failed attempt is retried, except a 404.
  *
  * @param {string} repo e.g. "Aboudjem/sniff"
  * @returns {Promise<{version?: string, description?: string}>}
  */
-export async function fetchPluginJsonFromGitHub(repo, { token = process.env.GITHUB_TOKEN, timeoutMs = FETCH_TIMEOUT_MS } = {}) {
+export async function fetchPluginJsonFromGitHub(
+  repo,
+  { token = process.env.GITHUB_TOKEN, timeoutMs = FETCH_TIMEOUT_MS, attempts = FETCH_ATTEMPTS, retryDelayMs = FETCH_RETRY_DELAY_MS } = {},
+) {
+  let lastError;
+  for (let i = 1; i <= attempts; i++) {
+    try {
+      return await fetchPluginJsonOnce(repo, { token, timeoutMs });
+    } catch (err) {
+      lastError = err;
+      // A 404 is an answer, not a blip: the file is not there. Do not retry it.
+      if (/^HTTP 404\b/.test(err?.message || "")) break;
+      if (i < attempts) await new Promise((r) => setTimeout(r, retryDelayMs * i));
+    }
+  }
+  throw lastError;
+}
+
+/** One attempt, no retry. */
+async function fetchPluginJsonOnce(repo, { token, timeoutMs }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {

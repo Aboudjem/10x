@@ -344,3 +344,58 @@ describe("sync-plugins against the real manifest", () => {
     );
   });
 });
+
+// ---------------------------------------------------------------------------
+// The fetch retries a blip, and does not retry a 404.
+// ---------------------------------------------------------------------------
+
+describe("fetchPluginJsonFromGitHub retries", () => {
+  const withFetch = async (fake, run) => {
+    const real = globalThis.fetch;
+    globalThis.fetch = fake;
+    try {
+      return await run();
+    } finally {
+      globalThis.fetch = real;
+    }
+  };
+  const ok = (obj) => ({ ok: true, status: 200, text: async () => JSON.stringify(obj) });
+  const bad = (status) => ({ ok: false, status, text: async () => "" });
+
+  it("returns the manifest when the third attempt answers", async () => {
+    const { fetchPluginJsonFromGitHub } = await import("../scripts/sync-plugins.mjs");
+    let calls = 0;
+    const got = await withFetch(
+      async () => (++calls < 3 ? bad(429) : ok({ version: "1.2.3" })),
+      () => fetchPluginJsonFromGitHub("o/r", { token: "", retryDelayMs: 1 }),
+    );
+    assert.equal(got.version, "1.2.3");
+    assert.equal(calls, 3);
+  });
+
+  it("throws after the last attempt fails", async () => {
+    const { fetchPluginJsonFromGitHub } = await import("../scripts/sync-plugins.mjs");
+    let calls = 0;
+    await assert.rejects(
+      withFetch(
+        async () => (calls++, bad(503)),
+        () => fetchPluginJsonFromGitHub("o/r", { token: "", retryDelayMs: 1, attempts: 2 }),
+      ),
+      /HTTP 503/,
+    );
+    assert.equal(calls, 2);
+  });
+
+  it("does not retry a 404", async () => {
+    const { fetchPluginJsonFromGitHub } = await import("../scripts/sync-plugins.mjs");
+    let calls = 0;
+    await assert.rejects(
+      withFetch(
+        async () => (calls++, bad(404)),
+        () => fetchPluginJsonFromGitHub("o/r", { token: "", retryDelayMs: 1 }),
+      ),
+      /HTTP 404/,
+    );
+    assert.equal(calls, 1);
+  });
+});

@@ -184,7 +184,7 @@ Run the command in a clone of that repo to re-print it.
 | ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
 | recap-studio | `npm run test:count` | 113 tests |
 | aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
-| goalify | `make test` | `10/10 suites passed`, `448/448 checks passed` |
+| goalify | `make test` | `10/10 suites passed`, `452/452 checks passed` |
 | humanizer | `npm test` | `# pass 77`, `# fail 0` |
 | loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18`, `5/5` |
 | secure-my-app | `make test` | `79/79`, `152/152`, `33/33` |

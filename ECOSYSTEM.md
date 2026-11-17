@@ -38,7 +38,7 @@ Run the command in a clone of that repo to re-print it.
 | ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
 | recap-studio | `npm run test:count` | 113 tests |
 | aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
-| goalify | `make test` | `10/10 suites passed`, then `448/448 checks passed` |
+| goalify | `make test` | `10/10 suites passed`, then `452/452 checks passed` |
 | humanizer | `npm test` | `# pass 77` and `# fail 0` |
 | loopify | `make test` | `161/161` skill checks, `170/170` manifest checks, `13/13`, `62/62`, `18/18` and `5/5` on the other suites |
 | secure-my-app | `make test` | `79/79` skill checks, `152/152` manifest checks, `33/33` fixture checks |
