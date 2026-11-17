@@ -92,7 +92,7 @@ Utilisez le nom du dépôt du plugin, pas `Aboudjem/10x`. Ce dépôt est une lis
 | <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | Attrapez les 500, liens morts et formulaires cassés de votre app, avec les étapes. | `claude plugin install sniff@10x` | [dépôt](https://github.com/Aboudjem/sniff) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | Corrigez contraste, focus et mise en page : fichier, ligne, valeur mesurée, correction. | `claude plugin install ui-ux-suite@10x` | [dépôt](https://github.com/Aboudjem/ui-ux-suite) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | Expliquez un sujet ou votre session en une page HTML lisible hors ligne. | `claude plugin install recap-studio@10x` | [dépôt](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Réduisez votre facture AWS : une liste classée de coupes, chaque prix vérifié en direct. | `claude plugin install aws-cost-audit@10x` | [dépôt](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Réduisez votre facture AWS : une liste classée de coupes, chacune chiffrée par AWS à l'exécution. | `claude plugin install aws-cost-audit@10x` | [dépôt](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Confiez un gros travail et recevez un reçu : VERIFIED ou NOT VERIFIED. | `claude plugin install goalify@10x` | [dépôt](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Voyez ce qui fait sonner un brouillon comme une IA, puis réécrivez-le dans une voix choisie. | `claude plugin install humanizer@10x` | [dépôt](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Lancez une tâche répétée et suivez-la en une ligne : OK, NEEDS YOU, STALE. | `claude plugin install loopify@10x` | [dépôt](https://github.com/Aboudjem/loopify) |
@@ -148,10 +148,10 @@ La note vérifie la forme, pas la vérité : lisez d'abord les sources.
 
 #### aws-cost-audit
 
-**Coupez le gaspillage de votre facture AWS, au prix du jour.**
+**Coupez le gaspillage de votre facture AWS, chaque coupe chiffrée par AWS à l'exécution.**
 
 - Un verdict en dollars, puis les trois coupes à faire en premier.
-- Les prix viennent d'AWS au moment de l'exécution. `make test` et un scan de CI échouent si un script contient un prix écrit en dur.
+- Les prix viennent d'AWS au moment de l'exécution. `make test` rejette un constat chiffré qui n'enregistre pas sa recherche de prix.
 - Simulation par défaut : un changement demande `--apply`, puis votre oui tapé au clavier. `--yes` saute cette question.
 
 Il lui faut une AWS CLI qui peut lire votre compte, `jq`, et Cost Explorer activé.
@@ -207,6 +207,7 @@ La boucle vit dans votre session ouverte, et son journal est la seule preuve de 
 **Trouvez ce qu'un inconnu peut prendre à votre app. Puis fermez la faille et prouvez-le.**
 
 - Chaque problème montre sa preuve : la ligne de code et, avec une URL en ligne, la requête et sa vraie sortie.
+  `make test` rejoue la preuve des 11 problèmes de l'exemple.
 - Chaque problème a une commande `VERIFY` dont la sortie doit changer pour qu'un correctif compte.
 - Il écrit un rapport et s'arrête. Rien ne change dans votre app tant que vous n'approuvez pas un correctif.
 

@@ -91,7 +91,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | 動作中のアプリの 500 エラー、リンク切れ、壊れたフォームを再現手順付きで見つけます。 | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | コントラスト、フォーカス、レイアウトの不具合を、ファイル、行、測定値、修正案で直せます。 | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | トピックや作業セッションを、オフラインで開ける1枚の HTML で説明します。 | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | AWS 請求を削る、順位付きの削減リスト。価格はすべてライブで確認します。 | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | AWS 請求を削る、順位付きの削減リスト。各削減の価格は実行時に AWS から取得します。 | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 大きな作業を任せてレシートを受け取ります: VERIFIED か NOT VERIFIED。 | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | 下書きが AI っぽく聞こえる理由を示し、選んだ声で書き直します。 | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | 繰り返し作業を動かし、1行で確認します: OK、NEEDS YOU、STALE。 | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
@@ -147,10 +147,10 @@ npx skills add Aboudjem/sniff
 
 #### aws-cost-audit
 
-**AWS 請求の無駄を、ライブ価格で削ります。**
+**AWS 請求の無駄を削ります。各削減の価格は実行時に AWS から取得します。**
 
 - 金額での判定と、最初にやるべき3つの削減。
-- 価格は実行時に AWS から取得します。スクリプトに価格が直書きされていると `make test` と CI のスキャンが失敗します。
+- 価格は実行時に AWS から取得します。価格の取得記録がない指摘は `make test` が拒否します。
 - 既定はドライランです。変更には `--apply` と、そのあとあなたが入力する yes が必要です。`--yes` はその確認を飛ばします。
 
 アカウントを読める AWS CLI、`jq`、有効な Cost Explorer が必要です。
@@ -206,6 +206,7 @@ npx skills add Aboudjem/sniff
 **第三者がアプリから持ち出せるものを見つける。そして塞ぎ、塞いだことを証明する。**
 
 - 各指摘は証拠を示します: コードの行と、ライブ URL があればリクエストと実際の出力。
+  `make test` はサンプルの11件すべての証拠を再現します。
 - 各指摘には `VERIFY` コマンドがあり、その出力が変わって初めて修正とみなします。
 - レポートを書いて止まります。あなたが修正を承認するまで、アプリは何も変わりません。
 

@@ -91,7 +91,7 @@ npx skills add Aboudjem/sniff
 | <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | 抓出运行中应用的 500 错误、死链和坏表单，附复现步骤。 | `claude plugin install sniff@10x` | [仓库](https://github.com/Aboudjem/sniff) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | 修复对比度、焦点和布局问题：文件、行号、实测值和改法。 | `claude plugin install ui-ux-suite@10x` | [仓库](https://github.com/Aboudjem/ui-ux-suite) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | 把一个主题或你的会话讲清楚，做成一页可离线打开的 HTML。 | `claude plugin install recap-studio@10x` | [仓库](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | 削减 AWS 账单：一份排好序的削减清单，每个价格都实时核对。 | `claude plugin install aws-cost-audit@10x` | [仓库](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | 削减 AWS 账单：一份排好序的削减清单，每项的价格都在运行时从 AWS 获取。 | `claude plugin install aws-cost-audit@10x` | [仓库](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 交出一个大任务，拿回一张回执：VERIFIED 或 NOT VERIFIED。 | `claude plugin install goalify@10x` | [仓库](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | 看清草稿为何像 AI 写的，再用你选的语气重写。 | `claude plugin install humanizer@10x` | [仓库](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | 运行重复任务，用一行查看状态：OK、NEEDS YOU、STALE。 | `claude plugin install loopify@10x` | [仓库](https://github.com/Aboudjem/loopify) |
@@ -147,10 +147,10 @@ npx skills add Aboudjem/sniff
 
 #### aws-cost-audit
 
-**按实时价格，削减 AWS 账单里的浪费。**
+**削减 AWS 账单里的浪费，每项的价格都在运行时从 AWS 获取。**
 
 - 先给出以美元计的结论，再给出最先要做的三项削减。
-- 价格在运行时从 AWS 获取。脚本里只要写死了价格，`make test` 和 CI 扫描都会失败。
+- 价格在运行时从 AWS 获取。带价格的发现如果没有记录价格查询，`make test` 会拒绝它。
 - 默认是演练模式：要改动必须加 `--apply`，然后亲手输入 yes。`--yes` 会跳过这个提问。
 
 它需要一个能读取你账户的 AWS CLI、`jq`，并且已开启 Cost Explorer。
@@ -206,6 +206,7 @@ npx skills add Aboudjem/sniff
 **找出陌生人能从你的应用拿走什么。然后堵上，并证明已经堵上。**
 
 - 每个问题都附证明：代码行，以及有在线 URL 时的请求和真实输出。
+  `make test` 会重放全部 11 个示例问题背后的证明。
 - 每个问题都有一条 `VERIFY` 命令，输出必须改变，修复才算数。
 - 它写完报告就停下。在你批准修复前，应用里什么都不会改。
 

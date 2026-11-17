@@ -128,7 +128,7 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 | 1 | `sniff`           | 0.9.3 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
 | 2 | `ui-ux-suite`     | 0.7.1 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
 | 3 | `recap-studio`    | 0.6.2 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
-| 4 | `aws-cost-audit`  | 0.4.2 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| 4 | `aws-cost-audit`  | 0.4.3 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | 5 | `goalify`         | 3.1.2 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
 | 6 | `humanizer`       | 0.8.2 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
 | 7 | `loopify`         | 1.2.3 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
@@ -136,8 +136,8 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 | 9 | `contextify`      | 0.3.3 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
-one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
-pricing), no-telemetry, and local-only items; the dual-mode/MCP item does not apply to a skill plugin.
+one-command-install, real-verification (built test-first; read-only by default; `make test` rejects a priced finding
+with no lookup record), no-telemetry, and local-only items; the dual-mode/MCP item does not apply to a skill plugin.
 
 `goalify` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the bar's
 zero-bloat (a `SKILL.md` plus Python standard-library scripts, no runtime deps), one-command-install (`claude plugin install
@@ -160,7 +160,8 @@ and local-only items; the MCP-server and standalone-CLI items do not apply to a 
 bar's zero-bloat (pure Markdown, no runtime dependency, no network call of its own), one-command-install
 (`claude plugin install secure-my-app@10x`), no-telemetry, and local-only items; the MCP-server and
 standalone-CLI items do not apply to a skill plugin. Its real-verification item: `make test` prints `79/79`
-skill checks, `152/152` manifest checks and `33/33` fixture checks.
+skill checks, `152/152` manifest checks and `54/54` fixture checks.
+The fixture checks replay the proof behind all 11 sample findings.
 
 `contextify` is a skill plugin with local shell/Python scripts and no package dependencies or MCP server. Its drift check runs without a model; generation uses the host coding agent. See its [0.2 feature evaluation](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) for measured behavior and validation limits.
 
@@ -183,11 +184,11 @@ Run the command in a clone of that repo to re-print it.
 | sniff | `npm test` | `Tests  603 passed (603)`, 54 test files |
 | ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
 | recap-studio | `npm run test:count` | 113 tests |
-| aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
+| aws-cost-audit | `make test` | `Results: 144 passed, 0 failed` |
 | goalify | `make test` | `10/10 suites passed`, `460/460 checks passed` |
 | humanizer | `npm test` | `# pass 90`, `# fail 0` |
 | loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18`, `5/5` |
-| secure-my-app | `make test` | `79/79`, `152/152`, `33/33` |
+| secure-my-app | `make test` | `79/79`, `152/152`, `54/54` |
 | contextify | `make test` | `128/128`, `30/30`, `155/155`, `114/114`, three unittest suites OK |
 
 Last verified: 2026-11-17.

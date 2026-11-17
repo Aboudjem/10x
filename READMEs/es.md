@@ -91,7 +91,7 @@ Usa el nombre del repo del plugin, no `Aboudjem/10x`. Este repo es una lista y n
 | <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | Atrapa los 500, enlaces rotos y formularios rotos de tu app, con los pasos. | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | Arregla contraste, foco y maquetación: archivo, línea, valor medido y cambio. | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | Explica un tema o tu sesión en una página HTML que abre sin conexión. | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Recorta tu factura de AWS: una lista ordenada de recortes, cada precio comprobado en vivo. | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Recorta tu factura de AWS: una lista ordenada de recortes, cada uno con precio de AWS al ejecutarse. | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Delega un trabajo grande y recibe un recibo: VERIFIED o NOT VERIFIED. | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Mira qué hace sonar un borrador a IA y reescríbelo con la voz que elijas. | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
 | <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Ejecuta una tarea repetida y revísala en una línea: OK, NEEDS YOU, STALE. | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
@@ -147,10 +147,10 @@ La nota mide la forma, no la verdad, así que lee primero las fuentes.
 
 #### aws-cost-audit
 
-**Recorta el desperdicio de tu factura de AWS, con precios en vivo.**
+**Recorta el desperdicio de tu factura de AWS, cada recorte con precio de AWS al ejecutarse.**
 
 - Un veredicto en dólares y luego los tres recortes que hacer primero.
-- Los precios vienen de AWS al ejecutarse. `make test` y un escaneo de CI fallan si un script contiene un precio literal.
+- Los precios vienen de AWS al ejecutarse. `make test` rechaza un hallazgo con precio que no registra su consulta.
 - Simulación por defecto: un cambio necesita `--apply` y después tu sí escrito. `--yes` se salta esa pregunta.
 
 Necesita una AWS CLI que pueda leer tu cuenta, `jq`, y Cost Explorer activado.
@@ -206,6 +206,7 @@ El bucle vive en tu sesión abierta, y su registro es la única prueba de lo que
 **Encuentra lo que un extraño puede llevarse de tu app. Luego ciérralo y prueba que quedó cerrado.**
 
 - Cada hallazgo muestra su prueba: la línea de código y, con una URL en vivo, la petición y su salida real.
+  `make test` reproduce la prueba de los 11 hallazgos de ejemplo.
 - Cada hallazgo tiene un comando `VERIFY` cuya salida debe cambiar para que un arreglo cuente.
 - Escribe un informe y se detiene. Nada cambia en tu app hasta que apruebes un arreglo.
 

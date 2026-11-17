@@ -4,6 +4,23 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.4] - 2026-11-17
+
+aws-cost-audit 0.4.3 and fresh secure-my-app counts. Install commands are unchanged.
+
+### Changed
+
+- aws-cost-audit 0.4.3 is listed. Its description now equals its `plugin.json`, word for word.
+- aws-cost-audit lines say each cut is priced from AWS at run time, as its README does.
+- The aws-cost-audit block says `make test` rejects a priced finding with no lookup record.
+- aws-cost-audit test count: `Results: 144 passed, 0 failed` from `make test`.
+- secure-my-app fixture checks: `54/54` from `make test`. Its block says `make test` replays the proof behind all 11 sample findings.
+- The four translations carry the same changes.
+
+### Fixed
+
+- "every price checked live" overstated aws-cost-audit. Some figures come from a Cost Explorer read, not a unit price lookup.
+
 ## [2.1.3] - 2026-11-17
 
 Truer lines from a final check, sniff 0.9.3, and fresh test counts. Install commands are unchanged.
