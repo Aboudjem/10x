@@ -14,7 +14,7 @@
         "repo": "Aboudjem/sniff"
       },
       "description": "Autonomous QA scanner via sniff-qa: walks your running app in a real browser and reports real bugs (broken pages/links, console/network errors, broken forms, state-loss, empty/placeholder data, bad loading/error states, responsive + a11y) with reproduction proof, severity, confidence, and a fix. No API key.",
-      "version": "0.9.0",
+      "version": "0.9.1",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
       "keywords": [
