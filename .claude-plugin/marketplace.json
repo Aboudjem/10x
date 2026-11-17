@@ -79,7 +79,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs --apply and your yes.",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
