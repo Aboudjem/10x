@@ -14,7 +14,7 @@
         "repo": "Aboudjem/sniff"
       },
       "description": "Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix.",
-      "version": "0.9.3",
+      "version": "0.9.4",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
       "keywords": [
@@ -34,7 +34,7 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies.",
-      "version": "0.7.2",
+      "version": "0.7.3",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
       "keywords": [
@@ -57,7 +57,7 @@
         "repo": "Aboudjem/recap-studio"
       },
       "description": "Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send.",
-      "version": "0.6.3",
+      "version": "0.6.4",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
