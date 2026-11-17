@@ -12,6 +12,9 @@ All notable changes to this marketplace will be documented in this file.
 
 ### Added
 
+- `FLEET-STANDARD.md`: one bar for every public repo of the owner, with a check id per rule.
+- `FLEET-TRIAGE.md`: a verdict, a reason and evidence for each of the 54 public repos, checked on 2026-11-17. 24 were archived.
+- `scripts/fleet-check.mjs` and its tests: the checker for the standard. Run it with `npm run fleet:triage`, `fleet:plugins`, `fleet:rest` or `fleet:all`.
 - **contextify** (0.1.0, MIT) as the ninth plugin: one evidence-backed instruction source for coding agents, thin pointers, managed-block updates and deterministic drift checks.
 - Contextify install instructions across the marketplace listing, translations, command surface and examples.
 
