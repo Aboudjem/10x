@@ -261,7 +261,7 @@ Non. Le dépôt contient un fichier JSON, de la documentation et des images. Rie
 - aws-cost-audit a besoin d'une AWS CLI capable de lire votre compte.
 - Au premier démarrage, le serveur MCP de sniff télécharge un navigateur et ses outils. Cela peut dépasser le délai de connexion de Claude Code. Préchauffez-le une fois : `npx -y sniff-qa --version`.
   Si un téléchargement interrompu laisse npx avec une erreur `Invalid Version`, videz son cache (`rm -rf ~/.npm/_npx`) puis relancez le préchauffage.
-- `claude plugin list` peut afficher une note informative à côté d'un plugin, par exemple la note de lockfile de recap-studio, ou sniff 0.9.0 qui indique que les paquets qu'il liste ne sont pas installés. Le plugin s'installe et fonctionne quand même.
+- `claude plugin list` peut afficher une note informative à côté d'un plugin. Exemples : la note de lockfile de recap-studio, et sniff 0.9.0 qui signale que ses paquets listés ne sont pas installés. Le plugin s'installe et fonctionne quand même.
 - La version listée ici peut avoir jusqu'à six heures de retard sur une nouvelle version d'un plugin, le temps que la synchronisation tourne.
 - Chaque plugin garde sa propre licence. sniff est sous Apache-2.0, les huit autres sous MIT.
 
