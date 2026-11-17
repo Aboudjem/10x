@@ -238,6 +238,68 @@ describe("sync-plugins unreachable upstream", () => {
   });
 });
 
+describe("sync-plugins failed fetches never read as clean", () => {
+  const ALL_FAIL = {
+    "Aboudjem/alpha": new Error("HTTP 503"),
+    "Aboudjem/beta-repo": new Error("HTTP 503"),
+    "Aboudjem/gamma": new Error("timed out after 15000ms"),
+  };
+
+  it("all failed, --check: no 'drift: none', explicit unverified count, exit 1", async () => {
+    const path = fixtureFile();
+    const { code, lines, text } = await run({ path, upstream: ALL_FAIL, mode: "check" });
+
+    assert.equal(code, 1);
+    assert.ok(!lines.includes("drift: none"), `must not claim no drift:\n${text}`);
+    assert.ok(lines.includes("drift: unknown, no plugin could be verified"), text);
+    assert.equal(lines.at(-1), "unverified: 3 of 3 plugin(s), upstream plugin.json could not be read");
+  });
+
+  it("all failed, --write: exits 1 and leaves the manifest untouched", async () => {
+    const path = fixtureFile();
+    const before = readFileSync(path, "utf8");
+    const mtimeBefore = statSync(path).mtimeMs;
+    const { code, lines, wrote } = await run({ path, upstream: ALL_FAIL, mode: "write" });
+
+    assert.equal(code, 1, "a write run that verified nothing must fail the job");
+    assert.equal(wrote, false);
+    assert.equal(readFileSync(path, "utf8"), before);
+    assert.equal(statSync(path).mtimeMs, mtimeBefore);
+    assert.ok(!lines.some((l) => l.startsWith("bump:")));
+    assert.ok(!lines.includes("drift: none"));
+    assert.equal(lines.at(-1), "unverified: 3 of 3 plugin(s), upstream plugin.json could not be read");
+  });
+
+  it("partly failed, --check: names the verified count, ends on the unverified line, exit 1", async () => {
+    const path = fixtureFile();
+    const upstream = { ...UPSTREAM_IN_SYNC, "Aboudjem/beta-repo": new Error("HTTP 404") };
+    const { code, lines, text } = await run({ path, upstream, mode: "check" });
+
+    assert.equal(code, 1);
+    assert.ok(!lines.includes("drift: none"), `must not claim no drift:\n${text}`);
+    assert.ok(lines.includes("drift: none among the 2 verified plugin(s)"), text);
+    assert.equal(lines.at(-1), "unverified: 1 of 3 plugin(s), upstream plugin.json could not be read");
+  });
+
+  it("partly failed, --write: bumps only verified pins and still reports the unverified one", async () => {
+    const path = fixtureFile();
+    const before = readFileSync(path, "utf8");
+    const upstream = {
+      ...UPSTREAM_IN_SYNC,
+      "Aboudjem/alpha": { version: "1.1.0", description: "Alpha does alpha things." },
+      "Aboudjem/beta-repo": new Error("HTTP 404"),
+    };
+    const { code, lines, text } = await run({ path, upstream, mode: "write" });
+    const after = readFileSync(path, "utf8");
+
+    assert.equal(code, 0, "a partial network failure does not block verified bumps");
+    assert.equal(after, before.replace('"version": "1.0.0"', '"version": "1.1.0"'));
+    assert.ok(after.includes('"version": "2.3.4"'), "the unreachable pin is never written");
+    assert.ok(lines.includes("sync: 1 plugin(s) updated"), text);
+    assert.equal(lines.at(-1), "unverified: 1 of 3 plugin(s), upstream plugin.json could not be read");
+  });
+});
+
 describe("sync-plugins description drift", () => {
   it("lists a differing description and never writes it", async () => {
     const path = fixtureFile();

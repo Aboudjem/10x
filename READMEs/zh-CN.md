@@ -30,9 +30,10 @@
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
+claude plugin install humanizer@10x
 ```
 
-运行两条安装命令后你会看到（真实运行，2026-11-17）：
+运行这两条命令后你会看到（真实运行，2026-11-17）：
 
 ```text
 ✔ Successfully added marketplace: 10x (declared in user settings)
@@ -140,7 +141,7 @@ npx skills add Aboudjem/sniff
 
 #### secure-my-app
 
-它会找出陌生人能从你的应用里拿走什么，并用一条你能读到输出的命令来佐证每一项发现，然后只修复你批准的部分，再重新运行同一条命令，证明这个漏洞已经堵上，而你自己的登录依然可用。共 65 项控制项，分为七组。没有发现问题的一次运行也绝不会被称为安全：第三个闸门标签写着 `NOTHING CONFIRMED HERE`。
+它会找出陌生人能从你的应用里拿走什么，并用一条你能读到输出的命令来佐证每一项发现，然后只修复你批准的部分，再重新运行同一条命令，证明这个漏洞已经堵上，而你自己的登录依然可用。共 65 项控制项，分为七组。没有发现问题的一次运行也绝不会被称为安全：它的第三种判定是 `NOTHING CONFIRMED HERE`。
 
 `claude plugin install secure-my-app@10x`
 
@@ -196,11 +197,11 @@ sniff 和 ui-ux-suite 可以直接从 npm 运行。recap-studio 需要克隆仓�
 
 下面每一项说法都附带能打印出它的命令。请在这个仓库的克隆目录中运行。
 
-| 说法 | 命令 | 打印的最后一行 |
+| 说法 | 命令 | 在输出中要找的那一行 |
 |:--|:--|:--|
 | 清单中有九款有效插件 | `npm run validate` | `All checks passed. Marketplace has 9 valid plugin(s).` |
-| 列出的每个版本都与插件自己的仓库一致 | `npm run sync:check` | `drift: none` |
-| 清单文件能在 Claude Code 中加载 | `claude plugin validate . --strict` | `Validation passed` |
+| 列出的每个版本都与插件自己的仓库一致 | `npm run sync:check` | `drift: none` （如果某个仓库读不到，它会打印 `unverified: <n> of 9 ...` 并以退出码 1 结束） |
+| 清单文件能在 Claude Code 中加载 | `claude plugin validate . --strict` | `✔ Validation passed` |
 | 仓库自身的测试全部通过 | `npm test` | `# fail 0` |
 
 CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每个链接并扫描密钥。
@@ -256,6 +257,9 @@ CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每
 - Claude Code 的命令需要 `claude` CLI。其他智能体使用 `npx skills add`，一次一个插件仓库。
 - 只有三款插件提供 MCP 服务器：sniff、ui-ux-suite 和 recap-studio。
 - aws-cost-audit 需要一个能读取你账户的 AWS CLI。
+- sniff 的 MCP 服务器首次启动时会下载一套浏览器工具。这可能超过 Claude Code 的连接超时。请先预热一次：`npx -y sniff-qa --version`。
+  如果下载中断导致 npx 报 `Invalid Version` 错误，请清掉它的缓存（`rm -rf ~/.npm/_npx`），再预热一次。
+- `claude plugin list` 可能会在某个插件旁显示一条提示信息，例如 recap-studio 的 lockfile 提示。插件照样能安装和运行。
 - 在同步任务运行之前，这里列出的版本可能比插件的新版本最多落后六小时。
 - 每款插件保留自己的许可证。sniff 采用 Apache-2.0，其余八款采用 MIT。
 

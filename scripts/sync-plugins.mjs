@@ -7,7 +7,11 @@
  *
  * Two modes:
  *   --check   compare only; exit 1 if any plugin lags or cannot be verified.
- *   --write   rewrite the lagging version strings in place, then report.
+ *   --write   rewrite the lagging version strings in place, then report;
+ *             exit 1 if no upstream plugin.json could be read at all.
+ *
+ * When a fetch fails, the last line is "unverified: <n> of <total> ...",
+ * never "drift: none".
  *
  * Only `version` is ever written. Descriptions are hand-written prose, so a
  * description that differs upstream is reported for a human and left alone.
@@ -245,14 +249,25 @@ export async function syncPlugins({
     }
   }
 
+  // The summary never claims "drift: none" for a plugin it could not read.
+  const total = plugins.length;
+  const verified = total - unverified.length;
   if (wrote) out(`sync: ${updates.length} plugin(s) updated`);
   else if (updates.length > 0) out(`drift: ${updates.length} plugin(s)`);
-  else out("drift: none");
+  else if (unverified.length === 0) out("drift: none");
+  else if (verified > 0) out(`drift: none among the ${verified} verified plugin(s)`);
+  else out("drift: unknown, no plugin could be verified");
+  if (unverified.length > 0) {
+    out(`unverified: ${unverified.length} of ${total} plugin(s), upstream plugin.json could not be read`);
+  }
 
   // A check must fail on a lagging pin or on a plugin we could not verify.
-  // A write run reports the same facts but does not fail the scheduled job on
-  // a transient network problem; the next run picks it up.
-  const code = mode === "check" && (updates.length > 0 || unverified.length > 0) ? 1 : 0;
+  // A write run writes only pins it verified. It tolerates a partial network
+  // failure (the next run picks it up) but fails when it verified nothing,
+  // so a run that read no upstream is never reported as a clean sync.
+  let code = 0;
+  if (mode === "check" && (updates.length > 0 || unverified.length > 0)) code = 1;
+  if (mode === "write" && total > 0 && verified === 0) code = 1;
   return { code, updates, unverified, descriptionDrift, wrote };
 }
 

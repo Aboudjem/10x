@@ -26,7 +26,7 @@ The marketplace manifest is `.claude-plugin/marketplace.json`. Plugins install f
 ## Docs
 
 - [README](https://github.com/Aboudjem/10x/blob/main/README.md): What 10x is, the nine plugins, the one-command install, and the quality bar.
-- [QUALITY-BAR.md](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md): The explicit eight-point, 29-item checklist every listed plugin must pass.
+- [QUALITY-BAR.md](https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md): The explicit checklist, in eight sections, that every listed plugin must pass.
 - [CONTRIBUTING.md](https://github.com/Aboudjem/10x/blob/main/CONTRIBUTING.md): How to propose a plugin for the marketplace.
 - [AGENTS.md](https://github.com/Aboudjem/10x/blob/main/AGENTS.md): Instructions for AI agents using this marketplace.
 - [CHANGELOG.md](https://github.com/Aboudjem/10x/blob/main/CHANGELOG.md): Dated history of marketplace changes.

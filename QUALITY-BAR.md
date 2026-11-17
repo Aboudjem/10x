@@ -29,6 +29,8 @@ the fleet standard wins and this file gets fixed.
 ## 2. One-command install
 
 - [ ] `claude plugin install <name>@10x` succeeds with no follow-up prompts.
+      `claude plugin list` may still print an informational note (recap-studio shows a lockfile
+      note). A note is allowed; an install that asks a question or fails is not.
 - [ ] `npx <name>` works as a standalone CLI when relevant.
 - [ ] No required env vars on first run. Every feature with an env var has
       a clearly-marked off-by-default path. A plugin that needs credentials for a
@@ -91,23 +93,31 @@ the fleet standard wins and this file gets fixed.
 
 ## Verify before listing
 
-A new plugin must produce the following report locally before it is added
-to `marketplace.json`:
+Run these before a plugin is added to `marketplace.json`. Every step must succeed.
+Use `<repo>` for the plugin's GitHub repo and `<name>` for its plugin name.
 
-```bash
-# In the plugin repo
-npm ci
-npm test
-npm run lint
-npx <name> --version
+**Tool plugins** (ship an npm package, such as sniff and ui-ux-suite):
 
-# In a clean Claude Code session
-claude plugin install <github-owner>/<repo>
-/<command>           # smoke test
-```
+1. `git clone https://github.com/Aboudjem/<repo> && cd <repo>`
+2. `npm install`
+3. `npm test`
+4. `npx -y <npm-package> --version`
+5. `claude plugin validate . --strict`
 
-Each of those commands must succeed, **and** the plugin's README must
-document its slash commands and MCP tools.
+**Skill plugins** (Markdown and scripts, no npm package):
+
+1. `git clone https://github.com/Aboudjem/<repo> && cd <repo>`
+2. Run the test command the README's Proof section names (`make test` or `npm test`).
+3. `claude plugin validate . --strict`
+4. `npx skills add Aboudjem/<repo>` in an empty folder.
+
+**Both kinds**, after the entry is added on a branch:
+
+1. `claude plugin marketplace add Aboudjem/10x`
+2. `claude plugin install <name>@10x`
+3. Run one of the plugin's slash commands in a new session.
+
+The plugin's README must also document its slash commands, and its MCP tools if it has any.
 
 ---
 
@@ -185,7 +195,7 @@ Last verified: 2026-11-17.
 
 ## Contextify 0.1 verification, 2026-09-17 (historical)
 
-These checks ran in the Contextify repository during the Codex continuation. They do not refresh the older plugins' 2026-09-03 results above.
+These checks ran in the Contextify repository during the Codex continuation. They are kept as history. The current figures for every plugin are in the 2026-11-17 table above.
 
 | Command | Historical 0.1 output |
 | --- | --- |

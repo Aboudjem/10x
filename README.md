@@ -30,9 +30,10 @@
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
+claude plugin install humanizer@10x
 ```
 
-What you see after the two install commands (real run, 2026-11-17):
+What you see after those two commands (real run, 2026-11-17):
 
 ```text
 ✔ Successfully added marketplace: 10x (declared in user settings)
@@ -148,7 +149,7 @@ It is for a job that repeats and never finishes. It writes the brief and the lin
 
 It finds what a stranger can take from your app. Each finding comes with a command whose output you can read.
 You approve a fix, or you do not. The same command then runs again to prove the hole is shut and your own login still works.
-65 controls, seven groups. A clean run is never called secure: the third gate label reads `NOTHING CONFIRMED HERE`.
+65 controls, seven groups. A clean run is never called secure: its third verdict is `NOTHING CONFIRMED HERE`.
 
 `claude plugin install secure-my-app@10x`
 
@@ -201,11 +202,11 @@ The other six ship no MCP server.
 
 Each claim below comes with the command that prints it. Run them from a clone of this repo.
 
-| Claim | Command | Last line it prints |
+| Claim | Command | Line to look for in its output |
 |:--|:--|:--|
 | The list holds nine valid plugins | `npm run validate` | `All checks passed. Marketplace has 9 valid plugin(s).` |
-| Every listed version matches the plugin's own repo | `npm run sync:check` | `drift: none` |
-| The manifest loads in Claude Code | `claude plugin validate . --strict` | `Validation passed` |
+| Every listed version matches the plugin's own repo | `npm run sync:check` | `drift: none` (if a repo cannot be read, it prints `unverified: <n> of 9 ...` and exits 1) |
+| The manifest loads in Claude Code | `claude plugin validate . --strict` | `✔ Validation passed` |
 | The repo's own tests pass | `npm test` | `# fail 0` |
 
 CI runs all four on every push and pull request. It also checks every link and scans for secrets.
@@ -256,6 +257,9 @@ No. The repo holds a JSON file, docs and images. Nothing in it runs on your mach
 - The Claude Code commands need the `claude` CLI. Other agents use `npx skills add`, one plugin repo at a time.
 - Only three plugins ship an MCP server: sniff, ui-ux-suite and recap-studio.
 - aws-cost-audit needs an AWS CLI that can read your account.
+- sniff's MCP server downloads a browser stack on its first start. That can pass Claude Code's connect timeout. Warm it up once first: `npx -y sniff-qa --version`.
+  If a cut-off download left npx with an `Invalid Version` error, clear its cache (`rm -rf ~/.npm/_npx`) and run the warmup again.
+- `claude plugin list` can show an informational note next to a plugin, for example recap-studio's lockfile note. The plugin still installs and runs.
 - The version listed here can trail a new plugin release by up to six hours, until the sync job runs.
 - Each plugin keeps its own license. sniff is Apache-2.0, the other eight are MIT.
 

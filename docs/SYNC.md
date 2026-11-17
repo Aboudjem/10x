@@ -41,22 +41,26 @@ and the trailing newline come out byte-identical.
 
 **Not synced:** descriptions, keywords, homepages, README prose. Marketplace
 descriptions are written for someone browsing the listing; `plugin.json`
-descriptions are written for the plugin's own repo. They are allowed to differ,
-and all nine listed plugins do. The run summary prints a `description drift:` section
-so a human can look, but the script never writes a description.
+descriptions are written for the plugin's own repo. They are allowed to differ.
+Today all nine match their upstream word for word. When one differs, the run summary
+prints a `description drift:` section so a human can look. The script never writes a description.
 
 ## Running it yourself
 
 ```
-npm run sync:check   # compare only, exits 1 on drift
+npm run sync:check   # compare only, exits 1 on drift or on an unread repo
 npm run sync:write   # rewrite the lagging pins
 npm test             # unit tests
 ```
 
+If a repo cannot be read, the last line is `unverified: <n> of <total> ...`, never
+`drift: none`, and `--check` exits 1. `--write` only writes pins it read; it exits 1
+when it read none, so the scheduled job fails and commits nothing.
+
 No dependencies to install; Node 22 or newer. Set `GITHUB_TOKEN` to read
 through the authenticated API instead of `raw.githubusercontent.com`.
 
-## Adding plugin #9
+## Adding plugin #10
 
 1. Add the entry to `.claude-plugin/marketplace.json`, with `source.repo`
    pointing at the plugin's GitHub repo and `version` matching what is on its

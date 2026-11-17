@@ -94,3 +94,27 @@ describe("marketplace.json structural validation", () => {
   });
 
 });
+
+// ---------------------------------------------------------------------------
+// Prose claims about QUALITY-BAR.md stay true
+// ---------------------------------------------------------------------------
+
+describe("quality bar checklist claims", () => {
+  const bar = readFileSync(resolve(ROOT, "QUALITY-BAR.md"), "utf8");
+  const items = bar.split("\n").filter((l) => l.startsWith("- [ ] ")).length;
+  const sections = bar.split("\n").filter((l) => /^## \d+\. /.test(l)).length;
+
+  it("has eight numbered sections, as the docs say", () => {
+    assert.equal(sections, 8);
+  });
+
+  for (const file of ["README.md", "AGENTS.md", "llms.txt", "CONTRIBUTING.md", "ECOSYSTEM.md"]) {
+    it(`${file} states no checklist item count that differs from QUALITY-BAR.md`, () => {
+      let text;
+      try { text = readFileSync(resolve(ROOT, file), "utf8"); } catch { return; }
+      for (const m of text.matchAll(/(\d+)[- ]item/g)) {
+        assert.equal(Number(m[1]), items, `${file} says ${m[0]}, QUALITY-BAR.md has ${items} items`);
+      }
+    });
+  }
+});

@@ -30,9 +30,10 @@
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
+claude plugin install humanizer@10x
 ```
 
-2つのインストールコマンドを実行すると、次のように表示されます(実際の実行結果、2026-11-17)。
+この2つのコマンドを実行すると、次のように表示されます(実際の実行結果、2026-11-17)。
 
 ```text
 ✔ Successfully added marketplace: 10x (declared in user settings)
@@ -140,7 +141,7 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### secure-my-app
 
-見知らぬ他人があなたのアプリから持ち出せるものを見つけ、出力を自分で読めるコマンドで一つひとつの指摘を裏づけます。そのうえで、あなたが承認したものだけを修正し、同じコマンドをもう一度実行して、穴が塞がったことと、あなた自身のログインが今も通ることを証明します。コントロールは 7 グループで 65 項目です。指摘が出ない実行でも安全だとは決して述べません。3 つ目のゲートのラベルは `NOTHING CONFIRMED HERE` です。
+見知らぬ他人があなたのアプリから持ち出せるものを見つけ、出力を自分で読めるコマンドで一つひとつの指摘を裏づけます。そのうえで、あなたが承認したものだけを修正し、同じコマンドをもう一度実行して、穴が塞がったことと、あなた自身のログインが今も通ることを証明します。コントロールは 7 グループで 65 項目です。指摘が出ない実行でも安全だとは決して述べません。3 つ目の判定は `NOTHING CONFIRMED HERE` です。
 
 `claude plugin install secure-my-app@10x`
 
@@ -196,11 +197,11 @@ sniff と ui-ux-suite は npm から直接実行できます。recap-studio は�
 
 以下の主張には、それぞれ結果を表示するコマンドを添えています。このリポジトリのクローン内で実行してください。
 
-| 主張 | コマンド | 最後に表示される行 |
+| 主張 | コマンド | 出力の中で探す行 |
 |:--|:--|:--|
 | 一覧には有効なプラグインが9つある | `npm run validate` | `All checks passed. Marketplace has 9 valid plugin(s).` |
-| 掲載バージョンはすべて各プラグインのリポジトリと一致する | `npm run sync:check` | `drift: none` |
-| マニフェストは Claude Code で読み込める | `claude plugin validate . --strict` | `Validation passed` |
+| 掲載バージョンはすべて各プラグインのリポジトリと一致する | `npm run sync:check` | `drift: none` (読めないリポジトリがあると `unverified: <n> of 9 ...` を表示し、終了コード 1 で終わります) |
+| マニフェストは Claude Code で読み込める | `claude plugin validate . --strict` | `✔ Validation passed` |
 | このリポジトリ自身のテストが通る | `npm test` | `# fail 0` |
 
 CI は、push とプルリクエストのたびにこの4つを実行します。あわせて、すべてのリンクの確認とシークレットのスキャンも行います。
@@ -257,6 +258,9 @@ CI は、push とプルリクエストのたびにこの4つを実行します�
 - Claude Code のコマンドには `claude` CLI が必要です。他のエージェントでは `npx skills add` を使い、プラグインのリポジトリを1つずつ指定します。
 - MCP サーバーを提供しているプラグインは、sniff、ui-ux-suite、recap-studio の3つだけです。
 - aws-cost-audit には、アカウントを読み取れる AWS CLI が必要です。
+- sniff の MCP サーバーは、初回起動時にブラウザ一式をダウンロードします。そのため Claude Code の接続タイムアウトを超えることがあります。先に一度ウォームアップしてください: `npx -y sniff-qa --version`。
+  ダウンロードが途中で切れて npx が `Invalid Version` エラーを出す場合は、キャッシュを消して (`rm -rf ~/.npm/_npx`) もう一度ウォームアップしてください。
+- `claude plugin list` は、プラグインの横に情報メモを表示することがあります。例: recap-studio の lockfile メモ。プラグインのインストールと動作には影響しません。
 - 同期ジョブが実行されるまで、ここに掲載されたバージョンはプラグインの新しいリリースより最大6時間遅れることがあります。
 - 各プラグインはそれぞれのライセンスに従います。sniff は Apache-2.0、残りの8つは MIT です。
 

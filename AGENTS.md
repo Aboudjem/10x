@@ -38,7 +38,7 @@ These keep the marketplace correct and the listing honest.
 ## Where things live
 
 - `.claude-plugin/marketplace.json`: the marketplace manifest (the plugin list). No `plugin.json` (10x is not a plugin).
-- `QUALITY-BAR.md`: the explicit eight-point, 29-item bar every listed plugin must pass, plus the roster table and "verify before listing" steps.
+- `QUALITY-BAR.md`: the explicit checklist, in eight sections, that every listed plugin must pass, plus the roster table and "verify before listing" steps.
 - `README.md`: human-facing overview; `CONTRIBUTING.md`: how to propose a plugin.
 - `CODE_OF_CONDUCT.md`, `SECURITY.md`, `LICENSE`, `CHANGELOG.md`: community and policy files.
 - `.github/assets/`: animated, GitHub-safe SVG hero banners, the hub logo pair, the hero diagram, the editors strip, the social preview, and the PNG logo marks.

@@ -30,9 +30,10 @@
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
+claude plugin install humanizer@10x
 ```
 
-Lo que ves después de los dos comandos de instalación (ejecución real, 2026-11-17):
+Lo que ves después de esos dos comandos (ejecución real, 2026-11-17):
 
 ```text
 ✔ Successfully added marketplace: 10x (declared in user settings)
@@ -140,7 +141,7 @@ Para un trabajo que se repite en lugar de terminar, escribe el brief y la línea
 
 #### secure-my-app
 
-Encuentra lo que un extraño puede llevarse de tu aplicación, respalda cada hallazgo con un comando cuya salida puedes leer, y luego arregla solo lo que apruebas y vuelve a ejecutar ese mismo comando para demostrar que el hueco quedó cerrado y que tu propio inicio de sesión sigue funcionando. 65 controles en siete grupos. Una ejecución limpia nunca se declara segura: la tercera etiqueta del veredicto dice `NOTHING CONFIRMED HERE`.
+Encuentra lo que un extraño puede llevarse de tu aplicación, respalda cada hallazgo con un comando cuya salida puedes leer, y luego arregla solo lo que apruebas y vuelve a ejecutar ese mismo comando para demostrar que el hueco quedó cerrado y que tu propio inicio de sesión sigue funcionando. 65 controles en siete grupos. Una ejecución limpia nunca se declara segura: su tercer veredicto es `NOTHING CONFIRMED HERE`.
 
 `claude plugin install secure-my-app@10x`
 
@@ -196,11 +197,11 @@ Los otros seis no incluyen servidor MCP.
 
 Cada afirmación de abajo viene con el comando que la imprime. Ejecútalos desde un clon de este repo.
 
-| Afirmación | Comando | Última línea que imprime |
+| Afirmación | Comando | Línea que buscar en la salida |
 |:--|:--|:--|
 | La lista contiene nueve plugins válidos | `npm run validate` | `All checks passed. Marketplace has 9 valid plugin(s).` |
-| Cada versión listada coincide con el repo del plugin | `npm run sync:check` | `drift: none` |
-| El manifiesto se carga en Claude Code | `claude plugin validate . --strict` | `Validation passed` |
+| Cada versión listada coincide con el repo del plugin | `npm run sync:check` | `drift: none` (si no puede leer un repo, imprime `unverified: <n> of 9 ...` y sale con código 1) |
+| El manifiesto se carga en Claude Code | `claude plugin validate . --strict` | `✔ Validation passed` |
 | Los tests del repo pasan | `npm test` | `# fail 0` |
 
 CI ejecuta los cuatro en cada push y en cada pull request. También revisa cada enlace y busca secretos.
@@ -257,6 +258,9 @@ No. El repo contiene un archivo JSON, documentación e imágenes. Nada de eso se
 - Los comandos de Claude Code necesitan el CLI `claude`. Los demás agentes usan `npx skills add`, un repo de plugin a la vez.
 - Solo tres plugins incluyen un servidor MCP: sniff, ui-ux-suite y recap-studio.
 - aws-cost-audit necesita un AWS CLI que pueda leer tu cuenta.
+- En su primer arranque, el servidor MCP de sniff descarga un navegador y sus herramientas. Eso puede superar el tiempo de conexión de Claude Code. Precaliéntalo una vez: `npx -y sniff-qa --version`.
+  Si una descarga cortada deja npx con un error `Invalid Version`, borra su caché (`rm -rf ~/.npm/_npx`) y vuelve a precalentar.
+- `claude plugin list` puede mostrar una nota informativa junto a un plugin, por ejemplo la nota de lockfile de recap-studio. El plugin se instala y funciona igual.
 - La versión listada aquí puede ir hasta seis horas por detrás de una nueva versión de un plugin, hasta que corre la sincronización.
 - Cada plugin conserva su propia licencia. sniff usa Apache-2.0, los otros ocho usan MIT.
 
