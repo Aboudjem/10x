@@ -32,7 +32,8 @@ repository and has its own security policy. Report plugin-specific issues there:
 
 **Please do not open a public issue for a security problem.**
 
-Email **adam@integralayer.com** with:
+Report it privately through GitHub: open https://github.com/Aboudjem/10x/security/advisories/new
+(the "Report a vulnerability" button on the Security tab). Include:
 
 - A description of the issue and its impact.
 - Steps to reproduce.
