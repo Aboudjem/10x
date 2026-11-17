@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Nine Claude Code plugins, each with commands that prove its claims: QA, design audit, security, AWS costs, writing, long tasks, loops, explainers, agent docs."
+    "description": "Nine Claude Code plugins, each with commands that prove its claims: web app bugs, design, security, AWS costs, writing, long jobs, loops, recaps, agent docs."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -13,7 +13,7 @@
         "source": "github",
         "repo": "Aboudjem/sniff"
       },
-      "description": "Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix.",
+      "description": "Find what is broken in your running web app before users do. Each page bug comes with the steps to repeat it and a fix.",
       "version": "0.9.5",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
@@ -33,7 +33,7 @@
         "source": "github",
         "repo": "Aboudjem/ui-ux-suite"
       },
-      "description": "ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies.",
+      "description": "Finds the design bugs in your CSS, JSX, HTML and Tailwind. Each one gets its file, line, measured value and exact fix. WCAG 2.2 contrast.",
       "version": "0.7.3",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
@@ -56,7 +56,7 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send.",
+      "description": "Understand what was done: one HTML page from your git session or a topic. Double-click to open. Works offline, no JavaScript.",
       "version": "0.6.4",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
@@ -78,7 +78,7 @@
         "source": "github",
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
-      "description": "Ranks what to cut on your AWS bill, three cuts first. Each cut is priced from AWS at run time; a priced finding without its lookup record is rejected. Dry-run by default.",
+      "description": "Ranks what to cut on your AWS bill, three cuts first. Each price comes from AWS; the validator rejects a figure with no lookup record. Dry run by default.",
       "version": "0.4.5",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
@@ -98,7 +98,7 @@
         "source": "github",
         "repo": "Aboudjem/goalify"
       },
-      "description": "Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt.",
+      "description": "Give your agent a big job once. It asks every question first, saves the plan to a file, and re-runs your tests as proof. Works in any agent that reads skills.",
       "version": "3.1.4",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
@@ -119,7 +119,7 @@
         "source": "github",
         "repo": "Aboudjem/humanizer-skill"
       },
-      "description": "Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own.",
+      "description": "See which words make a draft sound like AI, then rewrite it in one of five voices. Optional 0 to 100 score. No network calls of its own.",
       "version": "0.8.4",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
@@ -140,7 +140,7 @@
         "source": "github",
         "repo": "Aboudjem/loopify"
       },
-      "description": "Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE.",
+      "description": "Check a repeating Claude Code job in one line: OK, NEEDS YOU or STALE. loopify writes the brief and the /loop line, stop rule included.",
       "version": "1.2.4",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
@@ -163,7 +163,7 @@
         "source": "github",
         "repo": "Aboudjem/secure-my-app"
       },
-      "description": "Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change.",
+      "description": "65 security checks for your app before launch. Each hole comes with its proof, and a fix counts only when its VERIFY output changes.",
       "version": "0.3.2",
       "homepage": "https://github.com/Aboudjem/secure-my-app",
       "license": "MIT",

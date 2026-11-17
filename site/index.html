@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>10x - nine Claude Code tools, one list, proof for each</title>
+  <title>10x - nine agent tools, each with proof, from one list</title>
   <meta name="description" content="Add this list once, then install any of nine Claude Code tools by name. Each plugin lists the commands that prove its claims. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, secure-my-app, contextify. All nine also install into other agents through npx skills add." />
-  <meta property="og:title" content="10x - nine Claude Code tools, one list, proof for each" />
-  <meta property="og:description" content="QA, design audit, security, AWS costs, writing, long tasks, loops, explainers and agent docs. Each plugin lists the commands that prove its claims." />
+  <meta property="og:title" content="10x - nine agent tools, each with proof, from one list" />
+  <meta property="og:description" content="Web app bugs, design, security, AWS costs, writing, long jobs, loops, recaps and agent docs. Each tool lists the commands that prove its claims." />
   <meta property="og:image" content="assets/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
@@ -74,7 +74,7 @@
 <body>
   <header class="wrap">
     <img class="logo" src="assets/logo-dark.svg" alt="10x" onerror="this.style.display='none'" />
-    <p class="tagline"><strong>Nine Claude Code tools. One list. Proof for each.</strong><br />Add this list once, then install any of the nine tools by name. 10x lists plugins, it does not sandbox them: each one runs with your permissions.</p>
+    <p class="tagline"><strong>Nine agent tools, each with proof, from one list.</strong><br />Add the list once, then install any tool by its name. Works in Claude Code and more than 70 other agents. 10x only lists plugins. Each one runs with your permissions, so read its repo first.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/Aboudjem/10x">View on GitHub</a>
       <a class="btn" href="#plugins">See the plugins</a>
@@ -84,16 +84,17 @@
 
   <main class="wrap">
     <div class="strip">
-      <img src="assets/hero-diagram.svg" alt="Your editor talks to the 10x marketplace, which ships nine curated plugins: sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, secure-my-app, and contextify" onerror="this.style.display='none'" />
+      <img src="assets/hero-banner-dark.svg" alt="10x: nine agent tools, proof for each. Three chips: install by name, proof for each tool, clear limits. The two install commands, and a 3 by 3 grid of the nine tool logos, each with its first benefit." onerror="this.style.display='none'" />
     </div>
 
     <section>
-      <h2>Add the marketplace once</h2>
+      <h2>Install</h2>
+      <p><strong>Recommended: the Vercel skills CLI.</strong> <code>npx skills</code> is Vercel&#39;s open installer for agent skills. One command installs one tool for all your projects:</p>
+      <pre><code>npx skills add Aboudjem/sniff -g</code></pre>
+      <p>Works in more than 70 agents: pick yours in the menu (<a href="https://github.com/vercel-labs/skills#supported-agents">supported agents</a>). In a terminal it shows the agent menu. In a script it installs into every agent folder, so add <code>-a &lt;agent&gt;</code> there. Only this project: drop <code>-g</code>. Use the tool&#39;s repo name below, and see its page on <a href="https://skills.sh/aboudjem">skills.sh</a>.</p>
+      <p><strong>Claude Code plugin.</strong> Add the list once, then install by name. For sniff, ui-ux-suite and recap-studio, the plugin also adds the MCP server.</p>
       <pre><code>claude plugin marketplace add Aboudjem/10x
 claude plugin install sniff@10x</code></pre>
-      <p>Swap <code>sniff</code> for any name below. Outside Claude Code, the same skills install through the
-      <a href="https://github.com/vercel-labs/skills">Vercel skills CLI</a>, which installs them into the directory your agent reads:</p>
-      <pre><code>npx skills add Aboudjem/sniff</code></pre>
     </section>
 
     <section id="plugins">
@@ -101,9 +102,9 @@ claude plugin install sniff@10x</code></pre>
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
-        <p class="desc">Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix.</p>
-        <pre><code>claude plugin install sniff@10x
-npx skills add Aboudjem/sniff</code></pre>
+        <p class="desc">Find what is broken in your running web app before users do. Each page bug comes with the steps to repeat it and a fix.</p>
+        <pre><code>npx skills add Aboudjem/sniff -g
+claude plugin install sniff@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/sniff">GitHub</a>
           <a href="https://www.npmjs.com/package/sniff-qa">npm: sniff-qa</a>
@@ -112,9 +113,9 @@ npx skills add Aboudjem/sniff</code></pre>
 
       <div class="plugin">
         <h3>ui-ux-suite <span class="lic">MIT</span></h3>
-        <p class="desc">ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies.</p>
-        <pre><code>claude plugin install ui-ux-suite@10x
-npx skills add Aboudjem/ui-ux-suite</code></pre>
+        <p class="desc">Finds the design bugs in your CSS, JSX, HTML and Tailwind. Each one gets its file, line, measured value and exact fix. WCAG 2.2 contrast.</p>
+        <pre><code>npx skills add Aboudjem/ui-ux-suite -g
+claude plugin install ui-ux-suite@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/ui-ux-suite">GitHub</a>
           <a href="https://www.npmjs.com/package/ui-ux-suite">npm: ui-ux-suite</a>
@@ -123,9 +124,9 @@ npx skills add Aboudjem/ui-ux-suite</code></pre>
 
       <div class="plugin">
         <h3>recap-studio <span class="lic">MIT</span></h3>
-        <p class="desc">Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send.</p>
-        <pre><code>claude plugin install recap-studio@10x
-npx skills add Aboudjem/recap-studio</code></pre>
+        <p class="desc">Understand what was done: one HTML page from your git session or a topic. Double-click to open. Works offline, no JavaScript.</p>
+        <pre><code>npx skills add Aboudjem/recap-studio -g
+claude plugin install recap-studio@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/recap-studio">GitHub</a>
           <a href="https://github.com/Aboudjem/recap-studio/blob/main/docs/architecture.md">Architecture</a>
@@ -135,8 +136,8 @@ npx skills add Aboudjem/recap-studio</code></pre>
       <div class="plugin">
         <h3>aws-cost-audit <span class="lic">MIT</span></h3>
         <p class="desc">Ranks what to cut on your AWS bill, three cuts first. Each cut is priced from AWS at run time; a priced finding without its lookup record is rejected. Dry-run by default: a change needs <code>--apply</code>, then your typed yes. <code>--yes</code> skips that question.</p>
-        <pre><code>claude plugin install aws-cost-audit@10x
-npx skills add Aboudjem/aws-cost-audit-skill</code></pre>
+        <pre><code>npx skills add Aboudjem/aws-cost-audit-skill -g
+claude plugin install aws-cost-audit@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/aws-cost-audit-skill">GitHub</a>
         </div>
@@ -144,9 +145,9 @@ npx skills add Aboudjem/aws-cost-audit-skill</code></pre>
 
       <div class="plugin">
         <h3>goalify <span class="lic">MIT</span></h3>
-        <p class="desc">Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt.</p>
-        <pre><code>claude plugin install goalify@10x
-npx skills add Aboudjem/goalify</code></pre>
+        <p class="desc">Give your agent a big job once. It asks every question first, saves the plan to a file, and re-runs your tests as proof. Works in any agent that reads skills.</p>
+        <pre><code>npx skills add Aboudjem/goalify -g
+claude plugin install goalify@10x</code></pre>
         <div class="links">
           <a href="https://goalify-kappa.vercel.app">Website</a>
           <a href="https://github.com/Aboudjem/goalify">GitHub</a>
@@ -155,9 +156,9 @@ npx skills add Aboudjem/goalify</code></pre>
 
       <div class="plugin">
         <h3>humanizer <span class="lic">MIT</span></h3>
-        <p class="desc">Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own.</p>
-        <pre><code>claude plugin install humanizer@10x
-npx skills add Aboudjem/humanizer-skill</code></pre>
+        <p class="desc">See which words make a draft sound like AI, then rewrite it in one of five voices. Optional 0 to 100 score. No network calls of its own.</p>
+        <pre><code>npx skills add Aboudjem/humanizer-skill -g
+claude plugin install humanizer@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/humanizer-skill">GitHub</a>
         </div>
@@ -165,9 +166,9 @@ npx skills add Aboudjem/humanizer-skill</code></pre>
 
       <div class="plugin">
         <h3>loopify <span class="lic">MIT</span></h3>
-        <p class="desc">Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE.</p>
-        <pre><code>claude plugin install loopify@10x
-npx skills add Aboudjem/loopify</code></pre>
+        <p class="desc">Check a repeating Claude Code job in one line: OK, NEEDS YOU or STALE. loopify writes the brief and the /loop line, stop rule included.</p>
+        <pre><code>npx skills add Aboudjem/loopify -g
+claude plugin install loopify@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/loopify">GitHub</a>
         </div>
@@ -175,9 +176,9 @@ npx skills add Aboudjem/loopify</code></pre>
 
       <div class="plugin">
         <h3>secure-my-app <span class="lic">MIT</span></h3>
-        <p class="desc">Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change.</p>
-        <pre><code>claude plugin install secure-my-app@10x
-npx skills add Aboudjem/secure-my-app</code></pre>
+        <p class="desc">65 security checks for your app before launch. Each hole comes with its proof, and a fix counts only when its VERIFY output changes.</p>
+        <pre><code>npx skills add Aboudjem/secure-my-app -g
+claude plugin install secure-my-app@10x</code></pre>
         <div class="links">
           <a href="https://github.com/Aboudjem/secure-my-app">GitHub</a>
         </div>
@@ -186,14 +187,14 @@ npx skills add Aboudjem/secure-my-app</code></pre>
       <div class="plugin" style="border-color: #E879DF;">
         <h3>contextify <span class="lic">MIT</span></h3>
         <p class="desc">Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens.</p>
-        <pre><code>claude plugin install contextify@10x
-npx skills add Aboudjem/contextify</code></pre>
+        <pre><code>npx skills add Aboudjem/contextify -g
+claude plugin install contextify@10x</code></pre>
         <p class="links"><a href="https://github.com/Aboudjem/contextify">GitHub</a></p>
       </div>
     </section>
 
     <section>
-      <h2>Works with any AI editor</h2>
+      <h2>Works in more than 70 agents</h2>
       <div class="strip">
         <img src="assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf and Continue, and more through the skills CLI. Three plugins also run as MCP servers." onerror="this.style.display='none'" />
       </div>

@@ -4,6 +4,27 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.5] - 2026-11-17
+
+A clearer first screen, the Vercel skills CLI first, and the nine plugins' final versions.
+
+### Changed
+
+- The README opens with one line, three chips with proof, a works-with line and two install routes.
+- Install leads with `npx skills add Aboudjem/<repo> -g`: one tool, all your projects, more than 70 agents.
+- A row of agent badges links to each agent's command (`-g -a <agent>`). All nine install-tested into six agents.
+- The Claude Code plugin route comes third. It says what the plugin adds for sniff, ui-ux-suite and recap-studio.
+- The plugin table and the per-plugin blocks use each plugin's own one line, chips and limit at head.
+- Listed: sniff 0.9.5, ui-ux-suite 0.7.3, recap-studio 0.6.4, aws-cost-audit 0.4.5, goalify 3.1.4, humanizer 0.8.4, loopify 1.2.4, secure-my-app 0.3.2, contextify 0.3.4.
+- Each `marketplace.json` description equals its upstream `plugin.json`. recap-studio test count: 115.
+- New hero banners and social preview: the headline, the three chips, the commands and the nine logos in a grid.
+- llms.txt, AGENTS.md, ECOSYSTEM.md, the site page and the four translations carry the same changes.
+
+### Fixed
+
+- "Nine Claude Code tools" undersold the reach: every tool also installs in other agents. It now says "agent tools".
+- The site heading "Works with any AI editor" overclaimed. It now says "Works in more than 70 agents".
+
 ## [2.1.4] - 2026-11-17
 
 aws-cost-audit 0.4.3 and fresh secure-my-app counts. Install commands are unchanged.

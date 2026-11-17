@@ -8,21 +8,20 @@ This repo is a **Claude Code plugin marketplace**, a curated hub, not a tool. It
 
 ## The nine plugins
 
-- **sniff** (0.9.3, Apache-2.0): Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
-- **ui-ux-suite** (0.7.1, MIT): ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
-- **recap-studio** (0.6.2, MIT): Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send. Dual-mode. Repo: `Aboudjem/recap-studio`.
-- **aws-cost-audit** (0.4.4, MIT): Ranks what to cut on your AWS bill, three cuts first. Each cut is priced from AWS at run time; a priced finding without its lookup record is rejected. Dry-run by default. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.
-- **goalify** (3.1.2, MIT): Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt. Skill plugin (no MCP server). Repo: `Aboudjem/goalify`.
-- **humanizer** (0.8.3, MIT): Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own. Skill plugin (no MCP server). Repo: `Aboudjem/humanizer-skill`.
-- **loopify** (1.2.3, MIT): Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE. Skill plugin (no MCP server). Repo: `Aboudjem/loopify`.
-- **secure-my-app** (0.3.1, MIT): Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change. Skill plugin (no MCP server). Repo: `Aboudjem/secure-my-app`.
-- **contextify** (0.3.3, MIT): Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens. Skill plugin (no MCP server). Repo: `Aboudjem/contextify`.
+- **sniff** (0.9.5, Apache-2.0): Find what is broken in your running web app before users do. Each page bug comes with the steps to repeat it and a fix. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
+- **ui-ux-suite** (0.7.3, MIT): Finds the design bugs in your CSS, JSX, HTML and Tailwind. Each one gets its file, line, measured value and exact fix. WCAG 2.2 contrast. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
+- **recap-studio** (0.6.4, MIT): Understand what was done: one HTML page from your git session or a topic. Double-click to open. Works offline, no JavaScript. Dual-mode. Repo: `Aboudjem/recap-studio`.
+- **aws-cost-audit** (0.4.5, MIT): Ranks what to cut on your AWS bill, three cuts first. Each price comes from AWS; the validator rejects a figure with no lookup record. Dry run by default. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.
+- **goalify** (3.1.4, MIT): Give your agent a big job once. It asks every question first, saves the plan to a file, and re-runs your tests as proof. Works in any agent that reads skills. Skill plugin (no MCP server). Repo: `Aboudjem/goalify`.
+- **humanizer** (0.8.4, MIT): See which words make a draft sound like AI, then rewrite it in one of five voices. Optional 0 to 100 score. No network calls of its own. Skill plugin (no MCP server). Repo: `Aboudjem/humanizer-skill`.
+- **loopify** (1.2.4, MIT): Check a repeating Claude Code job in one line: OK, NEEDS YOU or STALE. loopify writes the brief and the /loop line, stop rule included. Skill plugin (no MCP server). Repo: `Aboudjem/loopify`.
+- **secure-my-app** (0.3.2, MIT): 65 security checks for your app before launch. Each hole comes with its proof, and a fix counts only when its VERIFY output changes. Skill plugin (no MCP server). Repo: `Aboudjem/secure-my-app`.
+- **contextify** (0.3.4, MIT): Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens. Skill plugin (no MCP server). Repo: `Aboudjem/contextify`.
 
 ## How an agent should install from this marketplace
 
-- Add the marketplace once: `claude plugin marketplace add Aboudjem/10x`.
-- Install a plugin by name: `claude plugin install <name>@10x`, for example `sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, `loopify@10x`, `secure-my-app@10x`, or `contextify@10x`.
-- Outside Claude Code, install any of the nine with the Vercel skills CLI: `npx skills add Aboudjem/<repo>`, optionally with `-a <agent>` (`-a cursor`, `-a codex`, `-a github-copilot`, `-a gemini-cli`, and more). The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`, `secure-my-app`, `contextify`.
+- Recommended, any agent: the Vercel skills CLI installs one tool for all the user's projects: `npx skills add Aboudjem/<repo> -g`. It works in more than 70 agents. In a script it installs into every agent folder, so pass `-a <agent>` (`-a claude-code`, `-a codex`, `-a cursor`, `-a gemini-cli`, `-a github-copilot`, `-a opencode`). Only one project: drop `-g`.
+- Claude Code plugin: add the marketplace once, `claude plugin marketplace add Aboudjem/10x`, then `claude plugin install <name>@10x`, for example `sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, `loopify@10x`, `secure-my-app@10x`, or `contextify@10x`. The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`, `secure-my-app`, `contextify`.
 - The tool plugins (sniff, ui-ux-suite, recap-studio) are dual-mode and also run as standalone MCP servers (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`; recap-studio's with `npx -y github:Aboudjem/recap-studio mcp`). Per-editor snippets live in each repo's `docs/editors.md`. `aws-cost-audit`, `goalify`, `humanizer`, `loopify`, `secure-my-app`, and `contextify` are Claude Code skills, not MCP servers.
 
 ## Editing rules an agent MUST honor in this repo
@@ -61,7 +60,7 @@ A curated Claude Code plugin marketplace. You add it once with `claude plugin ma
 `claude plugin marketplace add Aboudjem/10x`, then `claude plugin install <name>@10x`.
 
 **Do the plugins work outside Claude Code?**
-Yes. All nine install into other agents with `npx skills add Aboudjem/<repo>`, because every one of them ships as skills, which are Markdown files an agent reads. The three tool plugins additionally run as standalone MCP servers. See each repo's `docs/editors.md`.
+Yes. All nine install into other agents with `npx skills add Aboudjem/<repo> -g`, because every one of them ships as skills, which are Markdown files an agent reads. The three tool plugins additionally run as standalone MCP servers. See each repo's `docs/editors.md`.
 
 **Where do I report a bug in one of the plugins?**
 In that plugin's own GitHub repo (linked above). This repo only owns the marketplace itself.

@@ -1,26 +1,25 @@
 # 10x
 
-> 10x: nine Claude Code tools, one list, proof for each. Add this list once, then install any of the nine plugins by name. Each plugin's README has a Proof section with the commands that print its numbers, and a Limits section. 10x lists plugins, it does not sandbox them: each one runs with your permissions. Every plugin ships as skills (Markdown files an agent reads), so all nine also install into other agents through `npx skills add` (the skills CLI keeps the list: https://github.com/vercel-labs/skills#supported-agents); the three tool plugins (sniff, ui-ux-suite, recap-studio) additionally run as a standalone MCP server. Nothing here has telemetry, and every plugin must pass an explicit eight-point quality bar to be listed. Dependencies are kept to what the job needs: ui-ux-suite ships zero, the six skill plugins are Markdown, and four of them also ship scripts with no package to install (bash for aws-cost-audit, which needs the AWS CLI and jq, and Python standard library for goalify, loopify and contextify), recap-studio's root package declares none while its workspace packages pull zod, Next and React because it renders pages, and sniff depends on `zod` only and downloads its browser engine and Chromium on first use (about 440 MB to download, about 730 MB on disk on a Mac). MIT licensed (each plugin keeps its own license). Versions, licenses and test counts were last verified on 2026-11-17; see QUALITY-BAR.md for the commands that print them.
+> 10x: nine agent tools, each with proof, from one list. Install any tool by name, in Claude Code or in more than 70 other agents through the Vercel skills CLI (`npx skills add Aboudjem/<repo> -g`). Each plugin's README has a Proof section with the commands that print its numbers, and a Limits section. 10x lists plugins, it does not sandbox them: each one runs with your permissions. Every plugin ships as skills (Markdown files an agent reads), so all nine also install into other agents through `npx skills add` (the skills CLI keeps the list: https://github.com/vercel-labs/skills#supported-agents); the three tool plugins (sniff, ui-ux-suite, recap-studio) additionally run as a standalone MCP server. Nothing here has telemetry, and every plugin must pass an explicit eight-point quality bar to be listed. Dependencies are kept to what the job needs: ui-ux-suite ships zero, the six skill plugins are Markdown, and four of them also ship scripts with no package to install (bash for aws-cost-audit, which needs the AWS CLI and jq, and Python standard library for goalify, loopify and contextify), recap-studio's root package declares none while its workspace packages pull zod, Next and React because it renders pages, and sniff depends on `zod` only and downloads its browser engine and Chromium on first use (about 440 MB to download, about 730 MB on disk on a Mac). MIT licensed (each plugin keeps its own license). Versions, licenses and test counts were last verified on 2026-11-17; see QUALITY-BAR.md for the commands that print them.
 
 The marketplace manifest is `.claude-plugin/marketplace.json`. Plugins install from their own GitHub repos via the `github` source, so installation works whether or not a package is published to npm. The quality bar lives in `QUALITY-BAR.md` and is re-verified on a quarterly review.
 
 ## The nine plugins
 
-- **sniff** (0.9.3, Apache-2.0): Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix. Repo: https://github.com/Aboudjem/sniff
-- **ui-ux-suite** (0.7.1, MIT): ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies. Repo: https://github.com/Aboudjem/ui-ux-suite
-- **recap-studio** (0.6.2, MIT): Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send. Repo: https://github.com/Aboudjem/recap-studio
-- **aws-cost-audit** (0.4.4, MIT): Ranks what to cut on your AWS bill, three cuts first. Each cut is priced from AWS at run time; a priced finding without its lookup record is rejected. Dry-run by default. Repo: https://github.com/Aboudjem/aws-cost-audit-skill
-- **goalify** (3.1.2, MIT): Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt. Repo: https://github.com/Aboudjem/goalify
-- **humanizer** (0.8.3, MIT): Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own. Repo: https://github.com/Aboudjem/humanizer-skill
-- **loopify** (1.2.3, MIT): Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE. Repo: https://github.com/Aboudjem/loopify
-- **secure-my-app** (0.3.1, MIT): Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change. Repo: https://github.com/Aboudjem/secure-my-app
-- **contextify** (0.3.3, MIT): Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens. Repo: https://github.com/Aboudjem/contextify
+- **sniff** (0.9.5, Apache-2.0): Find what is broken in your running web app before users do. Each page bug comes with the steps to repeat it and a fix. Repo: https://github.com/Aboudjem/sniff
+- **ui-ux-suite** (0.7.3, MIT): Finds the design bugs in your CSS, JSX, HTML and Tailwind. Each one gets its file, line, measured value and exact fix. WCAG 2.2 contrast. Repo: https://github.com/Aboudjem/ui-ux-suite
+- **recap-studio** (0.6.4, MIT): Understand what was done: one HTML page from your git session or a topic. Double-click to open. Works offline, no JavaScript. Repo: https://github.com/Aboudjem/recap-studio
+- **aws-cost-audit** (0.4.5, MIT): Ranks what to cut on your AWS bill, three cuts first. Each price comes from AWS; the validator rejects a figure with no lookup record. Dry run by default. Repo: https://github.com/Aboudjem/aws-cost-audit-skill
+- **goalify** (3.1.4, MIT): Give your agent a big job once. It asks every question first, saves the plan to a file, and re-runs your tests as proof. Works in any agent that reads skills. Repo: https://github.com/Aboudjem/goalify
+- **humanizer** (0.8.4, MIT): See which words make a draft sound like AI, then rewrite it in one of five voices. Optional 0 to 100 score. No network calls of its own. Repo: https://github.com/Aboudjem/humanizer-skill
+- **loopify** (1.2.4, MIT): Check a repeating Claude Code job in one line: OK, NEEDS YOU or STALE. loopify writes the brief and the /loop line, stop rule included. Repo: https://github.com/Aboudjem/loopify
+- **secure-my-app** (0.3.2, MIT): 65 security checks for your app before launch. Each hole comes with its proof, and a fix counts only when its VERIFY output changes. Repo: https://github.com/Aboudjem/secure-my-app
+- **contextify** (0.3.4, MIT): Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens. Repo: https://github.com/Aboudjem/contextify
 
 ## Install
 
-- Add the marketplace once: `claude plugin marketplace add Aboudjem/10x`
-- Install a plugin: `claude plugin install <name>@10x` (e.g. `claude plugin install sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, `loopify@10x`, `secure-my-app@10x`, `contextify@10x`).
-- Outside Claude Code, install any of the nine with the Vercel skills CLI: `npx skills add Aboudjem/<repo>`, optionally with `-a <agent>` (for example `-a cursor`, `-a codex`, `-a github-copilot`, `-a gemini-cli`). The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`, `secure-my-app`, `contextify`.
+- Recommended, any agent: the Vercel skills CLI installs one tool for all your projects: `npx skills add Aboudjem/<repo> -g`. It works in more than 70 agents (https://github.com/vercel-labs/skills#supported-agents). In a terminal it shows the agent menu; in a script it installs into every agent folder, so add `-a <agent>` there (`-a claude-code`, `-a codex`, `-a cursor`, `-a gemini-cli`, `-a github-copilot`, `-a opencode`). Only this project: drop `-g`. Each tool has a page at https://skills.sh/aboudjem/<repo>.
+- Claude Code plugin: add the marketplace once, `claude plugin marketplace add Aboudjem/10x`, then `claude plugin install <name>@10x` (`sniff@10x`, `ui-ux-suite@10x`, `recap-studio@10x`, `aws-cost-audit@10x`, `goalify@10x`, `humanizer@10x`, `loopify@10x`, `secure-my-app@10x`, `contextify@10x`). For sniff, ui-ux-suite and recap-studio the plugin also adds the MCP server. The repo names are `sniff`, `ui-ux-suite`, `recap-studio`, `aws-cost-audit-skill`, `goalify`, `humanizer-skill`, `loopify`, `secure-my-app`, `contextify`.
 - The three tool plugins are dual-mode and also run as a standalone MCP server (`npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`; recap-studio's with `npx -y github:Aboudjem/recap-studio mcp`). Per-editor snippets for Claude Code, Cursor, VS Code, Codex, Gemini CLI, Windsurf, Continue, OpenCode and Zed live in each repo's `docs/editors.md`. `aws-cost-audit`, `goalify`, `humanizer`, `loopify`, `secure-my-app` and `contextify` are Claude Code skills rather than MCP servers.
 
 ## Docs
@@ -36,12 +35,12 @@ The marketplace manifest is `.claude-plugin/marketplace.json`. Plugins install f
 
 ## Plugin repos
 
-- [sniff](https://github.com/Aboudjem/sniff): Catch the 500s, dead links and broken forms in your running app, with repro steps.
-- [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite): Fix contrast, focus and layout bugs: the file, the line, the measured value, the change.
-- [recap-studio](https://github.com/Aboudjem/recap-studio): Explain a topic or your session in one HTML page that opens offline.
-- [aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill): Cut your AWS bill: a ranked list of cuts, each priced from AWS at run time.
-- [goalify](https://github.com/Aboudjem/goalify): Hand off a big job and get a receipt: VERIFIED or NOT VERIFIED.
-- [humanizer-skill](https://github.com/Aboudjem/humanizer-skill): See what makes a draft sound AI-written, then rewrite it in a voice you pick.
-- [loopify](https://github.com/Aboudjem/loopify): Run a repeating job and check it in one line: OK, NEEDS YOU, STALE.
-- [secure-my-app](https://github.com/Aboudjem/secure-my-app): Find what a stranger can take from your app, with the proof behind each hole.
-- [contextify](https://github.com/Aboudjem/contextify): One AGENTS.md for your agents, and a no-token check that flags dead commands and files.
+- [sniff](https://github.com/Aboudjem/sniff): Catch broken pages in your web app before users do.
+- [ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite): Design bugs by line number, each with the exact fix.
+- [recap-studio](https://github.com/Aboudjem/recap-studio): Understand what changed, in one page you can send.
+- [aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill): Find what to stop paying for on your AWS bill.
+- [goalify](https://github.com/Aboudjem/goalify): Give your agent a big job and get proof back.
+- [humanizer-skill](https://github.com/Aboudjem/humanizer-skill): See why your draft sounds like AI, then fix it.
+- [loopify](https://github.com/Aboudjem/loopify): Check a repeating agent job in one line.
+- [secure-my-app](https://github.com/Aboudjem/secure-my-app): Find what a stranger can take from your app.
+- [contextify](https://github.com/Aboudjem/contextify): One AGENTS.md for your agents, checked with zero tokens.

@@ -125,15 +125,15 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
-| 1 | `sniff`           | 0.9.3 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
-| 2 | `ui-ux-suite`     | 0.7.1 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
-| 3 | `recap-studio`    | 0.6.2 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
-| 4 | `aws-cost-audit`  | 0.4.4 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| 5 | `goalify`         | 3.1.2 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
-| 6 | `humanizer`       | 0.8.3 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
-| 7 | `loopify`         | 1.2.3 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
-| 8 | `secure-my-app`   | 0.3.1 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
-| 9 | `contextify`      | 0.3.3 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
+| 1 | `sniff`           | 0.9.5 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
+| 2 | `ui-ux-suite`     | 0.7.3 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
+| 3 | `recap-studio`    | 0.6.4 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
+| 4 | `aws-cost-audit`  | 0.4.5 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| 5 | `goalify`         | 3.1.4 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
+| 6 | `humanizer`       | 0.8.4 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 7 | `loopify`         | 1.2.4 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
+| 8 | `secure-my-app`   | 0.3.2 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
+| 9 | `contextify`      | 0.3.4 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default; `make test` rejects a priced finding
