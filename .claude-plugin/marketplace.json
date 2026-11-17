@@ -57,7 +57,7 @@
         "repo": "Aboudjem/recap-studio"
       },
       "description": "Turn a topic or a coding session into one dark-mode HTML explainer you double-click and read offline in about five minutes.",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
       "keywords": [
