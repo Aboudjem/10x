@@ -34,7 +34,7 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "ESLint for design. It reads your CSS, JSX, HTML and Tailwind classes, then names the exact line, the measured wrong value, and the exact fix, with the WCAG criterion or named UX law behind it. Scores 12 dimensions. It audits, it never edits. Zero dependencies.",
-      "version": "0.6.1",
+      "version": "0.7.0",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
       "keywords": [
@@ -99,7 +99,7 @@
         "repo": "Aboudjem/goalify"
       },
       "description": "Give your AI a big job. goalify asks all the questions first. Then the AI works alone, for hours, and shows you proof at the end. New in 3.0: a plan preview page and proof receipts. Works best in Claude Code and Codex. A Claude Code skill (no MCP server).",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
       "keywords": [
@@ -120,7 +120,7 @@
         "repo": "Aboudjem/humanizer-skill"
       },
       "description": "AI writing has a fingerprint. humanizer knows 55 of those habits, names the ones it finds in your text, scores the text 0 to 100 from measurable signals, and rewrites it in the voice you pick, restoring the sentence-length variation people write with. Pure Markdown, zero dependencies, nothing leaves your machine. A Claude Code skill (no MCP server).",
-      "version": "0.7.1",
+      "version": "0.8.0",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
       "keywords": [
@@ -164,7 +164,7 @@
         "repo": "Aboudjem/secure-my-app"
       },
       "description": "Finds what a stranger can take from your app, proves each finding with a command whose output you can read, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. 65 controls across secrets, authentication, record and tenant access, injection, data leaks, abuse, and dependencies. Anthropic's own `/security-review` finds the bug you wrote; secure-my-app adds the defence you never wrote. A Claude Code skill (no MCP server).",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "homepage": "https://github.com/Aboudjem/secure-my-app",
       "license": "MIT",
       "keywords": [
