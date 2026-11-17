@@ -79,7 +79,7 @@
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
       "description": "Ranks what to cut on your AWS bill, three cuts first. Each cut is priced from AWS at run time; a priced finding without its lookup record is rejected. Dry-run by default.",
-      "version": "0.4.3",
+      "version": "0.4.4",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
       "keywords": [
