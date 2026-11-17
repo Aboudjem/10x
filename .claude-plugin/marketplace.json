@@ -34,7 +34,7 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "Design audit tool. Scores projects across 12 dimensions: color, typography, accessibility, layout, and more. WCAG, APCA, OKLCH color science. Zero dependencies.",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
       "keywords": [
@@ -120,7 +120,7 @@
         "repo": "Aboudjem/humanizer-skill"
       },
       "description": "Names 55 AI writing patterns and rewrites text in the voice you pick from five profiles, with an optional 0 to 100 AI-tell score. Pure Markdown, no network calls.",
-      "version": "0.8.1",
+      "version": "0.8.2",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
       "keywords": [
@@ -141,7 +141,7 @@
         "repo": "Aboudjem/loopify"
       },
       "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit.",
-      "version": "1.2.2",
+      "version": "1.2.3",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
       "keywords": [
