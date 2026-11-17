@@ -34,7 +34,7 @@
         "repo": "Aboudjem/ui-ux-suite"
       },
       "description": "ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies.",
-      "version": "0.7.1",
+      "version": "0.7.2",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
       "keywords": [
