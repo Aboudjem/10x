@@ -24,7 +24,8 @@
         "playwright",
         "e2e",
         "discovery"
-      ]
+      ],
+      "category": "testing"
     },
     {
       "name": "ui-ux-suite",
@@ -46,7 +47,8 @@
         "apca",
         "laws-of-ux",
         "mcp"
-      ]
+      ],
+      "category": "design"
     },
     {
       "name": "recap-studio",
@@ -67,7 +69,8 @@
         "validation",
         "agents",
         "mcp"
-      ]
+      ],
+      "category": "learning"
     },
     {
       "name": "aws-cost-audit",
@@ -86,7 +89,8 @@
         "cost-explorer",
         "savings",
         "skill"
-      ]
+      ],
+      "category": "monitoring"
     },
     {
       "name": "goalify",
@@ -106,7 +110,8 @@
         "agent-skills",
         "productivity",
         "skill"
-      ]
+      ],
+      "category": "productivity"
     },
     {
       "name": "humanizer",
@@ -126,7 +131,8 @@
         "voice-profiles",
         "text-rewriting",
         "skill"
-      ]
+      ],
+      "category": "productivity"
     },
     {
       "name": "loopify",
@@ -148,7 +154,8 @@
         "agent-skills",
         "productivity",
         "skill"
-      ]
+      ],
+      "category": "automation"
     },
     {
       "name": "secure-my-app",
@@ -169,7 +176,8 @@
         "hardening",
         "secrets",
         "skill"
-      ]
+      ],
+      "category": "security"
     },
     {
       "name": "contextify",
@@ -192,7 +200,8 @@
       "source": {
         "source": "github",
         "repo": "Aboudjem/contextify"
-      }
+      },
+      "category": "development"
     }
   ]
 }
