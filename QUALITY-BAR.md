@@ -19,8 +19,8 @@ the fleet standard wins and this file gets fixed.
       Read this as "nothing pulled in for convenience", not "zero". ui-ux-suite ships zero and the
       six skill plugins declare no runtime dependency (humanizer's `package.json` holds only its test script); contextify also includes standard-library scripts. recap-studio's root package
       declares none, but its workspace packages pull `zod` and its web app pulls Next, React and
-      Mermaid. sniff carries **17 runtime dependencies**, among them Playwright and Lighthouse,
-      because driving a real browser and measuring a real page is the job. A plugin that cannot
+      Mermaid. sniff declares one runtime dependency, `zod`; it bundles the rest into `dist/` and
+      downloads its browser engine (Playwright, axe-core, Lighthouse) and Chromium on first use. A plugin that cannot
       justify a dependency line by line does not pass this item.
 - [ ] Bundle stays small on disk after `npm pack` (excluding test fixtures). 500 KB is the target
       for a dependency-free tool; a plugin that ships a browser engine is judged on its own code.
@@ -29,8 +29,8 @@ the fleet standard wins and this file gets fixed.
 ## 2. One-command install
 
 - [ ] `claude plugin install <name>@10x` succeeds with no follow-up prompts.
-      `claude plugin list` may still print an informational note (recap-studio shows a lockfile
-      note, and sniff 0.9.0 says the packages it lists are not installed). A note is allowed; an install that asks a question or fails is not.
+      `claude plugin list` may still print an informational note (recap-studio can show "The
+      packages it lists were not installed"; sniff no longer does since 0.9.1). A note is allowed; an install that asks a question or fails is not.
 - [ ] `npx <name>` works as a standalone CLI when relevant.
 - [ ] No required env vars on first run. Every feature with an env var has
       a clearly-marked off-by-default path. A plugin that needs credentials for a
@@ -125,15 +125,15 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
-| 1 | `sniff`           | 0.9.0 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
-| 2 | `ui-ux-suite`     | 0.7.0 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
-| 3 | `recap-studio`    | 0.6.1 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
-| 4 | `aws-cost-audit`  | 0.4.1 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| 5 | `goalify`         | 3.1.1 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
-| 6 | `humanizer`       | 0.8.1 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
-| 7 | `loopify`         | 1.2.2 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
-| 8 | `secure-my-app`   | 0.3.0 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
-| 9 | `contextify`      | 0.3.2 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
+| 1 | `sniff`           | 0.9.2 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
+| 2 | `ui-ux-suite`     | 0.7.1 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
+| 3 | `recap-studio`    | 0.6.2 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
+| 4 | `aws-cost-audit`  | 0.4.2 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| 5 | `goalify`         | 3.1.2 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
+| 6 | `humanizer`       | 0.8.2 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 7 | `loopify`         | 1.2.3 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
+| 8 | `secure-my-app`   | 0.3.1 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
+| 9 | `contextify`      | 0.3.3 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
 
 `aws-cost-audit` is a Claude Code **skill** plugin (no MCP server): it meets the bar's zero-bloat,
 one-command-install, real-verification (built test-first; read-only by default, prices verified live against AWS
@@ -160,7 +160,7 @@ and local-only items; the MCP-server and standalone-CLI items do not apply to a 
 bar's zero-bloat (pure Markdown, no runtime dependency, no network call of its own), one-command-install
 (`claude plugin install secure-my-app@10x`), no-telemetry, and local-only items; the MCP-server and
 standalone-CLI items do not apply to a skill plugin. Its real-verification item: `make test` prints `79/79`
-skill checks, `138/138` manifest checks and `33/33` fixture checks.
+skill checks, `152/152` manifest checks and `33/33` fixture checks.
 
 `contextify` is a skill plugin with local shell/Python scripts and no package dependencies or MCP server. Its drift check runs without a model; generation uses the host coding agent. See its [0.2 feature evaluation](https://github.com/Aboudjem/contextify/blob/main/evals/supporting-docs.md) for measured behavior and validation limits.
 
@@ -168,9 +168,9 @@ skill checks, `138/138` manifest checks and `33/33` fixture checks.
 
 "Zero bloat" is a judgement about necessity, not a count. Seven of the nine ship no runtime
 dependency: ui-ux-suite and the six Markdown and script skills. recap-studio's root declares none while its
-workspace packages pull `zod`, Next, React and Mermaid, because it renders pages. sniff ships 17,
-including Playwright and Lighthouse, because walking a real app in a real browser cannot be done
-without a browser. The question this item asks is whether every dependency earns its line, and a
+workspace packages pull `zod`, Next, React and Mermaid, because it renders pages. sniff declares
+`zod` only and downloads its browser engine on first use, because walking a real app in a real
+browser cannot be done without a browser. The question this item asks is whether every dependency earns its line, and a
 maintainer answers it in the review, not with a number.
 
 ## Verification runs, 2026-11-17
@@ -180,14 +180,14 @@ Run the command in a clone of that repo to re-print it.
 
 | Plugin | Command | Output |
 | --- | --- | --- |
-| sniff | `npm test` | `Tests  534 passed (534)`, 50 test files |
+| sniff | `npm test` | `Tests  555 passed (555)`, 52 test files |
 | ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
-| recap-studio | `npm run test:count` | 109 tests |
+| recap-studio | `npm run test:count` | 113 tests |
 | aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
 | goalify | `make test` | `10/10 suites passed`, `448/448 checks passed` |
 | humanizer | `npm test` | `# pass 77`, `# fail 0` |
 | loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18`, `5/5` |
-| secure-my-app | `make test` | `79/79`, `138/138`, `33/33` |
+| secure-my-app | `make test` | `79/79`, `152/152`, `33/33` |
 | contextify | `make test` | `128/128`, `30/30`, `155/155`, `114/114`, three unittest suites OK |
 
 Last verified: 2026-11-17.

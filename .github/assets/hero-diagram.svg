@@ -212,7 +212,7 @@
       <text class="disp body"  x="18" y="76">Explainers</text>
       <g transform="translate(18,86)">
         <rect x="0" y="0" width="48" height="18" rx="4" fill="#5B9DFF" fill-opacity="0.14" stroke="#5B9DFF" stroke-opacity="0.5"/>
-        <text class="mono chip" x="24" y="12.5" text-anchor="middle" fill="#5B9DFF">5-MIN</text>
+        <text class="mono chip" x="24" y="12.5" text-anchor="middle" fill="#5B9DFF">HTML</text>
         <rect x="54" y="0" width="62" height="18" rx="4" fill="#5B9DFF" fill-opacity="0.14" stroke="#5B9DFF" stroke-opacity="0.5"/>
         <text class="mono chip" x="85" y="12.5" text-anchor="middle" fill="#5B9DFF">OFFLINE</text>
         <rect x="122" y="0" width="44" height="18" rx="4" fill="#5B9DFF" fill-opacity="0.14" stroke="#5B9DFF" stroke-opacity="0.5"/>

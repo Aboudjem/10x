@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../.github/assets/hero-banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../.github/assets/hero-banner-light.svg">
-  <img alt="10x: curated Claude Code plugins that ship quality" src="../.github/assets/hero-banner-light.svg" width="100%">
+  <img alt="10x: nine Claude Code tools, one list, proof for each" src="../.github/assets/hero-banner-light.svg" width="100%">
 </picture>
 
 <p align="center">
@@ -17,7 +17,7 @@
   <a href="fr.md">Français</a>
 </p>
 
-<p align="center"><b>プラグインマーケットプレイスとは、エディタがそこからインストールできる一覧のことです。ここには Claude Code 向けの開発ツールが9つ収録されており、追加は一度だけで済みます。</b></p>
+<p align="center"><b>Claude Code 用の9つのツール。リストは1つ。それぞれに証拠付き。</b></p>
 
 <p align="center">
   <a href="#install">インストール</a> ·
@@ -27,6 +27,8 @@
   <a href="#faq">FAQ</a> ·
   <a href="#limits">制限事項</a>
 </p>
+
+このリストを一度追加すれば、9つのツールのどれでも名前でインストールできます。
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -39,6 +41,23 @@ claude plugin install humanizer@10x
 ✔ Successfully added marketplace: 10x (declared in user settings)
 ✔ Successfully installed plugin: humanizer@10x (scope: user)
 ```
+
+アプリの壊れた箇所、第三者が持ち出せるもの、AWS 請求の無駄を見つけます。
+AI の下書きを人が書いた文章に近づけ、長い作業はレシート付きで任せられます。
+どのプラグインも、主張を証明するコマンドを載せています。
+
+10x はプラグインを一覧にするだけで、サンドボックス化はしません。各プラグインはあなたの権限で動きます。
+
+<a id="why-use-it"></a>
+
+## 使う理由
+
+- **一度の追加で9つのツール。** リストを追加しても何もインストールされません。`claude plugin install <name>@10x` で1つずつ入れます。
+  証拠: `npm run validate` が `Marketplace has 9 valid plugin(s)` と表示します。
+- **push のたびに検査。** CI が `npm run validate`、`npm run sync:check`、`claude plugin validate . --strict`、`npm test` を実行します。
+  証拠: [validate ワークフロー](../.github/workflows/validate.yml) と下の [証拠](#proof) の表。
+- **制限が見える。** 各プラグインの README には Proof の節と、できないことを書いた Limits の節があります。
+  証拠: [プラグイン一覧](#the-plugins) のリポジトリリンクを開き、`## Proof` と `## Limits` を読んでください。
 
 <a id="install"></a>
 
@@ -69,15 +88,15 @@ npx skills add Aboudjem/sniff
 
 | | プラグイン | 用途 | インストール | |
 |:-:|:--|:--|:--|:--|
-| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | 起動中のアプリを歩き回り、実際のバグを見つけます | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | デザイン版ESLint: 該当行、測定値、修正方法を示します | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | トピックやセッションから、1つのオフラインHTML解説ファイルを生成します | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | AWSの請求額を、AWSのライブ価格と照合して監査します | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 大きなタスクを、自律実行できるように準備します | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | AI特有の書き癖55個を特定し、書き直します | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Claude Code の `/loop` 向けに、繰り返しジョブを準備します | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | 見知らぬ他人が持ち出せるものを見つけ、塞がったことを証明します | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | エージェント向け指示を作り、今も正しいかを検査します | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | 動作中のアプリの 500 エラー、リンク切れ、壊れたフォームを再現手順付きで見つけます。 | `claude plugin install sniff@10x` | [repo](https://github.com/Aboudjem/sniff) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | コントラスト、フォーカス、レイアウトの不具合を、ファイル、行、測定値、修正案で直せます。 | `claude plugin install ui-ux-suite@10x` | [repo](https://github.com/Aboudjem/ui-ux-suite) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | トピックや作業セッションを、オフラインで開ける1枚の HTML で説明します。 | `claude plugin install recap-studio@10x` | [repo](https://github.com/Aboudjem/recap-studio) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | AWS 請求を削る、順位付きの削減リスト。価格はすべてライブで確認します。 | `claude plugin install aws-cost-audit@10x` | [repo](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | 大きな作業を任せてレシートを受け取ります: VERIFIED か NOT VERIFIED。 | `claude plugin install goalify@10x` | [repo](https://github.com/Aboudjem/goalify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | 下書きが AI っぽく聞こえる理由を示し、選んだ声で書き直します。 | `claude plugin install humanizer@10x` | [repo](https://github.com/Aboudjem/humanizer-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | 繰り返し作業を動かし、1行で確認します: OK、NEEDS YOU、STALE。 | `claude plugin install loopify@10x` | [repo](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | 第三者がアプリから持ち出せるものを、穴ごとの証拠付きで見つけます。 | `claude plugin install secure-my-app@10x` | [repo](https://github.com/Aboudjem/secure-my-app) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | エージェント共通の AGENTS.md と、消えたコマンドやファイルを示すトークン不要の検査。 | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
 
 <a id="what-each-one-does"></a>
 
@@ -85,7 +104,13 @@ npx skills add Aboudjem/sniff
 
 #### sniff
 
-起動中のアプリを指定すると、実際のブラウザで実際のフローをクリックして辿り、何が壊れたか、そしてそれを壊した手順を順番通りに教えてくれます。
+**動作中のアプリの 500 エラー、リンク切れ、壊れたフォームを見つけます。**
+
+- ページの指摘ごとにルート、手順、修正案を示し、多くはスクリーンショット付きです。
+- 仕込んだバグ 21 件中 21 件を見つけ、正常なページでの誤検出は 0 件でした (`npm run build && npm run proof`)。
+- `--fail-on` は critical か high の指摘で終了コード 1 を返すので、マージを止められます。API キーは不要です。
+
+実際にフォームを送信するので、開発用かステージングのアプリに向けてください。
 
 `claude plugin install sniff@10x`
 
@@ -93,7 +118,13 @@ npx skills add Aboudjem/sniff
 
 #### ui-ux-suite
 
-CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行番号、測定された誤った値、そして正確な修正方法を示します。監査するだけで、編集は一切行いません。
+**デザインの ESLint: 行、測定値、修正案。**
+
+- 位置が特定できた指摘には、ファイル、行、測定値、修正案があります (壊れたフィクスチャで 46 件)。
+- コントラストを WCAG 2.2 で検査し、位置が特定できた指摘はその根拠のルールや UX の法則を示します。
+- 実行時の依存関係はありません: `npm view ui-ux-suite dependencies` は何も表示しません。
+
+ピクセルではなくソースを読み、コードを書き換えることはありません。
 
 `claude plugin install ui-ux-suite@10x`
 
@@ -101,7 +132,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### recap-studio
 
-トピックやコーディングセッションを、ダブルクリックで開ける1つのHTMLファイルに変換します。すべてのスタイルはインライン化され、外部リクエストは一切なく、オフラインで約5分で読めます。
+**メールで送れて、PR に添付でき、機内でも読める1枚のページ。**
+
+- HTML ファイル1つ、script タグ 0、CSS はすべてインライン。ダブルクリックでオフラインで開きます。
+- 7つのオフライン検査がモデルなしでページを採点します。`--fail-under 8` で弱いページを弾けます。
+- `/recap session` は git の差分とコミットを、チームが読めるページにします。
+
+スコアは形を見るもので、内容の正しさは見ません。まず出典を読んでください。
 
 `claude plugin install recap-studio@10x`
 
@@ -109,7 +146,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### aws-cost-audit
 
-お使いのAWSアカウントを、既にお持ちのAWS CLI経由でライブに読み取り、すべての価格をライブで確認した節約プランを提示します。記憶頼みの価格は一切使いません。
+**AWS 請求の無駄を、ライブ価格で削ります。**
+
+- 金額での判定と、最初にやるべき3つの削減。
+- 価格は実行時に AWS から取得します。スクリプトに価格が直書きされていると `make test` と CI のスキャンが失敗します。
+- 既定はドライランです。変更には `--apply` と、あなたが入力する yes が必要です。
+
+アカウントを読める AWS CLI と、有効な Cost Explorer が必要です。
 
 `claude plugin install aws-cost-audit@10x`
 
@@ -117,7 +160,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### goalify
 
-座って見ていられないほど大きな作業のために、ブリーフ(実行すべき内容を記した1ファイル)とコンディション(`/goal` に貼り付ける1行)を作成します。これにより、新しいセッションが作業を行い、通過したチェックを引用して終了します。
+**AI に大きな仕事を任せて、証拠を受け取る。**
+
+- 質問はすべて最初に済ませるので、実行中に聞かれることはありません。
+- `/goal` の行が、通るべきテストコマンドを指定します。
+- `/goalify verify` がテストを再実行し、`NOT VERIFIED` にもなりうるレシートを書きます。
+
+止まった実行が完了しているとは限らず、権限の確認で一時停止することもあります。
 
 `claude plugin install goalify@10x`
 
@@ -125,7 +174,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### humanizer
 
-文章が機械的に見える書き癖を55個把握しており、あなたの文章に現れたものを指摘し、測定可能な指標をもとに文章を0から100でスコア化し、選んだ文体で書き直します。
+**下書きが AI っぽく聞こえる原因を見つけて、直す。**
+
+- 番号付きの 55 パターンと、減点の原因になっている語句を引用する「Fix first」リスト。
+- 任意の CLI の `compare --check-facts` は、数値、日付、バージョン、URL を失った書き直しを失敗にします。
+- `scan --fail-above 40` はスコアが高すぎる下書きで終了コード 1 を返すので、CI で止められます。
+
+書き直しはエディタのモデルで動き、選べる5つの声のどれかを使います。
 
 `claude plugin install humanizer@10x`
 
@@ -133,7 +188,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### loopify
 
-完了するのではなく繰り返すジョブのために、ブリーフと、Claude Code の組み込み繰り返しコマンドである `/loop` に貼り付ける1行を、上限回数と停止ルール付きで作成します。各実行は、行った内容をログに記録します。
+**ループの子守はもう要りません。**
+
+- 1行のステータスが `OK`、`NEEDS YOU`、`STALE` のどれかと、次にやることを示します。
+- ログを書かなかった tick は、2 間隔後に `STALE` として表示されます。
+- 停止ルールは行に含まれ、どのループも 7 日で期限切れになります。
+
+ループは開いているセッションの中で動き、そのログが唯一の記録です。
 
 `claude plugin install loopify@10x`
 
@@ -141,7 +202,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### secure-my-app
 
-見知らぬ他人があなたのアプリから持ち出せるものを見つけ、出力を自分で読めるコマンドで一つひとつの指摘を裏づけます。そのうえで、あなたが承認したものだけを修正し、同じコマンドをもう一度実行して、穴が塞がったことと、あなた自身のログインが今も通ることを証明します。コントロールは 7 グループで 65 項目です。指摘が出ない実行でも安全だとは決して述べません。3 つ目の判定は `NOTHING CONFIRMED HERE` です。
+**第三者がアプリから持ち出せるものを見つける。そして塞ぎ、塞いだことを証明する。**
+
+- 各指摘は証拠を示します: コードの行と、ライブ URL があればリクエストと実際の出力。
+- 各指摘には `VERIFY` コマンドがあり、その出力が変わって初めて修正とみなします。
+- レポートを書いて止まります。あなたが修正を承認するまで、アプリは何も変わりません。
+
+ペネトレーションテストではありません。ライブ URL がないと、ほとんどのアクセス検査は `UNPROVEN` になります。
 
 `claude plugin install secure-my-app@10x`
 
@@ -149,9 +216,13 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 
 #### contextify
 
-**Tell every coding agent how your repo works. Then prove it is still true.**
+**エージェントへの指示が、もう存在しないものを指したら分かる。**
 
-`AGENTS.md` を短く保ち、正確な既存資料を再利用します。必要に応じて `docs/context/architecture.md` や `docs/context/workflows.md` を各120行以内で作成し、必要なときに読むためのリンクを付けます。インストール済みの Git フックがコミットとプッシュ時にモデルを使わず検査します。セッションフックは任意です。更新時は差分を表示し、管理ブロック外の人間が書いた内容を保持します。
+- 通知はファイル、行、使えなくなったコマンドを示します。
+- Codex、Cursor、Copilot が直接読む `AGENTS.md` が1つと、Claude Code と Gemini CLI 用の短いポインタ。
+- モデルもネットワーク呼び出しも使わないローカルスクリプト。リポジトリが最新なら何も出力しません。
+
+コマンド、ターゲット、ファイルを解決します。コマンドの実行や本文の読解はしません。
 
 `claude plugin install contextify@10x`
 
@@ -181,14 +252,14 @@ CSS、JSX、HTML、Tailwindのクラスを読み取り、ファイル名、行�
 skills CLI は独自の[対応エージェント一覧](https://github.com/vercel-labs/skills#supported-agents)を管理しています。
 
 3つのプラグインは、単体の MCP サーバーとしても動作します。MCP は、エディタが外部ツールに接続するためのプロトコルです。
-sniff と ui-ux-suite は npm から直接実行できます。recap-studio は、クローンしてワークスペースをビルドした後に実行します。
+sniff と ui-ux-suite は npm から直接実行できます。recap-studio は GitHub から直接実行できます: `npx -y github:Aboudjem/recap-studio mcp`。
 残りの6つは MCP サーバーを提供していません。
 
 | エージェント | 1行インストール |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
 | Cursor、Codex、Copilot、Gemini CLI、および[一覧にあるその他のエージェント](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| 任意の MCP クライアント | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp`、recap-studio はビルド済みのクローンから |
+| 任意の MCP クライアント | `npx sniff-qa --mcp`、`npx ui-ux-suite --mcp`、`npx -y github:Aboudjem/recap-studio mcp` |
 | それ以外 | 各プラグインのリポジトリにある `docs/editors.md` を参照 |
 
 <a id="proof"></a>
@@ -212,7 +283,7 @@ CI は、push とプルリクエストのたびにこの4つを実行します�
 
 | | |
 |---|---|
-| **無駄のない既定構成** | プラグインが必要としない依存関係は持ちません。ui-ux-suiteと6つのスキルは依存関係を持ちません。recap-studioのパッケージはzodを、そのWebアプリはNextとReactを取り込みます。sniffは実際のブラウザを操作するためPlaywrightとLighthouseを含みます。 |
+| **無駄のない既定構成** | プラグインが必要としない依存関係は持ちません。ui-ux-suiteと6つのスキルは依存関係を持ちません。recap-studioのパッケージはzodを、そのWebアプリはNextとReactを取り込みます。sniffは `zod` だけに依存し、ブラウザエンジンは初回利用時にダウンロードします。 |
 | **ワンコマンドインストール** | 設定ファイルもサインアップも不要です。aws-cost-auditだけは、お持ちでない可能性のあるアクセス権、つまりアカウントを読み取れるよう設定されたAWS CLIを必要とします。 |
 | **本物のテスト** | ファイルが存在するかではなく、振る舞いを検証するCIです。 |
 | **Claude Code以外でも動作** | `npx skills add` 経由で他のエージェントにインストールできます。 |
@@ -258,9 +329,9 @@ CI は、push とプルリクエストのたびにこの4つを実行します�
 - Claude Code のコマンドには `claude` CLI が必要です。他のエージェントでは `npx skills add` を使い、プラグインのリポジトリを1つずつ指定します。
 - MCP サーバーを提供しているプラグインは、sniff、ui-ux-suite、recap-studio の3つだけです。
 - aws-cost-audit には、アカウントを読み取れる AWS CLI が必要です。
-- sniff の MCP サーバーは、初回起動時にブラウザ一式をダウンロードします。そのため Claude Code の接続タイムアウトを超えることがあります。先に一度ウォームアップしてください: `npx -y sniff-qa --version`。
-  ダウンロードが途中で切れて npx が `Invalid Version` エラーを出す場合は、キャッシュを消して (`rm -rf ~/.npm/_npx`) もう一度ウォームアップしてください。
-- `claude plugin list` は、プラグインの横に情報メモを表示することがあります。例: recap-studio の lockfile メモや、sniff 0.9.0 の「記載パッケージが未インストール」というメモ。プラグインのインストールと動作には影響しません。
+- sniff の最初の巡回では、ブラウザエンジンと Chromium を一度だけダウンロードします。Mac で約 720 MB です。`npx sniff-qa install` で事前に済ませられます。
+- sniff の MCP サーバーはそのダウンロードより先に応答します。README の計測では、npm キャッシュが空の状態で 3.1 から 4.9 秒で、Claude Code の 30 秒の接続制限を下回ります。
+- `claude plugin list` に recap-studio の「The packages it lists were not installed」というメモが出ることがあります。無害です: プラグインは1つのバンドル済みファイルから動きます。
 - 同期ジョブが実行されるまで、ここに掲載されたバージョンはプラグインの新しいリリースより最大6時間遅れることがあります。
 - 各プラグインはそれぞれのライセンスに従います。sniff は Apache-2.0、残りの8つは MIT です。
 

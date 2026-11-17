@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>10x - curated Claude Code plugins that ship quality</title>
-  <meta name="description" content="10x is a plugin marketplace for Claude Code: a list your editor can install from. Nine developer tools, added once. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, secure-my-app, contextify. All nine also install into other agents through npx skills add." />
-  <meta property="og:title" content="10x - curated Claude Code plugins that ship quality" />
-  <meta property="og:description" content="Nine curated plugins. One install command. Runs locally, no telemetry, and works in other agents through npx skills add." />
+  <title>10x - nine Claude Code tools, one list, proof for each</title>
+  <meta name="description" content="Add this list once, then install any of nine Claude Code tools by name. Each plugin lists the commands that prove its claims. sniff, ui-ux-suite, recap-studio, aws-cost-audit, goalify, humanizer, loopify, secure-my-app, contextify. All nine also install into other agents through npx skills add." />
+  <meta property="og:title" content="10x - nine Claude Code tools, one list, proof for each" />
+  <meta property="og:description" content="QA, design audit, security, AWS costs, writing, long tasks, loops, explainers and agent docs. Each plugin lists the commands that prove its claims." />
   <meta property="og:image" content="assets/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <style>
@@ -74,7 +74,7 @@
 <body>
   <header class="wrap">
     <img class="logo" src="assets/logo-dark.svg" alt="10x" onerror="this.style.display='none'" />
-    <p class="tagline">A plugin marketplace is a list your editor can install from. This one holds nine developer tools for Claude Code, and you add it once.</p>
+    <p class="tagline"><strong>Nine Claude Code tools. One list. Proof for each.</strong><br />Add this list once, then install any of the nine tools by name. 10x lists plugins, it does not sandbox them: each one runs with your permissions.</p>
     <div class="cta">
       <a class="btn primary" href="https://github.com/Aboudjem/10x">View on GitHub</a>
       <a class="btn" href="#plugins">See the plugins</a>
@@ -101,7 +101,7 @@ claude plugin install sniff@10x</code></pre>
 
       <div class="plugin">
         <h3>sniff <span class="lic">Apache-2.0</span></h3>
-        <p class="desc">Point it at your running app and it clicks through your real flows in a real browser, then tells you what broke and the ordered steps that broke it.</p>
+        <p class="desc">Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix.</p>
         <pre><code>claude plugin install sniff@10x
 npx skills add Aboudjem/sniff</code></pre>
         <div class="links">
@@ -112,7 +112,7 @@ npx skills add Aboudjem/sniff</code></pre>
 
       <div class="plugin">
         <h3>ui-ux-suite <span class="lic">MIT</span></h3>
-        <p class="desc">It reads your CSS, JSX, HTML and Tailwind classes and names the file, the line, the measured wrong value, and the exact fix. It audits, it never edits.</p>
+        <p class="desc">ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies.</p>
         <pre><code>claude plugin install ui-ux-suite@10x
 npx skills add Aboudjem/ui-ux-suite</code></pre>
         <div class="links">
@@ -123,7 +123,7 @@ npx skills add Aboudjem/ui-ux-suite</code></pre>
 
       <div class="plugin">
         <h3>recap-studio <span class="lic">MIT</span></h3>
-        <p class="desc">It turns a topic or a coding session into one HTML file you can double-click, with every style inlined and no external request, readable offline in about five minutes.</p>
+        <p class="desc">Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send.</p>
         <pre><code>claude plugin install recap-studio@10x
 npx skills add Aboudjem/recap-studio</code></pre>
         <div class="links">
@@ -134,7 +134,7 @@ npx skills add Aboudjem/recap-studio</code></pre>
 
       <div class="plugin">
         <h3>aws-cost-audit <span class="lic">MIT</span></h3>
-        <p class="desc">It reads your live AWS account through the AWS CLI you already have and hands you a savings plan where every price is checked live, never quoted from memory. Read-only by default. A Claude Code skill (no MCP server).</p>
+        <p class="desc">Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs --apply and your yes.</p>
         <pre><code>claude plugin install aws-cost-audit@10x
 npx skills add Aboudjem/aws-cost-audit-skill</code></pre>
         <div class="links">
@@ -144,7 +144,7 @@ npx skills add Aboudjem/aws-cost-audit-skill</code></pre>
 
       <div class="plugin">
         <h3>goalify <span class="lic">MIT</span></h3>
-        <p class="desc">Give your AI a big job. goalify asks all the questions first. Then the AI works alone, for hours or even days, and shows you proof at the end. New in 3.0: a plan preview page, proof receipts with <code>/goalify verify</code>, and <code>/goalify status</code>. A Claude Code skill (no MCP server).</p>
+        <p class="desc">Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt.</p>
         <pre><code>claude plugin install goalify@10x
 npx skills add Aboudjem/goalify</code></pre>
         <div class="links">
@@ -155,7 +155,7 @@ npx skills add Aboudjem/goalify</code></pre>
 
       <div class="plugin">
         <h3>humanizer <span class="lic">MIT</span></h3>
-        <p class="desc">It knows 55 habits that make writing read as machine-written, names the ones it finds in your text, scores the text 0 to 100 from measurable signals, and rewrites it in the voice you pick. Pure Markdown, nothing leaves your machine. A Claude Code skill (no MCP server).</p>
+        <p class="desc">Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own.</p>
         <pre><code>claude plugin install humanizer@10x
 npx skills add Aboudjem/humanizer-skill</code></pre>
         <div class="links">
@@ -165,7 +165,7 @@ npx skills add Aboudjem/humanizer-skill</code></pre>
 
       <div class="plugin">
         <h3>loopify <span class="lic">MIT</span></h3>
-        <p class="desc">For a job that repeats rather than finishes, it writes the brief and the line you paste into <code>/loop</code>, Claude Code's built-in repeat command, with a tick cap and a stop rule. Every tick logs what it did. A Claude Code skill (no MCP server).</p>
+        <p class="desc">Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE.</p>
         <pre><code>claude plugin install loopify@10x
 npx skills add Aboudjem/loopify</code></pre>
         <div class="links">
@@ -175,7 +175,7 @@ npx skills add Aboudjem/loopify</code></pre>
 
       <div class="plugin">
         <h3>secure-my-app <span class="lic">MIT</span></h3>
-        <p class="desc">It finds what a stranger can take from your app, proves each finding with a command whose output you can read, then fixes only what you approve and re-runs that same command to prove the hole is shut and your own login still works. 65 controls in seven groups. A clean run is never called secure: its third verdict is <code>NOTHING CONFIRMED HERE</code>. A Claude Code skill (no MCP server).</p>
+        <p class="desc">Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change.</p>
         <pre><code>claude plugin install secure-my-app@10x
 npx skills add Aboudjem/secure-my-app</code></pre>
         <div class="links">
@@ -185,7 +185,7 @@ npx skills add Aboudjem/secure-my-app</code></pre>
 
       <div class="plugin" style="border-color: #E879DF;">
         <h3>contextify <span class="lic">MIT</span></h3>
-        <p class="desc">Tell every coding agent how your repo works. Then prove it is still true. Short instructions, optional architecture and workflow docs, and installed Git checks at commit and push. Reuses existing docs; session checks are opt-in.</p>
+        <p class="desc">Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens.</p>
         <pre><code>claude plugin install contextify@10x
 npx skills add Aboudjem/contextify</code></pre>
         <p class="links"><a href="https://github.com/Aboudjem/contextify">GitHub</a></p>
@@ -200,7 +200,7 @@ npx skills add Aboudjem/contextify</code></pre>
       <p>Every plugin here ships as skills, which are Markdown files your agent reads. That is why all nine
       install outside Claude Code through <code>npx skills add</code>. Three also run as a standalone MCP server,
       the protocol an editor speaks to reach an outside tool: sniff and ui-ux-suite straight from npm,
-      recap-studio from a clone after a workspace build. The other six ship no MCP server. Per-editor snippets
+      recap-studio straight from GitHub. The other six ship no MCP server. Per-editor snippets
       live in each repo's <code>docs/editors.md</code>.</p>
     </section>
 
@@ -209,8 +209,8 @@ npx skills add Aboudjem/contextify</code></pre>
       <p>Every plugin here is held to an explicit eight-point quality bar: no dependency it does not need, a
       one-command install with no signup, CI that asserts behaviour, an install path outside Claude Code,
       a release this quarter, and no telemetry. ui-ux-suite and the six skills ship no runtime dependency;
-      recap-studio's packages pull zod, its web app Next and React; sniff carries Playwright and Lighthouse
-      because it drives a real browser. If a plugin stops passing, it gets removed.
+      recap-studio's packages pull zod, its web app Next and React; sniff depends on <code>zod</code> only
+      and downloads its browser engine on first use. If a plugin stops passing, it gets removed.
       The full checklist, with the roster and the verification runs behind it, is in
       <a href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">QUALITY-BAR.md</a>.</p>
     </section>

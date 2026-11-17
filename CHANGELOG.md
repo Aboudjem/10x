@@ -4,6 +4,32 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.2] - 2026-11-17
+
+The listing now says what each tool is for and how you can check it. Install commands are unchanged.
+
+### Changed
+
+- README first screen: a new tagline ("Nine Claude Code tools. One list. Proof for each."), one sentence, the two commands,
+  the real install output, what the nine tools do for you, and a `Why use it` block with a proof per bullet.
+  The limit that 10x lists plugins and does not sandbox them now sits on the first screen.
+- The plugin table has one benefit-led line per plugin. Each per-plugin block leads with that plugin's promise,
+  three benefits and its main limit, taken from the plugin's own README at its current release.
+- "What is a plugin marketplace" moved from the opening line to the FAQ.
+- `metadata.description` is now 158 characters instead of over 1,000, and drops "ship quality", which no command proves.
+- Each plugin `description` in `marketplace.json` now equals its upstream `plugin.json`, so `npm run sync:check` reports no description drift.
+- The four translated READMEs, `ECOSYSTEM.md`, `QUALITY-BAR.md`, `llms.txt`, `AGENTS.md` and `site/index.html` carry the same copy and the current versions.
+- Hero banners, logos and the social preview carry the new headline. `.github/assets/social-preview.png` was rebuilt from `social-preview.svg`.
+
+### Fixed
+
+- sniff: it now depends on `zod` only and downloads its browser engine on first use. The docs said 17 runtime dependencies.
+- sniff: the Limits entry about a slow first MCP start and a warm-up command is gone. Since 0.9.1 the server answers before the browser download.
+- `claude plugin list`: sniff no longer shows the "packages it lists were not installed" note; recap-studio still can.
+- recap-studio's MCP server runs with `npx -y github:Aboudjem/recap-studio mcp`. The docs said it needed a built clone.
+- Test counts re-read from each plugin README's Proof section: sniff 555 tests in 52 files, recap-studio 113, secure-my-app 152 manifest checks.
+- The hero banners said "Eight plugins"; the hero diagram's recap-studio chip said "5-MIN", a claim recap-studio no longer makes.
+
 ## [2.1.1] - 2026-11-17
 
 Fixes from an independent check of 2.1.0, plus three plugin patch releases. Install commands are unchanged.

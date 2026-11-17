@@ -1,7 +1,7 @@
 {
   "name": "10x",
   "metadata": {
-    "description": "Curated Claude Code plugins that ship quality. sniff walks your running app in a real browser and tells you what is actually broken, with the steps to reproduce it. ui-ux-suite is ESLint for design: the exact line, the measured wrong value, the exact fix. recap-studio turns a topic or a coding session into one offline HTML explainer you can double-click. aws-cost-audit reads your live AWS account read-only and checks every price against live AWS pricing. goalify writes the brief and the condition for a big task a fresh session runs on its own. humanizer names 55 AI writing habits and rewrites text in the voice you pick. loopify writes the brief and the line that keep a repeating job running on Claude Code's built-in /loop. secure-my-app finds what a stranger can take from your app, then proves each fix shut with the same command that found it. contextify writes short agent instructions and optional architecture/workflow docs, then uses installed Git hooks to check drift at commit and push without a model. The tool plugins are dual-mode (a Claude Code plugin or a standalone MCP server); aws-cost-audit, goalify, humanizer, loopify, secure-my-app and contextify are Claude Code skills (no MCP server)."
+    "description": "Nine Claude Code plugins, each with commands that prove its claims: QA, design audit, security, AWS costs, writing, long tasks, loops, explainers, agent docs."
   },
   "owner": {
     "name": "Adam Boudjemaa"
@@ -13,7 +13,7 @@
         "source": "github",
         "repo": "Aboudjem/sniff"
       },
-      "description": "Autonomous QA scanner via sniff-qa: walks your running app in a real browser and reports real bugs (broken pages/links, console/network errors, broken forms, state-loss, empty/placeholder data, bad loading/error states, responsive + a11y) with reproduction proof, severity, confidence, and a fix. No API key.",
+      "description": "Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix.",
       "version": "0.9.2",
       "homepage": "https://github.com/Aboudjem/sniff",
       "license": "Apache-2.0",
@@ -33,7 +33,7 @@
         "source": "github",
         "repo": "Aboudjem/ui-ux-suite"
       },
-      "description": "Design audit tool. Scores projects across 12 dimensions: color, typography, accessibility, layout, and more. WCAG, APCA, OKLCH color science. Zero dependencies.",
+      "description": "ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies.",
       "version": "0.7.1",
       "homepage": "https://github.com/Aboudjem/ui-ux-suite",
       "license": "MIT",
@@ -56,7 +56,7 @@
         "source": "github",
         "repo": "Aboudjem/recap-studio"
       },
-      "description": "Turn a topic or a coding session into one dark-mode HTML explainer you double-click and read offline in about five minutes.",
+      "description": "Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send.",
       "version": "0.6.2",
       "homepage": "https://github.com/Aboudjem/recap-studio",
       "license": "MIT",
@@ -78,7 +78,7 @@
         "source": "github",
         "repo": "Aboudjem/aws-cost-audit-skill"
       },
-      "description": "Audit a live AWS account end-to-end: attribute every dollar, find idle/orphaned resources, rightsize, check Savings Plans/RI coverage, and produce an evidence-backed savings plan with confidence levels and reversible, gated actions. Verifies prices live; hardcodes none.",
+      "description": "Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs --apply and your yes.",
       "version": "0.4.2",
       "homepage": "https://github.com/Aboudjem/aws-cost-audit-skill",
       "license": "MIT",
@@ -98,7 +98,7 @@
         "source": "github",
         "repo": "Aboudjem/goalify"
       },
-      "description": "Give your AI a big job and get proof it is done. Writes the brief and the /goal condition for Claude Code and Codex.",
+      "description": "Hand off a big task once. goalify asks its questions up front, writes the plan and the /goal finish line. Its verify step re-runs your tests into a receipt.",
       "version": "3.1.2",
       "homepage": "https://goalify-kappa.vercel.app",
       "license": "MIT",
@@ -119,7 +119,7 @@
         "source": "github",
         "repo": "Aboudjem/humanizer-skill"
       },
-      "description": "Names 55 AI writing patterns and rewrites text in the voice you pick from five profiles, with an optional 0 to 100 AI-tell score. Pure Markdown, no network calls.",
+      "description": "Names the 55 habits that make text read as AI-written and rewrites it in one of five voices you pick, with an optional 0 to 100 score. No network calls of its own.",
       "version": "0.8.2",
       "homepage": "https://github.com/Aboudjem/humanizer-skill",
       "license": "MIT",
@@ -140,7 +140,7 @@
         "source": "github",
         "repo": "Aboudjem/loopify"
       },
-      "description": "Hand Claude a job that repeats. Come back to a log of what every tick did, not a loop you have to babysit.",
+      "description": "Writes the brief and the one line for Claude Code's /loop. One status command reads the tick log and says OK, NEEDS YOU or STALE.",
       "version": "1.2.3",
       "homepage": "https://github.com/Aboudjem/loopify",
       "license": "MIT",
@@ -163,7 +163,7 @@
         "source": "github",
         "repo": "Aboudjem/secure-my-app"
       },
-      "description": "Find what a stranger can take from your app. Then close it and prove it closed.",
+      "description": "Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change.",
       "version": "0.3.1",
       "homepage": "https://github.com/Aboudjem/secure-my-app",
       "license": "MIT",
@@ -181,7 +181,7 @@
     },
     {
       "name": "contextify",
-      "description": "Tell every coding agent how your repo works. Then prove it is still true.",
+      "description": "Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens.",
       "version": "0.3.3",
       "homepage": "https://github.com/Aboudjem/contextify",
       "license": "MIT",

@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../.github/assets/hero-banner-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="../.github/assets/hero-banner-light.svg">
-  <img alt="10x: curated Claude Code plugins that ship quality" src="../.github/assets/hero-banner-light.svg" width="100%">
+  <img alt="10x: nine Claude Code tools, one list, proof for each" src="../.github/assets/hero-banner-light.svg" width="100%">
 </picture>
 
 <p align="center">
@@ -17,7 +17,7 @@
   <b>Français</b>
 </p>
 
-<p align="center"><b>Une place de marché de plugins est une liste depuis laquelle votre éditeur peut installer. Celle-ci contient neuf outils de développement pour Claude Code, et vous l'ajoutez une seule fois.</b></p>
+<p align="center"><b>Neuf outils pour Claude Code. Une liste. Une preuve pour chacun.</b></p>
 
 <p align="center">
   <a href="#install">Installation</a> ·
@@ -27,6 +27,8 @@
   <a href="#faq">FAQ</a> ·
   <a href="#limits">Limites</a>
 </p>
+
+Ajoutez cette liste une fois, puis installez n'importe lequel des neuf outils par son nom.
 
 ```bash
 claude plugin marketplace add Aboudjem/10x
@@ -39,6 +41,23 @@ Ce que vous voyez après ces deux commandes (exécution réelle, 2026-11-17) :
 ✔ Successfully added marketplace: 10x (declared in user settings)
 ✔ Successfully installed plugin: humanizer@10x (scope: user)
 ```
+
+Repérez ce qui casse dans votre application, ce qu'un inconnu peut prendre, et ce que votre facture AWS gaspille.
+Faites qu'un brouillon d'IA se lise comme écrit par une personne, et confiez les longs travaux avec un reçu.
+Chaque plugin liste les commandes qui prouvent ce qu'il affirme.
+
+10x liste des plugins, il ne les isole pas : chacun s'exécute avec vos permissions.
+
+<a id="why-use-it"></a>
+
+## Pourquoi l'utiliser
+
+- **Un ajout, neuf outils.** Ajouter la liste n'installe rien. `claude plugin install <name>@10x` installe un outil.
+  Preuve : `npm run validate` affiche `Marketplace has 9 valid plugin(s)`.
+- **Vérifié à chaque push.** La CI lance `npm run validate`, `npm run sync:check`, `claude plugin validate . --strict` et `npm test`.
+  Preuve : le [workflow validate](../.github/workflows/validate.yml) et le tableau [Preuves](#proof) plus bas.
+- **Les limites en clair.** Le README de chaque plugin a une section Proof et une section Limits qui dit ce qu'il ne sait pas faire.
+  Preuve : ouvrez un lien de dépôt dans [Les plugins](#the-plugins) et lisez ses `## Proof` et `## Limits`.
 
 <a id="install"></a>
 
@@ -70,15 +89,15 @@ Utilisez le nom du dépôt du plugin, pas `Aboudjem/10x`. Ce dépôt est une lis
 
 | | Plugin | À quoi ça sert | Installation | |
 |:-:|:--|:--|:--|:--|
-| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | Parcourt votre application en cours d'exécution et trouve de vrais bugs | `claude plugin install sniff@10x` | [dépôt](https://github.com/Aboudjem/sniff) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | L'ESLint du design : la ligne, la valeur, le correctif | `claude plugin install ui-ux-suite@10x` | [dépôt](https://github.com/Aboudjem/ui-ux-suite) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | Un explicatif HTML hors ligne à partir d'un sujet ou d'une session | `claude plugin install recap-studio@10x` | [dépôt](https://github.com/Aboudjem/recap-studio) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Audite votre facture AWS par rapport aux tarifs AWS en direct | `claude plugin install aws-cost-audit@10x` | [dépôt](https://github.com/Aboudjem/aws-cost-audit-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Prépare une tâche énorme à exécuter en autonomie | `claude plugin install goalify@10x` | [dépôt](https://github.com/Aboudjem/goalify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Identifie 55 habitudes d'écriture IA et les réécrit | `claude plugin install humanizer@10x` | [dépôt](https://github.com/Aboudjem/humanizer-skill) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Prépare une tâche répétitive pour la commande `/loop` de Claude Code | `claude plugin install loopify@10x` | [dépôt](https://github.com/Aboudjem/loopify) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | Trouve ce qu'un inconnu peut vous prendre, puis prouve que c'est fermé | `claude plugin install secure-my-app@10x` | [dépôt](https://github.com/Aboudjem/secure-my-app) |
-| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | Rédige les instructions des agents, puis vérifie qu’elles restent à jour | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/sniff/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **sniff** | Attrapez les 500, liens morts et formulaires cassés de votre app, avec les étapes. | `claude plugin install sniff@10x` | [dépôt](https://github.com/Aboudjem/sniff) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/ui-ux-suite/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **ui-ux-suite** | Corrigez contraste, focus et mise en page : fichier, ligne, valeur mesurée, correction. | `claude plugin install ui-ux-suite@10x` | [dépôt](https://github.com/Aboudjem/ui-ux-suite) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/recap-studio/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **recap-studio** | Expliquez un sujet ou votre session en une page HTML lisible hors ligne. | `claude plugin install recap-studio@10x` | [dépôt](https://github.com/Aboudjem/recap-studio) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/aws-cost-audit-skill/main/assets/logo-mark-animated.svg" width="40" alt=""> | **aws-cost-audit** | Réduisez votre facture AWS : une liste classée de coupes, chaque prix vérifié en direct. | `claude plugin install aws-cost-audit@10x` | [dépôt](https://github.com/Aboudjem/aws-cost-audit-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/goalify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **goalify** | Confiez un gros travail et recevez un reçu : VERIFIED ou NOT VERIFIED. | `claude plugin install goalify@10x` | [dépôt](https://github.com/Aboudjem/goalify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/humanizer-skill/main/.github/assets/logo-mark-animated.svg" width="40" alt=""> | **humanizer** | Voyez ce qui fait sonner un brouillon comme une IA, puis réécrivez-le dans une voix choisie. | `claude plugin install humanizer@10x` | [dépôt](https://github.com/Aboudjem/humanizer-skill) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/loopify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **loopify** | Lancez une tâche répétée et suivez-la en une ligne : OK, NEEDS YOU, STALE. | `claude plugin install loopify@10x` | [dépôt](https://github.com/Aboudjem/loopify) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/secure-my-app/main/assets/logo-mark-animated.svg" width="40" alt=""> | **secure-my-app** | Trouvez ce qu'un inconnu peut prendre à votre app, avec la preuve de chaque faille. | `claude plugin install secure-my-app@10x` | [dépôt](https://github.com/Aboudjem/secure-my-app) |
+| <img src="https://raw.githubusercontent.com/Aboudjem/contextify/main/assets/logo-mark-animated.svg" width="40" alt=""> | **contextify** | Un AGENTS.md pour vos agents, et une vérification sans token des commandes et fichiers morts. | `claude plugin install contextify@10x` | [repo](https://github.com/Aboudjem/contextify) |
 
 <a id="what-each-one-does"></a>
 
@@ -86,7 +105,13 @@ Utilisez le nom du dépôt du plugin, pas `Aboudjem/10x`. Ce dépôt est une lis
 
 #### sniff
 
-Pointez-le vers votre application en cours d'exécution : il clique à travers vos parcours réels dans un vrai navigateur, puis vous dit ce qui s'est cassé et les étapes, dans l'ordre, qui ont mené à la casse.
+**Attrapez les 500, liens morts et formulaires cassés de votre application en cours d'exécution.**
+
+- Chaque problème de page nomme la route, les étapes et une correction, le plus souvent avec une capture.
+- Il a trouvé 21 bugs plantés sur 21, avec 0 faux résultat sur la page saine (`npm run build && npm run proof`).
+- `--fail-on` sort en code 1 sur un problème critique ou élevé, il peut donc bloquer un merge. Aucune clé d'API.
+
+Il soumet de vrais formulaires : pointez-le vers une app de dev ou de staging.
 
 `claude plugin install sniff@10x`
 
@@ -94,7 +119,13 @@ Pointez-le vers votre application en cours d'exécution : il clique à travers v
 
 #### ui-ux-suite
 
-Il lit votre CSS, votre JSX, votre HTML et vos classes Tailwind, puis indique le fichier, la ligne, la valeur mesurée erronée et le correctif exact. Il audite, il ne modifie jamais.
+**ESLint pour le design : la ligne, la valeur mesurée, la correction.**
+
+- Chaque problème localisé a un fichier, une ligne, une valeur mesurée et une correction (46 sur la fixture cassée).
+- Il vérifie le contraste selon WCAG 2.2, et chaque problème localisé cite la règle ou la loi UX en cause.
+- Aucune dépendance à l'exécution : `npm view ui-ux-suite dependencies` n'affiche rien.
+
+Il lit le code source, pas les pixels, et ne modifie jamais votre code.
 
 `claude plugin install ui-ux-suite@10x`
 
@@ -102,7 +133,13 @@ Il lit votre CSS, votre JSX, votre HTML et vos classes Tailwind, puis indique le
 
 #### recap-studio
 
-Il transforme un sujet ou une session de code en un seul fichier HTML sur lequel il suffit de double-cliquer, avec tous les styles intégrés et aucune requête externe, lisible hors ligne en environ cinq minutes.
+**Une page à envoyer par e-mail, à joindre à une PR ou à lire dans l'avion.**
+
+- Un seul fichier HTML, 0 balise script, tout le CSS en ligne. Il s'ouvre hors ligne d'un double-clic.
+- Sept vérifications hors ligne notent la page sans modèle. `--fail-under 8` refuse une page faible.
+- `/recap session` transforme votre diff git et vos commits en une page que votre équipe peut lire.
+
+La note vérifie la forme, pas la vérité : lisez d'abord les sources.
 
 `claude plugin install recap-studio@10x`
 
@@ -110,7 +147,13 @@ Il transforme un sujet ou une session de code en un seul fichier HTML sur lequel
 
 #### aws-cost-audit
 
-Il lit votre compte AWS en direct via la CLI AWS que vous avez déjà installée et vous remet un plan d'économies où chaque prix est vérifié en direct, jamais cité de mémoire.
+**Coupez le gaspillage de votre facture AWS, au prix du jour.**
+
+- Un verdict en dollars, puis les trois coupes à faire en premier.
+- Les prix viennent d'AWS au moment de l'exécution. `make test` et un scan de CI échouent si un script contient un prix écrit en dur.
+- Simulation par défaut : un changement demande `--apply` et votre oui tapé au clavier.
+
+Il lui faut une AWS CLI qui peut lire votre compte, et Cost Explorer activé.
 
 `claude plugin install aws-cost-audit@10x`
 
@@ -118,7 +161,13 @@ Il lit votre compte AWS en direct via la CLI AWS que vous avez déjà installée
 
 #### goalify
 
-Pour une tâche trop grande pour rester à la regarder tourner, il rédige le brief (un fichier qui contient ce que l'exécution doit faire) et la condition (une ligne que vous collez dans `/goal`), afin qu'une session neuve fasse le travail et se termine en citant les vérifications réussies.
+**Confiez un gros travail à votre IA. Recevez une preuve.**
+
+- Toutes les questions viennent d'abord, donc l'exécution n'a plus rien à vous demander.
+- La ligne `/goal` nomme la commande de test qui doit passer.
+- `/goalify verify` relance vos tests et écrit un reçu qui peut dire `NOT VERIFIED`.
+
+Une exécution qui s'arrête n'est pas toujours terminée, et elle peut encore attendre une demande de permission.
 
 `claude plugin install goalify@10x`
 
@@ -126,7 +175,13 @@ Pour une tâche trop grande pour rester à la regarder tourner, il rédige le br
 
 #### humanizer
 
-Il connaît 55 habitudes qui font qu'un texte se lit comme écrit par une machine, nomme celles qu'il trouve dans votre texte, le note de 0 à 100 à partir de signaux mesurables, et le réécrit dans la voix que vous choisissez.
+**Trouvez ce qui fait sonner votre brouillon comme une IA. Corrigez-le.**
+
+- 55 motifs numérotés, et une liste « Fix first » qui cite les mots qui coûtent des points.
+- Dans la CLI optionnelle, `compare --check-facts` fait échouer une réécriture qui a perdu un nombre, une date, une version ou une URL.
+- `scan --fail-above 40` sort en code 1 sur un brouillon au score trop haut, donc la CI peut le bloquer.
+
+La réécriture tourne sur le modèle de votre éditeur, dans l'une des cinq voix que vous choisissez.
 
 `claude plugin install humanizer@10x`
 
@@ -134,7 +189,13 @@ Il connaît 55 habitudes qui font qu'un texte se lit comme écrit par une machin
 
 #### loopify
 
-Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le brief et la ligne que vous collez dans `/loop`, la commande de répétition intégrée à Claude Code, avec un plafond de ticks et une règle d'arrêt. Chaque tick journalise ce qu'il a fait.
+**Arrêtez de surveiller votre boucle.**
+
+- Une ligne d'état dit `OK`, `NEEDS YOU` ou `STALE`, puis quoi faire ensuite.
+- Un tick qui n'écrit rien dans le journal apparaît en `STALE` après deux intervalles.
+- Une règle d'arrêt voyage dans la ligne, et chaque boucle expire au bout de 7 jours.
+
+La boucle vit dans votre session ouverte, et son journal est la seule preuve de ce qu'elle a fait.
 
 `claude plugin install loopify@10x`
 
@@ -142,7 +203,13 @@ Pour une tâche qui se répète plutôt qu'elle ne se termine, il rédige le bri
 
 #### secure-my-app
 
-Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque constat avec une commande dont vous lisez la sortie, puis corrige uniquement ce que vous validez et relance cette même commande pour prouver que la faille est fermée et que votre propre connexion fonctionne toujours. 65 contrôles en sept groupes. Une exécution sans constat n'est jamais déclarée sûre : son troisième verdict est `NOTHING CONFIRMED HERE`.
+**Trouvez ce qu'un inconnu peut prendre à votre app. Puis fermez la faille et prouvez-le.**
+
+- Chaque problème montre sa preuve : la ligne de code et, avec une URL en ligne, la requête et sa vraie sortie.
+- Chaque problème a une commande `VERIFY` dont la sortie doit changer pour qu'un correctif compte.
+- Il écrit un rapport et s'arrête. Rien ne change dans votre app tant que vous n'approuvez pas un correctif.
+
+Ce n'est pas un test d'intrusion. Sans URL en ligne, la plupart des contrôles d'accès reviennent `UNPROVEN`.
 
 `claude plugin install secure-my-app@10x`
 
@@ -150,9 +217,13 @@ Il trouve ce qu'un inconnu peut prendre à votre application, prouve chaque cons
 
 #### contextify
 
-**Tell every coding agent how your repo works. Then prove it is still true.**
+**Sachez quand vos instructions d'agent pointent vers quelque chose qui n'existe plus.**
 
-Il garde `AGENTS.md` court et réutilise les documents existants qui sont à jour. Au besoin, il ajoute `docs/context/architecture.md` ou `docs/context/workflows.md`, limités à 120 lignes chacun et accessibles par des liens. Les hooks Git installés vérifient le contexte au commit et au push, sans appeler de modèle ; les hooks de session sont facultatifs. Les mises à jour affichent un diff et préservent le contenu humain hors des blocs gérés.
+- L'avis donne le fichier, la ligne et la commande morte.
+- Un seul `AGENTS.md` que Codex, Cursor et Copilot lisent directement, plus de courts renvois pour Claude Code et Gemini CLI.
+- Un script local, sans modèle et sans appel réseau. Il reste muet quand le dépôt est à jour.
+
+Il résout les commandes, les cibles et les fichiers. Il ne lance pas les commandes et ne lit pas la prose.
 
 `claude plugin install contextify@10x`
 
@@ -182,14 +253,14 @@ C'est pourquoi les neuf s'installent en dehors de Claude Code via `npx skills ad
 La CLI skills tient sa propre [liste des agents pris en charge](https://github.com/vercel-labs/skills#supported-agents).
 
 Trois plugins tournent aussi comme serveur MCP autonome. MCP est le protocole que parle un éditeur pour atteindre un outil extérieur.
-sniff et ui-ux-suite se lancent directement depuis npm. recap-studio se lance depuis un clone, après une compilation du workspace.
+sniff et ui-ux-suite se lancent directement depuis npm. recap-studio se lance directement depuis GitHub : `npx -y github:Aboudjem/recap-studio mcp`.
 Les six autres ne fournissent aucun serveur MCP.
 
 | Agent | Installation en une ligne |
 |:--|:--|
 | Claude Code | `claude plugin install <name>@10x` |
 | Cursor, Codex, Copilot, Gemini CLI, et [le reste de la liste](https://github.com/vercel-labs/skills#supported-agents) | `npx skills add Aboudjem/<repo>` |
-| N'importe quel client MCP | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`, recap-studio depuis un clone compilé |
+| N'importe quel client MCP | `npx sniff-qa --mcp`, `npx ui-ux-suite --mcp`, `npx -y github:Aboudjem/recap-studio mcp` |
 | Tout le reste | voir `docs/editors.md` dans le dépôt du plugin |
 
 <a id="proof"></a>
@@ -213,7 +284,7 @@ La CI lance les quatre à chaque push et à chaque pull request. Elle vérifie a
 
 | | |
 |---|---|
-| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. ui-ux-suite et les six skills n'en embarquent aucune. Les packages de recap-studio tirent zod, son application web Next et React. sniff pilote un vrai navigateur, il embarque donc Playwright et Lighthouse. |
+| **Minimal par défaut** | Aucune dépendance dont un plugin n'a pas besoin. ui-ux-suite et les six skills n'en embarquent aucune. Les packages de recap-studio tirent zod, son application web Next et React. sniff ne dépend que de `zod` et télécharge son moteur de navigateur au premier usage. |
 | **Installation en une commande** | Aucun fichier de configuration et aucune inscription. aws-cost-audit est le seul qui a besoin d'un accès que vous n'avez peut-être pas : une CLI AWS configurée pour lire le compte. |
 | **De vrais tests** | Une CI qui vérifie le comportement, pas qu'un fichier existe. |
 | **Fonctionne hors de Claude Code** | S'installe dans d'autres agents via `npx skills add`. |
@@ -259,9 +330,9 @@ Non. Le dépôt contient un fichier JSON, de la documentation et des images. Rie
 - Les commandes Claude Code demandent la CLI `claude`. Les autres agents passent par `npx skills add`, un dépôt de plugin à la fois.
 - Seuls trois plugins fournissent un serveur MCP : sniff, ui-ux-suite et recap-studio.
 - aws-cost-audit a besoin d'une AWS CLI capable de lire votre compte.
-- Au premier démarrage, le serveur MCP de sniff télécharge un navigateur et ses outils. Cela peut dépasser le délai de connexion de Claude Code. Préchauffez-le une fois : `npx -y sniff-qa --version`.
-  Si un téléchargement interrompu laisse npx avec une erreur `Invalid Version`, videz son cache (`rm -rf ~/.npm/_npx`) puis relancez le préchauffage.
-- `claude plugin list` peut afficher une note informative à côté d'un plugin. Exemples : la note de lockfile de recap-studio, et sniff 0.9.0 qui signale que ses paquets listés ne sont pas installés. Le plugin s'installe et fonctionne quand même.
+- La première exploration de sniff télécharge une fois un moteur de navigateur et Chromium, environ 720 Mo sur un Mac. `npx sniff-qa install` le fait à l'avance.
+- Le serveur MCP de sniff répond avant ce téléchargement. Son README a mesuré 3,1 à 4,9 s avec un cache npm vide, sous la limite de connexion de 30 s de Claude Code.
+- `claude plugin list` peut afficher la note de recap-studio « The packages it lists were not installed ». Elle est sans danger : le plugin tourne depuis un seul fichier groupé.
 - La version listée ici peut avoir jusqu'à six heures de retard sur une nouvelle version d'un plugin, le temps que la synchronisation tourne.
 - Chaque plugin garde sa propre licence. sniff est sous Apache-2.0, les huit autres sous MIT.
 

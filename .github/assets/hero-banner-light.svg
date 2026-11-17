@@ -116,9 +116,9 @@
   <line x1="500" y1="100" x2="500" y2="300" stroke="url(#tx-rule)" stroke-width="1.5"/>
   <g transform="translate(544,0)">
     <text class="mono eyebrow" x="0" y="134">CLAUDE CODE MARKETPLACE</text>
-    <text class="disp head" x="0" y="186">Curated plugins that ship quality</text>
-    <text class="disp sub" x="0" y="222">Eight plugins. One install command. Runs locally.</text>
-    <g transform="translate(0,265)"><g class="txp1"><circle cx="0" cy="0" r="4.5" fill="#0E8571"/></g><g class="txp2"><circle cx="22" cy="0" r="4.5" fill="#00819C"/></g><g class="txp3"><circle cx="44" cy="0" r="4.5" fill="#0B6DFF"/></g><g class="txp4"><circle cx="66" cy="0" r="4.5" fill="#725BFF"/></g><g class="txp5"><circle cx="88" cy="0" r="4.5" fill="#A836FF"/></g><g class="txp6"><circle cx="110" cy="0" r="4.5" fill="#EB0054"/></g><g class="txp7"><circle cx="132" cy="0" r="4.5" fill="#AB6600"/></g><g class="txp8"><circle cx="154" cy="0" r="4.5" fill="#0F851F"/></g><text class="mono tag" x="190" y="4">EIGHT PLUGINS</text></g>
+    <text class="disp head" x="0" y="186">Nine Claude Code tools, one list.</text>
+    <text class="disp sub" x="0" y="222">Add it once. Install any tool by name.</text>
+    <g transform="translate(0,265)"><g class="txp1"><circle cx="0" cy="0" r="4.5" fill="#0E8571"/></g><g class="txp2"><circle cx="22" cy="0" r="4.5" fill="#00819C"/></g><g class="txp3"><circle cx="44" cy="0" r="4.5" fill="#0B6DFF"/></g><g class="txp4"><circle cx="66" cy="0" r="4.5" fill="#725BFF"/></g><g class="txp5"><circle cx="88" cy="0" r="4.5" fill="#A836FF"/></g><g class="txp6"><circle cx="110" cy="0" r="4.5" fill="#EB0054"/></g><g class="txp7"><circle cx="132" cy="0" r="4.5" fill="#AB6600"/></g><g class="txp8"><circle cx="154" cy="0" r="4.5" fill="#0F851F"/></g><text class="mono tag" x="190" y="4">PROOF FOR EACH</text></g>
   </g>
   <text class="mono tag" x="76" y="352">zero config  &#183;  no telemetry  &#183;  runs locally</text>
 </svg>
