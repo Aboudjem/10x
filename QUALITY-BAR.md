@@ -130,7 +130,7 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 | 3 | `recap-studio`    | 0.6.2 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
 | 4 | `aws-cost-audit`  | 0.4.4 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
 | 5 | `goalify`         | 3.1.2 | MIT        | [`Aboudjem/goalify`](https://github.com/Aboudjem/goalify) |
-| 6 | `humanizer`       | 0.8.2 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
+| 6 | `humanizer`       | 0.8.3 | MIT        | [`Aboudjem/humanizer-skill`](https://github.com/Aboudjem/humanizer-skill) |
 | 7 | `loopify`         | 1.2.3 | MIT        | [`Aboudjem/loopify`](https://github.com/Aboudjem/loopify) |
 | 8 | `secure-my-app`   | 0.3.1 | MIT        | [`Aboudjem/secure-my-app`](https://github.com/Aboudjem/secure-my-app) |
 | 9 | `contextify`      | 0.3.3 | MIT        | [`Aboudjem/contextify`](https://github.com/Aboudjem/contextify) |
