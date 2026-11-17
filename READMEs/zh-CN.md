@@ -106,11 +106,12 @@ npx skills add Aboudjem/sniff
 
 **抓出运行中应用的 500 错误、死链和坏表单。**
 
+- 报告先给出结论和最该先修的三处问题，并说明隐藏了多少条低置信度问题。
 - 每个页面问题都给出路由、步骤和修复建议，多数附截图。
 - 它找到了 21 个预埋 bug 中的 21 个，干净页面上误报为 0（`npm run build && npm run proof`）。
 - `--fail-on` 在出现 critical 或 high 问题时以退出码 1 结束，因此可以拦住合并。不需要 API 密钥。
 
-它会提交真实表单，所以请指向开发或预发布环境的应用。
+它会提交真实表单，所以请指向开发或预发布环境的应用。第一次遍历会下载约 440 MB，只需一次。
 
 `claude plugin install sniff@10x`
 
@@ -150,9 +151,9 @@ npx skills add Aboudjem/sniff
 
 - 先给出以美元计的结论，再给出最先要做的三项削减。
 - 价格在运行时从 AWS 获取。脚本里只要写死了价格，`make test` 和 CI 扫描都会失败。
-- 默认是演练模式：要改动必须加 `--apply` 并亲手输入 yes。
+- 默认是演练模式：要改动必须加 `--apply`，然后亲手输入 yes。`--yes` 会跳过这个提问。
 
-它需要一个能读取你账户的 AWS CLI，并且已开启 Cost Explorer。
+它需要一个能读取你账户的 AWS CLI、`jq`，并且已开启 Cost Explorer。
 
 `claude plugin install aws-cost-audit@10x`
 
@@ -190,8 +191,8 @@ npx skills add Aboudjem/sniff
 
 **别再守着你的循环。**
 
-- 一行状态显示 `OK`、`NEEDS YOU` 或 `STALE`，然后告诉你下一步做什么。
-- 没写日志的 tick 会在两个间隔后显示为 `STALE`。
+- 一行状态给出六种结论之一，例如 `OK`、`NEEDS YOU` 或 `STALE`，然后告诉你下一步做什么。
+- 在已知间隔的情况下，超过两个间隔没有新日志条目，缺失的 tick 会显示为 `STALE`。
 - 停止规则就写在那一行里，每个循环 7 天后到期。
 
 循环活在你打开的会话里，它的日志是它做过什么的唯一证据。
@@ -244,7 +245,7 @@ npx skills add Aboudjem/sniff
 ### 其他智能体
 
 <p align="center">
-  <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
+  <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf and Continue, and more through the skills CLI. Three plugins also run as MCP servers." width="100%">
 </p>
 
 这里的每款插件都以技能的形式发布，也就是你的智能体会读取的 Markdown 文件。
@@ -283,12 +284,12 @@ CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每
 
 | | |
 |---|---|
-| **默认精简** | 不携带插件用不到的依赖。ui-ux-suite 以及其余六款技能不带任何依赖。recap-studio 的各个包依赖 zod，它的 web 应用则依赖 Next 和 React。sniff 只依赖 `zod`，浏览器引擎在首次使用时下载。 |
+| **默认精简** | 不携带插件用不到的依赖。ui-ux-suite 以及其余六款技能不带任何依赖。recap-studio 的各个包依赖 zod，它的 web 应用则依赖 Next 和 React。sniff 只依赖 `zod`，浏览器引擎和 Chromium 在首次使用时下载（约 440 MB）。 |
 | **一条命令安装** | 不需要配置文件，也不需要注册。aws-cost-audit 是唯一需要你可能还没有的访问权限的插件：一个配置好、可以读取账户的 AWS CLI。 |
 | **真实的测试** | CI 断言的是行为，而不是某个文件是否存在。 |
 | **可在 Claude Code 之外运行** | 通过 `npx skills add` 安装到其他智能体中。 |
 | **持续维护** | 本季度有发布记录，不是去年就已归档的项目。 |
-| **无遥测** | 没有数据分析，也不会回传任何信息。每个工具只会与你指定的目标通信。 |
+| **无遥测** | 没有数据分析，也不会回传任何信息。网络请求只为完成任务服务，例如 sniff 下载浏览器，以及检查你页面上的外部链接。 |
 
 这里列出的每一款插件都要接受这套标准的约束。一旦某款插件不再达标，就会被移除。完整的检查清单，连同插件名单和最近一次验证日期，都在 [QUALITY-BAR.md](../QUALITY-BAR.md) 中。
 
@@ -318,7 +319,7 @@ CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每
 
 ### 10x 会收集数据吗？
 
-不会。仓库里只有一个 JSON 文件、文档和图片。其中没有任何内容会在你的机器上运行。
+不会。10x 没有任何数据分析。添加列表只会克隆本仓库，不运行任何东西。其中的脚本和测试只在你于克隆中运行它们时才会执行。
 
 <a id="limits"></a>
 
@@ -327,8 +328,9 @@ CI 会在每次 push 和每个 pull request 上运行这四项，还会检查每
 - 10x 只负责列出插件，不会把它们放进沙箱。插件以你的权限运行。
 - Claude Code 的命令需要 `claude` CLI。其他智能体使用 `npx skills add`，一次一个插件仓库。
 - 只有三款插件提供 MCP 服务器：sniff、ui-ux-suite 和 recap-studio。
-- aws-cost-audit 需要一个能读取你账户的 AWS CLI。
-- sniff 第一次遍历时会下载一次浏览器引擎和 Chromium，在 Mac 上约 720 MB。`npx sniff-qa install` 可以提前完成。
+- aws-cost-audit 需要一个能读取你账户的 AWS CLI 和 `jq`。
+- sniff 第一次遍历时会下载一次浏览器引擎和 Chromium：在 Mac 上下载约 440 MB，占用磁盘约 730 MB。`npx sniff-qa install` 可以提前完成，MCP 工具 `sniff_install` 会报告进度。
+- 下载完成之前，即使下载中途被打断，sniff 也会返回安装步骤：CLI 给出安装提示，MCP 返回 `needsSetup`。
 - sniff 的 MCP 服务器在下载之前就会响应。它的 README 在 npm 缓存为空时测得 3.1 到 4.9 秒，低于 Claude Code 30 秒的连接上限。
 - `claude plugin list` 可能会显示 recap-studio 的提示 "The packages it lists were not installed"。这无害：插件从一个打包好的文件运行。
 - 在同步任务运行之前，这里列出的版本可能比插件的新版本最多落后六小时。

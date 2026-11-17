@@ -55,7 +55,7 @@ awaiting third-party review) · **REPAIRED** (existing submission fixed) · **LI
 | claudepluginhub.com | any | BLOCKED-captcha | Submit page sits behind a Cloudflare human-verification interstitial |
 | claudecodemarketplace.net | any | BLOCKED-site-down | Page renders only "no available server" on both attempts 2026-09-02 |
 | cursor.directory | sniff-qa, ui-ux-suite | BLOCKED-needs-login | "Submit a plugin" → /login (GitHub/Google OAuth); Cursor-audience, low fit |
-| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.9.2, ui-ux-suite 0.7.1 (re-checked 2026-11-17) |
+| npm | sniff-qa, ui-ux-suite | LISTED | `npm view <pkg> version` → sniff-qa 0.9.3, ui-ux-suite 0.7.1 (re-checked 2026-11-17) |
 | skills.sh | humanizer | LISTED | skills.sh/Aboudjem/humanizer-skill, 554 installs |
 | skills.sh | loopify | LISTED | skills.sh/Aboudjem/loopify (1 install; search ranking is telemetry-driven) |
 | TensorBlock/awesome-mcp-servers | sniff, ui-ux-suite | LISTED | Auto-crawled by their bot; no action possible |

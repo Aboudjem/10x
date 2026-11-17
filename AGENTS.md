@@ -8,7 +8,7 @@ This repo is a **Claude Code plugin marketplace**, a curated hub, not a tool. It
 
 ## The nine plugins
 
-- **sniff** (0.9.2, Apache-2.0): Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
+- **sniff** (0.9.3, Apache-2.0): Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix. Dual-mode (plugin or MCP server). Repo: `Aboudjem/sniff`.
 - **ui-ux-suite** (0.7.1, MIT): ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies. Dual-mode. Repo: `Aboudjem/ui-ux-suite`.
 - **recap-studio** (0.6.2, MIT): Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send. Dual-mode. Repo: `Aboudjem/recap-studio`.
 - **aws-cost-audit** (0.4.2, MIT): Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs --apply and your yes. Skill plugin (no MCP server). Repo: `Aboudjem/aws-cost-audit-skill`.

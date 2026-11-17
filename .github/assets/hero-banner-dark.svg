@@ -150,5 +150,5 @@
     <text class="disp sub" x="0" y="222">Add it once. Install any tool by name.</text>
     <g transform="translate(0,265)"><g class="txp1"><circle cx="0" cy="0" r="4.5" fill="#2BE8C8" filter="url(#tx-glow-sm)"/></g><g class="txp2"><circle cx="22" cy="0" r="4.5" fill="#00D4FF" filter="url(#tx-glow-sm)"/></g><g class="txp3"><circle cx="44" cy="0" r="4.5" fill="#5B9DFF" filter="url(#tx-glow-sm)"/></g><g class="txp4"><circle cx="66" cy="0" r="4.5" fill="#8E7BFF" filter="url(#tx-glow-sm)"/></g><g class="txp5"><circle cx="88" cy="0" r="4.5" fill="#C77DFF" filter="url(#tx-glow-sm)"/></g><g class="txp6"><circle cx="110" cy="0" r="4.5" fill="#FF4D8D" filter="url(#tx-glow-sm)"/></g><g class="txp7"><circle cx="132" cy="0" r="4.5" fill="#FFB341" filter="url(#tx-glow-sm)"/></g><g class="txp8"><circle cx="154" cy="0" r="4.5" fill="#2BE844" filter="url(#tx-glow-sm)"/></g><text class="mono tag" x="190" y="4">PROOF FOR EACH</text></g>
   </g>
-  <text class="mono tag" x="76" y="352">zero config  &#183;  no telemetry  &#183;  runs locally</text>
+  <text class="mono tag" x="76" y="352">no signup  &#183;  no telemetry  &#183;  runs locally</text>
 </svg>

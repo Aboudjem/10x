@@ -106,11 +106,12 @@ Usa el nombre del repo del plugin, no `Aboudjem/10x`. Este repo es una lista y n
 
 **Atrapa los 500, los enlaces rotos y los formularios rotos de tu app en marcha.**
 
+- El informe empieza por el veredicto y los tres arreglos más urgentes. Dice cuántos hallazgos de baja confianza ocultó.
 - Cada hallazgo de página nombra la ruta, los pasos y un arreglo, casi siempre con captura.
 - Encontró 21 de 21 bugs plantados, con 0 hallazgos falsos en la página limpia (`npm run build && npm run proof`).
 - `--fail-on` sale con código 1 ante hallazgos críticos o altos, así que puede bloquear un merge. Sin clave de API.
 
-Envía formularios reales, así que apúntalo a una app de desarrollo o staging.
+Envía formularios reales, así que apúntalo a una app de desarrollo o staging. Su primer recorrido descarga unos 440 MB una sola vez.
 
 `claude plugin install sniff@10x`
 
@@ -150,9 +151,9 @@ La nota mide la forma, no la verdad, así que lee primero las fuentes.
 
 - Un veredicto en dólares y luego los tres recortes que hacer primero.
 - Los precios vienen de AWS al ejecutarse. `make test` y un escaneo de CI fallan si un script contiene un precio literal.
-- Simulación por defecto: un cambio necesita `--apply` y tu sí escrito.
+- Simulación por defecto: un cambio necesita `--apply` y después tu sí escrito. `--yes` se salta esa pregunta.
 
-Necesita una AWS CLI que pueda leer tu cuenta, y Cost Explorer activado.
+Necesita una AWS CLI que pueda leer tu cuenta, `jq`, y Cost Explorer activado.
 
 `claude plugin install aws-cost-audit@10x`
 
@@ -190,8 +191,8 @@ La reescritura corre en el modelo de tu editor, con una de las cinco voces que e
 
 **Deja de vigilar tu bucle.**
 
-- Una línea de estado dice `OK`, `NEEDS YOU` o `STALE`, y luego qué hacer.
-- Un tick que no escribe en el registro aparece como `STALE` tras dos intervalos.
+- Una línea de estado da uno de seis veredictos, como `OK`, `NEEDS YOU` o `STALE`, y luego qué hacer.
+- Un tick que falta aparece como `STALE` cuando se conoce el intervalo, tras más de dos intervalos sin entrada nueva.
 - Una regla de parada viaja en la línea, y cada bucle caduca a los 7 días.
 
 El bucle vive en tu sesión abierta, y su registro es la única prueba de lo que hizo.
@@ -244,7 +245,7 @@ Resuelve comandos, objetivos y archivos. No ejecuta los comandos ni lee la prosa
 ### Otros agentes
 
 <p align="center">
-  <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
+  <img src="../.github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf and Continue, and more through the skills CLI. Three plugins also run as MCP servers." width="100%">
 </p>
 
 Cada plugin de aquí se distribuye como skills, que son archivos Markdown que tu agente lee.
@@ -283,12 +284,12 @@ CI ejecuta los cuatro en cada push y en cada pull request. También revisa cada 
 
 | | |
 |---|---|
-| **Sin relleno por defecto** | Ninguna dependencia que un plugin no necesite. ui-ux-suite y las seis skills no llevan ninguna. Los paquetes de recap-studio incorporan zod, y su aplicación web, Next y React. sniff solo depende de `zod` y descarga su motor de navegador en el primer uso. |
+| **Sin relleno por defecto** | Ninguna dependencia que un plugin no necesite. ui-ux-suite y las seis skills no llevan ninguna. Los paquetes de recap-studio incorporan zod, y su aplicación web, Next y React. sniff solo depende de `zod` y descarga su motor de navegador y Chromium en el primer uso (unos 440 MB). |
 | **Instalación en un comando** | Sin archivo de configuración y sin registro. aws-cost-audit es el único que necesita un acceso que quizá no tengas: un AWS CLI configurado para leer la cuenta. |
 | **Pruebas reales** | CI que verifica el comportamiento, no que un archivo exista. |
 | **Se ejecuta fuera de Claude Code** | Se instala en otros agentes mediante `npx skills add`. |
 | **Mantenido activamente** | Una versión publicada este trimestre, no un archivo abandonado del año pasado. |
-| **Sin telemetría** | Sin analítica y sin conexión a casa. Cada herramienta habla solo con aquello a lo que la apuntas. |
+| **Sin telemetría** | Sin analítica y sin conexión a casa. Las llamadas de red sirven a la tarea, por ejemplo la descarga del navegador de sniff y su revisión de los enlaces externos de tus páginas. |
 
 Cada plugin listado aquí se rige por este estándar. Si uno deja de cumplirlo, se elimina. La lista completa,
 con el catálogo y la última fecha de verificación, está en [QUALITY-BAR.md](../QUALITY-BAR.md).
@@ -319,7 +320,7 @@ Ejecuta `claude plugin update <name>@10x` para actualizar. Ejecuta `claude plugi
 
 ### ¿10x recopila datos?
 
-No. El repo contiene un archivo JSON, documentación e imágenes. Nada de eso se ejecuta en tu máquina.
+No. 10x no tiene analítica. Añadir la lista clona este repo y no ejecuta nada. Sus scripts y tests solo se ejecutan cuando tú los lanzas en un clon.
 
 <a id="limits"></a>
 
@@ -328,8 +329,9 @@ No. El repo contiene un archivo JSON, documentación e imágenes. Nada de eso se
 - 10x lista plugins. No los aísla. Un plugin se ejecuta con tus permisos.
 - Los comandos de Claude Code necesitan el CLI `claude`. Los demás agentes usan `npx skills add`, un repo de plugin a la vez.
 - Solo tres plugins incluyen un servidor MCP: sniff, ui-ux-suite y recap-studio.
-- aws-cost-audit necesita un AWS CLI que pueda leer tu cuenta.
-- El primer recorrido de sniff descarga una vez un motor de navegador y Chromium, unos 720 MB en un Mac. `npx sniff-qa install` lo hace por adelantado.
+- aws-cost-audit necesita un AWS CLI que pueda leer tu cuenta, y `jq`.
+- El primer recorrido de sniff descarga una vez un motor de navegador y Chromium: unos 440 MB, y luego unos 730 MB en disco en un Mac. `npx sniff-qa install` lo hace por adelantado, y la herramienta MCP `sniff_install` informa del progreso.
+- Hasta que esa descarga termina, incluso si se cortó a medias, sniff devuelve los pasos de instalación: una pista en la CLI, `needsSetup` en MCP.
 - El servidor MCP de sniff responde antes de esa descarga. Su README midió de 3,1 a 4,9 s con la caché de npm vacía, bajo el límite de conexión de 30 s de Claude Code.
 - `claude plugin list` puede mostrar la nota de recap-studio "The packages it lists were not installed". Es inofensiva: el plugin corre desde un solo archivo empaquetado.
 - La versión listada aquí puede ir hasta seis horas por detrás de una nueva versión de un plugin, hasta que corre la sincronización.

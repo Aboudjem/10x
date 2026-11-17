@@ -14,7 +14,7 @@ in any editor. Versions and test counts below were last aligned on **2026-11-17*
 
 | Tool | Version | What it does (the job-to-be-done) | Install | Repo | npm | License |
 |---|---|---|---|---|---|---|
-| **sniff** | 0.9.2 | Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix. Also runs as an MCP server and a CLI (`npx sniff-qa`). | `claude plugin install sniff@10x` | [Aboudjem/sniff](https://github.com/Aboudjem/sniff) | [`sniff-qa`](https://www.npmjs.com/package/sniff-qa) | Apache-2.0 |
+| **sniff** | 0.9.3 | Walks your running app in a real browser and lists what is broken: dead pages, console errors, broken forms. Each page bug comes with repro steps and a fix. Also runs as an MCP server and a CLI (`npx sniff-qa`). | `claude plugin install sniff@10x` | [Aboudjem/sniff](https://github.com/Aboudjem/sniff) | [`sniff-qa`](https://www.npmjs.com/package/sniff-qa) | Apache-2.0 |
 | **ui-ux-suite** | 0.7.1 | ESLint for design. Reads your CSS, JSX, HTML and Tailwind, then names the file, line, measured wrong value and fix. WCAG 2.2 contrast, no dependencies. Also runs as an MCP server and a CLI (`npx ui-ux-suite`). | `claude plugin install ui-ux-suite@10x` | [Aboudjem/ui-ux-suite](https://github.com/Aboudjem/ui-ux-suite) | [`ui-ux-suite`](https://www.npmjs.com/package/ui-ux-suite) | MIT |
 | **recap-studio** | 0.6.2 | Turns a topic or your git session into one HTML explainer. Double-click to open, works offline, no JavaScript. One file to attach or send. Also runs as a CLI and an MCP server from GitHub. | `claude plugin install recap-studio@10x` | [Aboudjem/recap-studio](https://github.com/Aboudjem/recap-studio) | _(not on npm; runs with `npx -y github:Aboudjem/recap-studio`)_ | MIT |
 | **aws-cost-audit** | 0.4.2 | Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs --apply and your yes. | `claude plugin install aws-cost-audit@10x` | [Aboudjem/aws-cost-audit-skill](https://github.com/Aboudjem/aws-cost-audit-skill) | _(skill, no npm)_ | MIT |
@@ -24,7 +24,7 @@ in any editor. Versions and test counts below were last aligned on **2026-11-17*
 | **secure-my-app** | 0.3.1 | Runs 65 security checks on your app before launch. Each hole comes with its proof, and a fix counts only when the VERIFY command shows the change. | `claude plugin install secure-my-app@10x` | [Aboudjem/secure-my-app](https://github.com/Aboudjem/secure-my-app) | _(skill, no npm)_ | MIT |
 | **contextify** | 0.3.3 | Know when your agent instructions point at something gone. One AGENTS.md for all your agents and a local check that costs no tokens. | `claude plugin install contextify@10x` | [Aboudjem/contextify](https://github.com/Aboudjem/contextify) | _(skill, no npm)_ | MIT |
 
-Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v2.1.2).
+Marketplace hub: **[Aboudjem/10x](https://github.com/Aboudjem/10x)** (v2.1.3).
 
 ## What's tested
 
@@ -33,13 +33,13 @@ Run the command in a clone of that repo to re-print it.
 
 | Plugin | Command | What it prints |
 |---|---|---|
-| sniff | `npm test` | `Test Files  52 passed (52)` and `Tests  555 passed (555)` |
+| sniff | `npm test` | `Test Files  54 passed (54)` and `Tests  603 passed (603)` |
 | sniff | `npm run build && npm run proof` | `Recall: 21/21 (100%)` on the planted-bug fixture, 0 findings on the clean page |
 | ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
 | recap-studio | `npm run test:count` | 113 tests |
 | aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
-| goalify | `make test` | `10/10 suites passed`, then `452/452 checks passed` |
-| humanizer | `npm test` | `# pass 77` and `# fail 0` |
+| goalify | `make test` | `10/10 suites passed`, then `460/460 checks passed` |
+| humanizer | `npm test` | `# pass 90` and `# fail 0` |
 | loopify | `make test` | `161/161` skill checks, `170/170` manifest checks, `13/13`, `62/62`, `18/18` and `5/5` on the other suites |
 | secure-my-app | `make test` | `79/79` skill checks, `152/152` manifest checks, `33/33` fixture checks |
 | contextify | `make test` | `128/128` drift checks, `30/30` claim checks, `155/155` manifest checks, `114/114` skill checks, three unittest suites OK |

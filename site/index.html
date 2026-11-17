@@ -134,7 +134,7 @@ npx skills add Aboudjem/recap-studio</code></pre>
 
       <div class="plugin">
         <h3>aws-cost-audit <span class="lic">MIT</span></h3>
-        <p class="desc">Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs --apply and your yes.</p>
+        <p class="desc">Ranks what to cut on your AWS bill, three cuts first, every price checked live against AWS. Dry-run by default: a change needs <code>--apply</code>, then your typed yes. <code>--yes</code> skips that question.</p>
         <pre><code>claude plugin install aws-cost-audit@10x
 npx skills add Aboudjem/aws-cost-audit-skill</code></pre>
         <div class="links">
@@ -195,7 +195,7 @@ npx skills add Aboudjem/contextify</code></pre>
     <section>
       <h2>Works with any AI editor</h2>
       <div class="strip">
-        <img src="assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" onerror="this.style.display='none'" />
+        <img src="assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf and Continue, and more through the skills CLI. Three plugins also run as MCP servers." onerror="this.style.display='none'" />
       </div>
       <p>Every plugin here ships as skills, which are Markdown files your agent reads. That is why all nine
       install outside Claude Code through <code>npx skills add</code>. Three also run as a standalone MCP server,
@@ -210,7 +210,7 @@ npx skills add Aboudjem/contextify</code></pre>
       one-command install with no signup, CI that asserts behaviour, an install path outside Claude Code,
       a release this quarter, and no telemetry. ui-ux-suite and the six skills ship no runtime dependency;
       recap-studio's packages pull zod, its web app Next and React; sniff depends on <code>zod</code> only
-      and downloads its browser engine on first use. If a plugin stops passing, it gets removed.
+      and downloads its browser engine and Chromium on first use (about 440 MB). If a plugin stops passing, it gets removed.
       The full checklist, with the roster and the verification runs behind it, is in
       <a href="https://github.com/Aboudjem/10x/blob/main/QUALITY-BAR.md">QUALITY-BAR.md</a>.</p>
     </section>

@@ -99,11 +99,12 @@ Use the plugin's repo name, not `Aboudjem/10x`. This repo is a list and holds no
 
 **Catch the 500s, dead links and broken forms in your running app.**
 
+- The report opens with the verdict and the three fixes to make first. It says how many low-confidence findings it hid.
 - Each page finding names the route, the steps and a fix, most with a screenshot.
 - It found 21 of 21 planted bugs, with 0 false findings on the clean page (`npm run build && npm run proof`).
 - `--fail-on` exits 1 on critical or high findings, so it can block a merge. No API key.
 
-It submits real forms, so point it at a dev or staging app.
+It submits real forms, so point it at a dev or staging app. Its first walk downloads about 440 MB once.
 
 `claude plugin install sniff@10x`
 
@@ -143,9 +144,9 @@ The score checks shape, not truth, so read the sources first.
 
 - A verdict in dollars, then the three cuts to make first.
 - Prices come from AWS at run time. `make test` and a CI scan fail if a script holds a price literal.
-- Dry-run by default: a change needs `--apply` and your typed yes.
+- Dry-run by default: a change needs `--apply`, then your typed yes. `--yes` skips that question.
 
-It needs an AWS CLI that can read your account, and Cost Explorer turned on.
+It needs an AWS CLI that can read your account, `jq`, and Cost Explorer turned on.
 
 `claude plugin install aws-cost-audit@10x`
 
@@ -183,8 +184,8 @@ The rewrite runs on your editor's model, in one of five voices you pick.
 
 **Stop babysitting your loop.**
 
-- One status line says `OK`, `NEEDS YOU` or `STALE`, then what to do next.
-- A tick that writes no log entry shows up as `STALE` after two intervals.
+- One status line gives one of six verdicts, such as `OK`, `NEEDS YOU` or `STALE`, then what to do next.
+- A missing tick shows as `STALE` when the interval is known, after more than two intervals with no new entry.
 - A stop rule rides in the line, and every loop expires at 7 days.
 
 The loop lives in your open session, and its log is the only proof of what it did.
@@ -233,7 +234,7 @@ It resolves commands, targets and files. It does not run the commands or read pr
 ### Other agents
 
 <p align="center">
-  <img src=".github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf, Continue, and any MCP client" width="100%">
+  <img src=".github/assets/editors-strip.svg" alt="Works in Claude Code, Cursor, VS Code, Codex, Gemini, Windsurf and Continue, and more through the skills CLI. Three plugins also run as MCP servers." width="100%">
 </p>
 
 Every plugin here ships as skills, which are Markdown files your agent reads.
@@ -268,12 +269,12 @@ CI runs all four on every push and pull request. It also checks every link and s
 
 | | |
 |---|---|
-| **Lean by default** | No dependency a plugin does not need. ui-ux-suite and the six skills ship none. recap-studio's packages pull zod, its web app Next and React. sniff depends on `zod` only and downloads its browser engine on first use. |
+| **Lean by default** | No dependency a plugin does not need. ui-ux-suite and the six skills ship none. recap-studio's packages pull zod, its web app Next and React. sniff depends on `zod` only and downloads its browser engine and Chromium on first use (about 440 MB). |
 | **One-command install** | No config file and no signup. aws-cost-audit is the one that needs access you may not have: an AWS CLI configured to read the account. |
 | **Real tests** | CI that asserts behaviour, not that a file exists. |
 | **Runs outside Claude Code** | Installs into other agents through `npx skills add`. |
 | **Actively maintained** | A release this quarter, not an archive from last year. |
-| **No telemetry** | No analytics and no phoning home. Each tool talks only to what you point it at. |
+| **No telemetry** | No analytics and no phoning home. Network calls serve the job, for example sniff's browser download and its check of your pages' external links. |
 
 Every plugin listed here is held to this bar. If one stops passing, it gets removed.
 The full checklist, the roster and the last verification date are in [QUALITY-BAR.md](QUALITY-BAR.md).
@@ -302,15 +303,16 @@ Run `claude plugin update <name>@10x` to update. Run `claude plugin uninstall <n
 
 ### Does 10x collect any data?
 
-No. The repo holds a JSON file, docs and images. Nothing in it runs on your machine.
+No. 10x has no analytics. Adding the list clones this repo and runs nothing. Its scripts and tests run only when you run them in a clone.
 
 ## Limits
 
 - 10x lists plugins. It does not sandbox them. A plugin runs with your permissions.
 - The Claude Code commands need the `claude` CLI. Other agents use `npx skills add`, one plugin repo at a time.
 - Only three plugins ship an MCP server: sniff, ui-ux-suite and recap-studio.
-- aws-cost-audit needs an AWS CLI that can read your account.
-- sniff's first walk downloads a browser engine and Chromium once, about 720 MB on a Mac. `npx sniff-qa install` does it ahead of time.
+- aws-cost-audit needs an AWS CLI that can read your account, and `jq`.
+- sniff's first walk downloads a browser engine and Chromium once: about 440 MB, then about 730 MB on disk on a Mac. `npx sniff-qa install` does it ahead of time, and the MCP tool `sniff_install` reports progress.
+- Until that download is complete, even after one cut midway, sniff returns setup steps: an install hint in the CLI, `needsSetup` in MCP.
 - sniff's MCP server answers before that download. Its README measured 3.1 to 4.9 s on an empty npm cache, under Claude Code's 30 s connect limit.
 - `claude plugin list` can show recap-studio's note "The packages it lists were not installed". It is harmless: the plugin runs from one bundled file.
 - The version listed here can trail a new plugin release by up to six hours, until the sync job runs.

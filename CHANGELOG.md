@@ -4,6 +4,29 @@ All notable changes to this marketplace will be documented in this file.
 
 ## [Unreleased]
 
+## [2.1.3] - 2026-11-17
+
+Truer lines from a final check, sniff 0.9.3, and fresh test counts. Install commands are unchanged.
+
+### Changed
+
+- sniff 0.9.3 is listed. Its lines now give one set of sizes from its README: about 440 MB to download, about 730 MB on disk on a Mac.
+- The sniff block says the report opens with the verdict and says how many low-confidence findings it hid.
+- sniff Limits: `sniff_install` reports progress, and a download cut midway returns setup steps instead of failing.
+- Test counts re-read from each plugin README's Proof section: sniff 603 tests in 54 files, goalify 460/460, humanizer 90.
+- `npm run sync:check` tries each upstream read up to three times, except a 404, before it counts the repo as unverified. Tests cover the retry.
+
+### Fixed
+
+- loopify: `STALE` needs a known interval and fires after more than two intervals, as loopify's README says.
+- loopify: the status line has six verdicts; the block named three as if they were all.
+- aws-cost-audit: `--yes` skips the typed yes. The README and the site now say so, and that it needs `jq`.
+- "Each tool talks only to what you point it at" was false for sniff, which downloads its browser and checks external links.
+- The FAQ said nothing in this repo runs on your machine. It holds scripts and tests, which run only when you run them.
+- `llms.txt` and `QUALITY-BAR.md` said only contextify ships scripts. aws-cost-audit, goalify and loopify do too.
+- SVG text: "zero config" is now "no signup" (aws-cost-audit needs a configured AWS CLI).
+  The editors strip no longer says "any MCP client": only three plugins ship an MCP server.
+
 ## [2.1.2] - 2026-11-17
 
 The listing now says what each tool is for and how you can check it. Install commands are unchanged.

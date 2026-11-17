@@ -17,10 +17,10 @@ the fleet standard wins and this file gets fixed.
 
 - [ ] **No runtime dependency the tool does not need** (devDependencies are fine).
       Read this as "nothing pulled in for convenience", not "zero". ui-ux-suite ships zero and the
-      six skill plugins declare no runtime dependency (humanizer's `package.json` holds only its test script); contextify also includes standard-library scripts. recap-studio's root package
+      six skill plugins declare no runtime dependency (humanizer's `package.json` holds only its test script). Four of them also ship scripts with no package to install: bash for aws-cost-audit (it needs the AWS CLI and `jq`), Python standard library for goalify, loopify and contextify. recap-studio's root package
       declares none, but its workspace packages pull `zod` and its web app pulls Next, React and
       Mermaid. sniff declares one runtime dependency, `zod`; it bundles the rest into `dist/` and
-      downloads its browser engine (Playwright, axe-core, Lighthouse) and Chromium on first use. A plugin that cannot
+      downloads its browser engine (Playwright, axe-core, Lighthouse) and Chromium on first use: about 440 MB to download and about 730 MB on disk, measured on a Mac. A plugin that cannot
       justify a dependency line by line does not pass this item.
 - [ ] Bundle stays small on disk after `npm pack` (excluding test fixtures). 500 KB is the target
       for a dependency-free tool; a plugin that ships a browser engine is judged on its own code.
@@ -125,7 +125,7 @@ The plugin's README must also document its slash commands, and its MCP tools if 
 
 | # | Plugin | Version | License | Repo |
 | - | ------ | ------- | ------- | ---- |
-| 1 | `sniff`           | 0.9.2 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
+| 1 | `sniff`           | 0.9.3 | Apache-2.0 | [`Aboudjem/sniff`](https://github.com/Aboudjem/sniff) |
 | 2 | `ui-ux-suite`     | 0.7.1 | MIT        | [`Aboudjem/ui-ux-suite`](https://github.com/Aboudjem/ui-ux-suite) |
 | 3 | `recap-studio`    | 0.6.2 | MIT        | [`Aboudjem/recap-studio`](https://github.com/Aboudjem/recap-studio) |
 | 4 | `aws-cost-audit`  | 0.4.2 | MIT        | [`Aboudjem/aws-cost-audit-skill`](https://github.com/Aboudjem/aws-cost-audit-skill) |
@@ -140,7 +140,7 @@ one-command-install, real-verification (built test-first; read-only by default, 
 pricing), no-telemetry, and local-only items; the dual-mode/MCP item does not apply to a skill plugin.
 
 `goalify` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the bar's
-zero-bloat (a single `SKILL.md`, no runtime deps), one-command-install (`claude plugin install
+zero-bloat (a `SKILL.md` plus Python standard-library scripts, no runtime deps), one-command-install (`claude plugin install
 goalify@10x`), real-verification (built test-first, with manifest and skill-lint tests in CI), no-telemetry, and local-only items; the
 dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
 
@@ -151,7 +151,7 @@ bar's zero-bloat (pure Markdown, zero dependencies, no network calls), one-comma
 local-only items; the dual-mode/MCP and standalone-CLI items do not apply to a skill plugin.
 
 `loopify` is also a Claude Code **skill** plugin (no MCP server, no standalone CLI): it meets the bar's
-zero-bloat (a single `SKILL.md` plus docs, no runtime deps), one-command-install (`claude plugin
+zero-bloat (a `SKILL.md`, docs and Python standard-library scripts, no runtime deps), one-command-install (`claude plugin
 install loopify@10x`), real-verification (`make test` prints `170/170` manifest checks and `161/161`
 skill checks), no-telemetry,
 and local-only items; the MCP-server and standalone-CLI items do not apply to a skill plugin.
@@ -180,12 +180,12 @@ Run the command in a clone of that repo to re-print it.
 
 | Plugin | Command | Output |
 | --- | --- | --- |
-| sniff | `npm test` | `Tests  555 passed (555)`, 52 test files |
+| sniff | `npm test` | `Tests  603 passed (603)`, 54 test files |
 | ui-ux-suite | `npm test` | 397 tests pass, 0 fail |
 | recap-studio | `npm run test:count` | 113 tests |
 | aws-cost-audit | `make test` | `Results: 106 passed, 0 failed` |
-| goalify | `make test` | `10/10 suites passed`, `452/452 checks passed` |
-| humanizer | `npm test` | `# pass 77`, `# fail 0` |
+| goalify | `make test` | `10/10 suites passed`, `460/460 checks passed` |
+| humanizer | `npm test` | `# pass 90`, `# fail 0` |
 | loopify | `make test` | `161/161`, `170/170`, `13/13`, `62/62`, `18/18`, `5/5` |
 | secure-my-app | `make test` | `79/79`, `152/152`, `33/33` |
 | contextify | `make test` | `128/128`, `30/30`, `155/155`, `114/114`, three unittest suites OK |
